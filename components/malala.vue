@@ -14,6 +14,6 @@ export default {
 .malala {
   width: 100vw;
   height: 100vh;
-  background-color: green;
+  background-color: var(--color-secondary);
 }
 </style>

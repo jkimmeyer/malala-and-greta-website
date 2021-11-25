@@ -1,0 +1,9 @@
+/* Spacing */
+
+:root {
+  --space-0: 0;
+  --space-2: 0.125rem;
+  --space-4: 0.25rem;
+  --space-8: 0.5rem;
+  --space-16: 1rem;
+}
