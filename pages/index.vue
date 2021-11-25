@@ -5,14 +5,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    propertyName: String
-  }
-}
-</script>
-
 <style>
 .page {
   position: relative;
