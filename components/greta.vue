@@ -12,8 +12,8 @@ export default {
 
 <style>
 .greta {
-  background-color: blue;
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
+  background-color: blue;
 }
 </style>

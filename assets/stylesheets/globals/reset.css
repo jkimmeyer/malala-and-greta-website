@@ -1,3 +1,4 @@
+/* stylelint-disable selector-max-universal */
 /* Box sizing rules */
 *,
 *::before,
@@ -20,8 +21,8 @@ dd {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
+ul[role='list'],
+ol[role='list'] {
   list-style: none;
 }
 
@@ -33,8 +34,8 @@ html:focus-within {
 /* Set core body defaults */
 body {
   min-height: 100vh;
-  text-rendering: optimizeSpeed;
   line-height: 1.5;
+  text-rendering: optimizeSpeed;
 }
 
 /* A elements that don't have a class get default styles */
@@ -45,8 +46,8 @@ a:not([class]) {
 /* Make images easier to work with */
 img,
 picture {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -58,9 +59,11 @@ select {
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */
+/* stylelint-disable declaration-no-important */
+/* stylelint-disable time-min-milliseconds */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
   *,
   *::before,
@@ -71,3 +74,5 @@ select {
     scroll-behavior: auto !important;
   }
 }
+/* stylelint-enable declaration-no-important */
+/* stylelint-enable time-min-milliseconds */

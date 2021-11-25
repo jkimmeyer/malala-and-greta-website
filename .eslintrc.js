@@ -4,6 +4,7 @@ module.exports = {
   parser: 'babel-eslint',
   extends: [
     'airbnb-base',
+
   ],
   rules: {
     'import/prefer-default-export': 'off', // Prefer named exports where possible
@@ -11,13 +12,16 @@ module.exports = {
   settings: {
     'import/resolver': {
       alias: [
-        ['@', path.join(__dirname, 'app/javascript')
+        [
+          '@', path.join(__dirname, 'app/javascript')
         ],
       ],
       node: {
-        paths: ['app/javascript'
+        paths: [
+          'app/javascript'
         ],
-        extensions: ['.js'
+        extensions: [
+          '.js'
         ],
       },
     },

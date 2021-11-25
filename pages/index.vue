@@ -7,14 +7,13 @@
 
 <script>
 export default {
-
 }
 </script>
 
 <style>
 .page {
   position: relative;
-  height: 100vh;
   width: 100vh;
+  height: 100vh;
 }
 </style>
