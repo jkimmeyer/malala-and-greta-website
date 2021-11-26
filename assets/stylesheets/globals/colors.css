@@ -1,10 +1,12 @@
 :root {
 
   /* Color Palette */
-  --carribean-green: rgb(3, 201, 169);
-  --haze-green: rgb(1, 152, 117);
+  --sidecar: rgb(245, 229, 193);
+  --carribean-green: rgb(16, 14, 105);
+  --haze-green: rgb(0, 41, 88);
 
   /* UI Colors */
   --color-primary: var(--carribean-green);
   --color-secondary: var(--haze-green);
+  --color-background-primary: var(--sidecar);
 }
