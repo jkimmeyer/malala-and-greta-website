@@ -1,15 +1,12 @@
 <template>
   <div class="page" @wheel="updateBlur($event)">
     <div class="page--teaser">
-      <div class="page--teaser-images">
+      <div class="page--teaser-images" :style="'filter: blur(' + blurAmount + 'px)'">
         <img
           class="page--teaser-image left"
           src="~/assets/images/Malala.png"
           alt="Malala"
           width="35%"
-          :style="teaserImageClasses('malala')"
-          @mouseenter="malalaGlows = true"
-          @mouseleave="malalaGlows = false"
         >
 
         <img
@@ -17,9 +14,6 @@
           src="~/assets/images/Greta.png"
           alt="Greta"
           width="35%"
-          :style="teaserImageClasses('greta')"
-          @mouseenter="gretaGlows = true"
-          @mouseleave="gretaGlows = false"
         >
       </div>
       <h1 class="page--title" :class="titleVisible ? 'visible' : null">
@@ -46,16 +40,6 @@ export default {
     }, 100)
   },
   methods: {
-    teaserImageClasses (person) {
-      let filterStyles = 'filter: blur(' + this.blurAmount + 'px)'
-
-      if (person === 'greta' && this.gretaGlows) {
-        filterStyles += 'drop-shadow(0px 0px 8px rgba(0, 231, 255, 0.8));'
-      } else if (person === 'malala' && this.malalaGlows) {
-        filterStyles += 'drop-shadow(0px 0px 8px rgba(0, 231, 255, 0.8));'
-      }
-      return filterStyles
-    },
     updateBlur (event) {
       if (event.deltaY > 0 && this.blurAmount > 0) {
         this.blurAmount = this.blurAmount - 0.5
@@ -70,7 +54,7 @@ export default {
 <style scoped>
 .page {
   display: block;
-  background-color: var(--color-background-primary);
+  background-color: var(--color-background-neutral);
 }
 
 .page--teaser {
@@ -94,8 +78,16 @@ export default {
   transform-origin: bottom left;
 }
 
+.page--teaser-image.left:hover {
+  filter: drop-shadow(0 0 8px var(--color-background-primary));
+}
+
 .page--teaser-image.right {
   transform-origin: bottom right;
+}
+
+.page--teaser-image.right:hover {
+  filter: drop-shadow(0 0 8px var(--color-background-secondary));
 }
 
 .page--teaser-image:hover {
@@ -110,7 +102,7 @@ export default {
   transform: translateX(-50%) translateY(-50%);
   font-size: var(--font-64);
   line-height: var(--line-1-5);
-  color: var(--color-secondary);
+  color: var(--color-text-neutral);
 }
 
 .page--title.visible {
