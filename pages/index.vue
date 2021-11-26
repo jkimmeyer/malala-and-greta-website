@@ -26,7 +26,7 @@
         Erlebe unsere Geschichten.
       </h1>
     </div>
-    <Cite />
+    <!-- <Cite /> -->
   </div>
 </template>
 
