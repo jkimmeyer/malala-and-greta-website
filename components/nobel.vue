@@ -16,7 +16,7 @@ export default {
     init: async function() {
         let container = document.getElementById('nobel');
 
-        this.camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000)
+        this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000)
         this.camera.position.setX(0);
         this.camera.position.setY(-13);
         this.camera.position.setZ(25);
@@ -46,7 +46,9 @@ export default {
         let material = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 0.005 });
         this.mesh = new THREE.Points(obj.children[0].geometry, material);
         this.mesh.position.y = -15;
+        this.mesh.scale.set( 2, 2, 2 );
         this.scene.add(this.mesh);
+        
 
         this.renderer = new THREE.WebGLRenderer({antialias: true});
         this.renderer.setSize(container.clientWidth, container.clientHeight);
@@ -54,10 +56,13 @@ export default {
 
     },
     animate: function() {
-        requestAnimationFrame(this.animate);
-        this.mesh.rotation.x += 0.01;
-        this.mesh.rotation.y += 0.02;
+      requestAnimationFrame(this.animate);
+      if(this.mesh){
+        this.mesh.rotation.y = 0;
+        this.mesh.rotation.x = 1.8;
+        this.mesh.rotation.z += 0.005;
         this.renderer.render(this.scene, this.camera);
+      }
     }
   },
   mounted() {
