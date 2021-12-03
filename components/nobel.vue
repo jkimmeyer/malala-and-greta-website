@@ -1,5 +1,7 @@
 <template>
-    <div id="nobel"></div>
+  <div class="nobelWrapper">
+      <div id="nobel"></div>
+  </div>
 </template>
 
 <script>
@@ -10,7 +12,14 @@ export default {
   name: 'Nobel',
   data() {
     return {
+      startPosY : -5
     }
+  },
+  created () {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
     init: async function() {
@@ -46,6 +55,7 @@ export default {
         let material = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 0.05 });
         this.mesh = new THREE.Points(obj.children[0].geometry, material);
         this.mesh.position.y = -15;
+        this.mesh.position.x = -5;
         this.mesh.scale.set( 2, 2, 2 );
         this.scene.add(this.mesh);
         
@@ -64,6 +74,15 @@ export default {
         this.mesh.rotation.z += 0.005;
         this.renderer.render(this.scene, this.camera);
       }
+    },
+    handleScroll () {
+      let h = document.documentElement, 
+          b = document.body,
+          st = 'scrollTop',
+          sh = 'scrollHeight';
+
+      let percent = (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
+      this.mesh.position.x = this.startPosY + 0.1 * percent;
     }
   },
   mounted() {
@@ -73,8 +92,13 @@ export default {
 </script>
 
 <style scoped>
+    .nobelWrapper{
+      height: 300vh;
+      width: 100vw;
+    }
     #nobel{
       width: 100vw;
       height: 100vh;
+      position: fixed;
     }
 </style>
