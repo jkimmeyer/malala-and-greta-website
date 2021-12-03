@@ -12,6 +12,11 @@
           User Switch
         </NuxtLink>
       </li>
+      <li>
+        <NuxtLink to="/threejs">
+          Three JS
+        </NuxtLink>
+      </li>
     </ul>
   </div>
 </template>
