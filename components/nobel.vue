@@ -43,7 +43,7 @@ export default {
             console.log( 'An error happened' );
 
         });
-        let material = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 0.005 });
+        let material = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 0.05 });
         this.mesh = new THREE.Points(obj.children[0].geometry, material);
         this.mesh.position.y = -15;
         this.mesh.scale.set( 2, 2, 2 );
@@ -51,6 +51,7 @@ export default {
         
 
         this.renderer = new THREE.WebGLRenderer({antialias: true});
+        this.renderer.setPixelRatio(window.devicePixelRatio)
         this.renderer.setSize(container.clientWidth, container.clientHeight);
         container.appendChild(this.renderer.domElement);
 
