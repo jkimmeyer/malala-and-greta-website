@@ -9,10 +9,6 @@ export default {
   name: 'ThreeTest',
   data() {
     return {
-      camera: null,
-      scene: null,
-      renderer: null,
-      mesh: null
     }
   },
   methods: {
@@ -50,5 +46,8 @@ export default {
 </script>
 
 <style scoped>
-    
+    #container{
+      width: 300px;
+      height: 300px;
+    }
 </style>
