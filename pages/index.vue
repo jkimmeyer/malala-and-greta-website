@@ -19,6 +19,7 @@
       <h1 class="page--title" :class="titleVisible ? 'visible' : null">
         Erlebe unsere Geschichten.
       </h1>
+      <Scrollindicator class="page--scroll-indicator"/>
     </div>
     <!-- <Cite /> -->
   </div>
@@ -108,5 +109,10 @@ export default {
 .page--title.visible {
   opacity: 100%;
   transition: opacity ease-in-out 5s;
+}
+.page--scroll-indicator {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
 }
 </style>
