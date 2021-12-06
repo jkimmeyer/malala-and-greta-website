@@ -15,10 +15,16 @@ export default {
     return {
       isPlaying: true,
       audioDuration: 200,
-      text: 'Play'
+      text: 'Play',
+      backgroundColor: '#4d5bf9',
+      hightlightColor: '#cadcff'
     }
   },
   methods: {
+    onLoad () {
+      // set colors according to style theme
+    },
+
     toggleProgress () {
       if (this.isPlaying) {
         this.startProgress()
@@ -38,7 +44,7 @@ export default {
 
       let progress = setInterval(() => {
         progressStartValue++
-        progressBar.style.background = `conic-gradient( #4d5bf9 ${progressStartValue * 3.6}deg, #cadcff ${progressStartValue * 3.6}deg)`
+        progressBar.style.background = `conic-gradient( ${this.backgroundColor} ${progressStartValue * 3.6}deg, ${this.hightlightColor} ${progressStartValue * 3.6}deg)`
         if (progressStartValue === progressEndValue) {
           clearInterval(progress)
         }
@@ -46,7 +52,7 @@ export default {
     },
 
     stopProgress () {
-      // TODO
+      // clearInterval(this.progress)
     }
   }
 }
@@ -57,7 +63,6 @@ export default {
   position: absolute;
   height: 400px;
   width: 400px;
-  background-color:coral;
   display: grid;
   place-items: center;
 }
@@ -66,7 +71,7 @@ export default {
   position: relative;
   height: 250px;
   width: 250px;
-  background-color: orange;
+  background-color: #4d5bf9;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -77,7 +82,7 @@ export default {
   position: absolute;
   height: 84%;
   width: 84%;
-  background-color: coral;
+  background-color: white;
   border-radius: 50%;
 }
 
