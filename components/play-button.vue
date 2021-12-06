@@ -1,24 +1,51 @@
 <template>
   <div class="play-button-component">
-    <div class="loader" />
-    <button class="play-button">
-      <!--<fa icon="play" />-->
+    <div class="circular-progress">
+    <button class="play-button" @click="toggleProgress()">
+      {{text}}
     </button>
+    </div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'PlayButton',
   data () {
     return {
-      isPlaying: false,
-      audioDuration: 0
+      isPlaying: true,
+      audioDuration: 200,
+      text: 'Play'
     }
   },
   methods: {
-    animateProgress () {
+    toggleProgress () {
+      if (this.isPlaying) {
+        this.startProgress()
+        this.text = 'Pause'
+        this.isPlaying = false
+      } else {
+        this.text = 'Play'
+        this.stopProgress()
+        this.isPlaying = true
+      }
+    },
+
+    startProgress () {
+      const progressBar = document.querySelector('.circular-progress')
+      let progressStartValue = 0
+      const progressEndValue = this.audioDuration
+
+      let progress = setInterval(() => {
+        progressStartValue++
+        progressBar.style.background = `conic-gradient( #4d5bf9 ${progressStartValue * 3.6}deg, #cadcff ${progressStartValue * 3.6}deg)`
+        if (progressStartValue === progressEndValue) {
+          clearInterval(progress)
+        }
+      }, this.audioDuration)
+    },
+
+    stopProgress () {
       // TODO
     }
   }
@@ -27,72 +54,36 @@ export default {
 
 <style>
 .play-button-component {
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  background-color:coral;
+  display: grid;
+  place-items: center;
+}
+
+.circular-progress {
   position: relative;
+  height: 250px;
+  width: 250px;
+  background-color: orange;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.circular-progress:before {
+  content: "";
+  position: absolute;
+  height: 84%;
+  width: 84%;
+  background-color: coral;
+  border-radius: 50%;
 }
 
 .play-button {
-  background-color: var(--color-secondary);
-  box-sizing: border-box;
-  width: 100px;
-  height: 100px;
-  padding-top: 14px;
-  padding-left: 8px;
-  line-height: 20px;
-  border: 6px solid #fff;
-  border-radius: 50%;
-  color: #f5f5f5;
-  text-align: center;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  position: absolute;
-  z-index: 3;
-}
-.play-button:hover {
-  background-color: var(--color-primary);
-  box-shadow: 0px 0px 10px rgba(255, 255, 100, 1);
-  text-shadow: 0px 0px 10px rgba(255, 255, 100, 1);
-}
-.triangle {
-  width: 0px;
-  height: 0px;
-  -webkit-transform: rotate(360deg);
-  border-style: solid;
-  border-width: 30px 0 30px 66.6px;
-  border-color: transparent transparent transparent #2f5e55;
   position: relative;
-  top: 25%;
-  width: 50%;
-  height: 50%;
-  margin: auto;
+  color:black;
 }
 
-.loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  position: absolute;
-  z-index: 0;
-}
-
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 </style>
