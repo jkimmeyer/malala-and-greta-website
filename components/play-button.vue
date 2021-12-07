@@ -12,47 +12,62 @@
 export default {
   name: 'PlayButton',
   props: {
-    isGreta: Boolean
+    isGreta: Boolean,
+    audioFile: {
+      type: String,
+      default: ''
+    }
   },
   data () {
     return {
       isPlaying: true,
       audioDuration: 200,
       text: 'Play',
-      backgroundColor: '#4d5bf9',
-      hightlightColor: '#cadcff',
+      backgroundColor: '#92BAE4',
+      hightlightColor: '#D4DFEB',
       interval: null,
-      progress: 0
+      progress: 0,
+      audioPlayer: new Audio(this.audioFile)
     }
   },
   mounted () {
     if (isGreta) {
-        // TODO
+      this.backgroundColor = '#D4DFEB'
+      this.hightlightColor = '#92BAE4'
     } else {
-        // TODO
+      this.backgroundColor = '#E9DCC7'
+      this.hightlightColor = '#E1BC84'
+      console.log("COLOR" + this.hightlightColor)
     }
   },
   methods: {
     toggleProgress () {
       if (this.isPlaying) {
-        this.startProgress()
-        this.text = 'Pause'
-        this.isPlaying = false
+        if (typeof Audio !== 'undefined') {
+          this.startProgress()
+          this.audioPlayer.play()
+          this.text = 'Pause'
+          this.isPlaying = false
+        }
       } else {
         this.text = 'Play'
         this.stopProgress()
+        this.audioPlayer.pause()
         this.isPlaying = true
       }
     },
 
     startProgress () {
       const progressBar = document.querySelector('.circular-progress')
+      this.audioDuration = this.audioPlayer.duration * 10
+      console.log(this.audioDuration)
       const progressEndValue = this.audioDuration
 
       this.interval = setInterval(() => {
         this.progress++
         progressBar.style.background = `conic-gradient( ${this.backgroundColor} ${this.progress * 3.6}deg, ${this.hightlightColor} ${this.progress * 3.6}deg)`
         if (this.progress === progressEndValue) {
+          this.text = 'Play'
           clearInterval(this.interval)
         }
       }, this.audioDuration)
@@ -84,11 +99,11 @@ export default {
 }
 
 .circular-progress.greta {
-  background-color: blueviolet;
+  background-color: #D4DFEB;
 }
 
 .circular-progress.malala {
-  background-color: black;
+  background-color: #E9DCC7;
 }
 
 .circular-progress:before {
