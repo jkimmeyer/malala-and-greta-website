@@ -18,6 +18,7 @@
       </div>
       <h1 class="page--title" :class="titleVisible ? 'visible' : null">
         Erlebe unsere Geschichten.
+        <Icon icon="fluent" />
       </h1>
     </div>
     <!-- <Cite /> -->
