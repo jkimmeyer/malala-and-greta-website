@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .page {
   display: block;
   background-color: var(--color-background-neutral);
@@ -103,10 +103,10 @@ export default {
   font-size: var(--font-64);
   line-height: var(--line-1-5);
   color: var(--color-text-neutral);
-}
 
-.page--title.visible {
-  opacity: 100%;
-  transition: opacity ease-in-out 5s;
+  &.visible {
+    opacity: 100%;
+    transition: opacity ease-in-out 5s;
+  }
 }
 </style>
