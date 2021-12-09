@@ -12,7 +12,10 @@
 export default {
   name: 'PlayButton',
   props: {
-    isGreta: Boolean,
+    isGreta: {
+      type: Boolean,
+      default: true
+    },
     audioFile: {
       type: String,
       default: ''
@@ -23,8 +26,8 @@ export default {
       isPlaying: true,
       audioDuration: 200,
       text: 'Play',
-      backgroundColor: '#92BAE4',
-      hightlightColor: '#D4DFEB',
+      backgroundColor: '',
+      hightlightColor: '',
       interval: null,
       progress: 0,
       audioPlayer: new Audio(this.audioFile)
@@ -37,7 +40,6 @@ export default {
     } else {
       this.backgroundColor = '#E9DCC7'
       this.hightlightColor = '#E1BC84'
-      console.log("COLOR" + this.hightlightColor)
     }
   },
   methods: {
@@ -60,8 +62,9 @@ export default {
     startProgress () {
       const progressBar = document.querySelector('.circular-progress')
       this.audioDuration = this.audioPlayer.duration * 10
-      console.log(this.audioDuration)
       const progressEndValue = this.audioDuration
+
+      console.log(this.backgroundColor)
 
       this.interval = setInterval(() => {
         this.progress++
@@ -83,16 +86,16 @@ export default {
 <style>
 .play-button-component {
   position: absolute;
-  height: 400px;
-  width: 400px;
+  height: 150px;
+  width: 150px;
   display: grid;
   place-items: center;
 }
 
 .circular-progress {
   position: relative;
-  height: 250px;
-  width: 250px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
   display: grid;
   place-items: center;
