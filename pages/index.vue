@@ -8,7 +8,6 @@
           alt="Malala"
           width="35%"
         >
-
         <img
           class="page--teaser-image right"
           src="~/assets/images/Greta.png"
@@ -21,7 +20,7 @@
         <Icon icon="fluent" />
       </h1>
     </div>
-    <!-- <Cite /> -->
+    <Cite />
   </div>
 </template>
 
