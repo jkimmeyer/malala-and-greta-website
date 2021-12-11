@@ -1,0 +1,41 @@
+{
+  "css.validate": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true,
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.suggestSelection": "first",
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 160,
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "vue",
+    "html",
+  ],
+  "eslint.options": {
+    "extensions": [
+      ".js",
+      ".ts",
+      ".html",
+    ]
+  },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "scss.validate": false,
+  "stylelint.validate": [
+    "css",
+    "scss",
+    "vue",
+  ],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vetur.format.enable": false,
+}
