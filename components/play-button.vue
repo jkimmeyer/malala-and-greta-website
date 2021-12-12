@@ -1,14 +1,15 @@
 <template>
   <div class="play-button-component">
     <div class="circular-progress" :class="isGreta ? 'greta' : 'malala'">
-    <button class="play-button" @click="toggleProgress()">
-      {{text}}
-    </button>
+      <div class="inner-circular-progress">
+        <Icon class="play-button" :class="isGreta ? 'greta' : 'malala'" :icon="iconName" @click="toggleProgress()" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'PlayButton',
   props: {
@@ -25,16 +26,16 @@ export default {
     return {
       isPlaying: true,
       audioDuration: 200,
-      text: 'Play',
       backgroundColor: '',
       hightlightColor: '',
       interval: null,
       progress: 0,
-      audioPlayer: new Audio(this.audioFile)
+      audioPlayer: null,
+      iconName: 'play'
     }
   },
   mounted () {
-    if (isGreta) {
+    if (this.isGreta) {
       this.backgroundColor = '#D4DFEB'
       this.hightlightColor = '#92BAE4'
     } else {
@@ -44,15 +45,16 @@ export default {
   },
   methods: {
     toggleProgress () {
+      console.log('whatever')
       if (this.isPlaying) {
         if (typeof Audio !== 'undefined') {
           this.startProgress()
           this.audioPlayer.play()
-          this.text = 'Pause'
+          this.iconName = 'pause'
           this.isPlaying = false
         }
       } else {
-        this.text = 'Play'
+        this.iconName = 'play'
         this.stopProgress()
         this.audioPlayer.pause()
         this.isPlaying = true
@@ -60,6 +62,7 @@ export default {
     },
 
     startProgress () {
+      this.audioPlayer = new Audio(this.audioFile)
       const progressBar = document.querySelector('.circular-progress')
       this.audioDuration = this.audioPlayer.duration * 10
       const progressEndValue = this.audioDuration
@@ -68,9 +71,13 @@ export default {
 
       this.interval = setInterval(() => {
         this.progress++
-        progressBar.style.background = `conic-gradient( ${this.backgroundColor} ${this.progress * 3.6}deg, ${this.hightlightColor} ${this.progress * 3.6}deg)`
+        progressBar.style.background = `conic-gradient( ${
+          this.backgroundColor
+        } ${this.progress * 3.6}deg, ${this.hightlightColor} ${
+          this.progress * 3.6
+        }deg)`
         if (this.progress === progressEndValue) {
-          this.text = 'Play'
+          this.iconName = 'play'
           clearInterval(this.interval)
         }
       }, this.audioDuration)
@@ -85,42 +92,47 @@ export default {
 
 <style>
 .play-button-component {
-  position: absolute;
-  height: 150px;
-  width: 150px;
   display: grid;
+  position: absolute;
+  width: 150px;
+  height: 150px;
   place-items: center;
 }
 
 .circular-progress {
-  position: relative;
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
   display: grid;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
   place-items: center;
 }
 
 .circular-progress.greta {
-  background-color: #D4DFEB;
+  background-color: #d4dfeb;
 }
 
 .circular-progress.malala {
-  background-color: #E9DCC7;
+  background-color: #e9dcc7;
 }
 
-.circular-progress:before {
-  content: "";
+.inner-circular-progress {
+  display: grid;
   position: absolute;
-  height: 84%;
   width: 84%;
-  background-color: white;
+  height: 84%;
   border-radius: 50%;
+  background-color: white;
+  place-items: center;
 }
 
-.play-button {
-  position: relative;
-  color:black;
+.play-button.greta {
+  font-size: 30px;
+  color: #d4dfeb;
 }
 
+.play-button.malala {
+  font-size: 30px;
+  color: #e9dcc7;
+}
 </style>
