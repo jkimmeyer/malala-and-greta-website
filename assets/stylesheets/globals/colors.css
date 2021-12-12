@@ -13,4 +13,21 @@
   --color-background-primary: var(--antique-brass);
   --color-background-secondary: var(--manatee);
   --color-background-neutral: var(--wheatfield);
+
+  /* Start Screen Colors */
+  --start-text: rgb(136, 142, 177);
+  --start-background: rgb(237, 222, 200);
+
+  /* Greta Colors */
+  --greta-highlight: rgb(146, 186, 228);
+  --greta-headline: rgb(68, 85, 105);
+  --greta-citation: rgb(104, 132, 161);
+  --greta-background: rgb(212, 223, 235);
+
+  /* Malala Colors */
+  --malala-highlight: rgb(225, 188, 132);
+  --malala-headline: rgb(68, 85, 105);
+  --malala-citation: rgb(149, 124, 87);
+  --malala-background: rgb(233, 220, 199);
+
 }
