@@ -30,7 +30,7 @@ export default {
       hightlightColor: '',
       interval: null,
       progress: 0,
-      audioPlayer: null,
+      audioPlayer: new Audio(this.audioFile),
       iconName: 'play'
     }
   },
@@ -45,7 +45,6 @@ export default {
   },
   methods: {
     toggleProgress () {
-      console.log('whatever')
       if (this.isPlaying) {
         if (typeof Audio !== 'undefined') {
           this.startProgress()
@@ -62,12 +61,8 @@ export default {
     },
 
     startProgress () {
-      this.audioPlayer = new Audio(this.audioFile)
       const progressBar = document.querySelector('.circular-progress')
       this.audioDuration = this.audioPlayer.duration * 10
-      const progressEndValue = this.audioDuration
-
-      console.log(this.backgroundColor)
 
       this.interval = setInterval(() => {
         this.progress++
@@ -76,7 +71,7 @@ export default {
         } ${this.progress * 3.6}deg, ${this.hightlightColor} ${
           this.progress * 3.6
         }deg)`
-        if (this.progress === progressEndValue) {
+        if (this.progress === 100) {
           this.iconName = 'play'
           clearInterval(this.interval)
         }
