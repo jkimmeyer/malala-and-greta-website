@@ -1,20 +1,23 @@
 <template>
   <div class="page" @wheel="updateBlur($event)">
     <div class="page--teaser">
-      <div class="page--teaser-images" :style="'filter: blur(' + blurAmount + 'px)'">
+      <div
+        class="page--teaser-images"
+        :style="'filter: blur(' + blurAmount + 'px)'"
+      >
         <img
           class="page--teaser-image left"
           src="~/assets/images/Malala.png"
           alt="Malala"
           width="35%"
-        >
+        />
 
         <img
           class="page--teaser-image right"
           src="~/assets/images/Greta.png"
           alt="Greta"
           width="35%"
-        >
+        />
       </div>
       <h1 class="page--title" :class="titleVisible ? 'visible' : null">
         Erlebe unsere Geschichten.
@@ -27,29 +30,29 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       blurAmount: 100,
       titleVisible: false,
       gretaGlows: false,
-      malalaGlows: false
-    }
+      malalaGlows: false,
+    };
   },
-  mounted () {
+  mounted() {
     setTimeout(() => {
-      this.titleVisible = true
-    }, 100)
+      this.titleVisible = true;
+    }, 100);
   },
   methods: {
-    updateBlur (event) {
+    updateBlur(event) {
       if (event.deltaY > 0 && this.blurAmount > 0) {
-        this.blurAmount = this.blurAmount - 0.5
+        this.blurAmount = this.blurAmount - 0.5;
       } else if (event.deltaY < 0 && this.blurAmount < 100) {
-        this.blurAmount = this.blurAmount + 0.5
+        this.blurAmount = this.blurAmount + 0.5;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -103,7 +106,7 @@ export default {
   transform: translateX(-50%) translateY(-50%);
   font-size: var(--font-64);
   line-height: var(--line-1-5);
-  color: var(--color-text-neutral);
+  color: var(--start-text);
 
   &.visible {
     opacity: 100%;
