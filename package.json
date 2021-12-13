@@ -26,6 +26,7 @@
   "dependencies": {
     "@iconify/icons-fluent": "^1.1.33",
     "rellax": "^1.12.1",
-    "three": "^0.135.0"
+    "three": "0.134",
+    "troisjs": "^0.3.3"
   }
 }
