@@ -15,9 +15,6 @@ export default {
       startPosY : -5
     }
   },
-  created () {
-    window.addEventListener('scroll', this.handleScroll);
-  },
   destroyed () {
     window.removeEventListener('scroll', this.handleScroll);
   },
@@ -86,7 +83,8 @@ export default {
     }
   },
   mounted() {
-      this.init().then(this.animate());
+    window.addEventListener('scroll', this.handleScroll);
+    this.init().then(this.animate());
   }
 }
 </script>
