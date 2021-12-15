@@ -1,3 +1,6 @@
 <template>
-  <Trojsjs />
+  <div>
+    <Trojsjs />
+    <Nobel />
+  </div>
 </template>
