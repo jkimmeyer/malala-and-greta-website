@@ -12,6 +12,6 @@ export default {}
 .malala {
   width: 100vw;
   height: 100vh;
-  background-color: var(--malala-background);
+  background-color: var(--color-background-malala);
 }
 </style>

@@ -83,7 +83,7 @@ export default {
 }
 
 .page--teaser-image.left:hover {
-  filter: drop-shadow(0 0 8px var(--color-background-primary));
+  filter: drop-shadow(0 0 8px var(--color-shadow-malala));
 }
 
 .page--teaser-image.right {
@@ -91,7 +91,7 @@ export default {
 }
 
 .page--teaser-image.right:hover {
-  filter: drop-shadow(0 0 8px var(--color-background-secondary));
+  filter: drop-shadow(0 0 8px var(--color-shadow-greta));
 }
 
 .page--teaser-image:hover {
@@ -106,7 +106,7 @@ export default {
   transform: translateX(-50%) translateY(-50%);
   font-size: var(--font-64);
   line-height: var(--line-1-5);
-  color: var(--start-text);
+  color: var(--color-text-neutral);
 
   &.visible {
     opacity: 100%;
