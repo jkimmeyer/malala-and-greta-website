@@ -1,16 +1,71 @@
 :root {
 
-  /* Color Palette */
-  --antique-brass: rgb(206, 149, 116);
-  --manatee: rgb(131, 136, 167);
-  --wheatfield: rgb(241, 227, 199);
-  --bay-of-many: rgb(85, 89, 119);
+  /* Color Palette
+  All colors that are used within this web application are defined in our color palette
+  Do not use the palette colors in your components. Instead rely on the adapted UI Colors below.
+  We use https://chir.ag/projects/name-that-color/ to name our colors.
+   */
 
-  /* UI Colors */
-  --color-text-primary: var(--antique-brass);
-  --color-text-secondary: var(--manatee);
-  --color-text-neutral: var(--bay-of-many);
-  --color-background-primary: var(--antique-brass);
-  --color-background-secondary: var(--manatee);
-  --color-background-neutral: var(--wheatfield);
+  /* Blue Tone */
+  --bali-hai: rgb(136, 142, 177);
+  --botticelli: rgb(212, 223, 235);
+  --comet: rgb(85, 89, 119);
+  --cornflower: rgb(146, 186, 228);
+  --fiord: rgb(68, 85, 105);
+  --hoki: rgb(104, 132, 161);
+
+  /* Yellow Tone */
+  --almond: rgb(237, 222, 200);
+  --gold-sand: rgb(225, 188, 132);
+  --leather: rgb(149, 124, 87);
+  --stark-white: rgb(233, 220, 199);
+
+  /* Neutral Colors */
+  --white: rgb(255, 255, 255);
+  --black: rgb(0, 0, 0);
+
+  /* UI Colors
+  All assigned UI colors must begin with color- so you can spot them instantly as color-variables in your stylesheets.
+  Only use these color-variables for styling your components!
+  Try to avoid specific color names since they are not reusable over different components, e.g. --color-background-cite
+  */
+
+  /* Text */
+  --color-text-neutral: var(--comet);
+  --color-text-dark: var(--black);
+  --color-text-light: var(--white);
+
+  /* Text - Specific Colors: Greta */
+  --color-text-greta-highlight: var(--cornflower);
+
+  /* Text - Specific Colors: Malala */
+  --color-text-malala-highlight: var(--gold-sand);
+
+  /* Background */
+  --color-background-neutral: var(--almond);
+  --color-background-dark: var(--black);
+  --color-background-light: var(--white);
+
+  /* Background - Specific Colors: Greta */
+  --color-background-greta: var(--botticelli);
+  --color-background-greta-highlight: var(--cornflower);
+
+  /* Background - Specific Colors: Malala */
+  --color-background-malala: var(--stark-white);
+
+  /* Border */
+
+  /* Border - Specific Colors: Greta */
+
+  /* Border - Specific Colors: Malala */
+
+  /* Shadow */
+  --color-shadow-dark: var(--black);
+  --color-shadow-light: var(--white);
+
+  /* Shadow - Specific Colors: Greta */
+  --color-shadow-greta: var(--hoki);
+
+  /* Shadow - Specific Colors: Malala */
+  --color-shadow-malala: var(--leather);
 }
