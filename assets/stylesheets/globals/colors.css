@@ -3,7 +3,8 @@
   /* Color Palette
   All colors that are used within this web application are defined in our color palette
   Do not use the palette colors in your components. Instead rely on the adapted UI Colors below.
-  We use https://chir.ag/projects/name-that-color/ to name our colors. */
+  We use https://chir.ag/projects/name-that-color/ to name our colors.
+   */
 
   /* Blue Tone */
   --bali-hai: rgb(136, 142, 177);
@@ -25,7 +26,9 @@
 
   /* UI Colors
   All assigned UI colors must begin with color- so you can spot them instantly as color-variables in your stylesheets.
-  Only use these color-variables for styling your components! */
+  Only use these color-variables for styling your components!
+  Try to avoid specific color names since they are not reusable over different components, e.g. --color-background-cite
+  */
 
   /* Text */
   --color-text-neutral: var(--comet);
