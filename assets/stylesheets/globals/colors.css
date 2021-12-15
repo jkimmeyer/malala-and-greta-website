@@ -8,6 +8,7 @@
   /* Blue Tone */
   --bali-hai: rgb(136, 142, 177);
   --botticelli: rgb(212, 223, 235);
+  --comet: rgb(85, 89, 119);
   --cornflower: rgb(146, 186, 228);
   --fiord: rgb(68, 85, 105);
   --hoki: rgb(104, 132, 161);
@@ -27,7 +28,7 @@
   Only use these color-variables for styling your components! */
 
   /* Text */
-  --color-text-neutral: var(--bali-hai);
+  --color-text-neutral: var(--comet);
   --color-text-dark: var(--black);
   --color-text-light: var(--white);
 
@@ -56,8 +57,12 @@
   /* Border - Specific Colors: Malala */
 
   /* Shadow */
+  --color-shadow-dark: var(--black);
+  --color-shadow-light: var(--white);
 
   /* Shadow - Specific Colors: Greta */
+  --color-shadow-greta: var(--hoki);
 
   /* Shadow - Specific Colors: Malala */
+  --color-shadow-malala: var(--leather);
 }

@@ -12,6 +12,6 @@ export default {}
 .greta {
   width: 100vw;
   height: 100vh;
-  background-color: var(--greta-background);
+  background-color: var(--color-background-greta);
 }
 </style>
