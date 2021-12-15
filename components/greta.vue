@@ -1,9 +1,11 @@
 <template>
-  <div class="greta">Greta</div>
+  <div class="greta">
+    Greta
+  </div>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style scoped>

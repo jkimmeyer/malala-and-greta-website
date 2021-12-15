@@ -1,9 +1,11 @@
 <template>
-  <div class="malala">Malala</div>
+  <div class="malala">
+    Malala
+  </div>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style>
