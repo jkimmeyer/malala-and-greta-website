@@ -20,7 +20,9 @@
         Erlebe unsere Geschichten.
         <Icon icon="fluent" />
       </h1>
-      <Scrollindicator :is-visible="scrollIndicatorVisible" class="page--scroll-indicator" />
+    </div>
+    <div class="page--scroll-indicator">
+      <ScrollIndicator :is-hidden="!scrollIndicatorVisible" />
     </div>
     <!-- <Cite /> -->
   </div>
