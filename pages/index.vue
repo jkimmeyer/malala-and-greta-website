@@ -1,7 +1,10 @@
 <template>
   <div class="page" @wheel="updateBlur($event)">
     <div class="page--teaser">
-      <div class="page--teaser-images" :style="'filter: blur(' + blurAmount + 'px)'">
+      <div
+        class="page--teaser-images"
+        :style="'filter: blur(' + blurAmount + 'px)'"
+      >
         <img
           class="page--teaser-image left"
           src="~/assets/images/Malala.png"
@@ -80,7 +83,7 @@ export default {
 }
 
 .page--teaser-image.left:hover {
-  filter: drop-shadow(0 0 8px var(--color-background-primary));
+  filter: drop-shadow(0 0 8px var(--color-shadow-malala));
 }
 
 .page--teaser-image.right {
@@ -88,7 +91,7 @@ export default {
 }
 
 .page--teaser-image.right:hover {
-  filter: drop-shadow(0 0 8px var(--color-background-secondary));
+  filter: drop-shadow(0 0 8px var(--color-shadow-greta));
 }
 
 .page--teaser-image:hover {
