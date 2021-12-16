@@ -125,6 +125,7 @@ export default {
     transition: opacity ease-in-out 5s;
   }
 }
+
 .page--scroll-indicator {
   position: absolute;
   bottom: 0;
