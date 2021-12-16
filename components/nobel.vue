@@ -1,7 +1,5 @@
 <template>
-  <div class="nobelWrapper">
-    <div id="nobel" class="nobel" />
-  </div>
+  <div id="nobel" :style="'height:'+settings.height+'px; width:'+settings.width+'px;'" />
 </template>
 
 <script>
@@ -9,10 +7,12 @@ import * as THREE from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
 export default {
-  name: 'Nobel',
+  props: {
+    settings: Object
+  },
   data () {
     return {
-      startPosY: -5
+
     }
   },
   destroyed () {
@@ -26,7 +26,7 @@ export default {
     async init () {
       const container = document.getElementById('nobel')
 
-      this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000)
+      this.camera = new THREE.PerspectiveCamera(70, this.settings.width / this.settings.height, 0.1, 1000)
       this.camera.position.setX(0)
       this.camera.position.setY(-13)
       this.camera.position.setZ(25)
@@ -77,21 +77,12 @@ export default {
       const sh = 'scrollHeight'
 
       const percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100
-      this.mesh.position.x = this.startPosY + 0.1 * percent
+      this.mesh.position.x = 0.1 * percent
     }
   }
 }
 </script>
 
 <style scoped>
-.nobelWrapper{
-  width: 100vw;
-  height: 300vh;
-}
 
-.nobel{
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-}
 </style>
