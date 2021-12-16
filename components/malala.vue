@@ -5,15 +5,13 @@
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
 <style>
 .malala {
   width: 100vw;
   height: 100vh;
-  background-color: var(--color-secondary);
+  background-color: var(--color-background-malala);
 }
 </style>
