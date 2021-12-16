@@ -12,6 +12,11 @@
           User Switch
         </NuxtLink>
       </li>
+      <li>
+        <NuxtLink to="/facts">
+          Blogposts/Fakten
+        </NuxtLink>
+      </li>
     </ul>
   </div>
 </template>

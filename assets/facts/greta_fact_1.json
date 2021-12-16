@@ -1,0 +1,11 @@
+{
+  "fact": {
+    "headline": "headline",
+    "paragraphs": [
+      "Lorem",
+      "ipsum",
+      "lorem"
+    ],
+    "source": "Wikipedia lol"
+  }
+}
