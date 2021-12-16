@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Trojsjs />
+    <TroisjsClient />
     <Nobel />
   </div>
 </template>
