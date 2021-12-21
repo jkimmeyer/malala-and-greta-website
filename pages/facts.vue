@@ -1,19 +1,21 @@
 <template>
-  <fact :postData="{
+  <FactContainer :postData="{
       theme: 'greta',
       size: 'lg',
-      fact: gretaFact1
+      facts: [gretaFact1,gretaFact2]
     }"
   />
 </template>
 
 <script>
-import { fact } from '~/assets/facts/greta_fact_1.json';
+import * as fact1 from '~/assets/facts/greta_fact_1.json';
+import * as fact2 from '~/assets/facts/greta_fact_2.json';
 
 export default {
   data () {
     return {
-      gretaFact1: fact
+      gretaFact1: fact1.fact,
+      gretaFact2: fact2.fact
     }
   }
 }
