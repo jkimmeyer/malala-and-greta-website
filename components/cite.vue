@@ -1,14 +1,16 @@
 <template>
   <div class="cite">
     <transition name="fade" appear>
-      <div v-if="citeVisible" class="cite--content" :style="position">
-        "{{ contentText }}"
+      <div class="cite--content" :style="position">
+        <span v-for="word in contentWords" :ref="setItemRef" :key="word.index" class="cite--word">{{ word.content }}</span>
       </div>
     </transition>
   </div>
 </template>
 
 <script>
+import { gsap } from 'gsap'
+
 import audioGretaHouseOnFire from '~/assets/audio/cites/greta/house-on-fire.mp3'
 import audioGretaALotForTeenager from '~/assets/audio/cites/greta/a-lot-for-teenager.mp3'
 import audioGretaHumanityCrossroad from '~/assets/audio/cites/greta/humanity-crossroad.mp3'
@@ -68,41 +70,84 @@ export default {
       default: false
     }
   },
-  data () {
-    return {
-      contentText: '',
-      position: {
-        top: '0px',
-        left: '0px'
-      },
-      index: 0,
-      citeVisible: false
-    }
-  },
-  mounted () {
-    this.loop()
-  },
-  methods: {
-    loop () {
-      console.log('run loop')
-      this.citeVisible = true
-      this.index = (this.index + 1) % citeContents.length
-      const activeContent = citeContents[this.index]
-      this.contentText = activeContent.text
-      this.position.top = activeContent.top
-      this.position.left = activeContent.left
+  setup (props) {
+    const root = ref(null)
 
-      if (this.audioOn) {
-        const audio = new Audio(activeContent.audio)
+    let itemRefs = []
+    const index = ref(0)
+    const citeVisible = ref(false)
+
+    const setItemRef = (el) => {
+      if (el) {
+        itemRefs.push(el)
+      }
+    }
+
+    const activeContent = computed(() => citeContents[index.value])
+    const contentWords = ref([])
+    const position = computed(() => {
+      return {
+        top: activeContent.value.top,
+        left: activeContent.value.left
+      }
+    })
+
+    const citeLoop = async () => {
+      console.log('run loop')
+
+      index.value = (index.value + 1) % citeContents.length
+      const splittedText = activeContent.value.text.split(' ')
+      const splittedIndexedText = []
+      splittedText.forEach((value, index) => {
+        if (index === 0) {
+          splittedIndexedText.push({ index: 0, content: '"' + value + ' ' })
+        } else if (index === splittedText.length - 1) {
+          splittedIndexedText.push({ index, content: value + '"' })
+        } else {
+          splittedIndexedText.push({ index, content: value + ' ' })
+        }
+      })
+      itemRefs = []
+      contentWords.value = splittedIndexedText
+      await nextTick()
+      // reset word animation
+      splittedIndexedText.forEach((_, index) => {
+        gsap.to(itemRefs[index], { duration: 0, opacity: 0, y: 10, delay: 0 })
+      })
+      // animate words in
+      splittedIndexedText.forEach((_, index) => {
+        gsap.to(itemRefs[index], { duration: 1.2, opacity: 1, y: 0, delay: index * 0.2 })
+      })
+
+      if (props.audioOn) {
+        const audio = new Audio(activeContent.value.audio)
         audio.play()
       }
 
       setTimeout(() => {
-        this.citeVisible = false
+        // animate words out
+        splittedIndexedText.forEach((_, index) => {
+          gsap.to(itemRefs[index], { duration: 1.2, opacity: 0, delay: index * 0.2 })
+        })
         setTimeout(() => {
-          this.loop()
+          citeLoop()
         }, 4000)
       }, 8000)
+    }
+
+    onMounted(() => {
+      citeLoop()
+    })
+
+    return {
+      root,
+      index,
+      citeVisible,
+      activeContent,
+      contentWords,
+      position,
+      setItemRef,
+      citeLoop
     }
   }
 }
@@ -115,13 +160,11 @@ export default {
   max-width: 250px;
   text-align: center;
 }
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 3s ease;
-}
-.fade-enter-from,
-.fade-leave-to {
+.cite--word {
+  display: inline-block;
   opacity: 0;
+  white-space:pre;
+  transform: translateY(15px);
 }
 
 </style>
