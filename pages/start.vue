@@ -1,5 +1,5 @@
 <template>
-  <div class="page" @wheel="updateBlur($event)">
+  <div class="page" @wheel="onPageScroll($event)">
     <div class="page--teaser">
       <div
         class="page--teaser-images"
@@ -24,6 +24,9 @@
         <Icon icon="fluent" />
       </h1>
     </div>
+    <div class="page--scroll-indicator">
+      <ScrollIndicator :is-hidden="!scrollIndicatorVisible" />
+    </div>
     <!-- <Cite /> -->
   </div>
 </template>
@@ -35,7 +38,8 @@ export default {
       blurAmount: 100,
       titleVisible: false,
       gretaGlows: false,
-      malalaGlows: false
+      malalaGlows: false,
+      scrollIndicatorVisible: true
     }
   },
   mounted () {
@@ -44,12 +48,20 @@ export default {
     }, 100)
   },
   methods: {
+    onPageScroll (event) {
+      this.updateBlur(event)
+      this.updateScrollIndicator(event)
+    },
     updateBlur (event) {
       if (event.deltaY > 0 && this.blurAmount > 0) {
         this.blurAmount = this.blurAmount - 0.5
       } else if (event.deltaY < 0 && this.blurAmount < 100) {
         this.blurAmount = this.blurAmount + 0.5
       }
+    },
+    updateScrollIndicator (event) {
+      // TODO: combine with parallax framework or window scroll
+      this.scrollIndicatorVisible = event.deltaY <= 0
     }
   }
 }
@@ -112,5 +124,11 @@ export default {
     opacity: 100%;
     transition: opacity ease-in-out 5s;
   }
+}
+
+.page--scroll-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
 }
 </style>
