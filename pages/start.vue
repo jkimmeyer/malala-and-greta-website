@@ -23,11 +23,14 @@
         Erlebe unsere Geschichten.
         <Icon icon="fluent" />
       </h1>
+      <button v-if="citeVisible" type="button" class="page--start-button" :class="titleVisible ? 'visible' : null" @click="onStartClicked">
+        Mit Audio erleben
+      </button>
     </div>
     <div class="page--scroll-indicator">
       <ScrollIndicator :is-hidden="!scrollIndicatorVisible" />
     </div>
-    <Cite />
+    <Cite v-if="citeVisible" :audio-on="audioOn" />
   </div>
 </template>
 
@@ -37,20 +40,28 @@ export default {
     return {
       blurAmount: 100,
       titleVisible: false,
+      citeVisible: false,
       gretaGlows: false,
       malalaGlows: false,
-      scrollIndicatorVisible: true
+      scrollIndicatorVisible: true,
+      audioOn: false
     }
   },
   mounted () {
     setTimeout(() => {
       this.titleVisible = true
     }, 100)
+    setTimeout(() => {
+      this.citeVisible = true
+    }, 4000)
   },
   methods: {
     onPageScroll (event) {
       this.updateBlur(event)
       this.updateScrollIndicator(event)
+    },
+    onStartClicked () {
+      this.audioOn = true
     },
     updateBlur (event) {
       if (event.deltaY > 0 && this.blurAmount > 0) {
@@ -125,10 +136,21 @@ export default {
     transition: opacity ease-in-out 5s;
   }
 }
+.page--start-button {
+  opacity: 0;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  &.visible {
+    opacity: 100%;
+    transition: opacity ease-in-out 5s;
+  }
+}
 
 .page--scroll-indicator {
   position: absolute;
   bottom: 0;
   left: 50%;
 }
+
 </style>
