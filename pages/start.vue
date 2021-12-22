@@ -23,7 +23,8 @@
         Erlebe unsere Geschichten.
         <Icon icon="fluent" />
       </h1>
-      <button v-if="citeVisible" type="button" class="page--start-button" :class="titleVisible ? 'visible' : null" @click="onStartClicked">
+      <!-- TODO: replace with button component when we have defined buttons -->
+      <button v-if="citeVisible" type="button" class="page--button-audio" :class="titleVisible ? 'visible' : null" @click="onStartClicked">
         Mit Audio erleben
       </button>
     </div>
@@ -136,11 +137,14 @@ export default {
     transition: opacity ease-in-out 5s;
   }
 }
-.page--start-button {
+.page--button-audio {
   opacity: 0;
   position: absolute;
-  top: 70%;
+  top: 65%;
   left: 50%;
+  padding: 4px 8px;
+  color: var(--color-text-neutral);
+  transform: translateX(-50%);
   &.visible {
     opacity: 100%;
     transition: opacity ease-in-out 5s;
