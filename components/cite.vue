@@ -1,10 +1,8 @@
 <template>
   <div class="cite">
-    <transition name="fade" appear>
-      <div class="cite--content" :style="position">
-        <span v-for="word in contentWords" :ref="setItemRef" :key="word.index" class="cite--word">{{ word.content }}</span>
-      </div>
-    </transition>
+    <div class="cite--content" :style="position">
+      <span v-for="word in contentWords" :ref="setItemRef" :key="word.index" class="cite--word">{{ word.content }}</span>
+    </div>
   </div>
 </template>
 
@@ -13,53 +11,47 @@ import { gsap } from 'gsap'
 
 import audioGretaHouseOnFire from '~/assets/audio/cites/greta/house-on-fire.mp3'
 import audioGretaALotForTeenager from '~/assets/audio/cites/greta/a-lot-for-teenager.mp3'
-import audioGretaHumanityCrossroad from '~/assets/audio/cites/greta/humanity-crossroad.mp3'
+import audioGretaHumanityCrossroad from '~/assets/audio/cites/greta/humanity-crossroads.mp3'
 import audioMalalaHalfHeldBack from '~/assets/audio/cites/malala/half-held-back.mp3'
 import audioMalalaForgetAboutPain from '~/assets/audio/cites/malala/forget-about-pain.mp3'
 import audioMalalaBulletSilence from '~/assets/audio/cites/malala/bullet-silence.mp3'
 
 const citeContents = [
   {
-    top: '20%',
-    left: '20%',
+    top: '25%',
+    left: '25%',
     audio: audioMalalaBulletSilence,
-    text: 'They thought that the bullet would silence us, but they failed',
-    author: 'malala'
-  },
-  {
-    top: '10%',
-    left: '70%',
-    audio: audioGretaHouseOnFire,
-    text: 'I am here to say, our house is on fire',
-    author: 'greta'
+    text: 'They thought that the bullet would silence us, but they failed'
   },
   {
     top: '20%',
-    left: '35%',
+    left: '65%',
+    audio: audioGretaHouseOnFire,
+    text: 'I am here to say, our house is on fire'
+  },
+  {
+    top: '72%',
+    left: '20%',
     audio: audioMalalaHalfHeldBack,
-    text: 'We cannot all succeed, when half of us are held back',
-    author: 'malala'
+    text: 'We cannot all succeed, when half of us are held back'
   },
   {
-    top: '15%',
-    left: '60%',
+    top: '65%',
+    left: '70%',
     audio: audioGretaHumanityCrossroad,
-    text: 'Humanity stands at a crossroad, we must now decide which side we want to take',
-    author: 'greta'
+    text: 'Humanity is no standing at a crossroads, we must now decide which path we want to take'
   },
   {
-    top: '10%',
+    top: '12%',
     left: '10%',
     audio: audioMalalaForgetAboutPain,
-    text: 'But there is so much love out there, that is helping me to forget about all the pain that I am going through',
-    author: 'malala'
+    text: 'But there is so much love out there, that is helping me to forget about all the pain that I am going through'
   },
   {
     top: '40%',
-    left: '80%',
+    left: '78%',
     audio: audioGretaALotForTeenager,
-    text: "It's a lot. It's a lot for a teenager",
-    author: 'greta'
+    text: 'Yes, it is a lot. It is a lot for a teenager'
   }
 ]
 
@@ -71,20 +63,13 @@ export default {
     }
   },
   setup (props) {
-    const root = ref(null)
-
     let itemRefs = []
+
     const index = ref(0)
     const citeVisible = ref(false)
-
-    const setItemRef = (el) => {
-      if (el) {
-        itemRefs.push(el)
-      }
-    }
+    const contentWords = ref([])
 
     const activeContent = computed(() => citeContents[index.value])
-    const contentWords = ref([])
     const position = computed(() => {
       return {
         top: activeContent.value.top,
@@ -92,30 +77,34 @@ export default {
       }
     })
 
-    const citeLoop = async () => {
-      console.log('run loop')
+    const setItemRef = (el) => {
+      if (el) {
+        itemRefs.push(el)
+      }
+    }
 
+    const loopCites = async () => {
       index.value = (index.value + 1) % citeContents.length
-      const splittedText = activeContent.value.text.split(' ')
-      const splittedIndexedText = []
-      splittedText.forEach((value, index) => {
+      const splittedContent = activeContent.value.text.split(' ')
+      const splittedIndexedContent = []
+      splittedContent.forEach((value, index) => {
+        let word = value + ' '
         if (index === 0) {
-          splittedIndexedText.push({ index: 0, content: '"' + value + ' ' })
-        } else if (index === splittedText.length - 1) {
-          splittedIndexedText.push({ index, content: value + '"' })
-        } else {
-          splittedIndexedText.push({ index, content: value + ' ' })
+          word = '"' + value + ' '
+        } else if (index === splittedContent.length - 1) {
+          word = value + '"'
         }
+        splittedIndexedContent.push({ index, content: word })
       })
       itemRefs = []
-      contentWords.value = splittedIndexedText
+      contentWords.value = splittedIndexedContent
       await nextTick()
       // reset word animation
-      splittedIndexedText.forEach((_, index) => {
+      splittedIndexedContent.forEach((_, index) => {
         gsap.to(itemRefs[index], { duration: 0, opacity: 0, y: 10, delay: 0 })
       })
       // animate words in
-      splittedIndexedText.forEach((_, index) => {
+      splittedIndexedContent.forEach((_, index) => {
         gsap.to(itemRefs[index], { duration: 1.2, opacity: 1, y: 0, delay: index * 0.2 })
       })
 
@@ -126,28 +115,27 @@ export default {
 
       setTimeout(() => {
         // animate words out
-        splittedIndexedText.forEach((_, index) => {
+        splittedIndexedContent.forEach((_, index) => {
           gsap.to(itemRefs[index], { duration: 1.2, opacity: 0, delay: index * 0.2 })
         })
         setTimeout(() => {
-          citeLoop()
-        }, 4000)
+          loopCites()
+        }, 5000)
       }, 8000)
     }
 
     onMounted(() => {
-      citeLoop()
+      loopCites()
     })
 
     return {
-      root,
       index,
       citeVisible,
       activeContent,
       contentWords,
       position,
       setItemRef,
-      citeLoop
+      loopCites
     }
   }
 }
@@ -163,7 +151,7 @@ export default {
 .cite--word {
   display: inline-block;
   opacity: 0;
-  white-space:pre;
+  white-space: pre;
   transform: translateY(15px);
 }
 
