@@ -2,7 +2,6 @@
 
 export default {
   props: {
-    settings: Object,
     mesh: null
   },
   data () {
