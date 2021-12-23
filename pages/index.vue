@@ -15,6 +15,10 @@
       <li>
         <NuxtLink to="/threejs">
           Three JS
+      </li>
+      <li>
+        <NuxtLink to="/gsap">
+          GSAP
         </NuxtLink>
       </li>
     </ul>
