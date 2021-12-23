@@ -18,11 +18,11 @@
                 </NuxtLink>
 
       </li>
-      <li>
+      <!--<li>
         <NuxtLink to="/gsap">
           GSAP
         </NuxtLink>
-      </li>
+      </li>-->
     </ul>
   </div>
 </template>
