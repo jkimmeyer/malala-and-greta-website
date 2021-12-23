@@ -17,6 +17,11 @@
           GSAP
         </NuxtLink>
       </li>
+      <li>
+        <NuxtLink to="/locomotive">
+          Locomotive
+        </NuxtLink>
+      </li>
     </ul>
   </div>
 </template>
