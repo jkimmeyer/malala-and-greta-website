@@ -55,7 +55,7 @@ export default {
       this.POINTS_MATERIAL = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 0.05 });
       this.CAMERA = new THREE.PerspectiveCamera(
         this.fov ?? 70,
-        this.width ?? 200 / this.height ?? 200,
+        (this.width ?? 200) / (this.height ?? 200),
         this.near ?? 0.1,
         this.far ?? 1000
       );
