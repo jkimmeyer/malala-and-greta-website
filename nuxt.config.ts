@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '@/assets/stylesheets/globals/colors.css',
     '@/assets/stylesheets/globals/font-sizes.css',
     '@/assets/stylesheets/globals/reset.css',
-    '@/assets/stylesheets/globals/spacing.css'
+    '@/assets/stylesheets/globals/spacing.css',
+    '@/assets/stylesheets/globals/fonts.css'
   ]
 })
