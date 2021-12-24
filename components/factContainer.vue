@@ -124,6 +124,7 @@ export default{
     position: absolute;
 
     &:nth-child(1){
+      transform: rotate(-0.17deg);
       top: 25px;
       left: -15px;
       z-index: 0
