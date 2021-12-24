@@ -15,6 +15,11 @@
       <li>
         <NuxtLink to="/facts">
           Blogposts/Fakten
+          </NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/gsap">
+          GSAP
         </NuxtLink>
       </li>
     </ul>
