@@ -1,6 +1,6 @@
 <template>
 
-  <div :class="'fact-container '+postData.size+' '+postData.theme">
+  <div :class="'fact-container '+postData.size+' '+postData.theme+' '+postData.format">
     <div class="fact-bg-card"></div>
     <div class="fact-bg-card"></div>
     <div class="fact-card">
@@ -32,7 +32,15 @@
 
 export default{
   props: {
-    postData: Object
+    postData: {
+      default: {
+        theme: 'malala',
+        size: 'md',
+        facts: [],
+        format: 'quad'
+      },
+      type: Object
+    }
   },
   data () {
     return {
@@ -149,29 +157,36 @@ export default{
   }
 
   &.sm{
-    .fact-card, .fact-bg-card{
-      width: 256px;
-      max-width: 256px;
-      height: 256px;
-      min-height: 256px;
+    &.quad{
+      .fact-card, .fact-bg-card{
+        min-width: 512px;
+        max-width: 512px;
+        min-height: 512px;
+      }
     }
-  }
-
-  &.md{
-    .fact-card, .fact-bg-card{
-      min-width: 512px;
-      max-width: 512px;
-      height: 512px;
-      min-height: 512px;
+    &.rect{
+      .fact-card, .fact-bg-card{
+        width: 682px;
+        max-width: 682px;
+        min-height: 512px;
+      }
     }
   }
 
   &.lg{
-    .fact-card, .fact-bg-card{
-      min-width: 768px;
-      max-width: 768px;
-      height: 768px;
-      min-height: 768px;
+    &.quad{
+      .fact-card, .fact-bg-card{
+        min-width: 768px;
+        max-width: 768px;
+        min-height: 768px;
+      }
+    }
+    &.rect{
+      .fact-card, .fact-bg-card{
+        width: 1024px;
+        max-width: 1024px;
+        min-height: 768px;
+      }
     }
   }
 

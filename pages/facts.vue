@@ -1,8 +1,9 @@
 <template>
   <FactContainer :postData="{
       theme: 'greta',
-      size: 'md',
-      facts: [gretaFact1,gretaFact2]
+      size: 'sm',
+      facts: [gretaFact1,gretaFact2],
+      format: 'rect'
     }"
   />
 </template>
