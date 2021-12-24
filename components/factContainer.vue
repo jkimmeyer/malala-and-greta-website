@@ -16,7 +16,10 @@
             </p>
           </div>
           <!-- eslint-enable -->
-          <p>Quelle: {{fact.source}}</p>
+          <div class="fact-source">
+            <div class="fact-line"></div>
+            <p>{{fact.source}}</p>
+          </div>
         </div>
       </div>
       <div class="next-arrow arrow" @click="nextFact()"> 	&gt; </div>
@@ -76,6 +79,7 @@ export default{
 
     .facts-wrapper{
       height: 100%;
+      padding: 1rem 0;
 
       .fact{
         height: 100%;
@@ -86,15 +90,31 @@ export default{
         h3{
           font-family: Trochut;
           font-weight: bold;
+          font-size: 36px;
         }
 
         p{
           font-family: Lato;
           font-style: italic;
+          font-size: 18px;
+          font-weight: 300;
         }
 
         .paragraph-wrapper p{
           margin: 0.5rem 0;
+        }
+
+        .fact-source{
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          align-items: center;
+
+          .fact-line{
+            height: 1px;
+            width: 40px;
+            margin-right: 0.5rem;
+          }
         }
       }
     }
@@ -119,7 +139,7 @@ export default{
 
 
   .arrow{
-    padding: 1rem;
+    padding: 2rem;
     cursor: pointer;
 
     &.next-arrow{
@@ -138,7 +158,7 @@ export default{
 
   &.lg{
     .fact-card, .fact-bg-card{
-      width: 512px;
+      min-width: 512px;
       max-width: 512px;
       height: 512px;
       min-height: 512px;
@@ -149,8 +169,12 @@ export default{
     .fact-card, .fact-bg-card{
       background-color: #92BAE4;
 
-      & h3{
+      & h3 , p, .arrow{
         color: #445569;
+      }
+
+      & .fact-line{
+        background-color: #445569;
       }
     }
   }
@@ -158,8 +182,12 @@ export default{
     .fact-card, .fact-bg-card{
       background-color: #E1BC84;
 
-      & h3 {
+      & h3, p, .arrow{
         color: #68573D;
+      }
+
+      & .fact-line{
+        background-color: #68573D;
       }
     }
   }
