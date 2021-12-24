@@ -156,12 +156,21 @@ export default{
     }
   }
 
-  &.lg{
+  &.md{
     .fact-card, .fact-bg-card{
       min-width: 512px;
       max-width: 512px;
       height: 512px;
       min-height: 512px;
+    }
+  }
+
+  &.lg{
+    .fact-card, .fact-bg-card{
+      min-width: 768px;
+      max-width: 768px;
+      height: 768px;
+      min-height: 768px;
     }
   }
 
