@@ -49,6 +49,7 @@
   /* Background - Specific Colors: Greta */
   --color-background-greta: var(--botticelli);
   --color-background-greta-highlight: var(--cornflower);
+  --color-background-greta-dark: var(--fiord);
 
   /* Background - Specific Colors: Malala */
   --color-background-malala: var(--stark-white);
