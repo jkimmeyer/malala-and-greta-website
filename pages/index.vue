@@ -12,11 +12,6 @@
           User Switch
         </NuxtLink>
       </li>
-      <li>
-        <NuxtLink to="/gsap">
-          GSAP
-        </NuxtLink>
-      </li>
     </ul>
   </div>
 </template>
