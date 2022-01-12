@@ -37,9 +37,11 @@
 
   /* Text - Specific Colors: Greta */
   --color-text-greta-highlight: var(--cornflower);
+  --color-text-greta-dark: var(--fiord);
 
   /* Text - Specific Colors: Malala */
   --color-text-malala-highlight: var(--gold-sand);
+  --color-text-malala-dark: var(--leather);
 
   /* Background */
   --color-background-neutral: var(--almond);
@@ -53,6 +55,7 @@
 
   /* Background - Specific Colors: Malala */
   --color-background-malala: var(--stark-white);
+  --color-background-malala-dark: var(--leather);
 
   /* Border */
 

@@ -1,25 +1,21 @@
 <template>
-  <div class="page">
+  <div class="page" :class="themeClasses">
     <slot />
-    <Navigation :audio-on="audioOn" :current-story="currentStory" />
+    <Navigation />
   </div>
 </template>
 
 <script>
-const GRETA = 'GRETA'
-const MALALA = 'MALALA'
-
+import { Themes } from '@/enums/Themes'
 export default {
-  // ToDo: Make both attributes available via store
-  data () {
-    return {
-      audioOn: false,
-      currentStory: GRETA
-    }
+  setup () {
+    return { getCurrentTheme }
   },
-  methods: {
-    switchStories () {
-      this.currentStory = this.currentStory === MALALA ? GRETA : MALALA
+  computed: {
+    themeClasses () {
+      if (this.getCurrentTheme === Themes.Greta) { return 'has-greta-style' }
+      if (this.getCurrentTheme === Themes.Malala) { return 'has-malala-style' }
+      return null
     }
   }
 }
@@ -28,6 +24,18 @@ export default {
 <style scoped>
   .page {
     min-height: 100vh;
-    background-color: var(--color-background-greta);
+    background-color: var(--color-background);
+  }
+
+  .page.has-greta-style {
+    --color-background: var(--color-background-greta);
+    --color-background-dark: var(--color-background-greta-dark);
+    --color-text: var(--color-text-greta);
+  }
+
+  .page.has-malala-style {
+    --color-background: var(--color-background-malala);
+    --color-background-dark: var(--color-background-malala-dark);
+    --color-text: var(--color-text-malala);
   }
 </style>

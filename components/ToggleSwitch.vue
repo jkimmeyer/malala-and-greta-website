@@ -33,6 +33,7 @@ export default {
     toggleButton () {
       this.$refs.toggleSwitchIcon.toggleAnimation()
       this.toggleButtonPressed = this.toggleButtonPressed === 'true' ? 'false' : 'true'
+      this.$emit('toggle-button-switched')
     }
   }
 }
@@ -56,17 +57,23 @@ export default {
   writing-mode: vertical-rl;
 }
 
+.toggle-switch--button-option:first-child {
+  color: var(--color-text-greta-dark);
+}
+
+.toggle-switch--button-option:last-child {
+  color: var(--color-text-malala-dark);
+}
+
 .toggle-switch--button[aria-pressed='true'] .toggle-switch--button-option:first-child {
   font-size: var(--font-32);
   line-height: var(--line-1-5);
-  color: var(--color-background-greta-dark);
   transition: font-size 1s linear;
 }
 
 .toggle-switch--button[aria-pressed='false'] .toggle-switch--button-option:last-child {
   font-size: var(--font-32);
   line-height: var(--line-1-5);
-  color: var(--color-background-greta-dark);
   transition: font-size 1s linear;
 }
 

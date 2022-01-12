@@ -52,8 +52,8 @@ export default {
 
 <style>
 .cls-1 {
-  fill: var(--color-background-greta-dark);
-  stroke: var(--color-background-greta-dark);
+  fill: var(--color-background-dark);
+  stroke: var(--color-background-dark);
   stroke-miterlimit: 10;
 }
 </style>

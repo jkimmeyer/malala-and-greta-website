@@ -9,14 +9,14 @@
           class="start-page--teaser-image left"
           src="~/assets/images/Malala.png"
           alt="Malala"
-          width="35%"
+          width="35vw"
         >
 
         <img
           class="start-page--teaser-image right"
           src="~/assets/images/Greta.png"
           alt="Greta"
-          width="35%"
+          width="35vw"
         >
       </div>
       <h1 class="start-page--title" :class="titleVisible ? 'visible' : null">
