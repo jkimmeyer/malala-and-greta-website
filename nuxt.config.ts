@@ -7,6 +7,8 @@ export default defineNuxtConfig({
     '@/assets/stylesheets/globals/font-sizes.css',
     '@/assets/stylesheets/globals/reset.css',
     '@/assets/stylesheets/globals/spacing.css',
-    '@/assets/stylesheets/globals/fonts.css'
+    '@/assets/stylesheets/globals/fonts.css',
+    '@/assets/stylesheets/globals/typography.css',
+    '@/assets/stylesheets/utilities/visually-hidden.css'
   ]
 })
