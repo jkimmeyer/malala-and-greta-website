@@ -3,6 +3,7 @@
 export default {
   props: {
     mesh: {
+      type: Object,
       default: null
     }
   },
