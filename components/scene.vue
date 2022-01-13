@@ -8,16 +8,46 @@ import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
 export default {
   props: {
-    sceneId: String,
-    height: Number,
-    width: Number,
-    fov: Number,
-    near: Number,
-    far: Number,
-    camX: Number,
-    camY: Number,
-    camZ: Number,
-    models: Array
+    sceneId: {
+      type: String,
+      required: true
+    },
+    height: {
+      type: Number,
+      default: 400
+    },
+    width: {
+      type: Number,
+      default: 400
+    },
+    fov: {
+      type: Number,
+      default: 70
+    },
+    near: {
+      type: Number,
+      default: 0.1
+    },
+    far: {
+      type: Number,
+      default: 1000
+    },
+    camX: {
+      type: Number,
+      default: 0
+    },
+    camY: {
+      type: Number,
+      default: -13
+    },
+    camZ: {
+      type: Number,
+      default: 25
+    },
+    models: {
+      type: Array,
+      required: true
+    },
   },
   data () {
     return {
@@ -57,10 +87,10 @@ export default {
       this.RENDERER = new THREE.WebGLRenderer({ antialias: true })
       this.POINTS_MATERIAL = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 0.05 })
       this.CAMERA = new THREE.PerspectiveCamera(
-        this.fov ?? 70,
-        (this.width ?? 200) / (this.height ?? 200),
-        this.near ?? 0.1,
-        this.far ?? 1000
+        this.fov,
+        (this.width) / (this.height),
+        this.near,
+        this.far
       )
 
       this.meshes = await this.loadMeshes()
@@ -69,9 +99,9 @@ export default {
       const container = document.getElementById(`scene-${this.sceneId}`)
 
       // camera position
-      this.CAMERA.position.setX(this.camX ?? 0)
-      this.CAMERA.position.setY(this.camY ?? -13)
-      this.CAMERA.position.setZ(this.camZ ?? 25)
+      this.CAMERA.position.setX(this.camX)
+      this.CAMERA.position.setY(this.camY)
+      this.CAMERA.position.setZ(this.camZ)
 
       // materials setzen + three.js mesh erstellen
       for (let i = 0; i < this.models.length; i++) {
