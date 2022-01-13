@@ -1,3 +1,4 @@
+/* stylelint-disable */
 /* trochut-regular - latin */
 @font-face {
   font-family: 'Trochut';
@@ -167,3 +168,4 @@
        url('~/assets/fonts/Lato/lato-v20-latin-900italic.ttf') format('truetype'), /* Safari, Android, iOS */
        url('~/assets/fonts/Lato/lato-v20-latin-900italic.svg#Lato') format('svg'); /* Legacy iOS */
 }
+/* stylelint-enable */
