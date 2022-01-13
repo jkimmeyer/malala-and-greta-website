@@ -47,7 +47,7 @@ export default {
     models: {
       type: Array,
       required: true
-    },
+    }
   },
   data () {
     return {

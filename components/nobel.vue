@@ -2,7 +2,9 @@
 
 export default {
   props: {
-    mesh: null
+    mesh: {
+      default: null
+    }
   },
   data () {
     return {
