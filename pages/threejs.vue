@@ -1,7 +1,15 @@
 <template>
   <div>
     <!-- <model-loader modelName="nobel" :height=500 :width=500 :animation=animationFunction /> -->
-    <Scene sceneId="EINS" :height=1000 :width=1000 :fov=70 :near=0.1 :far=1000 :models=models />
+    <Scene
+      scene-id="EINS"
+      :height="1000"
+      :width="1000"
+      :fov="70"
+      :near="0.1"
+      :far="1000"
+      :models="models"
+    />
   </div>
 </template>
 
@@ -13,7 +21,7 @@ import nobel from '~~/components/nobel.vue'
 export default defineComponent({
   components: { scene },
   data () {
-    return{
+    return {
       models: [nobel]
     }
   }

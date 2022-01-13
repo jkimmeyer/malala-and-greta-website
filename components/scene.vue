@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import * as THREE from 'three';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+import * as THREE from 'three'
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
 export default {
   props: {
@@ -24,43 +24,46 @@ export default {
 
     }
   },
+  mounted () {
+    this.init()
+  },
   methods: {
-    async loadMeshes() {
-      var loadedMeshes = [];
-      for(var model of this.models) {
+    async loadMeshes () {
+      const loadedMeshes = []
+      for (const model of this.models) {
         const obj = await this.OBJ_LOADER.loadAsync(
-        model.methods.getMeshPath(),
-        function (object) {
-          return object;
-        },
-        // called when loading is in progresses
-        function (xhr) {
-          console.log((xhr.loaded / xhr.total * 100) + '% loaded')
-        },
-        // called when loading has errors
-        function (error) {
-          console.log('An error happened: ' + error)
-        })
+          model.methods.getMeshPath(),
+          function (object) {
+            return object
+          },
+          // called when loading is in progresses
+          function (xhr) {
+            console.log((xhr.loaded / xhr.total * 100) + '% loaded')
+          },
+          // called when loading has errors
+          function (error) {
+            console.log('An error happened: ' + error)
+          })
 
         const mesh = new THREE.Points(obj.children[0].geometry, this.POINTS_MATERIAL)
-        loadedMeshes.push(mesh);
+        loadedMeshes.push(mesh)
       }
 
-      return loadedMeshes;
+      return loadedMeshes
     },
-    async init() {
-      this.SCENE = new THREE.Scene();
-      this.OBJ_LOADER = new OBJLoader();
-      this.RENDERER = new THREE.WebGLRenderer({ antialias: true });
-      this.POINTS_MATERIAL = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 0.05 });
+    async init () {
+      this.SCENE = new THREE.Scene()
+      this.OBJ_LOADER = new OBJLoader()
+      this.RENDERER = new THREE.WebGLRenderer({ antialias: true })
+      this.POINTS_MATERIAL = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 0.05 })
       this.CAMERA = new THREE.PerspectiveCamera(
         this.fov ?? 70,
         (this.width ?? 200) / (this.height ?? 200),
         this.near ?? 0.1,
         this.far ?? 1000
-      );
+      )
 
-      this.meshes = await this.loadMeshes();
+      this.meshes = await this.loadMeshes()
 
       // container
       const container = document.getElementById(`scene-${this.sceneId}`)
@@ -71,12 +74,12 @@ export default {
       this.CAMERA.position.setZ(this.camZ ?? 25)
 
       // materials setzen + three.js mesh erstellen
-      for(let i = 0; i < this.models.length; i++) {
-        let model = this.models[i];
-        let mesh = this.meshes[i];
+      for (let i = 0; i < this.models.length; i++) {
+        const model = this.models[i]
+        const mesh = this.meshes[i]
 
-        model.methods.setInitialValues(mesh);
-        this.SCENE.add(mesh);
+        model.methods.setInitialValues(mesh)
+        this.SCENE.add(mesh)
       }
 
       // render einstellungen
@@ -86,27 +89,23 @@ export default {
       // container appenden
       container.appendChild(this.RENDERER.domElement)
 
-      this.animate();
+      this.animate()
     },
     animate () {
       requestAnimationFrame(this.animate)
 
-      if(this.meshes){
+      if (this.meshes) {
+        for (let i = 0; i < this.models.length; i++) {
+          const model = this.models[i]
+          const mesh = this.meshes[i]
 
-        for(let i = 0; i < this.models.length; i++) {
-          let model = this.models[i];
-          let mesh = this.meshes[i];
-
-          if(mesh) {
-            model.methods.animate(mesh);
+          if (mesh) {
+            model.methods.animate(mesh)
             this.RENDERER.render(this.SCENE, this.CAMERA)
           }
         }
       }
-    },
-  },
-  mounted () {
-    this.init();
+    }
   }
 }
 </script>
