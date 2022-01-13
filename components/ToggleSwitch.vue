@@ -53,16 +53,17 @@ export default {
   display: block;
   padding: var(--space-16) 0;
   transform: rotate(180deg);
+  font-family: var(--serif-font);
   transition: font-size 1s linear;
   writing-mode: vertical-rl;
 }
 
 .toggle-switch--button-option:first-child {
-  color: var(--color-text-greta-dark);
+  color: var(--color-text-dark);
 }
 
 .toggle-switch--button-option:last-child {
-  color: var(--color-text-malala-dark);
+  color: var(--color-text-dark);
 }
 
 .toggle-switch--button[aria-pressed='true'] .toggle-switch--button-option:first-child {

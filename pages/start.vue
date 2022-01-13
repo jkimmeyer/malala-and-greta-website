@@ -106,7 +106,7 @@ export default {
   transform: translateX(-50%) translateY(-50%);
   font-size: var(--font-64);
   line-height: var(--line-1-5);
-  color: var(--color-text-neutral);
+  color: var(--color-text-default);
 
   &.visible {
     opacity: 100%;

@@ -30,12 +30,12 @@ export default {
   .page.has-greta-style {
     --color-background: var(--color-background-greta);
     --color-background-dark: var(--color-background-greta-dark);
-    --color-text: var(--color-text-greta);
+    --color-text-dark: var(--color-text-greta-dark);
   }
 
   .page.has-malala-style {
     --color-background: var(--color-background-malala);
     --color-background-dark: var(--color-background-malala-dark);
-    --color-text: var(--color-text-malala);
+    --color-text-dark: var(--color-text-malala-dark);
   }
 </style>
