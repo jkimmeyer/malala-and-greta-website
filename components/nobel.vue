@@ -15,13 +15,13 @@ export default {
       mesh.rotation.z += 0.005
     },
     getMeshPath () {
-      return '../assets/models/Nobel.obj';
+      return '../assets/models/Nobel.obj'
     },
-    setInitialValues(mesh) {
-      mesh.position.y = -15;
-      mesh.position.x = -5;
-      mesh.scale.set(1, 1, 1);
-    },
+    setInitialValues (mesh) {
+      mesh.position.y = -15
+      mesh.position.x = -5
+      mesh.scale.set(1, 1, 1)
+    }
   }
 }
 </script>
