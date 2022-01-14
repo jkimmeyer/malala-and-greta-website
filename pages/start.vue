@@ -1,22 +1,22 @@
 <template>
-  <div class="page" @wheel="onPageScroll($event)">
-    <div class="page--teaser">
+  <div class="start-page" @wheel="onPageScroll($event)">
+    <div class="start-page--teaser">
       <div
-        class="page--teaser-images"
+        class="start-page--teaser-images"
         :style="'filter: blur(' + blurAmount + 'px)'"
       >
         <img
-          class="page--teaser-image left"
+          class="start-page--teaser-image left"
           src="~/assets/images/Malala.png"
           alt="Malala"
-          width="35%"
+          width="35vw"
         >
 
         <img
-          class="page--teaser-image right"
+          class="start-page--teaser-image right"
           src="~/assets/images/Greta.png"
           alt="Greta"
-          width="35%"
+          width="35vw"
         >
       </div>
       <div class="page--teaser-contents">
@@ -84,45 +84,45 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.page {
+.start-page {
   display: block;
   background-color: var(--color-background-neutral);
 }
 
-.page--teaser {
+.start-page--teaser {
   position: relative;
   width: 100vw;
   height: 100vh;
 }
 
-.page--teaser-images {
+.start-page--teaser-images {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   height: 100%;
 }
 
-.page--teaser-image {
+.start-page--teaser-image {
   transition: transform ease-in-out 0.5s, filter ease-in-out 0.5s;
 }
 
-.page--teaser-image.left {
+.start-page--teaser-image.left {
   transform-origin: bottom left;
 }
 
-.page--teaser-image.left:hover {
+.start-page--teaser-image.left:hover {
   filter: drop-shadow(0 0 8px var(--color-shadow-malala));
 }
 
-.page--teaser-image.right {
+.start-page--teaser-image.right {
   transform-origin: bottom right;
 }
 
-.page--teaser-image.right:hover {
+.start-page--teaser-image.right:hover {
   filter: drop-shadow(0 0 8px var(--color-shadow-greta));
 }
 
-.page--teaser-image:hover {
+.start-page--teaser-image:hover {
   transform: scale(1.05);
 }
 
@@ -137,7 +137,7 @@ export default {
   opacity: 0;
   font-size: var(--font-64);
   line-height: var(--line-1-5);
-  color: var(--color-text-neutral);
+  color: var(--color-text-default);
 
   &.visible {
     opacity: 100%;

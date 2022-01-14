@@ -3,6 +3,4 @@ node_modules
 .nuxt
 nuxt.d.ts
 .output
-
-# mac
-.DS_Store
+**/.DS_Store
