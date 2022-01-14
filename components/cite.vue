@@ -8,52 +8,7 @@
 
 <script>
 import { gsap } from 'gsap'
-
-import audioGretaHouseOnFire from '~/assets/audio/cites/greta/house-on-fire.mp3'
-import audioGretaALotForTeenager from '~/assets/audio/cites/greta/a-lot-for-teenager.mp3'
-import audioGretaHumanityCrossroad from '~/assets/audio/cites/greta/humanity-crossroads.mp3'
-import audioMalalaHalfHeldBack from '~/assets/audio/cites/malala/half-held-back.mp3'
-import audioMalalaForgetAboutPain from '~/assets/audio/cites/malala/forget-about-pain.mp3'
-import audioMalalaBulletSilence from '~/assets/audio/cites/malala/bullet-silence.mp3'
-
-const citeContents = [
-  {
-    top: '25%',
-    left: '25%',
-    audio: audioMalalaBulletSilence,
-    text: 'They thought that the bullet would silence us, but they failed'
-  },
-  {
-    top: '20%',
-    left: '65%',
-    audio: audioGretaHouseOnFire,
-    text: 'I am here to say, our house is on fire'
-  },
-  {
-    top: '72%',
-    left: '20%',
-    audio: audioMalalaHalfHeldBack,
-    text: 'We cannot all succeed, when half of us are held back'
-  },
-  {
-    top: '65%',
-    left: '70%',
-    audio: audioGretaHumanityCrossroad,
-    text: 'Humanity is no standing at a crossroads, we must now decide which path we want to take'
-  },
-  {
-    top: '12%',
-    left: '10%',
-    audio: audioMalalaForgetAboutPain,
-    text: 'But there is so much love out there, that is helping me to forget about all the pain that I am going through'
-  },
-  {
-    top: '40%',
-    left: '78%',
-    audio: audioGretaALotForTeenager,
-    text: 'Yes, it is a lot. It is a lot for a teenager'
-  }
-]
+import citeContents from '~/assets/contents/cites-start.json'
 
 export default {
   props: {
@@ -101,30 +56,28 @@ export default {
 
     const loopCites = async () => {
       index.value = (index.value + 1) % citeContents.length
-      const splittedIndexedContent = splitAndIndexText(activeContent.value.text)
-      contentWords.value = splittedIndexedContent
+      contentWords.value = splitAndIndexText(activeContent.value.text)
       itemRefs = []
       await nextTick()
       // animate words in
-      splittedIndexedContent.forEach((_, index) => {
+      contentWords.value.forEach((_, index) => {
         gsap.fromTo(itemRefs[index], { opacity: 0, y: 10 }, { duration: 1.0, opacity: 1, y: 0, delay: index * 0.1 })
       })
       if (props.audioOn) {
         const audio = new Audio(activeContent.value.audio)
         audio.play()
       }
-
       // animate words out
       setTimeout(() => {
-        splittedIndexedContent.forEach((_, index) => {
+        contentWords.value.forEach((_, index) => {
           gsap.to(itemRefs[index], { duration: 1.0, opacity: 0, delay: index * 0.1 })
         })
-      }, 6500)
+      }, 6400)
     }
 
     onMounted(() => {
       loopCites()
-      indervalId = setInterval(loopCites, 9300)
+      indervalId = setInterval(loopCites, 9000)
     })
 
     onUnmounted(() => {

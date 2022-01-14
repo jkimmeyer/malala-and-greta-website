@@ -1,0 +1,38 @@
+[
+  {
+    "top": "25%",
+    "left": "25%",
+    "audio": "/assets/audio/cites/malala/bullet-silence.mp3",
+    "text": "They thought that the bullet would silence us, but they failed"
+  },
+  {
+    "top": "20%",
+    "left": "65%",
+    "audio": "/assets/audio/cites/greta/house-on-fire.mp3",
+    "text": "I am here to say, our house is on fire"
+  },
+  {
+    "top": "72%",
+    "left": "20%",
+    "audio": "/assets/audio/cites/malala/half-held-back.mp3",
+    "text": "We cannot all succeed, when half of us are held back"
+  },
+  {
+    "top": "65%",
+    "left": "70%",
+    "audio": "/assets/audio/cites/greta/humanity-crossroads.mp3",
+    "text": "Humanity is no standing at a crossroads, we must now decide which path we want to take"
+  },
+  {
+    "top": "12%",
+    "left": "10%",
+    "audio": "/assets/audio/cites/malala/forget-about-pain.mp3",
+    "text": "But there is so much love out there, that is helping me to forget about all the pain that I am going through"
+  },
+  {
+    "top": "40%",
+    "left": "78%",
+    "audio": "/assets/audio/cites/greta/a-lot-for-teenager.mp3",
+    "text": "Yes, it is a lot. It is a lot for a teenager"
+  }
+]

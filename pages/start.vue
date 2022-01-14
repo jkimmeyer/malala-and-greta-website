@@ -130,6 +130,7 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
+  height: 250px;
   transform: translateX(-50%) translateY(-50%);
 }
 .page--title {
