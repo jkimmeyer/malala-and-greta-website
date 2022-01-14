@@ -68,10 +68,12 @@ export default {
           },
           // called when loading is in progresses
           function (xhr) {
+            // eslint-disable-next-line no-console
             console.log((xhr.loaded / xhr.total * 100) + '% loaded')
           },
           // called when loading has errors
           function (error) {
+            // eslint-disable-next-line no-console
             console.log('An error happened: ' + error)
           })
 
