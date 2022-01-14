@@ -1,6 +1,6 @@
 <template>
-  <div class="cite">
-    <div class="cite--content" :style="position">
+  <div class="cite" :style="positionStyles">
+    <div class="cite--content">
       <span v-for="word in contentWords" :ref="setItemRef" :key="word.index" class="cite--word">{{ word.content }}</span>
     </div>
   </div>
@@ -64,13 +64,14 @@ export default {
   },
   setup (props) {
     let itemRefs = []
+    let indervalId = null
 
     const index = ref(0)
     const citeVisible = ref(false)
     const contentWords = ref([])
 
     const activeContent = computed(() => citeContents[index.value])
-    const position = computed(() => {
+    const positionStyles = computed(() => {
       return {
         top: activeContent.value.top,
         left: activeContent.value.left
@@ -83,49 +84,51 @@ export default {
       }
     }
 
-    const loopCites = async () => {
-      index.value = (index.value + 1) % citeContents.length
-      const splittedContent = activeContent.value.text.split(' ')
+    const splitAndIndexText = (text) => {
+      const splittedText = text.split(' ')
       const splittedIndexedContent = []
-      splittedContent.forEach((value, index) => {
+      splittedText.forEach((value, index) => {
         let word = value + ' '
         if (index === 0) {
           word = '"' + value + ' '
-        } else if (index === splittedContent.length - 1) {
+        } else if (index === splittedText.length - 1) {
           word = value + '"'
         }
         splittedIndexedContent.push({ index, content: word })
       })
-      itemRefs = []
+      return splittedIndexedContent
+    }
+
+    const loopCites = async () => {
+      index.value = (index.value + 1) % citeContents.length
+      const splittedIndexedContent = splitAndIndexText(activeContent.value.text)
       contentWords.value = splittedIndexedContent
+      itemRefs = []
       await nextTick()
-      // reset word animation
-      splittedIndexedContent.forEach((_, index) => {
-        gsap.to(itemRefs[index], { duration: 0, opacity: 0, y: 10, delay: 0 })
-      })
       // animate words in
       splittedIndexedContent.forEach((_, index) => {
-        gsap.to(itemRefs[index], { duration: 1.2, opacity: 1, y: 0, delay: index * 0.2 })
+        gsap.fromTo(itemRefs[index], { opacity: 0, y: 10 }, { duration: 1.0, opacity: 1, y: 0, delay: index * 0.1 })
       })
-
       if (props.audioOn) {
         const audio = new Audio(activeContent.value.audio)
         audio.play()
       }
 
+      // animate words out
       setTimeout(() => {
-        // animate words out
         splittedIndexedContent.forEach((_, index) => {
-          gsap.to(itemRefs[index], { duration: 1.2, opacity: 0, delay: index * 0.2 })
+          gsap.to(itemRefs[index], { duration: 1.0, opacity: 0, delay: index * 0.1 })
         })
-        setTimeout(() => {
-          loopCites()
-        }, 5000)
-      }, 8000)
+      }, 6500)
     }
 
     onMounted(() => {
       loopCites()
+      indervalId = setInterval(loopCites, 9300)
+    })
+
+    onUnmounted(() => {
+      if (indervalId) { clearInterval(indervalId) }
     })
 
     return {
@@ -133,7 +136,7 @@ export default {
       citeVisible,
       activeContent,
       contentWords,
-      position,
+      positionStyles,
       setItemRef,
       loopCites
     }
@@ -142,17 +145,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.cite {
+  position: absolute;
+}
 .cite--content {
   color: var(--color-text-neutral);
-  position: absolute;
   max-width: 250px;
   text-align: center;
+  will-change: transform
 }
 .cite--word {
   display: inline-block;
   opacity: 0;
   white-space: pre;
   transform: translateY(15px);
+  will-change: transform
 }
-
 </style>

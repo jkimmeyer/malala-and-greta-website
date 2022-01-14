@@ -19,14 +19,18 @@
           width="35%"
         >
       </div>
-      <h1 class="page--title" :class="titleVisible ? 'visible' : null">
-        Erlebe unsere Geschichten.
-        <Icon icon="fluent" />
-      </h1>
-      <!-- TODO: replace with button component when we have defined buttons -->
-      <button v-if="citeVisible" type="button" class="page--button-audio" :class="titleVisible ? 'visible' : null" @click="onStartClicked">
-        Mit Audio erleben
-      </button>
+      <div class="page--teaser-contents">
+        <h1 class="page--title" :class="titleVisible ? 'visible' : null">
+          Erlebe unsere Geschichten.
+          <Icon icon="fluent" />
+        </h1>
+        <div class="center">
+          <!-- TODO: replace with button component when we have defined buttons -->
+          <button v-if="citeVisible" type="button" class="page--button-audio" :class="titleVisible ? 'visible' : null" @click="onStartClicked">
+            Mit Audio erleben
+          </button>
+        </div>
+      </div>
     </div>
     <div class="page--scroll-indicator">
       <ScrollIndicator :is-hidden="!scrollIndicatorVisible" />
@@ -122,12 +126,14 @@ export default {
   transform: scale(1.05);
 }
 
-.page--title {
-  opacity: 0;
+.page--teaser-contents {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+}
+.page--title {
+  opacity: 0;
   font-size: var(--font-64);
   line-height: var(--line-1-5);
   color: var(--color-text-neutral);
@@ -137,14 +143,15 @@ export default {
     transition: opacity ease-in-out 5s;
   }
 }
+.center{
+  display: flex;
+  justify-content: center;
+}
 .page--button-audio {
   opacity: 0;
-  position: absolute;
-  top: 65%;
-  left: 50%;
-  padding: 4px 8px;
+  padding: var(--space-8) var(--space-8);
   color: var(--color-text-neutral);
-  transform: translateX(-50%);
+  margin: var(--space-16) auto 0px auto;
   &.visible {
     opacity: 100%;
     transition: opacity ease-in-out 5s;
