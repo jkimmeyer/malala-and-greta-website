@@ -19,15 +19,23 @@
           width="35vw"
         >
       </div>
-      <h1 class="start-page--title" :class="titleVisible ? 'visible' : null">
-        Erlebe unsere Geschichten.
-        <Icon icon="fluent" />
-      </h1>
+      <div class="page--teaser-contents">
+        <h1 class="page--title" :class="titleVisible ? 'visible' : null">
+          Erlebe unsere Geschichten.
+          <Icon icon="fluent" />
+        </h1>
+        <div class="center">
+          <!-- TODO: replace with button component when we have defined buttons -->
+          <button v-if="citeVisible" type="button" class="page--button-audio" :class="titleVisible ? 'visible' : null" @click="onStartClicked">
+            Mit Audio erleben
+          </button>
+        </div>
+      </div>
     </div>
     <div class="page--scroll-indicator">
       <ScrollIndicator :is-hidden="!scrollIndicatorVisible" />
     </div>
-    <!-- <Cite /> -->
+    <Cite v-if="citeVisible" :audio-on="audioOn" />
   </div>
 </template>
 
@@ -37,20 +45,28 @@ export default {
     return {
       blurAmount: 100,
       titleVisible: false,
+      citeVisible: false,
       gretaGlows: false,
       malalaGlows: false,
-      scrollIndicatorVisible: true
+      scrollIndicatorVisible: true,
+      audioOn: false
     }
   },
   mounted () {
     setTimeout(() => {
       this.titleVisible = true
     }, 100)
+    setTimeout(() => {
+      this.citeVisible = true
+    }, 4000)
   },
   methods: {
     onPageScroll (event) {
       this.updateBlur(event)
       this.updateScrollIndicator(event)
+    },
+    onStartClicked () {
+      this.audioOn = true
     },
     updateBlur (event) {
       if (event.deltaY > 0 && this.blurAmount > 0) {
@@ -110,16 +126,33 @@ export default {
   transform: scale(1.05);
 }
 
-.start-page--title {
-  opacity: 0;
+.page--teaser-contents {
   position: absolute;
   top: 50%;
   left: 50%;
+  height: 250px;
   transform: translateX(-50%) translateY(-50%);
+}
+.page--title {
+  opacity: 0;
   font-size: var(--font-64);
   line-height: var(--line-1-5);
   color: var(--color-text-default);
 
+  &.visible {
+    opacity: 100%;
+    transition: opacity ease-in-out 5s;
+  }
+}
+.center{
+  display: flex;
+  justify-content: center;
+}
+.page--button-audio {
+  opacity: 0;
+  padding: var(--space-8) var(--space-8);
+  color: var(--color-text-neutral);
+  margin: var(--space-16) auto 0px auto;
   &.visible {
     opacity: 100%;
     transition: opacity ease-in-out 5s;
@@ -131,4 +164,5 @@ export default {
   bottom: 0;
   left: 50%;
 }
+
 </style>
