@@ -1,13 +1,13 @@
 <template>
-  <div class="page">
+  <div class="stories-page">
     <div
-      class="page--first"
+      class="stories-page--first"
       :class="malala ? null : 'active'"
     >
       <Malala @click="switchPage()" />
     </div>
     <div
-      class="page--second"
+      class="stories-page--second"
       :class="malala ? 'active' : null"
     >
       <Greta @click="switchPage()" />
@@ -33,15 +33,15 @@ export default {
 </script>
 
 <style>
-.page {
+.stories-page {
   overflow-x: hidden;
   position: relative;
   width: 100vw;
   height: 100vh;
 }
 
-.page--first,
-.page--second {
+.stories-page--first,
+.stories-page--second {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -49,11 +49,11 @@ export default {
   transition: transform ease-in-out 1s;
 }
 
-.page--first.active {
+.stories-page--first.active {
   transform: translateX(-100%);
 }
 
-.page--second.active {
+.stories-page--second.active {
   transform: translateX(100%);
 }
 </style>

@@ -18,7 +18,7 @@ export default {
       mesh.rotation.z += 0.005
     },
     getMeshPath () {
-      return '../assets/models/Nobel.obj'
+      return '/models/Nobel.obj'
     },
     setInitialValues (mesh) {
       mesh.position.y = -15

@@ -7,16 +7,16 @@
       >
         <img
           class="start-page--teaser-image left"
-          src="~/assets/images/Malala.png"
+          src="@/assets/images/Malala.png"
           alt="Malala"
-          width="35vw"
+          width="35%"
         >
 
         <img
           class="start-page--teaser-image right"
-          src="~/assets/images/Greta.png"
+          src="@/assets/images/Greta.png"
           alt="Greta"
-          width="35vw"
+          width="35%"
         >
       </div>
       <div class="page--teaser-contents">
@@ -70,9 +70,9 @@ export default {
     },
     updateBlur (event) {
       if (event.deltaY > 0 && this.blurAmount > 0) {
-        this.blurAmount = this.blurAmount - 0.5
+        this.blurAmount = this.blurAmount - 3
       } else if (event.deltaY < 0 && this.blurAmount < 100) {
-        this.blurAmount = this.blurAmount + 0.5
+        this.blurAmount = this.blurAmount + 1
       }
     },
     updateScrollIndicator (event) {

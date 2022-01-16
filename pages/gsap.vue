@@ -17,16 +17,18 @@
 </template>
 
 <script>
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { gsap } from 'gsap/dist/gsap.js'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 
 export default {
   mounted () {
     gsap.registerPlugin(ScrollTrigger)
-    gsap.to('progress', {
-      value: 100,
-      ease: 'none',
-      scrollTrigger: { scrub: 0.3 }
+    setTimeout(() => {
+      gsap.to('progress', {
+        value: 100,
+        ease: 'none',
+        scrollTrigger: { scrub: 0.3 }
+      }, 200)
     })
   }
 }

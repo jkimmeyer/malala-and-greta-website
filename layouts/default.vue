@@ -9,7 +9,7 @@
 import { Themes } from '@/enums/Themes'
 export default {
   setup () {
-    return { getCurrentTheme }
+    return { getCurrentTheme, setCurrentTheme }
   },
   computed: {
     themeClasses () {
@@ -17,6 +17,9 @@ export default {
       if (this.getCurrentTheme === Themes.Malala) { return 'has-malala-style' }
       return null
     }
+  },
+  mounted () {
+    this.setCurrentTheme(Themes.Malala)
   }
 }
 </script>
