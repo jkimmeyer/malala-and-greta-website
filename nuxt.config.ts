@@ -9,6 +9,8 @@ export default defineNuxtConfig({
     '@/assets/stylesheets/globals/spacing.css',
     '@/assets/stylesheets/globals/fonts.css',
     '@/assets/stylesheets/globals/typography.css',
+    '@/assets/stylesheets/globals/typography-styles.scss',
+    '@/assets/stylesheets/globals/customgrid.scss',
     '@/assets/stylesheets/utilities/visually-hidden.css'
   ]
 })

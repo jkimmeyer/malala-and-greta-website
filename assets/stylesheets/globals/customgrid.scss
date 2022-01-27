@@ -1,0 +1,19 @@
+$grid-columns: 12;
+$breakpoints: (
+  s: 0,
+  m: 600px,
+  l: 1080px,
+  xl: 1500px,
+);
+
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+  @media (min-width: $breakpoint-value) {
+    @for $start from 1 through $grid-columns {
+      @for $end from 1 through $grid-columns {
+        .col-#{$start}-#{$end}-#{$breakpoint-name} {
+          grid-column: #{$start} / #{$end};
+        }
+      }
+    }
+  }
+}
