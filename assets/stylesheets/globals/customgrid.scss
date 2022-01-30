@@ -1,13 +1,8 @@
+@use 'breakpoints';
+
 $grid-columns: 12;
-$breakpoints: (
-  s: 0,
-  m: 600px,
-  l: 1080px,
-  xl: 1500px,
-);
 
-
-@each $breakpoint-name, $breakpoint-value in $breakpoints {
+@each $breakpoint-name, $breakpoint-value in breakpoints.$breakpoints {
   @media (min-width: $breakpoint-value) {
     @for $start from 1 through $grid-columns {
       @for $end from 1 through $grid-columns {
@@ -19,7 +14,7 @@ $breakpoints: (
   }
 }
 
-.container {
+.grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }

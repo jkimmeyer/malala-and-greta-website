@@ -1,5 +1,5 @@
 <template>
-  <div :id="`scene-${sceneId}`" :style="`height:${height}px; width:${width}px;`" />
+  <div :id="`scene-${sceneId}`" :style="`height:${height}px; width:${width}px; margin:auto;`" />
 </template>
 
 <script>
@@ -86,7 +86,7 @@ export default {
     async init () {
       this.SCENE = new THREE.Scene()
       this.OBJ_LOADER = new OBJLoader()
-      this.RENDERER = new THREE.WebGLRenderer({ antialias: true })
+      this.RENDERER = new THREE.WebGLRenderer({ antialias: true, alpha: true })
       this.POINTS_MATERIAL = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 0.05 })
       this.CAMERA = new THREE.PerspectiveCamera(
         this.fov,
