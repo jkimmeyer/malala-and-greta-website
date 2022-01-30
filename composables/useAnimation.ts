@@ -60,22 +60,72 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 // })
 
 export const useAnimation = () => {
-  gsap.registerPlugin(ScrollTrigger)
+  const groupName = 'group-all'
+  const showMarkers = true
 
-  const parallax = (element) => {
+  // gsap.registerPlugin(ScrollTrigger)
+
+  const getAllOfGroup = group => ScrollTrigger.getAll().filter(t => t.vars.group === group)
+
+  // const start = () => {
+  //   console.log(getAllOfGroup(groupName))
+  //   gsap.registerPlugin(ScrollTrigger)
+  //   getAllOfGroup(groupName).forEach(t => t.enable())
+  // }
+
+  // const stop = () => {
+  //   getAllOfGroup(groupName).forEach(t => t.kill())
+  // }
+  const parseValue = (element) => {
+    let animationValue
+    if (element.classList.contains()) {
+      element.classList.forEach((c) => {
+        if (c.startsWith('animation-value-')) {
+          animationValue = c.substring(0, 16)
+        }
+      })
+      return animationValue
+    }
+  }
+
+  const pin = (element) => {
     return gsap.to(element, {
-      yPercent: 100,
+      scrollTrigger: {
+        trigger: element,
+        pin: true,
+        group: groupName
+      }
+    })
+    // end: '+=1300px'
+  }
+
+  const animateBackgroundColor = (element, backgroundColor) => {
+    return gsap.to('.page', {
+      backgroundColor,
+      scrollTrigger: {
+        trigger: element,
+        start: 'top center',
+        scrub: true,
+        group: groupName
+      }
+    })
+  }
+
+  const parallax = (element, yPercent) => {
+    return gsap.to(element, {
+      yPercent,
       ease: 'none',
       scrollTrigger: {
         trigger: element,
-        scrub: true
+        scrub: true,
+        group: groupName
       }
     })
   }
 
-  const revealRight = (element) => {
+  const reveal = (element, x) => {
     return gsap.fromTo(element, {
-      x: 100,
+      x,
       y: 0,
       autoAlpha: 0
     }, {
@@ -86,55 +136,42 @@ export const useAnimation = () => {
       ease: 'expo',
       overwrite: 'auto',
       scrollTrigger: {
-        start: 'top 60%',
+        start: 'top 75%',
         trigger: element,
         toggleActions: 'restart none none reset',
-        markers: true
+        markers: showMarkers,
+        group: groupName
       }
     })
   }
-  const revealLeft = (element) => {
-    return gsap.fromTo(element, {
-      x: -100,
-      y: 0,
-      autoAlpha: 0
-    }, {
-      duration: 1.25,
-      x: 0,
-      y: 0,
-      autoAlpha: 1,
-      ease: 'expo',
-      overwrite: 'auto',
-      scrollTrigger: {
-        start: 'top 60%',
-        trigger: element,
-        toggleActions: 'restart none none reset',
-        markers: true
-      }
-    })
-  }
-  const hide = (elem) => {
-    gsap.set(elem, { autoAlpha: 0 })
+
+  const hide = (element) => {
+    gsap.set(element, { autoAlpha: 0 })
   }
 
   const animateAll = () => {
-    gsap.utils.toArray('.reveal-left').forEach(function (element) {
+    gsap.registerPlugin(ScrollTrigger)
+    gsap.utils.toArray('.reveal-left').forEach((element) => {
       hide(element)
-      revealLeft(element)
+      reveal(element, -100)
     })
-    gsap.utils.toArray('.reveal-right').forEach(function (element) {
+    gsap.utils.toArray('.reveal-right').forEach((element) => {
       hide(element)
-      revealRight(element)
+      reveal(element, 100)
     })
-    gsap.utils.toArray('.parallax').forEach(function (element) {
-      parallax(element)
+    gsap.utils.toArray('.parallax').forEach((element) => {
+      parallax(element, 100)
+    })
+    gsap.utils.toArray('.parallax-fast').forEach((element) => {
+      parallax(element, -100)
+    })
+    gsap.utils.toArray('.pin').forEach((element) => {
+      pin(element)
     })
   }
 
   return {
-    hide,
-    revealLeft,
-    revealRight,
-    animateAll
+    animateAll,
+    animateBackgroundColor
   }
 }

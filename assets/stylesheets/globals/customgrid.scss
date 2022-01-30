@@ -6,14 +6,20 @@ $breakpoints: (
   xl: 1500px,
 );
 
+
 @each $breakpoint-name, $breakpoint-value in $breakpoints {
   @media (min-width: $breakpoint-value) {
     @for $start from 1 through $grid-columns {
       @for $end from 1 through $grid-columns {
         .col-#{$start}-#{$end}-#{$breakpoint-name} {
-          grid-column: #{$start} / #{$end};
+          grid-column: #{$start} / span #{$end};
         }
       }
     }
   }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 }
