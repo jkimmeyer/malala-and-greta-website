@@ -1,19 +1,21 @@
-@use 'breakpoints';
+@use "breakpoints";
 
 @mixin headline1 {
   font-family: Trochut, sans-serif;
   font-size: 200px;
   color: var(--color-text-dark);
-  @include media-min-breakpoint(s) {
+  line-height: 90%;
+  @include breakpoints.media-min-breakpoint(s) {
     font-size: 100px;
   }
-  @include media-min-breakpoint(l) {
+  @include breakpoints.media-min-breakpoint(l) {
     font-size: 200px;
   }
 }
 
 @mixin headline2 {
   font-family: Lato, sans-serif;
+  font-weight: 300; // light
   font-size: 96px;
   color: var(--color-text-dark);
   @include breakpoints.media-min-breakpoint(s) {

@@ -81,16 +81,19 @@ export const useAnimation = () => {
     })
   }
 
-  const animatePageBackgroundColor = (element, backgroundColor) => {
-    return gsap.to('.page', {
-      backgroundColor,
-      scrollTrigger: {
-        trigger: element,
-        start: 'top center',
-        scrub: true,
-        group: groupPage
+  const animateBackgroundColorGradient = (element, baseColor, finalColor) => {
+    return gsap.fromTo('.page',
+      { backgroundColor: baseColor },
+      {
+        backgroundColor: finalColor,
+        scrollTrigger: {
+          trigger: element,
+          start: 'top center',
+          scrub: true,
+          group: groupPage
+        }
       }
-    })
+    )
   }
 
   // inspired by:
@@ -170,6 +173,6 @@ export const useAnimation = () => {
   return {
     animateAll,
     applySmoothScrollToPage,
-    animatePageBackgroundColor
+    animateBackgroundColorGradient
   }
 }
