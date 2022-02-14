@@ -7,7 +7,11 @@
           <!-- Malala -->
           <!-- Section 1-->
           <div class="section">
-            Malala
+            <div class="grid">
+              <div class="text-1 col-8-6-s reveal-right">
+                Der 9. Oktober 2012 fing an wie jeder andere
+              </div>
+            </div>
           </div>
 
           <!-- Section 2-->
@@ -28,7 +32,24 @@
           <!-- Greta -->
           <!-- Section 1-->
           <div class="section">
-            Greta
+            <div class="grid">
+              <div class="text-1 col-1-8-s">
+                WENN SO VIELE DAVON WISSEN, WIESO TUT NIEMAND ETWAS DAGEGEN?
+              </div>
+              <div class="image-1 col-9-3-s">
+                <img src="@/assets/images/melting-earth.png">
+              </div>
+              <div class="greta-pray col-1-12-s">
+                <div class="grid">
+                  <div class="image-2 col-2-3-s">
+                    <img src="@/assets/images/greta-pray.png">
+                  </div>
+                  <div class="text-2 col-5-4-s">
+                    Mit 11 Jahren fiel mir das Essen und Reden schwer.
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Section 2-->
@@ -151,7 +172,36 @@ export default defineComponent({
 }
 .section {
   margin: 20vw 12vw 10vw 12vw;
-  display: none;
+}
+
+/* Greta */
+.text-1 {
+  @include body1;
+  z-index: 1;
+  text-align: left;
+  grid-row: 1;
+}
+.image-1 {
+  z-index: 1;
+  grid-row: 1;
+  margin-top: -32px;
+}
+.greta-pray{
+  grid-row: 3;
+
+  .text-2{
+    @include body2;
+    z-index: 1;
+    text-align: left;
+    grid-row: 2;
+    align-self: end;
+    margin-left: -1em;
+    margin-top: -1.5em;
+  }
+  .image-2 {
+    z-index: 1;
+    grid-row: 1;
+  }
 }
 
 
