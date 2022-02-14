@@ -23,6 +23,11 @@
         </NuxtLink>
       </li>
       <li>
+        <NuxtLink to="/chapter-2">
+          Chapter 2
+        </NuxtLink>
+      </li>
+      <li>
         <NuxtLink to="/chapter-4">
           Chapter 4
         </NuxtLink>
