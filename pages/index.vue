@@ -27,6 +27,11 @@
           Chapter 2
         </NuxtLink>
       </li>
+       <li>
+        <NuxtLink to="/chapter-3">
+          Chapter 3
+        </NuxtLink>
+      </li>
       <li>
         <NuxtLink to="/chapter-4">
           Chapter 4
