@@ -1,7 +1,7 @@
 <template>
   <div id="viewport">
     <div id="content">
-      <div class="chapter">
+      <div class="chapter" style="height: 600vw">
 
         <div v-if="isMalalaTheme">
           <!-- Malala -->
@@ -34,7 +34,7 @@
           <div class="section">
             <div class="grid">
               <div class="text-1 col-1-8-s">
-                WENN SO VIELE DAVON WISSEN, WIESO TUT NIEMAND ETWAS DAGEGEN?
+                Wenn so viele davon wissen, wieso tut niemand etwas dagegen?
               </div>
               <div class="image-1 col-9-3-s">
                 <img src="@/assets/images/melting-earth.png">
@@ -54,6 +54,38 @@
 
           <!-- Section 2-->
           <div class="section">
+            <div class="grid">
+              <div class="model-1 col-1-3-s">
+                <Scene
+                  scene-id="3d-lamp"
+                  :height="400"
+                  :width="300"
+                  :fov="80"
+                  :near="0.1"
+                  :far="1000"
+                  :cam-x="-5"
+                  :cam-y="-14"
+                  :cam-z="10"
+                  :models="models"
+                />
+              </div>
+              <div class="text-3 col-5-7-s">
+                <div class="grid">
+                  <div class="inline-1 col-2-12-s">
+                    Ich habe begonnen auf Dinge zu verzichten
+                  </div>
+                  <div class="inline-2 txt-sml col-2-10-s">
+                    das Licht ausschalten
+                  </div>
+                  <div class="inline-3 txt-sml col-3-9-s">
+                    Flugreisen vermeiden
+                  </div>
+                  <div class="inline-4 txt-sml col-4-8-s">
+                    keine tierischen Produkte
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Section 3-->
@@ -174,7 +206,7 @@ export default defineComponent({
   margin: 20vw 12vw 10vw 12vw;
 }
 
-/* Greta */
+/* Section 1 Greta */
 .text-1 {
   @include body1;
   z-index: 1;
@@ -202,6 +234,31 @@ export default defineComponent({
     z-index: 1;
     grid-row: 1;
   }
+}
+
+.txt-sml{
+  font-weight: 300;
+}
+
+/* Section 2 Greta*/
+.model-1{
+
+}
+.inline-1{
+  @include body1;
+  margin-bottom: 1em;
+}
+.inline-2{
+  @include body2;
+  font-style: italic;
+}
+.inline-3{
+  @include body2;
+  font-style: italic;
+}
+.inline-4{
+  @include body2;
+  font-style: italic;
 }
 
 
