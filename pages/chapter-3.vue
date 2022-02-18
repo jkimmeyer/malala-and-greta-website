@@ -8,7 +8,7 @@
           <!-- Section 1-->
           <div class="section">
             <div class="grid">
-              <div class="text-1 col-8-6-s">
+              <div class="text-1 col-8-6-s reveal-right">
                 Der 9. Oktober 2012 fing an wie jeder andere
               </div>
             </div>
@@ -34,7 +34,8 @@
           <div class="section">
             <div class="grid">
               <div class="text-1 col-1-8-s">
-                Wenn so viele davon wissen, wieso tut niemand etwas dagegen?
+                <span class="reveal-left">Wenn so viele davon wissen, wieso tut</span>
+                <span class="reveal-left">niemand etwas dagegen?</span>
               </div>
               <div class="image-1 col-9-3-s">
                 <img src="@/assets/images/melting-earth.png">
@@ -44,7 +45,7 @@
                   <div class="image-2 col-2-3-s ">
                     <img src="@/assets/images/greta-pray.png">
                   </div>
-                  <div class="text-2 col-5-4-s">
+                  <div class="text-2 col-5-4-s reveal-right">
                     Mit 11 Jahren fiel mir das Essen und Reden schwer.
                   </div>
                 </div>
@@ -71,16 +72,16 @@
               </div>
               <div class="text-3 col-6-6-s">
                 <div class="grid">
-                  <div class="inline-1 col-2-12-s">
+                  <div class="inline-1 col-2-12-s reveal-right">
                     Ich habe begonnen auf Dinge zu verzichten
                   </div>
-                  <div class="inline-2 txt-sml col-2-10-s">
+                  <div class="inline-2 txt-sml col-2-10-s reveal-right">
                     das Licht ausschalten
                   </div>
-                  <div class="inline-3 txt-sml col-3-9-s">
+                  <div class="inline-3 txt-sml col-3-9-s reveal-right">
                     Flugreisen vermeiden
                   </div>
-                  <div class="inline-4 txt-sml col-4-8-s">
+                  <div class="inline-4 txt-sml col-4-8-s reveal-right">
                     keine tierischen Produkte
                   </div>
                 </div>
@@ -92,10 +93,10 @@
           <div class="section">
             <div class="grid">
               <div class="text-4 col-1-12-s">
-                <span class="">
+                <span class="reveal-right">
                   20.08.2018
                 </span>
-                <span class="">
+                <span class="reveal-right">
                   Der Start der Klimabewegung
                 </span>
               </div>
@@ -196,10 +197,15 @@ export default defineComponent({
 
 /* Section 1 Greta */
 .text-1 {
-  @include body1;
+  display: flex;
+  flex-direction: column;
   z-index: 1;
-  text-align: left;
   grid-row: 1;
+
+  > span {
+    text-align: left;
+    @include body1;
+  }
 }
 .image-1 {
   z-index: 1;
