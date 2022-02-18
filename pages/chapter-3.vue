@@ -262,7 +262,7 @@ export default defineComponent({
   @include body1;
   display: flex;
   flex-direction: column;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 .model-2 > div{
   background-color: red;
