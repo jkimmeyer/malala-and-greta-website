@@ -1,5 +1,5 @@
 <template>
-  <div :id="`scene-${sceneId}`" :style="`height:${height}px; width:${width}px; margin:auto;`" />
+  <div :id="`scene-${sceneId}`" :style="`height:${height}px; width:${width}px;`" />
 </template>
 
 <script>

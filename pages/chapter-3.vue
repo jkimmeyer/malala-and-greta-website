@@ -1,14 +1,14 @@
 <template>
   <div id="viewport">
     <div id="content">
-      <div class="chapter" style="height: 600vw">
+      <div class="chapter">
 
         <div v-if="isMalalaTheme">
           <!-- Malala -->
           <!-- Section 1-->
           <div class="section">
             <div class="grid">
-              <div class="text-1 col-8-6-s reveal-right">
+              <div class="text-1 col-8-6-s">
                 Der 9. Oktober 2012 fing an wie jeder andere
               </div>
             </div>
@@ -41,7 +41,7 @@
               </div>
               <div class="greta-pray col-1-12-s">
                 <div class="grid">
-                  <div class="image-2 col-2-3-s">
+                  <div class="image-2 col-2-3-s ">
                     <img src="@/assets/images/greta-pray.png">
                   </div>
                   <div class="text-2 col-5-4-s">
@@ -55,11 +55,11 @@
           <!-- Section 2-->
           <div class="section">
             <div class="grid">
-              <div class="model-1 col-1-3-s">
+              <div class="model-1 col-1-12-s">
                 <Scene
                   scene-id="3d-lamp"
-                  :height="400"
-                  :width="300"
+                  :height="526"
+                  :width="428"
                   :fov="80"
                   :near="0.1"
                   :far="1000"
@@ -69,7 +69,7 @@
                   :models="models"
                 />
               </div>
-              <div class="text-3 col-5-7-s">
+              <div class="text-3 col-6-6-s">
                 <div class="grid">
                   <div class="inline-1 col-2-12-s">
                     Ich habe begonnen auf Dinge zu verzichten
@@ -90,74 +90,50 @@
 
           <!-- Section 3-->
           <div class="section">
-          </div>
-
-          <!-- Section 4-->
-          <div class="section">
-          </div>
-        </div>
-
-
-        <!-- <div class="section">
-          <div class="grid">
-            <div class="text-1 col-8-6-s reveal-right">
-              Der 9. Oktober 2012 fing an wie jeder andere
+            <div class="grid">
+              <div class="text-4 col-1-12-s">
+                <span class="">
+                  20.08.2018
+                </span>
+                <span class="">
+                  Der Start der Klimabewegung
+                </span>
+              </div>
             </div>
-          </div>
-
-          <div class="grid">
-            <div class="video-1 col-1-7-s parallax">
-              <video loop autoplay muted>
-                <source
-                  src="@/assets/videos/malala-kap4-1.mp4"
-                  type="video/mp4"
-                >
-                Sorry, your browser doesn't support embedded videos.
-              </video>
-            </div>
-          </div>
-
-          <div class="grid">
-            <div class="image-1 col-7-4-s parallax-fast">
-              <img src="@/assets/images/malala-kapt4-bus.jpeg">
-            </div>
-          </div>
-        </div>
-
-        <div class="section">
-          <div class="grid">
-            <div class="text-7 col-4-2-s reveal-right">
-              Lorem ipsum bla bla bla
-            </div>
-            <div class="text-8 col-7-2-s reveal-right">
-              Hallo wie geht es dir?
-            </div>
-            <div class="image-2 col-3-8-s">
-              <img class="pagesection-image" src="@/assets/images/malala-kap4-human-shapes.png">
+            <div class="grid">
+              <div class="model-2 col-1-12-s">
+                <Scene
+                  scene-id="swedish"
+                  :height="400"
+                  :width="750"
+                  :fov="80"
+                  :near="0.1"
+                  :far="1000"
+                  :cam-x="-5"
+                  :cam-y="-14"
+                  :cam-z="10"
+                  :models="models"
+                />
+              </div>
+              <div class="video-1 col-11-1-s">
+                <video loop autoplay muted>
+                  <source
+                    src="@/assets/videos/greta-kap3-1.mp4"
+                    type="video/mp4"
+                  >
+                  Sorry, your browser doesn't support embedded videos.
+                </video>
+              </div>
+              <div class="image-container-1 col-1-12-s">
+                <img class="image-3" src="@/assets/svg/arrow.svg">
+                <img class="image-4" src="@/assets/images/fridaysforfuture.png">
+                <span class="">
+                  Alles, was wir tun müssen, ist<br>aufwachen und uns verändern.
+                </span>
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="section page-color-fade">
-          <Scene
-            scene-id="EINS"
-            :height="500"
-            :width="1000"
-            :fov="80"
-            :near="0.1"
-            :far="1000"
-            :cam-x="-5"
-            :cam-y="-14"
-            :cam-z="10"
-            :models="models"
-          />
-          <div class="grid">
-            <div class="text-3 col-4-6-s reveal-right">
-              Dann hörte ich nur noch den Schuss. Alles wurde schwarz
-            </div>
-          </div>
-        </div>
-        -->
       </div>
     </div>
   </div>
@@ -198,12 +174,24 @@ export default defineComponent({
 @import "~/assets/stylesheets/globals/typography-styles.scss";
 @import "~/assets/stylesheets/globals/customgrid.scss";
 
-.chapter {
-  padding-top: 500px;
-  padding-bottom: 500px;
-}
 .section {
-  margin: 20vw 12vw 10vw 12vw;
+  padding-left: 72px;
+  padding-right: 72px;
+
+  &:first-child{
+    padding-top: 90px;
+    padding-bottom: calc(4em + 100px);
+  }
+
+  &:not(:first-child):not(:last-child){
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  &:last-child{
+    padding-top: 100px;
+    padding-bottom: 90px;
+  }
 }
 
 /* Section 1 Greta */
@@ -219,7 +207,9 @@ export default defineComponent({
   margin-top: -32px;
 }
 .greta-pray{
-  grid-row: 3;
+  grid-row: 1;
+  margin-top: auto;
+  margin-bottom: -4em;
 
   .text-2{
     @include body2;
@@ -241,12 +231,18 @@ export default defineComponent({
 }
 
 /* Section 2 Greta*/
-.model-1{
-
+.text-3{
+  grid-row: 1;
 }
 .inline-1{
   @include body1;
   margin-bottom: 1em;
+}
+.model-1{
+  grid-row: 1;
+  div{
+    background-color: red;
+  }
 }
 .inline-2{
   @include body2;
@@ -261,51 +257,43 @@ export default defineComponent({
   font-style: italic;
 }
 
-
-/*.text-1 {
+/* Section 3 Greta */
+.text-4 {
   @include body1;
-  z-index: 1;
-  text-align: right;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
 }
-
-.text-2 {
-  @include body2;
+.model-2 > div{
+  background-color: red;
 }
-
-.text-3 {
-  @include body2;
-  margin-top: 5vw;
-}
-.text-7 {
-  @include body2;
-  margin-top: -3vw;
-}
-.text-8 {
-  @include body2;
-  margin-top: -6vw;
-}
-
 .video-1 {
-  margin-top: -10vw;
-  border-radius: 20px;
-  overflow: hidden;
-}
-.video-1 video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
+  grid-row: 2;
+  margin-top: -4em;
+  video{
+    width: 500px;
+    height: auto;
+    border-radius: 25px;
 
-.image-1 {
-  z-index: 1;
-  margin-top: 10vw;
-}*/
+    }
+  }
+.image-container-1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-row: 3;
+  .image-3{
+    margin-top: 5em;
+    width:80px;
+  }
+  .image-4{
+    margin-top: -2em;
+    width: 750px;
+  }
 
-@media only screen and (min-width: 1920px) {
-  .section {
-    width: 1460px;
-    margin: 20vw auto 10vw auto;
+  > span{
+    @include body2;
+    margin-bottom: 2em;
   }
 }
 </style>
