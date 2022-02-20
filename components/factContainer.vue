@@ -1,17 +1,16 @@
 <template>
-
   <div :class="'fact-container '+postData.size+' theme-'+postData.theme+' '+postData.format">
-    <div class="fact-bg-card"></div>
-    <div class="fact-bg-card"></div>
+    <div class="fact-bg-card" />
+    <div class="fact-bg-card" />
     <div class="fact-card">
       <div class="prev-arrow arrow" @click="previousFact()">
-        <img v-if="postData.theme === 'malala'" src="../assets/svg/fact-arrow-left-malala.svg">
-        <img v-else src="../assets/svg/fact-arrow-left-greta.svg">
+        <img v-if="postData.theme === 'malala'" src="../assets/svg/fact-arrow-left-malala.svg" />
+        <img v-else src="../assets/svg/fact-arrow-left-greta.svg" />
       </div>
       <!-- eslint-disable vue/require-v-for-key -->
-      <div class="facts-wrapper" v-for="(fact, index) in facts">
-        <div :class="'fact fact-'+index" v-if="activeFactID === index">
-          <h3>{{fact.headline}}</h3>
+      <div v-for="(fact, index) in facts" class="facts-wrapper">
+        <div v-if="activeFactID === index" :class="'fact fact-'+index">
+          <h3>{{ fact.headline }}</h3>
           <!-- eslint-disable vue/require-v-for-key -->
           <div class="paragraph-wrapper">
             <p v-for="paragraph in fact.paragraphs">
@@ -21,21 +20,18 @@
           <!-- eslint-enable -->
           <div class="fact-source">
             <div class="fact-line"></div>
-            <p>{{fact.source}}</p>
+            <p>{{ fact.source }}</p>
           </div>
         </div>
       </div>
       <div class="next-arrow arrow" @click="nextFact()">
-        <img v-if="postData.theme === 'malala'" src="../assets/svg/fact-arrow-right-malala.svg">
-        <img v-else src="../assets/svg/fact-arrow-right-greta.svg">
+        <img v-if="postData.theme === 'malala'" src="../assets/svg/fact-arrow-right-malala.svg" />
+        <img v-else src="../assets/svg/fact-arrow-right-greta.svg" />
       </div>
     </div>
   </div>
-
 </template>
-
 <script>
-
 export default{
   props: {
     postData: {
@@ -70,7 +66,6 @@ export default{
   }
 }
 </script>
-
 <style lang="scss" scoped>
 .fact-container{
   min-width: 256px;
@@ -147,7 +142,6 @@ export default{
       z-index: 1;
     }
   }
-
 
   .arrow{
     padding: 2rem;
