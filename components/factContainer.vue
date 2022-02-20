@@ -4,7 +4,10 @@
     <div class="fact-bg-card"></div>
     <div class="fact-bg-card"></div>
     <div class="fact-card">
-      <div class="prev-arrow arrow" @click="previousFact()"> 	&lt; </div>
+      <div class="prev-arrow arrow" @click="previousFact()">
+        <img v-if="postData.theme === 'malala'" src="../assets/svg/fact-arrow-left-malala.svg">
+        <img v-else src="../assets/svg/fact-arrow-left-greta.svg">
+      </div>
       <!-- eslint-disable vue/require-v-for-key -->
       <div class="facts-wrapper" v-for="(fact, index) in facts">
         <div :class="'fact fact-'+index" v-if="activeFactID === index">
@@ -22,7 +25,10 @@
           </div>
         </div>
       </div>
-      <div class="next-arrow arrow" @click="nextFact()"> 	&gt; </div>
+      <div class="next-arrow arrow" @click="nextFact()">
+        <img v-if="postData.theme === 'malala'" src="../assets/svg/fact-arrow-right-malala.svg">
+        <img v-else src="../assets/svg/fact-arrow-right-greta.svg">
+      </div>
     </div>
   </div>
 
@@ -150,6 +156,10 @@ export default{
     &.next-arrow{
       margin-left: auto;
     }
+
+    > img{
+        width: 120px;
+      }
   }
 
   &.sm{
