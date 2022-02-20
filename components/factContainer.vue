@@ -1,10 +1,13 @@
 <template>
 
-  <div :class="'fact-container '+postData.size+' '+postData.theme+' '+postData.format">
+  <div :class="'fact-container '+postData.size+' theme-'+postData.theme+' '+postData.format">
     <div class="fact-bg-card"></div>
     <div class="fact-bg-card"></div>
     <div class="fact-card">
-      <div class="prev-arrow arrow" @click="previousFact()"> 	&lt; </div>
+      <div class="prev-arrow arrow" @click="previousFact()">
+        <img v-if="postData.theme === 'malala'" src="../assets/svg/fact-arrow-left-malala.svg">
+        <img v-else src="../assets/svg/fact-arrow-left-greta.svg">
+      </div>
       <!-- eslint-disable vue/require-v-for-key -->
       <div class="facts-wrapper" v-for="(fact, index) in facts">
         <div :class="'fact fact-'+index" v-if="activeFactID === index">
@@ -22,7 +25,10 @@
           </div>
         </div>
       </div>
-      <div class="next-arrow arrow" @click="nextFact()"> 	&gt; </div>
+      <div class="next-arrow arrow" @click="nextFact()">
+        <img v-if="postData.theme === 'malala'" src="../assets/svg/fact-arrow-right-malala.svg">
+        <img v-else src="../assets/svg/fact-arrow-right-greta.svg">
+      </div>
     </div>
   </div>
 
@@ -67,10 +73,6 @@ export default{
 
 <style lang="scss" scoped>
 .fact-container{
-  //start: only for dev purpose
-  margin:5rem 0 0 5rem;
-  //end: only for dev purpose
-
   min-width: 256px;
   position: relative;
 
@@ -154,6 +156,10 @@ export default{
     &.next-arrow{
       margin-left: auto;
     }
+
+    > img{
+        width: 120px;
+      }
   }
 
   &.sm{
@@ -190,7 +196,7 @@ export default{
     }
   }
 
-  &.greta{
+  &.theme-greta{
     .fact-card, .fact-bg-card{
       background-color: #92BAE4;
 
@@ -203,7 +209,7 @@ export default{
       }
     }
   }
-  &.malala{
+  &.theme-malala{
     .fact-card, .fact-bg-card{
       background-color: #E1BC84;
 
