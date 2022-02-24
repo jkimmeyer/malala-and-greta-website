@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@/assets/stylesheets/globals/_breakpoints.scss',
     '@/assets/stylesheets/globals/typography-styles.scss',
     '@/assets/stylesheets/globals/customgrid.scss',
+    '@/assets/stylesheets/globals/zindex.css',
     '@/assets/stylesheets/utilities/visually-hidden.css'
   ]
 })

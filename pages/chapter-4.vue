@@ -11,7 +11,7 @@
 
           <div class="grid">
             <div class="video-1 col-1-7-s parallax">
-              <video loop autoplay muted>
+              <video class="video--inner" loop autoplay muted>
                 <source
                   src="@/assets/videos/malala-kap4-1.mp4"
                   type="video/mp4"
@@ -43,7 +43,7 @@
         </div>
 
         <div class="section page-color-fade">
-          <Scene
+          <!-- <Scene
             scene-id="EINS"
             :height="500"
             :width="1000"
@@ -54,7 +54,7 @@
             :cam-y="-14"
             :cam-z="10"
             :models="models"
-          />
+          /> -->
           <div class="grid">
             <div class="text-3 col-4-6-s reveal-right">
               Dann hörte ich nur noch den Schuss. Alles wurde schwarz
@@ -72,15 +72,21 @@ import nobel from '~~/components/nobel.vue'
 
 export default defineComponent({
   setup () {
+    const getColor = (key) => {
+      const style = getComputedStyle(document.querySelector('.page'))
+      return style.getPropertyValue(key)
+    }
     onMounted(() => {
       setTimeout(() => {
         // Order is here important
-        // 1. applySmoothScrollToPAge
+        // 1. applySmoothScrollToPage
         // 2. other animations
+        const colorBackground = getColor('--color-background')
+        const colorBackgroundDark = getColor('--color-background-dark')
         const animation = useAnimation()
         animation.applySmoothScrollToPage(window, '#content', '.page')
         animation.animateAll()
-        animation.animatePageBackgroundColor('.page-color-fade', '#957C57')
+        animation.animateBackgroundColorGradient('.page-color-fade', colorBackground, colorBackgroundDark)
       }, 50)
     })
     const models = [nobel]
@@ -131,7 +137,7 @@ export default defineComponent({
   border-radius: 20px;
   overflow: hidden;
 }
-.video-1 video {
+.video--inner {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -139,7 +145,7 @@ export default defineComponent({
 }
 
 .image-1 {
-  z-index: 1;
+  z-index: var(--z-index-1);
   margin-top: 10vw;
 }
 

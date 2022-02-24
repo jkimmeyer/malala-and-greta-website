@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .page {
   min-height: 100vh;
   background-color: var(--color-background);
