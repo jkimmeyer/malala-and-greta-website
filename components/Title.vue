@@ -30,7 +30,7 @@ export default {
   height: 100vh;
   padding: var(--space-128) var(--space-128);
   scroll-snap-align: start;
-  background: linear-gradient(90deg, rgba(0, 212, 255, 0.5) 0%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(var(--color-background-dark) 0%, var(--color-background) 100%);
 }
 
 .title--heading {

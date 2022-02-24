@@ -7,13 +7,13 @@
 
       <div class="grid">
         <div class="data-parallax">
-          <Video path="/videos/malala-kap4-1.mp4" />
+          <Video path="/videos/malala-kap4-1.mp4" class="video-1" />
         </div>
       </div>
 
       <div class="grid">
         <div class="image-1 col-7-4-s data-parallax-fast">
-          <Image path="/images/chapter/4/malala/malala-kapt4-bus.jpeg" />
+          <Image path="/images/chapter/4/malala/malala-kapt4-bus.jpeg" class="image-1" />
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@
           Hallo wie geht es dir?
         </div>
         <div class="image-2 col-3-8-s">
-          <Image class="pagesection-image" path="/images/chapter/4/malala/malala-kap4-human-shapes.png" />
+          <Image class="pagesection-image image-2" path="/images/chapter/4/malala/malala-kap4-human-shapes.png" />
         </div>
       </div>
     </div>

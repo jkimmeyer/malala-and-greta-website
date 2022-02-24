@@ -1,5 +1,5 @@
 <template>
-  <video class="video--inner" loop autoplay muted>
+  <video class="video" loop autoplay muted>
     <source
       :src="path"
       type="video/mp4"
@@ -18,7 +18,7 @@ export default {
 }
 </script>
 <style scoped>
-.video--inner {
+.video {
   display: block;
   width: 100%;
   height: 100%;

@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="image">
     <img :src="path">
+    <div class="corner" />
   </div>
 </template>
 
@@ -15,3 +16,10 @@ export default {
   }
 }
 </script>
+<style>
+.corner {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+}
+</style>

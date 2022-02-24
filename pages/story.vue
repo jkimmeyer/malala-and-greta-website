@@ -15,6 +15,6 @@ export default {
 
 <style scoped>
 .chapters {
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
 }
 </style>
