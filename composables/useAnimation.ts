@@ -62,21 +62,21 @@ export const useAnimation = () => {
   }
 
   const animateAll = () => {
-    gsap.utils.toArray('.reveal-left').forEach((element) => {
+    gsap.utils.toArray('.data-reveal-left').forEach((element) => {
       hide(element)
       reveal(element, -100)
     })
-    gsap.utils.toArray('.reveal-right').forEach((element) => {
+    gsap.utils.toArray('.data-reveal-right').forEach((element) => {
       hide(element)
       reveal(element, 100)
     })
-    gsap.utils.toArray('.parallax').forEach((element) => {
+    gsap.utils.toArray('.data-parallax').forEach((element) => {
       parallax(element, 100)
     })
-    gsap.utils.toArray('.parallax-fast').forEach((element) => {
+    gsap.utils.toArray('.data-parallax-fast').forEach((element) => {
       parallax(element, -100)
     })
-    gsap.utils.toArray('.pin').forEach((element) => {
+    gsap.utils.toArray('.data-pin').forEach((element) => {
       pin(element)
     })
   }
