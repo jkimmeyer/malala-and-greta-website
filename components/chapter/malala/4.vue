@@ -11,8 +11,14 @@
       </div>
 
       <div class="grid">
-        <div class="image-1 col-7-4-s data-parallax-fast">
-          <Image path="/images/chapter/4/malala/malala-kapt4-bus.jpeg" class="image-1" />
+        <div class="image-bus-assassination col-7-4-s data-parallax-fast">
+          <Image
+            :decoration-top-left="true"
+            :decoration-top-right="true"
+            :decoration-bottom-left="true"
+            :decoration-bottom-right="true"
+            path="/images/chapter/4/malala/malala-kapt4-bus.jpeg"
+          />
         </div>
       </div>
     </div>
@@ -25,8 +31,8 @@
         <div class="text-8 col-7-2-s data-reveal-right">
           Hallo wie geht es dir?
         </div>
-        <div class="image-2 col-3-8-s">
-          <Image class="pagesection-image image-2" path="/images/chapter/4/malala/malala-kap4-human-shapes.png" />
+        <div class="image-human-shapes col-3-8-s">
+          <Image class="pagesection-image" path="/images/chapter/4/malala/malala-kap4-human-shapes.png" />
         </div>
       </div>
     </div>
@@ -99,7 +105,7 @@ onMounted(() => {
   border-radius: 20px;
 }
 
-.image-1 {
+.image-bus-assassination {
   z-index: var(--z-index-1);
   margin-top: 10vw;
 }

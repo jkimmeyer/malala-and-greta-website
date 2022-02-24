@@ -50,7 +50,7 @@ export default {
   },
   data () {
     return {
-      chapters: ['1', '2', '3', '4', '5']
+      chapters: ['1 - Wer bin ich?', '2 - Wo bin ich aufgewachsen?', '3 - Wofür setze ich mich ein?', '4 - Welche Rückschläge habe ich erlitten?', '5 - Welche Reise hat mein Leben verändert?', '6 - Wo stehe ich jetzt?']
     }
   }
 }
@@ -62,6 +62,7 @@ export default {
     right: 0;
     top: 0;
     bottom: 0;
+    width: 180px;
   }
 
   .navigation--list {
@@ -76,9 +77,10 @@ export default {
   }
 
   .navigation--list-item.is-page {
-    padding: var(--space-16) var(--space-64);
+    padding: var(--space-16) var(--space-4) var(--space-16) var(--space-4);
     transition: transform ease-in 0.5s;
-    transform: translateX(0);
+    transform: translateX(50%);
+    width: 250px;
   }
 
   .navigation--list-item.is-page.is-current {
@@ -93,7 +95,6 @@ export default {
 
   .navigation--list-item.is-separator:last-child {
     margin-top: auto;
-
   }
 
   .navigation--icon {
@@ -119,7 +120,7 @@ export default {
   .navigation--list-item.is-page:focus,
   .navigation--list-item.is-page:hover,
   .navigation--list-item.is-page:active {
-    transform: translateX(-10px);
+    transform: translateX(-20px);
     transition: transform ease-in 0.5s;
 
     .navigation--link-text {

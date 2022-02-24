@@ -16,12 +16,10 @@ export default {
       required: true
     },
     decorationTopLeft: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     decorationTopRight: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     decorationBottomLeft: {
       type: Boolean
@@ -34,30 +32,35 @@ export default {
 </script>
 <style>
 .image {
+  display: inline-block;
   position: relative;
 }
 
 .image--decoration-top-left {
   position: absolute;
-  top: -10px;
-  left: -10px;
+  top: 0;
+  left: 0;
+  transform: translate(-35%, -35%);
 }
 
 .image--decoration-top-right{
   position: absolute;
-  top: -10px;
-  right: 10px;
+  top: 0;
+  right: 0;
+  transform: translate(35%, -35%);
 }
 
 .image--decoration-bottom-left{
   position: absolute;
-  bottom: 10px;
-  left: -10px;
+  bottom: 0;
+  left: 0;
+  transform: translate(-35%, 35%);
 }
 
 .image--decoration-bottom-right{
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  right: 0;
+  bottom: 0;
+  transform: translate(35%, 35%);
 }
 </style>

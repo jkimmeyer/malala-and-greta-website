@@ -13,6 +13,6 @@
 
 <style scoped>
 .path {
-  stroke: var(--background);
+  stroke: var(--color-text-dark);
 }
 </style>
