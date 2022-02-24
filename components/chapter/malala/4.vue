@@ -1,13 +1,12 @@
 <template>
   <div>
-    <div class="section">
-      <div class="data-reveal-right">
-        Der 9. Oktober 2012 fing an wie jeder andere
-      </div>
-
+    <div class="m-auto max-w-screen-xl">
       <div class="grid">
         <div class="data-parallax">
           <Video path="/videos/malala-kap4-1.mp4" class="video-1" />
+        </div>
+        <div class="text text-right data-reveal-right">
+          Der 9. Oktober 2012 fing an wie jeder andere
         </div>
       </div>
 
@@ -68,6 +67,13 @@ onMounted(() => {
 <style scoped>
 .section {
   max-width: 1280px;
+  margin: auto;
+}
+
+.text {
+  font-family: var(--sans-serif-font);
+  font-size: var(--font-size-body-1);
+  color: var(--color-text-dark);
 }
 
 .text-1 {

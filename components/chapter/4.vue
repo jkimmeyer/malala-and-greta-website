@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Title :chapter="4">
+    <Intro :chapter="4">
       Welche Rückschläge habe ich erlitten?
-    </Title>
+    </Intro>
     <ChapterMalala4 />
   </div>
 </template>

@@ -11,5 +11,8 @@ export default defineNuxtConfig({
     '@/assets/stylesheets/globals/typography.css',
     '@/assets/stylesheets/globals/zindex.css',
     '@/assets/stylesheets/utilities/visually-hidden.css'
+  ],
+  modules: [
+    '@nuxtjs/tailwindcss'
   ]
 })

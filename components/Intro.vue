@@ -1,9 +1,9 @@
 <template>
-  <div class="title">
-    <h2 class="title--subheading">
+  <div class="intro">
+    <h2 class="intro--subheading">
       Kapitel {{ chapter }}
     </h2>
-    <h1 class="title--heading">
+    <h1 class="intro--heading">
       <slot />
     </h1>
   </div>
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style scoped>
-.title {
+.intro {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
@@ -33,7 +33,7 @@ export default {
   background: linear-gradient(var(--color-background-dark) 0%, var(--color-background) 100%);
 }
 
-.title--heading {
+.intro--heading {
   font-family: var(--serif-font);
   font-size: var(--font-182);
   font-weight: 300;
@@ -42,7 +42,7 @@ export default {
   color: var(--color-text-light);
 }
 
-.title--subheading {
+.intro--subheading {
   font-family: var(--sans-serif-font);
   font-size: var(--font-96);
   font-weight: 200;
