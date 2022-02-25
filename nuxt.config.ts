@@ -3,6 +3,7 @@ import { defineNuxtConfig } from 'nuxt3'
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   css: [
+    '@/assets/stylesheets/tailwind.css',
     '@/assets/stylesheets/globals/colors.css',
     '@/assets/stylesheets/globals/font-sizes.css',
     '@/assets/stylesheets/globals/reset.css',
@@ -12,7 +13,9 @@ export default defineNuxtConfig({
     '@/assets/stylesheets/globals/zindex.css',
     '@/assets/stylesheets/utilities/visually-hidden.css'
   ],
-  modules: [
-    '@nuxtjs/tailwindcss'
-  ]
+  build: {
+    postcss: {
+      postcssOptions: require('./postcss.config.js')
+    }
+  }
 })
