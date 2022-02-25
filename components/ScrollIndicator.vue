@@ -23,7 +23,7 @@ export default {
   align-items: center;
   transform: translateY(50%) rotate(-90deg);
   transform-origin: left center;
-  transition: opacity 3s ease-in-out;
+  transition: opacity 3s ease-in;
 
   &::before {
     content: '';
@@ -45,7 +45,7 @@ export default {
 .scroll-indicator--text {
   justify-content: center;
   color: var(--color-text-neutral);
-  transition: letter-spacing 3s ease-in-out;
+  transition: letter-spacing 3s ease-in;
   margin-left: 6px;
 
   .scroll-indicator.hidden & {
