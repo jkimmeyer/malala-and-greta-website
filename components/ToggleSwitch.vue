@@ -54,7 +54,7 @@ export default {
   padding: var(--space-16) 0;
   transform: rotate(180deg);
   font-family: var(--serif-font);
-  transition: font-size 1s linear;
+  transition: font-size 1s ease-in;
   writing-mode: vertical-rl;
 }
 
@@ -69,13 +69,13 @@ export default {
 .toggle-switch--button[aria-pressed='true'] .toggle-switch--button-option:first-child {
   font-size: var(--font-32);
   line-height: var(--line-1-5);
-  transition: font-size 1s linear;
+  transition: font-size 1s ease-in;
 }
 
 .toggle-switch--button[aria-pressed='false'] .toggle-switch--button-option:last-child {
   font-size: var(--font-32);
   line-height: var(--line-1-5);
-  transition: font-size 1s linear;
+  transition: font-size 1s ease-in;
 }
 
 .toggle-switch--icon {

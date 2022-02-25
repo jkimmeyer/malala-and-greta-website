@@ -8,11 +8,6 @@
         </NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/stories">
-          User Switch
-        </NuxtLink>
-      </li>
-      <li>
         <NuxtLink to="/threejs">
           Three JS
         </NuxtLink>
@@ -20,6 +15,11 @@
       <li>
         <NuxtLink to="/gsap">
           GSAP
+        </NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/story">
+          Story
         </NuxtLink>
       </li>
     </ul>

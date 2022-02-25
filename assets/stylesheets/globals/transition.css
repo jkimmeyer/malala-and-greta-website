@@ -1,0 +1,6 @@
+/* Transition */
+
+:root {
+  --duration-1000: 1s;
+  --theme-duration-1000: var(--duration-1000);
+}

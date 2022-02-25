@@ -25,20 +25,20 @@ export default {
 </script>
 
 <style scoped>
-  .page {
-    min-height: 100vh;
-    background-color: var(--color-background);
-  }
+.page {
+  min-height: 100vh;
+  background-color: var(--color-background);
+}
 
-  .page.has-greta-style {
-    --color-background: var(--color-background-greta);
-    --color-background-dark: var(--color-background-greta-dark);
-    --color-text-dark: var(--color-text-greta-dark);
-  }
+.page.has-greta-style {
+  --color-background: var(--color-background-greta);
+  --color-background-dark: var(--color-background-greta-dark);
+  --color-text-dark: var(--color-text-greta-dark);
+}
 
-  .page.has-malala-style {
-    --color-background: var(--color-background-malala);
-    --color-background-dark: var(--color-background-malala-dark);
-    --color-text-dark: var(--color-text-malala-dark);
-  }
+.page.has-malala-style {
+  --color-background: var(--color-background-malala);
+  --color-background-dark: var(--color-background-malala-dark);
+  --color-text-dark: var(--color-text-malala-dark);
+}
 </style>

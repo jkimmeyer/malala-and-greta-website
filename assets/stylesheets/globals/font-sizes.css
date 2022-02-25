@@ -1,8 +1,15 @@
+/* Font Sizes */
+
 :root {
   --font-16: 1rem;
   --font-32: 2rem;
   --font-64: 4rem;
+  --font-96: 6rem;
+  --font-182: 11rem;
   --line-1: 1;
+  --line-1-15: 1.15;
   --line-1-25: 1.25;
   --line-1-5: 1.5;
+  --font-size-body-1: 50px;
+  --font-size-body-2: 30px;
 }

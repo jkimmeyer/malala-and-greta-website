@@ -1,14 +1,9 @@
 <script>
-
 export default {
   props: {
     mesh: {
       type: Object,
       default: null
-    }
-  },
-  data () {
-    return {
     }
   },
   methods: {
