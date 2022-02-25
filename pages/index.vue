@@ -8,11 +8,6 @@
         </NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/stories">
-          User Switch
-        </NuxtLink>
-      </li>
-      <li>
         <NuxtLink to="/threejs">
           Three JS
         </NuxtLink>
@@ -23,8 +18,8 @@
         </NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/chapter/4">
-          Chapter 4
+        <NuxtLink to="/story">
+          Story
         </NuxtLink>
       </li>
     </ul>

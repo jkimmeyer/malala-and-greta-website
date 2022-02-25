@@ -1,5 +1,5 @@
 <template>
-  <div class="intro">
+  <div class="intro" :class="themeClass">
     <h2 class="intro--subheading">
       Kapitel {{ chapter }}
     </h2>
@@ -15,6 +15,15 @@ export default {
     chapter: {
       type: Number,
       required: true
+    },
+    isMalala: {
+      type: Boolean,
+      required: true
+    }
+  },
+  computed: {
+    themeClass () {
+      return this.isMalala ? 'malala' : 'greta'
     }
   }
 }
@@ -30,7 +39,15 @@ export default {
   height: 100vh;
   padding: var(--space-128) var(--space-128);
   scroll-snap-align: start;
-  background: linear-gradient(var(--color-background-dark) 0%, var(--color-background) 100%);
+  color: var(--color-text-light);
+}
+
+.intro.malala {
+  background: linear-gradient(var(--color-background-malala-dark) 0%, var(--color-background-malala) 100%);
+}
+
+.intro.greta {
+  background: linear-gradient(var(--color-background-greta-dark) 0%, var(--color-background-greta) 100%);
 }
 
 .intro--heading {
@@ -39,7 +56,7 @@ export default {
   font-weight: 300;
   letter-spacing: 0.1em;
   line-height: var(--line-1);
-  color: var(--color-text-light);
+  color: inherit;
 }
 
 .intro--subheading {
@@ -48,7 +65,7 @@ export default {
   font-weight: 200;
   line-height: var(--line-1-15);
   text-transform: uppercase;
-  color: var(--color-text-light);
+  color: inherit;
 }
 
 </style>

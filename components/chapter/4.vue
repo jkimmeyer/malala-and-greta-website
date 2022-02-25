@@ -1,8 +1,27 @@
 <template>
   <div>
-    <Intro :chapter="4">
-      Welche Rückschläge habe ich erlitten?
-    </Intro>
-    <ChapterMalala4 />
+    <ChapterSwitcher>
+      <template #malala>
+        <Intro
+          id="chapter-4"
+          :chapter="4"
+          :is-malala="true"
+        >
+          Welche Rückschläge habe ich erlitten?
+        </Intro>
+        <ChapterMalala4 />
+      </template>
+
+      <template #greta>
+        <Intro
+          id="chapter-4"
+          :chapter="4"
+          :is-malala="false"
+        >
+          Welche Greta habe ich erlitten?
+        </Intro>
+        <ChapterMalala4 />
+      </template>
+    </ChapterSwitcher>
   </div>
 </template>

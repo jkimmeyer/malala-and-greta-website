@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
+  <div class="placeholder">
     Placeholder
   </div>
 </template>
 
 <style scoped>
-.container {
+.placeholder {
   display: flex;
   justify-content: center;
   align-items: center;

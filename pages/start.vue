@@ -103,7 +103,7 @@ export default {
 }
 
 .start-page--teaser-image {
-  transition: transform ease-in-out 0.5s, filter ease-in-out 0.5s;
+  transition: transform ease-in var(--theme-duration-1000), filter ease-in var(--theme-duration-1000);
 }
 
 .start-page--teaser-image.left {
@@ -141,7 +141,7 @@ export default {
 
   &.visible {
     opacity: 100%;
-    transition: opacity ease-in-out 5s;
+    transition: opacity ease-in 5s;
   }
 }
 .center{
@@ -155,7 +155,7 @@ export default {
   margin: var(--space-16) auto 0px auto;
   &.visible {
     opacity: 100%;
-    transition: opacity ease-in-out 5s;
+    transition: opacity ease-in 5s;
   }
 }
 

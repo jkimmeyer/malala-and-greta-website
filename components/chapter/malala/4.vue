@@ -17,6 +17,7 @@
             :decoration-top-right="true"
             :decoration-bottom-left="true"
             :decoration-bottom-right="true"
+            :is-malala="true"
             path="/images/chapter/4/malala/malala-kapt4-bus.jpeg"
           />
         </div>
@@ -32,7 +33,7 @@
           Hallo wie geht es dir?
         </div>
         <div class="image-human-shapes col-3-8-s">
-          <Image class="pagesection-image" path="/images/chapter/4/malala/malala-kap4-human-shapes.png" />
+          <Image class="pagesection-image" path="/images/chapter/4/malala/malala-kap4-human-shapes.png" :is-malala="true" />
         </div>
       </div>
     </div>

@@ -1,10 +1,10 @@
 <template>
-  <div class="image">
+  <div class="image" :class="themeClass">
     <img :src="path">
-    <SvgsDecorationTopLeft v-if="decorationTopLeft" class="image--decoration-top-left" />
-    <SvgsDecorationTopRight v-if="decorationTopRight" class="image--decoration-top-right" />
-    <SvgsDecorationBottomLeft v-if="decorationBottomLeft" class="image--decoration-bottom-left" />
-    <SvgsDecorationBottomRight v-if="decorationBottomRight" class="image--decoration-bottom-right" />
+    <SvgsDecorationTopLeft v-if="decorationTopLeft" class="image--decoration top-left" />
+    <SvgsDecorationTopRight v-if="decorationTopRight" class="image--decoration top-right" />
+    <SvgsDecorationBottomLeft v-if="decorationBottomLeft" class="image--decoration bottom-left" />
+    <SvgsDecorationBottomRight v-if="decorationBottomRight" class="image--decoration bottom-right" />
   </div>
 </template>
 
@@ -26,6 +26,15 @@ export default {
     },
     decorationBottomRight: {
       type: Boolean
+    },
+    isMalala: {
+      type: Boolean,
+      required: true
+    }
+  },
+  computed: {
+    themeClass () {
+      return this.isMalala ? 'malala' : 'greta'
     }
   }
 }
@@ -36,29 +45,37 @@ export default {
   position: relative;
 }
 
-.image--decoration-top-left {
+.image--decoration {
   position: absolute;
+}
+
+.image.malala .image--decoration  {
+  stroke: var(--color-text-malala-dark);
+}
+
+.image.greta .image--decoration  {
+  stroke: var(--color-text-greta-dark);
+}
+
+.image--decoration.top-left {
   top: 0;
   left: 0;
   transform: translate(-35%, -35%);
 }
 
-.image--decoration-top-right{
-  position: absolute;
+.image--decoration.top-right{
   top: 0;
   right: 0;
   transform: translate(35%, -35%);
 }
 
-.image--decoration-bottom-left{
-  position: absolute;
+.image--decoration.bottom-left{
   bottom: 0;
   left: 0;
   transform: translate(-35%, 35%);
 }
 
-.image--decoration-bottom-right{
-  position: absolute;
+.image--decoration.bottom-right{
   right: 0;
   bottom: 0;
   transform: translate(35%, 35%);
