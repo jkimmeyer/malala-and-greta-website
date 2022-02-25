@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="section">
+    <div class="section page-color-fade">
       <div class="grid">
         <div class="text-7 col-4-2-s data-reveal-right">
           Lorem ipsum bla bla bla
@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <div class="section page-color-fade">
+    <div class="section">
       <div class="grid">
         <div class="text-3 col-4-6-s data-reveal-right">
           Dann hörte ich nur noch den Schuss. Alles wurde schwarz
@@ -51,21 +51,14 @@
 <script setup>
 import { useAnimation } from '@/composables/useAnimation'
 
-const getColor = (key) => {
-  const style = getComputedStyle(document.querySelector('.page'))
-  return style.getPropertyValue(key)
-}
-
 onMounted(() => {
   setTimeout(() => {
     // Order is here important
     // 1. applySmoothScrollToPage
     // 2. other animations
-    const colorBackground = getColor('--color-background')
-    const colorBackgroundDark = getColor('--color-background-dark')
     const animation = useAnimation()
     animation.animateAll()
-    animation.animateBackgroundColorGradient('.page-color-fade', colorBackground, colorBackgroundDark)
+    animation.animateBackgroundColorGradient('.page-color-fade', 'var(--color-background)', 'var(--color-background-dark)')
   }, 50)
 })
 

@@ -14,16 +14,13 @@
 </template>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
-import scene from '~~/components/scene.vue'
-import nobel from '~~/components/nobel.vue'
+import Nobel from '@/components/Nobel.vue'
 
-export default defineComponent({
-  components: { scene },
+export default {
   data () {
     return {
-      models: [nobel]
+      models: [Nobel]
     }
   }
-})
+}
 </script>
