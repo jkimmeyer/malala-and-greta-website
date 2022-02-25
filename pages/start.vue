@@ -7,14 +7,14 @@
       >
         <img
           class="start-page--teaser-image left"
-          src="@/assets/images/Malala.png"
+          src="/images/Malala.png"
           alt="Malala"
           width="35%"
         >
 
         <img
           class="start-page--teaser-image right"
-          src="@/assets/images/Greta.png"
+          src="/images/Greta.png"
           alt="Greta"
           width="35%"
         >
