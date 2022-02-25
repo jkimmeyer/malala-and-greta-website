@@ -20,7 +20,7 @@
         >
           Welche Greta habe ich erlitten?
         </Intro>
-        <ChapterMalala4 />
+        <ChapterGreta4 />
       </template>
     </ChapterSwitcher>
   </div>

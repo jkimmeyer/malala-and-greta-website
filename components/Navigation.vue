@@ -6,6 +6,7 @@
 
     <ul class="navigation--list">
       <li class="navigation--list-item">
+        <CircularButton :progress="audioNarratorProgress" />
         <button
           :aria-label="getAudioOn ? 'Audio ausschalten' : 'Audio einschalten'"
           class="navigation--button"
@@ -15,13 +16,43 @@
             class="navigation--icon"
             :class="getAudioOn ? null : 'hidden'"
             icon="fluent:speaker-off-24-regular"
-            height="48px"
+            height="32px"
           />
           <Icon
             class="navigation--icon"
             :class="getAudioOn ? 'hidden' : null "
             icon="fluent:speaker-2-24-regular"
-            height="48px"
+            height="32px"
+          />
+        </button>
+        <button
+          :aria-label="audioNarratorIsPlaying ? 'Audio playing' : 'Audio paused'"
+          class="navigation--button"
+        >
+          <Icon
+            class="navigation--icon"
+            :class="audioNarratorIsPlaying ? null : 'hidden'"
+            icon="fluent:pause-24-regular"
+            height="32px"
+            @click="pauseNarrator()"
+          />
+          <Icon
+            class="navigation--icon"
+            :class="audioNarratorIsPlaying ? 'hidden' : null "
+            icon="fluent:play-24-regular"
+            height="32px"
+            @click="resumeNarrator()"
+          />
+        </button>
+        <button
+          :aria-label="getAudioOn ? 'Audio ausschalten' : 'Audio einschalten'"
+          class="navigation--button"
+          @click="playNarrator()"
+        >
+          <Icon
+            class="navigation--icon"
+            icon="fluent:arrow-reset-20-regular"
+            height="32px"
           />
         </button>
       </li>
@@ -46,7 +77,12 @@ export default {
     return {
       getAudioOn,
       toggleAudio,
-      switchTheme
+      switchTheme,
+      audioNarratorIsPlaying,
+      audioNarratorProgress,
+      playNarrator,
+      pauseNarrator,
+      resumeNarrator
     }
   },
   data () {

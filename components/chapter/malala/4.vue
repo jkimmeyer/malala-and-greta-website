@@ -5,7 +5,7 @@
         <div class="data-parallax">
           <Video path="/videos/malala-kap4-1.mp4" class="video-1" />
         </div>
-        <div class="text text-right data-reveal-right">
+        <div class="text text-right data-reveal-right" data-narrator-malala="bullet-silence">
           Der 9. Oktober 2012 fing an wie jeder andere
         </div>
       </div>
@@ -40,7 +40,7 @@
 
     <div class="section">
       <div class="grid">
-        <div class="text-3 col-4-6-s data-reveal-right">
+        <div class="text-3 col-4-6-s data-reveal-right" data-narrator-malala="forget-about-pain">
           Dann hörte ich nur noch den Schuss. Alles wurde schwarz
         </div>
       </div>
@@ -50,6 +50,7 @@
 
 <script setup>
 import { useAnimation } from '@/composables/useAnimation'
+import { useAudioAutoplay } from '@/composables/useAudioAutoplay.ts'
 
 onMounted(() => {
   setTimeout(() => {
@@ -59,6 +60,9 @@ onMounted(() => {
     const animation = useAnimation()
     animation.animateAll()
     animation.animateBackgroundColorGradient('.page-color-fade', 'var(--color-background)', 'var(--color-background-dark)')
+
+    const audioAutoplay = useAudioAutoplay()
+    audioAutoplay.setupAudoplay()
   }, 50)
 })
 
