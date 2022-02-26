@@ -12,16 +12,25 @@
 <script>
 import { Themes } from '@/enums/Themes'
 import { useAnimation } from '@/composables/useAnimation'
+import { useAudioAutoplay } from '@/composables/useAudioAutoplay.ts'
 export default {
   setup () {
     onMounted(() => {
       setTimeout(() => {
+        // setup animations
+        // Order is here important
+        // 1. applySmoothScrollToPage
+        // 2. other animations
         const animation = useAnimation()
         const style = getComputedStyle(document.querySelector('.page'))
         const colorBackground = style.getPropertyValue('--color-background')
         const colorBackgroundDark = style.getPropertyValue('--color-background-dark')
         animation.applySmoothScrollToPage(window, '#content', '.page')
         animation.animateBackgroundColorGradient('.page-color-fade', colorBackground, colorBackgroundDark)
+
+        // setup audio for narrator and sound
+        const audioAutoplay = useAudioAutoplay()
+        audioAutoplay.setupAudoplay()
       }, 50)
     })
     return { getCurrentTheme, setCurrentTheme }

@@ -50,18 +50,11 @@
 
 <script setup>
 import { useAnimation } from '@/composables/useAnimation'
-import { useAudioAutoplay } from '@/composables/useAudioAutoplay.ts'
 
 onMounted(() => {
   setTimeout(() => {
-    // Order is here important
-    // 1. applySmoothScrollToPage
-    // 2. other animations
     const animation = useAnimation()
     animation.animateAll()
-
-    const audioAutoplay = useAudioAutoplay()
-    audioAutoplay.setupAudoplay()
   }, 50)
 })
 

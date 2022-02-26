@@ -16,6 +16,7 @@ export const useAudioAutoplay = () => {
       // onToggle: self => console.log('toggled, isActive:', self.isActive),
       // onUpdate: (self) => {console.log('progress:', self.progress.toFixed(3), 'direction:', self.direction, 'velocity', self.getVelocity())},
       onEnter: () => {
+        // eslint-disable-next-line no-console
         console.log('onEnter' + theme)
         // Always update the sound source for both seems, to have the correct sound for the current position when the user switches themes
         if (theme === Themes.Greta) {

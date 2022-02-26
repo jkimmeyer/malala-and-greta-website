@@ -28,34 +28,30 @@ const muteAllAudioElements = () => {
   }
 }
 
+// current audio sources
 let narratorAudioSourceMalala: string = null
 let narratorAudioSourceGreta: string = null
 let soundAudioSourceMalala: string = null
 let soundAudioSourceGreta: string = null
 
 const getNarratorAudioSource = () => {
-  if (getCurrentTheme.value === Themes.Malala) {
-    return narratorAudioSourceMalala
-  } else {
-    return narratorAudioSourceGreta
-  }
+  return getCurrentTheme.value === Themes.Malala ? narratorAudioSourceMalala : narratorAudioSourceGreta
 }
 
 const getSoundAudioSource = () => {
-  if (getCurrentTheme.value === Themes.Malala) {
-    return soundAudioSourceMalala
-  } else {
-    return soundAudioSourceGreta
-  }
+  return getCurrentTheme.value === Themes.Malala ? soundAudioSourceMalala : soundAudioSourceGreta
 }
 
+// html audio elements
 let narratorAudioElement: HTMLAudioElement = null
 let soundAudioElement: HTMLAudioElement = null
 
+// audio state
 const audioNarratorIsPlaying = ref(false)
 const audioNarratorProgress = ref(0)
 const audioNarratorDuration = ref(0)
 
+// narrator
 const playNarrator = () => {
   // only play when audio is on
   if (!audioOn.value) {
@@ -67,21 +63,17 @@ const playNarrator = () => {
 
   narratorAudioElement = new Audio(getNarratorAudioSource())
   narratorAudioElement.addEventListener('timeupdate', () => {
-    // the time indicated by the currentTime attribute has been updated.
     if (narratorAudioElement) {
       audioNarratorProgress.value = Math.trunc(narratorAudioElement.currentTime / audioNarratorDuration.value * 100)
     }
   })
   narratorAudioElement.addEventListener('durationchange', () => {
-    // playback has begun
     audioNarratorDuration.value = narratorAudioElement.duration
   })
   narratorAudioElement.addEventListener('play', () => {
-    // playback has begun
     audioNarratorIsPlaying.value = true
   })
   narratorAudioElement.addEventListener('pause', () => {
-    // playback has been paused
     audioNarratorIsPlaying.value = false
   })
   narratorAudioElement.play()
@@ -98,7 +90,6 @@ const resumeNarrator = () => {
     playNarrator()
   }
 }
-
 const updateNarratorMalalaAudioSource = (path: string) => {
   narratorAudioSourceMalala = path
 }
@@ -106,8 +97,7 @@ const updateNarratorGretaAudioSource = (path: string) => {
   narratorAudioSourceGreta = path
 }
 
-// - -
-
+// sound
 const playSound = () => {
   if (soundAudioElement) {
     soundAudioElement.pause()

@@ -15,11 +15,6 @@ const switchTheme = () => {
 
 const getCurrentTheme = computed(() => currentTheme.value)
 
-// const getThemeColor = (document, key) => {
-//   const style = getComputedStyle(document.querySelector('.page'))
-//   return style.getPropertyValue(key)
-// }
-
 export {
   setCurrentTheme,
   getCurrentTheme,
