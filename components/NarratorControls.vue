@@ -1,0 +1,94 @@
+<template>
+  <div>
+    <CircularProgressBar :progress="audioNarratorProgress">
+      <button
+        :aria-label="audioNarratorIsPlaying ? 'Audio playing' : 'Audio paused'"
+        class="navigation--button"
+      >
+        <Icon
+          class="navigation--icon"
+          :class="audioNarratorIsPlaying ? null : 'hidden'"
+          icon="fluent:pause-24-regular"
+          height="32px"
+          @click="pauseNarrator()"
+        />
+        <Icon
+          class="navigation--icon"
+          :class="audioNarratorIsPlaying ? 'hidden' : null "
+          icon="fluent:play-24-regular"
+          height="32px"
+          @click="resumeNarrator()"
+        />
+      </button>
+    </CircularProgressBar>
+    <div class="container">
+      <button
+        :aria-label="getAudioOn ? 'Audio ausschalten' : 'Audio einschalten'"
+        class="navigation--button"
+        @click="playNarrator()"
+      >
+        <Icon
+          class="navigation--icon"
+          icon="fluent:arrow-reset-20-regular"
+          height="24px"
+        />
+      </button>
+      <button
+        :aria-label="getAudioOn ? 'Audio ausschalten' : 'Audio einschalten'"
+        class="navigation--button"
+        @click="toggleAudio()"
+      >
+        <Icon
+          class="navigation--icon"
+          :class="getAudioOn ? null : 'hidden'"
+          icon="fluent:speaker-off-24-regular"
+          height="24px"
+        />
+        <Icon
+          class="navigation--icon"
+          :class="getAudioOn ? 'hidden' : null "
+          icon="fluent:speaker-2-24-regular"
+          height="24px"
+        />
+      </button>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  setup () {
+    return {
+      getAudioOn,
+      toggleAudio,
+      audioNarratorIsPlaying,
+      audioNarratorProgress,
+      playNarrator,
+      pauseNarrator,
+      resumeNarrator
+    }
+  }
+}
+</script>
+<style scoped>
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation--button {
+  margin: auto;
+  border: none;
+  background: none;
+}
+
+.navigation--icon {
+  color: var(--color-background-dark);
+  transition: all ease-in var(--theme-duration-1000);
+}
+
+.navigation--icon.hidden {
+  display: none;
+}
+</style>

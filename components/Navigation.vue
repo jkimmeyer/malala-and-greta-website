@@ -6,7 +6,10 @@
 
     <ul class="navigation--list">
       <li class="navigation--list-item">
-        <CircularButton :progress="audioNarratorProgress" />
+        <NarratorControls />
+        <!-- <CircularProgressBar :progress="audioNarratorProgress">
+          <button>hello</button>
+        </CircularProgressBar>
         <button
           :aria-label="getAudioOn ? 'Audio ausschalten' : 'Audio einschalten'"
           class="navigation--button"
@@ -54,7 +57,7 @@
             icon="fluent:arrow-reset-20-regular"
             height="32px"
           />
-        </button>
+        </button> -->
       </li>
       <li class="navigation--list-item is-separator" />
       <li v-for="chapter in chapters" :key="chapter.id" class="navigation--list-item is-page">
@@ -71,8 +74,10 @@
 </template>
 
 <script>
+import NarratorControls from './NarratorControls.vue'
 import { chapters } from '@/assets/contents/chapters.ts'
 export default {
+  components: { NarratorControls },
   setup () {
     return {
       getAudioOn,
@@ -135,15 +140,6 @@ export default {
     margin-top: auto;
   }
 
-  .navigation--icon {
-    color: var(--color-background-dark);
-    transition: all ease-in var(--theme-duration-1000);
-  }
-
-  .navigation--icon.hidden {
-    display: none;
-  }
-
   .navigation--link {
     display: flex;
     border-left: var(--space-4) solid var(--color-background-dark);
@@ -167,10 +163,5 @@ export default {
       opacity: 1;
       transition: opacity ease-in var(--theme-duration-1000);
     }
-  }
-
-  .navigation--button {
-    background: none;
-    border: none;
   }
 </style>

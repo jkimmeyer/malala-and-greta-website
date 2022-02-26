@@ -45,11 +45,13 @@ export default {
   --color-background: var(--color-background-greta);
   --color-background-dark: var(--color-background-greta-dark);
   --color-text-dark: var(--color-text-greta-dark);
+  --color-text-highlight: var(--color-text-greta-highlight);
 }
 
 .page.has-malala-style {
   --color-background: var(--color-background-malala);
   --color-background-dark: var(--color-background-malala-dark);
   --color-text-dark: var(--color-text-malala-dark);
+  --color-text-highlight: var(--color-text-malala-highlight);
 }
 </style>
