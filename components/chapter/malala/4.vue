@@ -2,16 +2,16 @@
   <div>
     <div class="m-auto max-w-screen-xl">
       <div class="grid">
-        <div class="data-parallax">
+        <div data-animate-parallax="100">
           <Video path="/videos/malala-kap4-1.mp4" class="video-1" />
         </div>
-        <div class="text text-right data-reveal-right" data-narrator-malala="bullet-silence">
+        <div class="text text-right" data-narrator-malala="bullet-silence" data-animate-reveal-right>
           Der 9. Oktober 2012 fing an wie jeder andere
         </div>
       </div>
 
       <div class="grid">
-        <div class="image-bus-assassination col-7-4-s data-parallax-fast">
+        <div class="image-bus-assassination col-7-4-s" data-animate-parallax="-100">
           <Image
             :decoration-top-left="true"
             :decoration-top-right="true"
@@ -24,12 +24,12 @@
       </div>
     </div>
 
-    <div class="section page-color-fade">
+    <div class="section" data-animate-page-color-fade>
       <div class="grid">
-        <div class="text-7 col-4-2-s data-reveal-right">
+        <div class="text-7 col-4-2-s" data-animate-reveal-right>
           Lorem ipsum bla bla bla
         </div>
-        <div class="text-8 col-7-2-s data-reveal-right">
+        <div class="text-8 col-7-2-s" data-animate-reveal-right>
           Hallo wie geht es dir?
         </div>
         <div class="image-human-shapes col-3-8-s">
@@ -40,7 +40,7 @@
 
     <div class="section">
       <div class="grid">
-        <div class="text-3 col-4-6-s data-reveal-right" data-narrator-malala="forget-about-pain">
+        <div class="text-3 col-4-6-s" data-narrator-malala="forget-about-pain" data-animate-reveal-rigth>
           Dann hörte ich nur noch den Schuss. Alles wurde schwarz
         </div>
       </div>
@@ -49,14 +49,6 @@
 </template>
 
 <script setup>
-import { useAnimation } from '@/composables/useAnimation'
-
-onMounted(() => {
-  setTimeout(() => {
-    const animation = useAnimation()
-    animation.animateAll()
-  }, 50)
-})
 
 </script>
 

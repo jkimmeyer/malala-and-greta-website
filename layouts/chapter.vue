@@ -26,11 +26,12 @@ export default {
         const colorBackground = style.getPropertyValue('--color-background')
         const colorBackgroundDark = style.getPropertyValue('--color-background-dark')
         animation.applySmoothScrollToPage(window, '#content', '.page')
-        animation.animateBackgroundColorGradient('.page-color-fade', colorBackground, colorBackgroundDark)
+        animation.animateBackgroundColorGradient('[data-animate-page-color-fade]', colorBackground, colorBackgroundDark)
+        animation.animateAll()
 
         // setup audio for narrator and sound
         const audioAutoplay = useAudioAutoplay()
-        audioAutoplay.setupAudoplay()
+        audioAutoplay.setupAudioAutoplay()
       }, 50)
     })
     return { getCurrentTheme, setCurrentTheme }

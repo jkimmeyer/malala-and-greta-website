@@ -10,7 +10,6 @@ export const useAudioAutoplay = () => {
     ScrollTrigger.create({
       trigger: triggerElementStart,
       start: 'top center',
-      markers: true,
       // endTrigger: triggerElementEnd,
       // end: 'bottom 50%+=100px',
       // onToggle: self => console.log('toggled, isActive:', self.isActive),
@@ -55,7 +54,7 @@ export const useAudioAutoplay = () => {
   // data-narrator-malala="a-lot-for-teenager"
   // data-sound-greta="waves"
   // data-sound-malala="noise"
-  const setupAudoplay = () => {
+  const setupAudioAutoplay = () => {
     // narrator
     gsap.utils.toArray('[data-narrator-greta]').forEach((element) => {
       const audioFilePath = `/cites/greta/${element.dataset.narratorGreta}.mp3`
@@ -78,6 +77,6 @@ export const useAudioAutoplay = () => {
   }
 
   return {
-    setupAudoplay
+    setupAudioAutoplay
   }
 }

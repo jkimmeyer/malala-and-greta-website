@@ -61,22 +61,25 @@ export const useAnimation = () => {
     gsap.set(element, { autoAlpha: 0 })
   }
 
+  // data-animate-reveal-right
+  // data-animate-reveal-left
+  // data-animate-parallax="100"
+  // data-animate-pin
+
   const animateAll = () => {
-    gsap.utils.toArray('.data-reveal-left').forEach((element) => {
+    gsap.utils.toArray('[data-animate-reveal-left]').forEach((element) => {
       hide(element)
       reveal(element, -100)
     })
-    gsap.utils.toArray('.data-reveal-right').forEach((element) => {
+    gsap.utils.toArray('[data-animate-reveal-right]').forEach((element) => {
       hide(element)
       reveal(element, 100)
     })
-    gsap.utils.toArray('.data-parallax').forEach((element) => {
-      parallax(element, 100)
+    gsap.utils.toArray('[data-animate-parallax]').forEach((element) => {
+      const value = element.dataset.animateParallax
+      parallax(element, value)
     })
-    gsap.utils.toArray('.data-parallax-fast').forEach((element) => {
-      parallax(element, -100)
-    })
-    gsap.utils.toArray('.data-pin').forEach((element) => {
+    gsap.utils.toArray('[data-animate-pin]').forEach((element) => {
       pin(element)
     })
   }
