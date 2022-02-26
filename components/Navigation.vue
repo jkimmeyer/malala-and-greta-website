@@ -68,10 +68,12 @@ export default {
   }
 
   .navigation--list-item.is-page {
-    padding: var(--space-16) var(--space-4) var(--space-16) var(--space-4);
+    padding: var(--space-16) var(--space-16) var(--space-16) var(--space-4);
     transition: transform ease-in var(--theme-duration-1000);
-    transform: translateX(50%);
-    width: 250px;
+    transform: translateX(0%);
+    align-self: flex-end;
+    white-space: nowrap;
+    margin-right: 46px;
   }
 
   .navigation--list-item.is-page.is-current {
@@ -91,7 +93,7 @@ export default {
 
   .navigation--link {
     display: flex;
-    border-left: var(--space-4) solid var(--color-background-dark);
+    border-right: var(--space-4) solid var(--color-background-dark);
     align-items: center;
     height: var(--space-32);
     padding-left: var(--space-4);
@@ -104,18 +106,21 @@ export default {
 
   .navigation--link-text {
     opacity: 0;
-
+    display: none;
   }
 
   .navigation--list-item.is-page:focus,
   .navigation--list-item.is-page:hover,
   .navigation--list-item.is-page:active {
-    transform: translateX(-20px);
+    transform: translateX(-10px);
     transition: transform ease-in var(--theme-duration-1000);
 
     .navigation--link-text {
+      display: block;
       opacity: 1;
-      transition: opacity ease-in var(--theme-duration-1000);
+      transition: opacity ease-in var(--theme-duration-1000), transform ease-in var(--theme-duration-1000);
+      transform: translateX(-10px);
+
     }
   }
 </style>

@@ -63,12 +63,14 @@ export default {
 .circular-progress-bar--background {
   stroke: var(--color-background-dark);
   stroke-width: 4px;
+  transition: stroke ease-in var(--theme-duration-1000);
 }
 
 .circular-progress-bar--indicator {
   transition: stroke-dashoffset 0.5s ease-out;
   stroke: var(--color-text-highlight);
   stroke-width: 4px;
+  transition: stroke ease-in var(--theme-duration-1000);
 }
 
 .circular-progress-bar--center {

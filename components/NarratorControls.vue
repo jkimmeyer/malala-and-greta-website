@@ -92,9 +92,13 @@ export default {
   transition: all ease-in var(--theme-duration-1000);
 }
 
-.navigation--icon:hover {
+.navigation--icon:active {
   color: var(--color-text-highlight);
   transition: all ease 0.1s;
+}
+
+.navigation--icon:hover {
+  transition: none;
 }
 
 .navigation--icon.hidden {
