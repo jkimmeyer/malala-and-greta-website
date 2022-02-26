@@ -1,18 +1,18 @@
 <template>
   <div class="circular-progress-bar">
     <svg
-      width="100"
-      height="100"
-      viewport="0 0 100 100"
+      width="80"
+      height="80"
+      viewport="0 0 80 80"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
     >
       <circle
         class="circular-progress-bar--background"
         pathLength="100"
-        r="45"
-        cx="50"
-        cy="50"
+        r="35"
+        cx="40"
+        cy="40"
         fill="transparent"
         stroke-dasharray="100"
         stroke-dashoffset="0"
@@ -20,13 +20,13 @@
       <circle
         class="circular-progress-bar--indicator"
         pathLength="100"
-        r="45"
-        cx="50"
-        cy="50"
+        r="35"
+        cx="40"
+        cy="40"
         fill="transparent"
         stroke-dasharray="100"
         stroke-dashoffset="0"
-        transform="rotate(-90 50 50)"
+        transform="rotate(-90 40 40)"
         :style="progressStyle"
       />
     </svg>
@@ -55,20 +55,20 @@ export default {
 <style scoped>
 .circular-progress-bar {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
 }
 
 .circular-progress-bar--background {
   stroke: var(--color-background-dark);
-  stroke-width: 5px;
+  stroke-width: 4px;
 }
 
 .circular-progress-bar--indicator {
   transition: stroke-dashoffset 0.5s ease-out;
   stroke: var(--color-text-highlight);
-  stroke-width: 5px;
+  stroke-width: 4px;
 }
 
 .circular-progress-bar--center {
@@ -78,8 +78,8 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   text-align: center;
 }
 </style>

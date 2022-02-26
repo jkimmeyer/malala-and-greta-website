@@ -53,7 +53,7 @@ export default {
     right: 0;
     top: 0;
     bottom: 0;
-    width: 180px;
+    width: 160px;
   }
 
   .navigation--list {
@@ -96,10 +96,15 @@ export default {
     height: var(--space-32);
     padding-left: var(--space-4);
     transition: all ease-in var(--theme-duration-1000);
+    text-decoration: none;
+    font-family: var(--serif-font);
+    font-size: var(--font-32);
+    color: var(--color-text-dark);
   }
 
   .navigation--link-text {
     opacity: 0;
+
   }
 
   .navigation--list-item.is-page:focus,

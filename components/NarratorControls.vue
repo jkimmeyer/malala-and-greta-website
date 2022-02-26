@@ -78,14 +78,23 @@ export default {
 }
 
 .navigation--button {
-  margin: auto;
+  display: flex;
+  align-items: center;
+  height: auto;
+  margin: 0 4px;
   border: none;
+  padding: 4px;
   background: none;
 }
 
 .navigation--icon {
   color: var(--color-background-dark);
   transition: all ease-in var(--theme-duration-1000);
+}
+
+.navigation--icon:hover {
+  color: var(--color-text-highlight);
+  transition: all ease 0.1s;
 }
 
 .navigation--icon.hidden {
