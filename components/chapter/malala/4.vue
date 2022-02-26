@@ -59,7 +59,6 @@ onMounted(() => {
     // 2. other animations
     const animation = useAnimation()
     animation.animateAll()
-    animation.animateBackgroundColorGradient('.page-color-fade', 'var(--color-background)', 'var(--color-background-dark)')
 
     const audioAutoplay = useAudioAutoplay()
     audioAutoplay.setupAudoplay()

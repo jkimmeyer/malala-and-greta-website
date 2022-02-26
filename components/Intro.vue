@@ -38,7 +38,6 @@ export default {
   width: 100vw;
   height: 100vh;
   padding: var(--space-128) var(--space-128);
-  scroll-snap-align: start;
   color: var(--color-text-light);
 }
 

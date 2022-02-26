@@ -15,7 +15,5 @@ export default {
 </script>
 
 <style scoped>
-.chapters {
-  scroll-snap-type: y mandatory;
-}
+
 </style>

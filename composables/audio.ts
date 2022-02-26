@@ -61,28 +61,26 @@ const playNarrator = () => {
   if (!audioOn.value) {
     return
   }
-
-  console.log('playNArratorAudio', getNarratorAudioSource())
   if (narratorAudioElement) {
     narratorAudioElement.pause()
   }
 
   narratorAudioElement = new Audio(getNarratorAudioSource())
-  narratorAudioElement.addEventListener('timeupdate', (event) => {
+  narratorAudioElement.addEventListener('timeupdate', () => {
     // the time indicated by the currentTime attribute has been updated.
     if (narratorAudioElement) {
       audioNarratorProgress.value = Math.trunc(narratorAudioElement.currentTime / audioNarratorDuration.value * 100)
     }
   })
-  narratorAudioElement.addEventListener('durationchange', (event) => {
+  narratorAudioElement.addEventListener('durationchange', () => {
     // playback has begun
     audioNarratorDuration.value = narratorAudioElement.duration
   })
-  narratorAudioElement.addEventListener('play', (event) => {
+  narratorAudioElement.addEventListener('play', () => {
     // playback has begun
     audioNarratorIsPlaying.value = true
   })
-  narratorAudioElement.addEventListener('pause', (event) => {
+  narratorAudioElement.addEventListener('pause', () => {
     // playback has been paused
     audioNarratorIsPlaying.value = false
   })

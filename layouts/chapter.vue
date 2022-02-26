@@ -17,7 +17,11 @@ export default {
     onMounted(() => {
       setTimeout(() => {
         const animation = useAnimation()
+        const style = getComputedStyle(document.querySelector('.page'))
+        const colorBackground = style.getPropertyValue('--color-background')
+        const colorBackgroundDark = style.getPropertyValue('--color-background-dark')
         animation.applySmoothScrollToPage(window, '#content', '.page')
+        animation.animateBackgroundColorGradient('.page-color-fade', colorBackground, colorBackgroundDark)
       }, 50)
     })
     return { getCurrentTheme, setCurrentTheme }
