@@ -13,7 +13,3 @@ export default {
   layout: 'chapter'
 }
 </script>
-
-<style scoped>
-
-</style>

@@ -48,10 +48,6 @@
   </div>
 </template>
 
-<script setup>
-
-</script>
-
 <style scoped>
 .section {
   max-width: 1280px;
