@@ -46,7 +46,7 @@ export default {
 .stories-page {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: stretch;
   position: relative;
   width: 200vw;
 }

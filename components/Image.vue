@@ -51,6 +51,8 @@ export default {
 
 .image.malala .image--decoration  {
   stroke: var(--color-text-malala-dark);
+  max-width: 3vw;
+  max-height: 3vw;
 }
 
 .image.greta .image--decoration  {

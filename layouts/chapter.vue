@@ -62,6 +62,7 @@ export default {
   --color-background-dark: var(--color-background-greta-dark);
   --color-text-dark: var(--color-text-greta-dark);
   --color-text-highlight: var(--color-text-greta-highlight);
+  --color-active: var(--glaucous);
 }
 
 .page.has-malala-style {
@@ -69,5 +70,6 @@ export default {
   --color-background-dark: var(--color-background-malala-dark);
   --color-text-dark: var(--color-text-malala-dark);
   --color-text-highlight: var(--color-text-malala-highlight);
+  --color-active: var(--bronze);
 }
 </style>

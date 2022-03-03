@@ -79,7 +79,6 @@ export default {
 .navigation--button {
   display: flex;
   align-items: center;
-  height: auto;
   margin: 0 4px;
   border: none;
   padding: 4px;
@@ -92,7 +91,7 @@ export default {
 }
 
 .navigation--icon:hover {
-  color: rgb(182, 147, 95);
+  color: var(--color-active);
   transition: none;
 }
 
