@@ -61,12 +61,27 @@ export const useAnimation = () => {
     gsap.set(element, { autoAlpha: 0 })
   }
 
+  const fadeBackground = (triggerElement, changeElement, fromColor, toColor) => {
+    return gsap.fromTo(changeElement,
+      { backgroundColor: fromColor },
+      {
+        backgroundColor: toColor,
+        scrollTrigger: {
+          trigger: triggerElement,
+          start: 'top center',
+          scrub: true,
+          group: groupPage
+        }
+      }
+    )
+  }
+
+  // attributes that trigger animations on the element itself:
   // data-animate-reveal-right
   // data-animate-reveal-left
   // data-animate-parallax="100"
   // data-animate-pin
-
-  const animateAll = () => {
+  const registerAllAnimationTriggers = () => {
     gsap.utils.toArray('[data-animate-reveal-left]').forEach((element) => {
       hide(element)
       reveal(element, -100)
@@ -84,19 +99,28 @@ export const useAnimation = () => {
     })
   }
 
-  const animateBackgroundColorGradient = (element, baseColor, finalColor) => {
-    return gsap.fromTo('.page',
-      { backgroundColor: baseColor },
-      {
-        backgroundColor: finalColor,
-        scrollTrigger: {
-          trigger: element,
-          start: 'top center',
-          scrub: true,
-          group: groupPage
-        }
-      }
-    )
+  // attributes that trigger background fades:
+  // data-animate-fade-to-dark-malala
+  // data-animate-fade-to-light-malala
+  // data-animate-fade-to-dark-greta
+  // data-animate-fade-to-light-greta
+  //
+  // changed elements:
+  // data-background-malala
+  // data-background-greta
+  const registerAllBackgroundFadeTriggers = (colorBackgroundMalala, colorBackgroundMalalaDark, colorBackgroundGreta, colorBackgroundGretaDark) => {
+    gsap.utils.toArray('[data-animate-fade-to-dark-malala]').forEach((triggerElement) => {
+      fadeBackground(triggerElement, '[data-background-malala]', colorBackgroundMalala, colorBackgroundMalalaDark)
+    })
+    gsap.utils.toArray('[data-animate-fade-to-light-malala]').forEach((triggerElement) => {
+      fadeBackground(triggerElement, '[data-background-malala]', colorBackgroundMalalaDark, colorBackgroundMalala)
+    })
+    gsap.utils.toArray('[data-animate-fade-to-dark-greta]').forEach((triggerElement) => {
+      fadeBackground(triggerElement, '[data-background-greta]', colorBackgroundGreta, colorBackgroundGretaDark)
+    })
+    gsap.utils.toArray('[data-animate-fade-to-light-greta]').forEach((triggerElement) => {
+      fadeBackground(triggerElement, '[data-background-greta]', colorBackgroundGretaDark, colorBackgroundGreta)
+    })
   }
 
   // inspired by:
@@ -174,8 +198,8 @@ export const useAnimation = () => {
   }
 
   return {
-    animateAll,
-    applySmoothScrollToPage,
-    animateBackgroundColorGradient
+    registerAllAnimationTriggers,
+    registerAllBackgroundFadeTriggers,
+    applySmoothScrollToPage
   }
 }

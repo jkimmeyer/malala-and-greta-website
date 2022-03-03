@@ -29,14 +29,7 @@ export default {
   components: { NarratorControls },
   setup () {
     return {
-      getAudioOn,
-      toggleAudio,
-      switchTheme,
-      audioNarratorIsPlaying,
-      audioNarratorProgress,
-      playNarrator,
-      pauseNarrator,
-      resumeNarrator
+      switchTheme
     }
   },
   data () {
@@ -68,16 +61,12 @@ export default {
   }
 
   .navigation--list-item.is-page {
-    padding: var(--space-16) var(--space-16) var(--space-16) var(--space-4);
-    transition: transform ease-in var(--theme-duration-1000);
+    padding: var(--space-4) var(--space-16) var(--space-4) var(--space-4);
+    transition: transform ease-in 0.1s;
     transform: translateX(0%);
     align-self: flex-end;
     white-space: nowrap;
     margin-right: 46px;
-  }
-
-  .navigation--list-item.is-page.is-current {
-    height: var(--space-48);
   }
 
   .navigation--list-item.is-separator {
@@ -95,7 +84,7 @@ export default {
     display: flex;
     border-right: var(--space-4) solid var(--color-background-dark);
     align-items: center;
-    height: var(--space-32);
+    height: 40px;
     padding-left: var(--space-4);
     transition: all ease-in var(--theme-duration-1000);
     text-decoration: none;
@@ -112,15 +101,18 @@ export default {
   .navigation--list-item.is-page:focus,
   .navigation--list-item.is-page:hover,
   .navigation--list-item.is-page:active {
-    transform: translateX(-10px);
-    transition: transform ease-in var(--theme-duration-1000);
+    transform: translateX(-5px);
 
+    .navigation--link {
+      border-color: var(--color-text-highlight);
+      transition: border-color ease 0.1s;
+    }
     .navigation--link-text {
+      color: var(--color-text-highlight);
       display: block;
       opacity: 1;
       transition: opacity ease-in var(--theme-duration-1000), transform ease-in var(--theme-duration-1000);
       transform: translateX(-10px);
-
     }
   }
 </style>

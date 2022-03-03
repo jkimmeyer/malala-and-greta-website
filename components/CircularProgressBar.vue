@@ -55,9 +55,7 @@ export default {
 <style scoped>
 .circular-progress-bar {
   position: relative;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  line-height: 1;
 }
 
 .circular-progress-bar--background {
@@ -79,8 +77,8 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 80px;
-  height: 80px;
+  width: 100%;
+  height: 100%;
   text-align: center;
 }
 </style>

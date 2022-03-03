@@ -38,7 +38,7 @@ export default {
   width: 100vw;
   height: 100vh;
   padding: var(--space-128) var(--space-128);
-  color: var(--color-text-light);
+  color: var(--color-text-neutral-light);
 }
 
 .intro.malala {

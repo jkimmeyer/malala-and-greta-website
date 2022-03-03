@@ -18,20 +18,22 @@ export default {
     onMounted(() => {
       setTimeout(() => {
         // setup animations
-        // Order is here important
-        // 1. applySmoothScrollToPage
-        // 2. other animations
+        // Order is here important: applySmoothScrollToPage needs to be first
         const animation = useAnimation()
         const style = getComputedStyle(document.querySelector('.page'))
-        const colorBackground = style.getPropertyValue('--color-background')
-        const colorBackgroundDark = style.getPropertyValue('--color-background-dark')
+        const colorBackgroundMalala = style.getPropertyValue('--color-background-malala')
+        const colorBackgroundMalalaDark = style.getPropertyValue('--color-background-malala-dark')
+        const colorBackgroundGreta = style.getPropertyValue('--color-background-greta')
+        const colorBackgroundGretaDark = style.getPropertyValue('--color-background-greta-dark')
+
         animation.applySmoothScrollToPage(window, '#content', '.page')
-        animation.animateBackgroundColorGradient('[data-animate-page-color-fade]', colorBackground, colorBackgroundDark)
-        animation.animateAll()
+
+        animation.registerAllBackgroundFadeTriggers(colorBackgroundMalala, colorBackgroundMalalaDark, colorBackgroundGreta, colorBackgroundGretaDark)
+        animation.registerAllAnimationTriggers()
 
         // setup audio for narrator and sound
         const audioAutoplay = useAudioAutoplay()
-        audioAutoplay.setupAudioAutoplay()
+        audioAutoplay.registerAllAudioAutoplayTriggers()
       }, 50)
     })
     return { getCurrentTheme, setCurrentTheme }

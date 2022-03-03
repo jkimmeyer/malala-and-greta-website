@@ -4,24 +4,23 @@
       <button
         :aria-label="audioNarratorIsPlaying ? 'Audio playing' : 'Audio paused'"
         class="navigation--button"
+        @click="audioNarratorIsPlaying? pauseNarrator(): resumeNarrator()"
       >
         <Icon
           class="navigation--icon"
           :class="audioNarratorIsPlaying ? null : 'hidden'"
           icon="fluent:pause-24-regular"
           height="32px"
-          @click="pauseNarrator()"
         />
         <Icon
           class="navigation--icon"
           :class="audioNarratorIsPlaying ? 'hidden' : null "
           icon="fluent:play-24-regular"
           height="32px"
-          @click="resumeNarrator()"
         />
       </button>
     </CircularProgressBar>
-    <div class="container">
+    <div class="button-group">
       <button
         :aria-label="getAudioOn ? 'Audio ausschalten' : 'Audio einschalten'"
         class="navigation--button"
@@ -70,7 +69,7 @@ export default {
 }
 </script>
 <style scoped>
-.container{
+.button-group{
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -92,13 +91,19 @@ export default {
   transition: all ease-in var(--theme-duration-1000);
 }
 
+.navigation--icon:hover {
+  color: rgb(182, 147, 95);
+  transition: none;
+}
+
+.navigation--icon:focus {
+  color: var(--color-text-highlight);
+  transition: none;
+}
+
 .navigation--icon:active {
   color: var(--color-text-highlight);
   transition: all ease 0.1s;
-}
-
-.navigation--icon:hover {
-  transition: none;
 }
 
 .navigation--icon.hidden {

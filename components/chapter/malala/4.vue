@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="chapter-background">
     <div class="m-auto max-w-screen-xl">
       <div class="grid">
         <div data-animate-parallax="100">
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="section" data-animate-page-color-fade>
+    <div class="section" data-animate-fade-to-dark-malala>
       <div class="grid">
         <div class="text-7 col-4-2-s" data-animate-reveal-right>
           Lorem ipsum bla bla bla

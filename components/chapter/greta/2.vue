@@ -1,6 +1,6 @@
 <template>
   <div class="placeholder">
-    Placeholder Chapter 1
+    Placeholder Chapter 2 - Greta
   </div>
 </template>
 

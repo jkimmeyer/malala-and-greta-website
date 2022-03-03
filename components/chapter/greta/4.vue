@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="section" data-animate-page-color-fade>
+    <div class="section" data-animate-fade-to-dark-greta>
       <div class="grid">
         <div class="text-7 col-4-2-s" data-animate-reveal-right>
           Lorem ipsum bla bla bla

@@ -1,6 +1,7 @@
 import { gsap } from 'gsap/dist/gsap.js'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
-import { updateNarratorGretaAudioSource, updateNarratorMalalaAudioSource, playNarrator, playSound } from '@/composables/audio'
+import { playSound, updateSoundSource } from '@/composables/audioSound'
+import { updateNarratorSource, playNarrator } from '@/composables/audioNarrator'
 import { Themes } from '@/enums/Themes'
 
 export const useAudioAutoplay = () => {
@@ -10,41 +11,31 @@ export const useAudioAutoplay = () => {
     ScrollTrigger.create({
       trigger: triggerElementStart,
       start: 'top center',
-      // endTrigger: triggerElementEnd,
-      // end: 'bottom 50%+=100px',
-      // onToggle: self => console.log('toggled, isActive:', self.isActive),
-      // onUpdate: (self) => {console.log('progress:', self.progress.toFixed(3), 'direction:', self.direction, 'velocity', self.getVelocity())},
       onEnter: () => {
-        // eslint-disable-next-line no-console
-        console.log('onEnter' + theme)
         // Always update the sound source for both seems, to have the correct sound for the current position when the user switches themes
-        if (theme === Themes.Greta) {
-          updateNarratorGretaAudioSource(audioFilePath)
-        } else {
-          updateNarratorMalalaAudioSource(audioFilePath)
-        }
+        updateNarratorSource(audioFilePath, theme)
         // Only trigger a play when the trigger was fired by the active/visible page
         // e.g. when user currently sees Malala, only call play for malala triggers
         if (theme === getCurrentTheme.value) {
           playNarrator()
         }
       }
-
-      // onEnterBack: ({ progress, direction, isActive }) => console.log(progress, direction, isActive),
-      // onLeave: ({ progress, direction, isActive }) => console.log(progress, direction, isActive),
-      // onLeaveBack: ({ progress, direction, isActive }) => console.log(progress, direction, isActive)
     })
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const registerSoundTrigger = (triggerElementStart, audioFilePath: string, theme: Themes) => {
     ScrollTrigger.create({
       trigger: triggerElementStart,
       start: 'top center',
       markers: true,
       onEnter: () => {
-        // TODO
-        playSound()
+        // Always update the sound source for both seems, to have the correct sound for the current position when the user switches themes
+        updateSoundSource(audioFilePath, theme)
+        // Only trigger a play when the trigger was fired by the active/visible page
+        // e.g. when user currently sees Malala, only call play for malala triggers
+        if (theme === getCurrentTheme.value) {
+          playSound()
+        }
       }
     })
   }
@@ -54,8 +45,8 @@ export const useAudioAutoplay = () => {
   // data-narrator-malala="a-lot-for-teenager"
   // data-sound-greta="waves"
   // data-sound-malala="noise"
-  const setupAudioAutoplay = () => {
-    // narrator
+  const registerAllAudioAutoplayTriggers = () => {
+    // narrator voice
     gsap.utils.toArray('[data-narrator-greta]').forEach((element) => {
       const audioFilePath = `/cites/greta/${element.dataset.narratorGreta}.mp3`
       registerNarratorTrigger(element, audioFilePath, Themes.Greta)
@@ -77,6 +68,6 @@ export const useAudioAutoplay = () => {
   }
 
   return {
-    setupAudioAutoplay
+    registerAllAudioAutoplayTriggers
   }
 }
