@@ -17,7 +17,7 @@
             :decoration-top-right="true"
             :decoration-bottom-left="true"
             :decoration-bottom-right="true"
-            :is-malala="true"
+            theme="malala"
             path="/images/chapter/4/malala/malala-kapt4-bus.jpeg"
           />
         </div>
@@ -56,14 +56,14 @@
 .text {
   font-family: var(--sans-serif-font);
   font-size: var(--font-size-body-1);
-  color: var(--color-text-dark);
+  color: var(--color-text-malala-dark);
 }
 
 .text-small {
   font-family: var(--sans-serif-font);
   font-size: var(--font-size-body-2);
   font-style: italic;
-  color: var(--color-text-dark);
+  color: var(--color-text-malala-dark);
 }
 
 .text-1 {

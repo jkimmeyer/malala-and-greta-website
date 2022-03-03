@@ -86,22 +86,22 @@ export default {
 }
 
 .navigation--icon {
-  color: var(--color-background-dark);
+  color: var(--color-control);
   transition: all ease-in var(--theme-duration-1000);
 }
 
 .navigation--icon:hover {
-  color: var(--color-active);
+  color: var(--color-control-hover);
   transition: none;
 }
 
 .navigation--icon:focus {
-  color: var(--color-text-highlight);
+  color: var(--color-control-focus);
   transition: none;
 }
 
 .navigation--icon:active {
-  color: var(--color-text-highlight);
+  color: var(--color-control-active);
   transition: all ease 0.1s;
 }
 

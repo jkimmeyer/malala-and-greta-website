@@ -12,7 +12,7 @@
 <script>
 import { Themes } from '@/enums/Themes'
 import { useAnimation } from '@/composables/useAnimation'
-import { useAudioAutoplay } from '@/composables/useAudioAutoplay.ts'
+import { useAudio } from '@/composables/useAudio.ts'
 export default {
   setup () {
     onMounted(() => {
@@ -32,8 +32,8 @@ export default {
         animation.registerAllAnimationTriggers()
 
         // setup audio for narrator and sound
-        const audioAutoplay = useAudioAutoplay()
-        audioAutoplay.registerAllAudioAutoplayTriggers()
+        const audio = useAudio()
+        audio.registerAllAudioAutoplayTriggers()
       }, 50)
     })
     return { getCurrentTheme, setCurrentTheme }
@@ -62,7 +62,10 @@ export default {
   --color-background-dark: var(--color-background-greta-dark);
   --color-text-dark: var(--color-text-greta-dark);
   --color-text-highlight: var(--color-text-greta-highlight);
-  --color-active: var(--glaucous);
+  --color-control: var(--color-background-greta-dark);
+  --color-control-focus: var(--glaucous);
+  --color-control-hover: var(--glaucous);
+  --color-control-active: var(--color-text-greta-highlight);
 }
 
 .page.has-malala-style {
@@ -70,6 +73,9 @@ export default {
   --color-background-dark: var(--color-background-malala-dark);
   --color-text-dark: var(--color-text-malala-dark);
   --color-text-highlight: var(--color-text-malala-highlight);
-  --color-active: var(--bronze);
+  --color-control: var(--color-background-malala-dark);
+  --color-control-focus: var(--bronze);
+  --color-control-hover: var(--bronze);
+  --color-control-active: var(--color-text-malala-highlight);
 }
 </style>

@@ -72,7 +72,7 @@ export default {
   .navigation--list-item.is-separator {
     height: var(--space-64);
     width: var(--space-4);
-    background-color: var(--color-background-dark);
+    background-color: var(--color-control);
     transition: all ease-in var(--theme-duration-1000);
   }
 
@@ -82,7 +82,7 @@ export default {
 
   .navigation--link {
     display: flex;
-    border-right: var(--space-4) solid var(--color-background-dark);
+    border-right: var(--space-4) solid var(--color-control);
     align-items: center;
     height: 40px;
     padding-left: var(--space-4);
@@ -104,11 +104,11 @@ export default {
     transform: translateX(-5px);
 
     .navigation--link {
-      border-color: var(--color-text-highlight);
+      border-color: var(--color-control-active);
       transition: border-color ease 0.1s;
     }
     .navigation--link-text {
-      color: var(--color-text-highlight);
+      color: var(--color-control-active);
       display: block;
       opacity: 1;
       transition: opacity ease-in var(--theme-duration-1000), transform ease-in var(--theme-duration-1000);

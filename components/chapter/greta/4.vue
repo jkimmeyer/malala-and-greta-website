@@ -17,7 +17,7 @@
             :decoration-top-right="true"
             :decoration-bottom-left="true"
             :decoration-bottom-right="true"
-            :is-malala="true"
+            theme="greta"
             path="/images/chapter/4/malala/malala-kapt4-bus.jpeg"
           />
         </div>
@@ -33,7 +33,7 @@
           Hallo wie geht es dir?
         </div>
         <div class="image-human-shapes col-3-8-s">
-          <Image class="pagesection-image" path="/images/chapter/4/malala/malala-kap4-human-shapes.png" :is-malala="true" />
+          <Image class="pagesection-image" theme="greta" path="/images/chapter/4/malala/malala-kap4-human-shapes.png" />
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
 .text {
   font-family: var(--sans-serif-font);
   font-size: var(--font-size-body-1);
-  color: var(--color-text-dark);
+  color: var(--color-text-greta-dark);
 }
 
 .text-1 {

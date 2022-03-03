@@ -15,6 +15,10 @@ export default {
       type: String,
       required: true
     },
+    theme: {
+      type: String,
+      required: true
+    },
     decorationTopLeft: {
       type: Boolean
     },
@@ -26,15 +30,16 @@ export default {
     },
     decorationBottomRight: {
       type: Boolean
-    },
-    isMalala: {
-      type: Boolean,
-      required: true
     }
   },
   computed: {
     themeClass () {
-      return this.isMalala ? 'malala' : 'greta'
+      if (this.theme !== 'malala' && this.theme !== 'greta' && this.theme !== 'default') {
+        // eslint-disable-next-line no-console
+        console.log('Error using Image.vue: theme prop not valid')
+        return
+      }
+      return this.theme
     }
   }
 }
@@ -47,16 +52,20 @@ export default {
 
 .image--decoration {
   position: absolute;
-}
-
-.image.malala .image--decoration  {
-  stroke: var(--color-text-malala-dark);
   max-width: 3vw;
   max-height: 3vw;
 }
 
+.image.malala .image--decoration  {
+  stroke: var(--color-text-malala-dark);
+}
+
 .image.greta .image--decoration  {
   stroke: var(--color-text-greta-dark);
+}
+
+.image.default .image--decoration  {
+  stroke: var(--white);
 }
 
 .image--decoration.top-left {

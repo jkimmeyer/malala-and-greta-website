@@ -4,7 +4,7 @@ import { playSound, updateSoundSource } from '@/composables/audioSound'
 import { updateNarratorSource, playNarrator } from '@/composables/audioNarrator'
 import { Themes } from '@/enums/Themes'
 
-export const useAudioAutoplay = () => {
+export const useAudio = () => {
   gsap.registerPlugin(ScrollTrigger)
 
   const registerNarratorTrigger = (triggerElementStart, audioFilePath: string, theme: Themes) => {
