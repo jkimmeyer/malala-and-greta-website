@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import { gsap } from 'gsap/dist/gsap.js'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 
 export default {
   mounted () {

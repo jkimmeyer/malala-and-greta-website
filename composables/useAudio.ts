@@ -1,12 +1,12 @@
-import { gsap } from 'gsap/dist/gsap.js'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 import { playSound, updateSoundSource } from '@/composables/audioSound'
 import { updateNarratorSource, playNarrator } from '@/composables/audioNarrator'
 import { Themes } from '@/enums/Themes'
 
-export const useAudio = () => {
-  gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger)
 
+export const useAudio = () => {
   const registerNarratorTrigger = (triggerElementStart, audioFilePath: string, theme: Themes) => {
     ScrollTrigger.create({
       trigger: triggerElementStart,

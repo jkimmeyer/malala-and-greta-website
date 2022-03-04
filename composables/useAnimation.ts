@@ -1,12 +1,12 @@
-import { gsap } from 'gsap/dist/gsap.js'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export const useAnimation = () => {
   const groupPage = 'group-page'
   const groupChapter = 'group-chapter'
   const showMarkers = false
-
-  gsap.registerPlugin(ScrollTrigger)
 
   // group handling
   // const getAllOfGroup = group => ScrollTrigger.getAll().filter(t => t.vars.group === group)
