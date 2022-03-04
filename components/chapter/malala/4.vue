@@ -33,7 +33,7 @@
           Hallo wie geht es dir?
         </div>
         <div class="image-human-shapes col-start-3 col-span-8">
-          <Image class="pagesection-image" path="/images/chapter/4/malala/malala-kap4-human-shapes.png" :is-malala="true" />
+          <Image class="pagesection-image" path="/images/chapter/4/malala/malala-kap4-human-shapes.png" theme="malala" />
         </div>
       </div>
     </div>
