@@ -23,7 +23,7 @@
             “So today I met my role model. What else can I say?”
           </div>
           <div class="text text-right col-start-6 col-span-12" data-narrator-malala="bullet-silence" data-animate-reveal-right>
-            “She’s the only friend I’d skip school for”
+            “She's the only friend I'd skip school for”
           </div>
         </div>
       </div>
