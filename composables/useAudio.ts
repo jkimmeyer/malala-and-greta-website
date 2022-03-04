@@ -7,7 +7,7 @@ import { Themes } from '@/enums/Themes'
 gsap.registerPlugin(ScrollTrigger)
 
 export const useAudio = () => {
-  const registerNarratorTrigger = (triggerElementStart, audioFilePath: string, theme: Themes) => {
+  const registerNarratorTrigger = (triggerElementStart: HTMLElement | string, audioFilePath: string, theme: Themes) => {
     ScrollTrigger.create({
       trigger: triggerElementStart,
       start: 'top center',
@@ -23,7 +23,7 @@ export const useAudio = () => {
     })
   }
 
-  const registerSoundTrigger = (triggerElementStart, audioFilePath: string, theme: Themes) => {
+  const registerSoundTrigger = (triggerElementStart: HTMLElement | string, audioFilePath: string, theme: Themes) => {
     ScrollTrigger.create({
       trigger: triggerElementStart,
       start: 'top center',
@@ -47,21 +47,21 @@ export const useAudio = () => {
   // data-sound-malala="noise"
   const registerAllAudioAutoplayTriggers = () => {
     // narrator voice
-    gsap.utils.toArray('[data-narrator-greta]').forEach((element) => {
+    gsap.utils.toArray('[data-narrator-greta]').forEach((element: HTMLElement) => {
       const audioFilePath = `/cites/greta/${element.dataset.narratorGreta}.mp3`
       registerNarratorTrigger(element, audioFilePath, Themes.Greta)
     })
-    gsap.utils.toArray('[data-narrator-malala]').forEach((element) => {
+    gsap.utils.toArray('[data-narrator-malala]').forEach((element: HTMLElement) => {
       const audioFilePath = `/cites/malala/${element.dataset.narratorMalala}.mp3`
       registerNarratorTrigger(element, audioFilePath, Themes.Malala)
     })
 
     // background sounds
-    gsap.utils.toArray('[data-sound-greta]').forEach((element) => {
+    gsap.utils.toArray('[data-sound-greta]').forEach((element: HTMLElement) => {
       const audioFilePath = `/cites/greta/${element.dataset.soundGreta}.mp3`
       registerSoundTrigger(element, audioFilePath, Themes.Greta)
     })
-    gsap.utils.toArray('[data-sound-malala]').forEach((element) => {
+    gsap.utils.toArray('[data-sound-malala]').forEach((element: HTMLElement) => {
       const audioFilePath = `/cites/malala/${element.dataset.soundMalala}.mp3`
       registerSoundTrigger(element, audioFilePath, Themes.Malala)
     })

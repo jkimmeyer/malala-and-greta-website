@@ -4,38 +4,30 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 gsap.registerPlugin(ScrollTrigger)
 
 export const useAnimation = () => {
-  const groupPage = 'group-page'
-  const groupChapter = 'group-chapter'
   const showMarkers = false
 
-  // group handling
-  // const getAllOfGroup = group => ScrollTrigger.getAll().filter(t => t.vars.group === group)
-  // getAllOfGroup(groupName).forEach(t => t.enable())
-
-  const pin = (element) => {
+  const pin = (element: HTMLElement | string) => {
     return gsap.to(element, {
       scrollTrigger: {
         trigger: element,
         pin: true,
-        pinSpacing: false,
-        group: groupChapter
+        pinSpacing: false
       }
     })
   }
 
-  const parallax = (element, yPercent) => {
+  const parallax = (element: HTMLElement | string, yPercent: any) => {
     return gsap.to(element, {
       yPercent,
       ease: 'none',
       scrollTrigger: {
         trigger: element,
-        scrub: true,
-        group: groupChapter
+        scrub: true
       }
     })
   }
 
-  const reveal = (element, x) => {
+  const reveal = (element: HTMLElement | string, x: number) => {
     return gsap.fromTo(element, {
       x,
       y: 0,
@@ -51,17 +43,16 @@ export const useAnimation = () => {
         start: 'top 75%',
         trigger: element,
         toggleActions: 'restart none none reset',
-        markers: showMarkers,
-        group: groupChapter
+        markers: showMarkers
       }
     })
   }
 
-  const hide = (element) => {
+  const hide = (element: HTMLElement | string) => {
     gsap.set(element, { autoAlpha: 0 })
   }
 
-  const fadeBackground = (triggerElement, changeElement, fromColor, toColor) => {
+  const fadeBackground = (triggerElement: HTMLElement | string, changeElement: HTMLElement | string, fromColor: any, toColor: any) => {
     return gsap.fromTo(changeElement,
       { backgroundColor: fromColor },
       {
@@ -69,8 +60,7 @@ export const useAnimation = () => {
         scrollTrigger: {
           trigger: triggerElement,
           start: 'top center',
-          scrub: true,
-          group: groupPage
+          scrub: true
         }
       }
     )
@@ -82,19 +72,19 @@ export const useAnimation = () => {
   // data-animate-parallax="100"
   // data-animate-pin
   const registerAllAnimationTriggers = () => {
-    gsap.utils.toArray('[data-animate-reveal-left]').forEach((element) => {
+    gsap.utils.toArray('[data-animate-reveal-left]').forEach((element: HTMLElement) => {
       hide(element)
       reveal(element, -100)
     })
-    gsap.utils.toArray('[data-animate-reveal-right]').forEach((element) => {
+    gsap.utils.toArray('[data-animate-reveal-right]').forEach((element: HTMLElement) => {
       hide(element)
       reveal(element, 100)
     })
-    gsap.utils.toArray('[data-animate-parallax]').forEach((element) => {
+    gsap.utils.toArray('[data-animate-parallax]').forEach((element: HTMLElement) => {
       const value = element.dataset.animateParallax
       parallax(element, value)
     })
-    gsap.utils.toArray('[data-animate-pin]').forEach((element) => {
+    gsap.utils.toArray('[data-animate-pin]').forEach((element: HTMLElement) => {
       pin(element)
     })
   }
@@ -109,16 +99,16 @@ export const useAnimation = () => {
   // data-background-malala
   // data-background-greta
   const registerAllBackgroundFadeTriggers = (colorBackgroundMalala, colorBackgroundMalalaDark, colorBackgroundGreta, colorBackgroundGretaDark) => {
-    gsap.utils.toArray('[data-animate-fade-to-dark-malala]').forEach((triggerElement) => {
+    gsap.utils.toArray('[data-animate-fade-to-dark-malala]').forEach((triggerElement: HTMLElement) => {
       fadeBackground(triggerElement, '[data-background-malala]', colorBackgroundMalala, colorBackgroundMalalaDark)
     })
-    gsap.utils.toArray('[data-animate-fade-to-light-malala]').forEach((triggerElement) => {
+    gsap.utils.toArray('[data-animate-fade-to-light-malala]').forEach((triggerElement: HTMLElement) => {
       fadeBackground(triggerElement, '[data-background-malala]', colorBackgroundMalalaDark, colorBackgroundMalala)
     })
-    gsap.utils.toArray('[data-animate-fade-to-dark-greta]').forEach((triggerElement) => {
+    gsap.utils.toArray('[data-animate-fade-to-dark-greta]').forEach((triggerElement: HTMLElement) => {
       fadeBackground(triggerElement, '[data-background-greta]', colorBackgroundGreta, colorBackgroundGretaDark)
     })
-    gsap.utils.toArray('[data-animate-fade-to-light-greta]').forEach((triggerElement) => {
+    gsap.utils.toArray('[data-animate-fade-to-light-greta]').forEach((triggerElement: HTMLElement) => {
       fadeBackground(triggerElement, '[data-background-greta]', colorBackgroundGretaDark, colorBackgroundGreta)
     })
   }
