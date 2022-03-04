@@ -11,6 +11,11 @@ export default {
   setup () {
     return { getCurrentTheme, setCurrentTheme }
   },
+  head () {
+    return {
+      title: 'Malala und Greta'
+    }
+  },
   computed: {
     themeClasses () {
       if (this.getCurrentTheme === Themes.Greta) { return 'has-greta-style' }
