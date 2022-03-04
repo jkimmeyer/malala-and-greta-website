@@ -43,6 +43,8 @@ export default {
 }
 
 .scroll-indicator--text {
+  font-family: var(--serif-font);
+  font-size: var(--font-32);
   justify-content: center;
   color: var(--color-text-neutral);
   transition: letter-spacing 3s ease-in;

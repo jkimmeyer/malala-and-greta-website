@@ -44,9 +44,6 @@ export default {
       if (this.getCurrentTheme === Themes.Malala) { return 'has-malala-style' }
       return null
     }
-  },
-  mounted () {
-    this.setCurrentTheme(Themes.Malala)
   }
 }
 </script>

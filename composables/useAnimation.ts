@@ -27,6 +27,22 @@ export const useAnimation = () => {
     })
   }
 
+  const scrollEffect = (element: HTMLElement | string) => {
+    return gsap.fromTo(element,
+      { filter: 'blur(100px)' },
+      {
+        filter: 'blur(0px)',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.page',
+          scrub: true,
+          pin: true,
+          start: '0',
+          end: '+=300%'
+        }
+      })
+  }
+
   const reveal = (element: HTMLElement | string, x: number) => {
     return gsap.fromTo(element, {
       x,
@@ -86,6 +102,9 @@ export const useAnimation = () => {
     })
     gsap.utils.toArray('[data-animate-pin]').forEach((element: HTMLElement) => {
       pin(element)
+    })
+    gsap.utils.toArray('[data-scroll-blur]').forEach((element: HTMLElement) => {
+      scrollEffect(element)
     })
   }
 

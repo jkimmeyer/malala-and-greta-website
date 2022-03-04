@@ -99,10 +99,12 @@ export default {
 
 <style scoped lang="scss">
 .cite {
+  font-family: var(--serif-font);
+  font-size: var(--font-32);
   position: absolute;
 }
 .cite--content {
-  color: var(--color-text-neutral);
+  color: var(--color-text-neutral-light);
   max-width: 250px;
   text-align: center;
   will-change: transform
