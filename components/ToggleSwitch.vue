@@ -26,7 +26,12 @@ export default {
   },
   data () {
     return {
-      toggleButtonPressed: this.pressed === 'true' ? 'true' : 'false'
+      toggleButtonPressed: this.pressed ? 'true' : 'false'
+    }
+  },
+  mounted () {
+    if (this.pressed) {
+      this.$refs.toggleSwitchIcon.toggleAnimation()
     }
   },
   methods: {

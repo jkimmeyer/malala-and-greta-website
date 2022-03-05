@@ -16,25 +16,30 @@
       </li>
       <li class="navigation--list-item is-separator" />
       <li class="navigation--list-item">
-        <ToggleSwitch @toggle-button-switched="switchTheme()" />
+        <ToggleSwitch :pressed="toggleSwitchPressed" @toggle-button-switched="switchTheme()" />
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
-import NarratorControls from './NarratorControls.vue'
 import { chapters } from '@/assets/contents/chapters.ts'
+import { Themes } from '@/enums/Themes.ts'
 export default {
-  components: { NarratorControls },
   setup () {
     return {
-      switchTheme
+      switchTheme,
+      getCurrentTheme
     }
   },
   data () {
     return {
       chapters
+    }
+  },
+  computed: {
+    toggleSwitchPressed () {
+      return getCurrentTheme.value === Themes.Greta
     }
   }
 }
