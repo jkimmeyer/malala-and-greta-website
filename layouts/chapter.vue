@@ -36,7 +36,7 @@ export default {
         audio.registerAllAudioAutoplayTriggers()
       }, 50)
     })
-    return { getCurrentTheme, setCurrentTheme }
+    return { getCurrentTheme }
   },
   computed: {
     themeClasses () {
