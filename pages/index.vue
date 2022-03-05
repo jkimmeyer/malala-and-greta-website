@@ -7,6 +7,7 @@
       >
         <button
           class="image-button"
+          disabled
           @click="navigateToStory('malala')"
         >
           <img
@@ -17,6 +18,7 @@
         </button>
         <button
           class="image-button"
+          disabled
           @click="navigateToStory('greta')"
         >
           <img
@@ -27,16 +29,27 @@
         </button>
       </div>
       <div class="page--teaser-contents">
-        <h1 class="page--title" data-animate-reveal-right>
+        <h1 class="page--title" data-animate-reveal-intro="right">
           Erlebe unsere Geschichten.
         </h1>
-        <span class="page--subtitle" data-animate-reveal-left>Malala Yousafzai & Greta Thunberg</span>
+        <span class="page--subtitle" data-animate-reveal-intro="left">Malala Yousafzai & Greta Thunberg</span>
+
         <div class="center">
           <!-- TODO: replace with button component when we have defined buttons -->
           <button v-if="citeVisible" type="button" class="page--button-audio" :class="buttonVisible ? 'visible' : null" @click="onStartClicked">
             <Icon icon="fluent:speaker-2-24-regular" />
             <span class="page--button-text">Mit Audio erleben</span>
           </button>
+        </div>
+
+        <div class="page--request" data-page-request>
+          <span class="page--request-arrow left">
+            <SvgsArrowLeft />
+          </span>
+          Wähle eine Story!
+          <span class="page--request-arrow right">
+            <SvgsArrowRight />
+          </span>
         </div>
       </div>
     </div>
@@ -49,14 +62,14 @@
 
 <script>
 import { Themes } from '@/enums/Themes'
-import { useAnimation } from '@/composables/useAnimation'
+import { useIntroAnimation } from '@/composables/useIntroAnimation'
 
 export default {
 
   setup () {
     onMounted(() => {
       setTimeout(() => {
-        const animation = useAnimation()
+        const animation = useIntroAnimation()
 
         animation.registerAllAnimationTriggers()
       }, 50)
@@ -74,7 +87,8 @@ export default {
       gretaGlows: false,
       malalaGlows: false,
       scrollIndicatorVisible: true,
-      audioOn: false
+      audioOn: false,
+      soundAudioElement: ''
     }
   },
   mounted () {
@@ -92,9 +106,10 @@ export default {
     onStartClicked () {
       this.buttonVisible = false
       this.audioOn = true
-      const soundAudioElement = new Audio('/audio/Drama.mp3')
-      soundAudioElement.volume = 0.1
-      soundAudioElement.play()
+
+      this.soundAudioElement = new Audio('/audio/Drama.mp3')
+      this.soundAudioElement.volume = 0.1
+      this.soundAudioElement.play()
     },
     updateScrollIndicator (event) {
       // TODO: combine with parallax framework or window scroll
@@ -107,6 +122,9 @@ export default {
         setCurrentTheme(Themes.Malala)
       }
       this.$router.push({ path: '/story', hash: '#' })
+    },
+    onUnmounted () {
+      this.soundAudioElement.pause()
     }
   }
 }
@@ -129,6 +147,30 @@ export default {
   justify-content: space-between;
   align-items: flex-end;
   height: 100%;
+}
+
+.page--request {
+  font-family: var(--serif-font);
+  color: var(--color-text-neutral);
+  font-size: var(--font-32);
+  text-align: center;
+  margin-top: 250px;
+  display: none;
+
+  &.visible {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+.page--request-arrow.left {
+  transform: scale(0.75) translateX(-50%);
+}
+
+.page--request-arrow.right {
+  transform: scale(0.75) translateX(50%);
 }
 
 .start-page--teaser-image {
@@ -232,6 +274,10 @@ export default {
   margin: 0;
   padding: 0;
   z-index: 15;
+
+  &:disabled {
+    cursor: default;
+  }
 }
 
 </style>
