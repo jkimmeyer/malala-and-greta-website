@@ -12,7 +12,7 @@
         >
           <img
             class="start-page--teaser-image left"
-            src="/images/Malala.png"
+            src="~/assets/images/Malala.png"
             alt="Malala"
           >
         </button>
@@ -23,7 +23,7 @@
         >
           <img
             class="start-page--teaser-image right"
-            src="/images/Greta.png"
+            src="~/assets/images/Greta.png"
             alt="Greta"
           >
         </button>
