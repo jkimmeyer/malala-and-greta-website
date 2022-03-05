@@ -19,5 +19,6 @@ export default defineNuxtConfig({
       postcssOptions: require('./postcss.config.js')
     },
     transpile: ['gsap']
-  }
+  },
+  ssr: false
 })
