@@ -38,11 +38,11 @@ export default {
     },
     camY: {
       type: Number,
-      default: -13
+      default: 0
     },
     camZ: {
       type: Number,
-      default: 25
+      default: 0
     },
     models: {
       type: Array,
