@@ -19,18 +19,7 @@
           </div>
         </div>
           <div class="section page-color-fade">
-            <Scene
-              scene-id="EINS"
-              :height="500"
-              :width="1000"
-              :fov="80"
-              :near="0.1"
-              :far="1000"
-              :cam-x="-5"
-              :cam-y="-14"
-              :cam-z="10"
-              :models="models"
-            /> -->
+            -->
           <div class="grid">
             <div class="chapter-header col-1-6-s">
               KAPITEL 2
@@ -54,9 +43,21 @@
                 >
                 Sorry, your browser doesn't support embedded videos.
               </video>
+              <div class="text-mingora reveal-right">
+                DIE STRAßEN PAKISTANS.
+              </div>
             </div>
-            <div class="text-mingora col-10-12-s reveal-right">
-              DIE STRAßEN PAKISTANS.
+            <div class="scene-mingora col-1-7-s reveal">
+              <Scene
+                scene-id="EINS"
+                :height="1000"
+                :width="1000"
+                :fov="70"
+                :near="0.01"
+                :far="1000"
+                :models="models"
+                :cam-z="6"
+              />
             </div>
           </div>
         </div>
@@ -91,6 +92,26 @@
               </video>
             </div>
           </div>
+
+          <div class="section taliban-section">
+            <div class="grid">
+              <div class="text-taliban-1 col-1-6-s">
+                UND DANN ÜBERNAHMEN DIE TALIBAN DIE KONTROLLE
+              </div>
+              <div class="image-tacks-1 col-2-1-s">
+                <img src="@/assets/images/kapt2/tacks.png">
+              </div>
+              <div class="image-tacks-2 col-10-1-s">
+                <img src="@/assets/images/kapt2/tacks.png">
+              </div>
+              <div class="image-taliban-1 col-5-8-s">
+                <img src="@/assets/images/kapt2/taliban.png">
+              </div>
+              <div class="image-taliban-2 col-2-6-s">
+                <img src="@/assets/images/kapt2/taliban-children.png">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -99,7 +120,7 @@
 <script>
 import { defineComponent } from '@vue/composition-api'
 import { useAnimation } from '~~/composables/useAnimation'
-import nobel from '~~/components/nobel.vue'
+import Pakistan from '~~/components/Pakistan.vue'
 
 export default defineComponent({
   setup () {
@@ -114,7 +135,7 @@ export default defineComponent({
         animation.animateBackgroundColorGradient('.page-color-fade', 'rgb(149, 124, 87)', 'rgb(233, 220, 199)')
       }, 50)
     })
-    const models = [nobel]
+    const models = [Pakistan]
     return {
       models
     }
@@ -125,10 +146,10 @@ export default defineComponent({
 @import "~/assets/stylesheets/globals/typography-styles.scss";
 @import "~/assets/stylesheets/globals/customgrid.scss";
 
-// .chapter {
-//   padding-top: 500px;
-//   padding-bottom: 500px;
-// }
+.chapter {
+  padding-top: 500px;
+  padding-bottom: 500px;
+}
 
 .section {
   margin: 20vw 12vw 10vw 12vw;
@@ -154,6 +175,12 @@ export default defineComponent({
 
 .text-mingora {
   @include body2;
+}
+
+.scene-mingora {
+  margin-left: -5vw;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 
 .image-1 {
@@ -210,8 +237,46 @@ export default defineComponent({
 
 video {
   width: 100%;
-  height: 100%;
+  // height: 100%;
   display: block;
+}
+
+.taliban-section {
+  padding-top: 50vw;
+}
+.text-taliban-1 {
+  @include body1;
+  grid-row: 1;
+  margin-bottom: 5vw;
+}
+
+.image-tacks-1 {
+  grid-row: 2;
+  z-index: 2;
+  margin-top: 4vw;
+  margin-left: -1.5vw;
+}
+
+.image-tacks-2 {
+  grid-row: 2;
+  z-index: 2;
+  margin-left: 2.2vw;
+  margin-top: -1vw;
+
+  img {
+    transform: rotate(90deg);
+  }
+}
+
+.image-taliban-1 {
+  grid-row: 2;
+  z-index: 1;
+}
+
+.image-taliban-2 {
+  margin-top: 5vw;
+  grid-row: 2;
+  z-index: 0;
 }
 
 @media only screen and (min-width: 1920px) {
