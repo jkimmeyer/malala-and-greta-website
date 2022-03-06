@@ -18,6 +18,11 @@
         </NuxtLink>
       </li>
       <li>
+        <NuxtLink to="/facts">
+          Blogposts/Fakten
+          </NuxtLink>
+      </li>
+      <li>
         <NuxtLink to="/gsap">
           GSAP
         </NuxtLink>
@@ -25,6 +30,11 @@
       <li>
         <NuxtLink to="/chapter-2">
           Chapter 2
+        </NuxtLink>
+      </li>
+       <li>
+        <NuxtLink to="/chapter-3">
+          Chapter 3
         </NuxtLink>
       </li>
       <li>
