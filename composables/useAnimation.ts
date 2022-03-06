@@ -35,13 +35,13 @@ export const useAnimation = () => {
     })
   }
 
-  const reveal = (element, x) => {
+  const reveal = (element, x, duration = 1.25) => {
     return gsap.fromTo(element, {
       x,
       y: 0,
       autoAlpha: 0
     }, {
-      duration: 1.25,
+      duration,
       x: 0,
       y: 0,
       autoAlpha: 1,
@@ -69,6 +69,10 @@ export const useAnimation = () => {
     gsap.utils.toArray('.reveal-right').forEach((element) => {
       hide(element)
       reveal(element, 100)
+    })
+    gsap.utils.toArray('.reveal').forEach((element) => {
+      hide(element)
+      reveal(element, 0, 5)
     })
     gsap.utils.toArray('.parallax').forEach((element) => {
       parallax(element, 100)
