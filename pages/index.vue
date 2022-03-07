@@ -100,7 +100,7 @@ export default {
   methods: {
     onStartClicked () {
       this.buttonVisible = false
-      this.setAudioOn = true
+      this.setAudioOn(true)
 
       this.soundAudioElement = new Audio('/audio/Drama.mp3')
       this.soundAudioElement.volume = 0.1
