@@ -1,5 +1,5 @@
 <template>
-  <div class="start-page" @wheel="onPageScroll($event)">
+  <div class="start-page">
     <div class="start-page--teaser">
       <div
         class="start-page--teaser-images"
@@ -32,37 +32,36 @@
         <h1 class="page--title" data-animate-reveal-intro="right">
           Erlebe unsere Geschichten.
         </h1>
-        <span class="page--subtitle" data-animate-reveal-intro="left">Malala Yousafzai & Greta Thunberg</span>
+        <span class="page--subtitle" data-animate-reveal-intro="left">Malala Yousafzai &amp; Greta Thunberg</span>
 
         <div class="center">
-          <!-- TODO: replace with button component when we have defined buttons -->
           <button v-if="citeVisible" type="button" class="page--button-audio" :class="buttonVisible ? 'visible' : null" @click="onStartClicked">
             <Icon icon="fluent:speaker-2-24-regular" />
             <span class="page--button-text">Mit Audio erleben</span>
           </button>
         </div>
-
-        <div class="page--request" data-page-request>
-          <span class="page--request-arrow left">
-            <SvgsArrowLeft />
-          </span>
-          Wähle eine Story!
-          <span class="page--request-arrow right">
-            <SvgsArrowRight />
-          </span>
-        </div>
+      </div>
+      <div class="page--request" data-page-request>
+        <span class="page--request-arrow left">
+          <SvgsArrowLeft />
+        </span>
+        Wähle eine Story!
+        <span class="page--request-arrow right">
+          <SvgsArrowRight />
+        </span>
       </div>
     </div>
     <div class="page--scroll-indicator">
-      <ScrollIndicator :is-hidden="!scrollIndicatorVisible" />
+      <ScrollIndicator />
     </div>
-    <Cite v-if="citeVisible" :audio-on="audioOn" />
+    <Cite v-if="citeVisible" />
   </div>
 </template>
 
 <script>
 import { Themes } from '@/enums/Themes'
 import { useIntroAnimation } from '@/composables/useIntroAnimation'
+import { setAudioOn } from '@/composables/audioMute'
 
 export default {
 
@@ -76,7 +75,8 @@ export default {
     })
 
     return {
-      setCurrentTheme
+      setCurrentTheme,
+      setAudioOn
     }
   },
   data () {
@@ -86,8 +86,6 @@ export default {
       citeVisible: false,
       gretaGlows: false,
       malalaGlows: false,
-      scrollIndicatorVisible: true,
-      audioOn: false,
       soundAudioElement: ''
     }
   },
@@ -100,20 +98,13 @@ export default {
     }, 2000)
   },
   methods: {
-    onPageScroll (event) {
-      this.updateScrollIndicator(event)
-    },
     onStartClicked () {
       this.buttonVisible = false
-      this.audioOn = true
+      this.setAudioOn = true
 
       this.soundAudioElement = new Audio('/audio/Drama.mp3')
       this.soundAudioElement.volume = 0.1
       this.soundAudioElement.play()
-    },
-    updateScrollIndicator (event) {
-      // TODO: combine with parallax framework or window scroll
-      this.scrollIndicatorVisible = event.deltaY <= 0
     },
     navigateToStory (story) {
       if (story === 'greta') {
@@ -150,27 +141,33 @@ export default {
 }
 
 .page--request {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: var(--serif-font);
   color: var(--color-text-neutral);
   font-size: var(--font-32);
   text-align: center;
-  margin-top: 250px;
-  display: none;
+  margin-top: 120px;
+  opacity: 0;
+  display: flex;
+  transition: opacity 0.5s ease-in;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
   &.visible {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    opacity: 1;
   }
 }
 
 .page--request-arrow.left {
-  transform: scale(0.75) translateX(-50%);
+  transform: scale(0.65) translateX(-50%) translateY(25%);
 }
 
 .page--request-arrow.right {
-  transform: scale(0.75) translateX(50%);
+  transform: scale(0.65) translateX(50%) translateY(-15%);;
 }
 
 .start-page--teaser-image {
@@ -219,7 +216,7 @@ export default {
   color: var(--color-text-neutral);
 }
 
-.center{
+.center {
   display: flex;
   justify-content: center;
 }
@@ -229,9 +226,9 @@ export default {
   appearance: none;
   background-color: var(--color-background-greta);
   opacity: 0;
-  padding: var(--space-8) var(--space-8);
+  padding: var(--space-8) var(--space-16);
   color: var(--color-text-neutral);
-  margin: var(--space-16) auto 0px auto;
+  margin: var(--space-32) auto 0px auto;
   border: none;
   border-radius: var(--space-8);
   transition: transform ease-in-out 1.5s, filter ease-in-out 1.5s;

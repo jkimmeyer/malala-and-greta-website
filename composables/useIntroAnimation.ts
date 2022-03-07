@@ -7,6 +7,7 @@ export const useIntroAnimation = () => {
   const scrollEffect = (element: HTMLElement) => {
     let buttonDisabled = true
     let requestVisible = false
+    let scrollIndicatorVisible = true
 
     return gsap.fromTo(element,
       { filter: 'blur(100px)' },
@@ -20,6 +21,19 @@ export const useIntroAnimation = () => {
           start: '0',
           end: '+=150%',
           onUpdate: (self) => {
+            if (self.progress > 0.05 && scrollIndicatorVisible) {
+              document.querySelector('[data-scroll-indicator]').classList.toggle('hidden')
+              scrollIndicatorVisible = false
+              return
+            }
+            if (self.progress < 0.05 && !scrollIndicatorVisible) {
+              document.querySelector('[data-scroll-indicator]').classList.toggle('hidden')
+              scrollIndicatorVisible = true
+              document.querySelector('[data-page-request]').classList.remove('visible')
+              requestVisible = false
+              return
+            }
+
             if (self.progress > 0.90 && buttonDisabled) {
               element.querySelectorAll('button').forEach((button) => {
                 button.disabled = false
@@ -33,6 +47,10 @@ export const useIntroAnimation = () => {
                 button.disabled = true
                 buttonDisabled = true
               })
+            }
+            if (self.progress < 0.90 && requestVisible) {
+              document.querySelector('[data-page-request]').classList.remove('visible')
+              requestVisible = false
             }
           },
           onScrubComplete: (self) => {

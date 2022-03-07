@@ -1,21 +1,10 @@
 <template>
-  <div class="scroll-indicator" :class="{hidden: isHidden}">
+  <div class="scroll-indicator" data-scroll-indicator>
     <p class="scroll-indicator--text">
       scroll
     </p>
   </div>
 </template>
-
-<script>
-export default {
-  props: {
-    isHidden: {
-      type: Boolean,
-      default: false
-    }
-  }
-}
-</script>
 
 <style scoped lang="scss">
 .scroll-indicator {
@@ -23,7 +12,7 @@ export default {
   align-items: center;
   transform: translateY(50%) rotate(-90deg);
   transform-origin: left center;
-  transition: opacity 3s ease-in;
+  transition: opacity 2s ease-in;
 
   &::before {
     content: '';
@@ -31,7 +20,7 @@ export default {
     width: 40px;
     height: 2px;
     background-color: var(--color-text-neutral);
-    transition: width 3s;
+    transition: width 2s;
   }
 
   &.hidden {

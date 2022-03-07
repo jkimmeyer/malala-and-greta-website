@@ -1,7 +1,7 @@
 [
   {
-    "top": "25%",
-    "left": "25%",
+    "top": "15%",
+    "left": "30%",
     "audio": "/cites/malala/bullet-silence.mp3",
     "text": "They thought that the bullet would silence us, but they failed"
   },
@@ -19,7 +19,7 @@
   },
   {
     "top": "65%",
-    "left": "70%",
+    "left": "66%",
     "audio": "/cites/greta/humanity-crossroads.mp3",
     "text": "Humanity is no standing at a crossroads, we must now decide which path we want to take"
   },
