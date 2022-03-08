@@ -6,24 +6,7 @@
 
     <ul class="navigation--list">
       <li class="navigation--list-item">
-        <button
-          :aria-label="getAudioOn ? 'Audio ausschalten' : 'Audio einschalten'"
-          class="navigation--button"
-          @click="toggleAudio()"
-        >
-          <Icon
-            class="navigation--icon"
-            :class="getAudioOn ? null : 'hidden'"
-            icon="fluent:speaker-off-24-regular"
-            height="48px"
-          />
-          <Icon
-            class="navigation--icon"
-            :class="getAudioOn ? 'hidden' : null "
-            icon="fluent:speaker-2-24-regular"
-            height="48px"
-          />
-        </button>
+        <NarratorControls />
       </li>
       <li class="navigation--list-item is-separator" />
       <li v-for="chapter in chapters" :key="chapter.id" class="navigation--list-item is-page">
@@ -33,7 +16,7 @@
       </li>
       <li class="navigation--list-item is-separator" />
       <li class="navigation--list-item">
-        <ToggleSwitch @toggle-button-switched="switchTheme()" />
+        <ToggleSwitch :pressed="toggleSwitchPressed" @toggle-button-switched="switchTheme()" />
       </li>
     </ul>
   </nav>
@@ -41,19 +24,23 @@
 
 <script>
 import { chapters } from '@/assets/contents/chapters.ts'
-import { getAudioOn, toggleAudio } from '@/composables/audio'
 import { switchTheme } from '@/composables/theme'
+import { Themes } from '@/enums/Themes.ts'
 export default {
   setup () {
     return {
-      getAudioOn,
-      toggleAudio,
-      switchTheme
+      switchTheme,
+      getCurrentTheme
     }
   },
   data () {
     return {
       chapters
+    }
+  },
+  computed: {
+    toggleSwitchPressed () {
+      return getCurrentTheme.value === Themes.Greta
     }
   }
 }
@@ -65,7 +52,7 @@ export default {
     right: 0;
     top: 0;
     bottom: 0;
-    width: 180px;
+    width: 160px;
   }
 
   .navigation--list {
@@ -80,20 +67,18 @@ export default {
   }
 
   .navigation--list-item.is-page {
-    padding: var(--space-16) var(--space-4) var(--space-16) var(--space-4);
-    transition: transform ease-in var(--theme-duration-1000);
-    transform: translateX(50%);
-    width: 250px;
-  }
-
-  .navigation--list-item.is-page.is-current {
-    height: var(--space-48);
+    padding: var(--space-4) var(--space-16) var(--space-4) var(--space-4);
+    transition: transform ease-in 0.1s;
+    transform: translateX(0%);
+    align-self: flex-end;
+    white-space: nowrap;
+    margin-right: 46px;
   }
 
   .navigation--list-item.is-separator {
     height: var(--space-64);
     width: var(--space-4);
-    background-color: var(--color-background-dark);
+    background-color: var(--color-control);
     transition: all ease-in var(--theme-duration-1000);
   }
 
@@ -101,42 +86,39 @@ export default {
     margin-top: auto;
   }
 
-  .navigation--icon {
-    color: var(--color-background-dark);
-    transition: all ease-in var(--theme-duration-1000);
-  }
-
-  .navigation--icon.hidden {
-    display: none;
-  }
-
   .navigation--link {
     display: flex;
-    border-left: var(--space-4) solid var(--color-background-dark);
+    border-right: var(--space-4) solid var(--color-control);
     align-items: center;
-    height: var(--space-32);
+    height: 40px;
     padding-left: var(--space-4);
     transition: all ease-in var(--theme-duration-1000);
+    text-decoration: none;
+    font-family: var(--serif-font);
+    font-size: var(--font-32);
+    color: var(--color-text-dark);
   }
 
   .navigation--link-text {
     opacity: 0;
+    display: none;
   }
 
   .navigation--list-item.is-page:focus,
   .navigation--list-item.is-page:hover,
   .navigation--list-item.is-page:active {
-    transform: translateX(-20px);
-    transition: transform ease-in var(--theme-duration-1000);
+    transform: translateX(-5px);
 
-    .navigation--link-text {
-      opacity: 1;
-      transition: opacity ease-in var(--theme-duration-1000);
+    .navigation--link {
+      border-color: var(--color-control-active);
+      transition: border-color ease 0.1s;
     }
-  }
-
-  .navigation--button {
-    background: none;
-    border: none;
+    .navigation--link-text {
+      color: var(--color-control-active);
+      display: block;
+      opacity: 1;
+      transition: opacity ease-in var(--theme-duration-1000), transform ease-in var(--theme-duration-1000);
+      transform: translateX(-10px);
+    }
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="placeholder">
-    Placeholder
+    Placeholder Chapter 1
   </div>
 </template>
 

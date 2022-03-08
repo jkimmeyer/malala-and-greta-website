@@ -1,7 +1,6 @@
 <template>
   <div class="page" :class="themeClasses">
     <Nuxt />
-    <Navigation />
   </div>
 </template>
 
@@ -13,15 +12,17 @@ export default {
   setup () {
     return { getCurrentTheme, setCurrentTheme }
   },
+  head () {
+    return {
+      title: 'Malala und Greta'
+    }
+  },
   computed: {
     themeClasses () {
       if (this.getCurrentTheme === Themes.Greta) { return 'has-greta-style' }
       if (this.getCurrentTheme === Themes.Malala) { return 'has-malala-style' }
       return null
     }
-  },
-  mounted () {
-    this.setCurrentTheme(Themes.Malala)
   }
 }
 </script>

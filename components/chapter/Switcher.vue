@@ -3,6 +3,7 @@
     <div
       class="stories-page--first"
       :class="malalaClasses"
+      data-background-malala
     >
       <slot name="malala" />
     </div>
@@ -10,6 +11,7 @@
     <div
       class="stories-page--second"
       :class="gretaClasses"
+      data-background-greta
     >
       <slot name="greta" />
     </div>
@@ -37,10 +39,14 @@ export default {
 </script>
 
 <style scoped>
+.chapter-background {
+  background-color: var(--color-background-malala);
+}
+
 .stories-page {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: stretch;
   position: relative;
   width: 200vw;
 }
@@ -49,6 +55,7 @@ export default {
   will-change: transform;
   flex-basis: 100vw;
   transform: translateX(0);
+  background-color: var(--color-background-malala);
   transition: transform ease-in var(--theme-duration-1000);
 }
 
@@ -56,6 +63,7 @@ export default {
   will-change: transform;
   flex-basis: 100vw;
   transform: translateX(-100%);
+  background-color: var(--color-background-greta);
   transition: transform ease-in var(--theme-duration-1000);
 }
 

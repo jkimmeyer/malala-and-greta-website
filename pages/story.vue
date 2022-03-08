@@ -1,10 +1,11 @@
 <template>
   <div class="chapters">
     <ChapterOne />
-    <!-- <Chapter2 />
-    <Chapter3 /> -->
+    <ChapterTwo />
+    <!-- <ChapterThree /> --> -->
     <ChapterFour />
     <!-- <Chapter5 /> -->
+    <End />
   </div>
 </template>
 <script>
@@ -13,9 +14,3 @@ export default {
   layout: 'chapter'
 }
 </script>
-
-<style scoped>
-.chapters {
-  scroll-snap-type: y mandatory;
-}
-</style>
