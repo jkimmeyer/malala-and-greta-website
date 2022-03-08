@@ -1,7 +1,6 @@
 <template>
   <div class="page" :class="themeClasses">
     <slot />
-    <Navigation />
   </div>
 </template>
 

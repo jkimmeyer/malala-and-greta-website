@@ -38,6 +38,7 @@
 
   /* Text */
   --color-text-neutral: var(--comet);
+  --color-text-neutral-blue: var(--bali-hai);
   --color-text-neutral-dark: var(--black);
   --color-text-neutral-light: var(--white);
 

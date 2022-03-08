@@ -9,15 +9,10 @@
 <script>
 import { gsap } from 'gsap'
 import citeContents from '~/assets/contents/cites-start.json'
+import { getAudioOn } from '@/composables/audioMute'
 
 export default {
-  props: {
-    audioOn: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup (props) {
+  setup () {
     let itemRefs = []
     let indervalId = null
 
@@ -63,7 +58,7 @@ export default {
       contentWords.value.forEach((_, index) => {
         gsap.fromTo(itemRefs[index], { opacity: 0, y: 10 }, { duration: 1.0, opacity: 1, y: 0, delay: index * 0.1 })
       })
-      if (props.audioOn) {
+      if (getAudioOn.value) {
         const audio = new Audio(activeContent.value.audio)
         audio.play()
       }
@@ -99,10 +94,12 @@ export default {
 
 <style scoped lang="scss">
 .cite {
+  font-family: var(--serif-font);
+  font-size: var(--font-32);
   position: absolute;
 }
 .cite--content {
-  color: var(--color-text-neutral);
+  color: var(--color-text-neutral-light);
   max-width: 250px;
   text-align: center;
   will-change: transform
