@@ -1,3 +1,4 @@
+import { ref, computed } from '@nuxtjs/composition-api'
 import { ThemeOptions } from '@/interfaces/ThemeOptions'
 import { Themes } from '@/enums/Themes'
 

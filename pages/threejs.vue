@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import Nobel from '../components/nobel.vue'
 export default {
   data () {
     return {

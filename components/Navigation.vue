@@ -41,6 +41,8 @@
 
 <script>
 import { chapters } from '@/assets/contents/chapters.ts'
+import { getAudioOn, toggleAudio } from '@/composables/audio'
+import { switchTheme } from '@/composables/theme'
 export default {
   setup () {
     return {

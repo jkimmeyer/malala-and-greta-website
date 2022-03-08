@@ -8,6 +8,7 @@
 
 <script>
 import { gsap } from 'gsap'
+import { onMounted } from '@nuxtjs/composition-api'
 import citeContents from '~/assets/contents/cites-start.json'
 
 export default {

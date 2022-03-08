@@ -2,7 +2,7 @@
   <div class="page" :class="themeClasses">
     <div id="viewport">
       <div id="content">
-        <slot />
+        <Nuxt />
       </div>
     </div>
     <Navigation />
@@ -10,8 +10,11 @@
 </template>
 
 <script>
+import { onMounted } from '@nuxtjs/composition-api'
 import { Themes } from '@/enums/Themes'
 import { useAnimation } from '@/composables/useAnimation'
+import { getCurrentTheme, setCurrentTheme } from '@/composables/theme'
+
 export default {
   setup () {
     onMounted(() => {

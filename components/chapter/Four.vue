@@ -9,7 +9,7 @@
         >
           Welche Rückschläge habe ich erlitten?
         </Intro>
-        <ChapterMalala4 />
+        <ChapterMalalaFour />
       </template>
 
       <template #greta>
@@ -20,7 +20,7 @@
         >
           Welche Greta habe ich erlitten?
         </Intro>
-        <ChapterMalala4 />
+        <ChapterMalalaFour />
       </template>
     </ChapterSwitcher>
   </div>

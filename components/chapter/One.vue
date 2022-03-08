@@ -1,3 +1,3 @@
 <template>
-  <ChapterMalala1 />
+  <ChapterMalalaOne />
 </template>

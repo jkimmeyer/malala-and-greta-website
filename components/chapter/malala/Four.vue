@@ -3,7 +3,7 @@
     <div class="m-auto max-w-screen-xl">
       <div class="grid">
         <div class="data-parallax">
-          <Video path="/videos/malala-kap4-1.mp4" class="video-1" />
+          <Video :path="require('~/assets/videos/malala-kap4-1.mp4')" class="video-1" />
         </div>
         <div class="text text-right data-reveal-right">
           Der 9. Oktober 2012 fing an wie jeder andere
@@ -12,13 +12,13 @@
 
       <div class="grid">
         <div class="image-bus-assassination col-7-4-s data-parallax-fast">
-          <Image
+          <DecoratedImage
             :decoration-top-left="true"
             :decoration-top-right="true"
             :decoration-bottom-left="true"
             :decoration-bottom-right="true"
             :is-malala="true"
-            path="/images/chapter/4/malala/malala-kapt4-bus.jpeg"
+            :path="require('~/assets/images/chapter/4/malala/malala-kapt4-bus.jpeg')"
           />
         </div>
       </div>
@@ -33,7 +33,7 @@
           Hallo wie geht es dir?
         </div>
         <div class="image-human-shapes col-3-8-s">
-          <Image class="pagesection-image" path="/images/chapter/4/malala/malala-kap4-human-shapes.png" :is-malala="true" />
+          <DecoratedImage class="pagesection-image" :path="require('~/assets/images/chapter/4/malala/malala-kap4-human-shapes.png')" :is-malala="true" />
         </div>
       </div>
     </div>
@@ -49,6 +49,7 @@
 </template>
 
 <script setup>
+import { onMounted } from '@nuxtjs/composition-api'
 import { useAnimation } from '@/composables/useAnimation'
 
 onMounted(() => {

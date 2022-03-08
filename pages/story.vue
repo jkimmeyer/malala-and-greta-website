@@ -1,13 +1,14 @@
 <template>
   <div class="chapters">
-    <Chapter1 />
+    <ChapterOne />
     <!-- <Chapter2 />
     <Chapter3 /> -->
-    <Chapter4 />
+    <ChapterFour />
     <!-- <Chapter5 /> -->
   </div>
 </template>
 <script>
+
 export default {
   layout: 'chapter'
 }
