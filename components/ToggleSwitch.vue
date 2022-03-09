@@ -1,18 +1,23 @@
 <template>
   <div class="toggle-switch">
-    <button
-      id="a11y-toggle-switch-default"
-      :aria-pressed="toggleButtonPressed"
-      aria-labelledby="a11y-toggle-switch-default"
-      role="toggle-switch"
-      type="button"
-      class="toggle-switch--button"
-      @click="toggleButton()"
-    >
-      <span class="toggle-switch--button-option">Greta</span>
-      <ToggleSwitchIcon ref="toggleSwitchIcon" class="toggle-switch--icon" />
-      <span class="toggle-switch--button-option">Malala</span>
-    </button>
+    <div v-if="true">
+      <button
+        id="a11y-toggle-switch-default"
+        :aria-pressed="toggleButtonPressed"
+        aria-labelledby="a11y-toggle-switch-default"
+        role="toggle-switch"
+        type="button"
+        class="toggle-switch--button"
+        @click="toggleButton()"
+      >
+        <span class="toggle-switch--button-option">Greta</span>
+        <ToggleSwitchIcon ref="toggleSwitchIcon" class="toggle-switch--icon" />
+        <span class="toggle-switch--button-option">Malala</span>
+      </button>
+    </div>
+    <div v-else class="toggle-switch--label">
+      Malala &amp; Greta
+    </div>
   </div>
 </template>
 
@@ -69,12 +74,12 @@ export default {
 
 .toggle-switch--button-option:first-child {
   text-align: start;
-  color: var(--color-text-dark);
+  color: var(--color-control);
 }
 
 .toggle-switch--button-option:last-child {
   text-align: end;
-  color: var(--color-text-dark);
+  color: var(--color-control);
 }
 
 .toggle-switch--button[aria-pressed='true'] .toggle-switch--button-option:first-child {
@@ -92,5 +97,16 @@ export default {
 .toggle-switch--icon {
   width: 16px;
   height: auto;
+}
+
+.toggle-switch--label {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  transform: rotate(180deg);
+  font-family: var(--serif-font);
+  writing-mode: vertical-rl;
+  font-size: var(--font-32);
+  color: var(--color-control);
 }
 </style>

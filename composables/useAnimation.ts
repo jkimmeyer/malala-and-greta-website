@@ -66,6 +66,19 @@ export const useAnimation = () => {
     )
   }
 
+  const registerClassToggle = (elementQuery: string, className: string, triggerElement: HTMLElement | string) => {
+    ScrollTrigger.create({
+      trigger: triggerElement,
+      start: 'top center',
+      onEnter: () => {
+        document.querySelector(elementQuery).classList.add(className)
+      },
+      onLeaveBack: () => {
+        document.querySelector(elementQuery).classList.remove(className)
+      }
+    })
+  }
+
   // attributes that trigger animations on the element itself:
   // data-animate-reveal-right
   // data-animate-reveal-left
@@ -188,6 +201,7 @@ export const useAnimation = () => {
   }
 
   return {
+    registerClassToggle,
     registerAllAnimationTriggers,
     registerAllBackgroundFadeTriggers,
     applySmoothScrollToPage

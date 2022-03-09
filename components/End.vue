@@ -1,8 +1,5 @@
 <template>
-  <div class="end">
-    <div class="intro">
-      End
-    </div>
+  <div class="end" data-end-begin>
     <div>
       <div class="mx-40 2xl:m-auto max-w-screen-xl">
         <div class="grid grid-cols-12">
@@ -86,14 +83,14 @@
         </div>
         <!--- credits -->
         <div class="grid grid-cols-12 mt-80">
-          <div class="body3 text-center col-start-2 col-span-10" data-animate-parallax="1">
+          <div class="body3 text-center col-start-2 col-span-10" data-animate-parallax="100">
             <span class="highlight">Ein Projekt der</span> Hochschule Düsseldorf <br>
             <span class="highlight">im Kurs</span> Digital Storytelling<br>
             <span class="highlight">betreut von</span> Lukas Loss<br>
           </div>
         </div>
-        <div class="grid grid-cols-12 mt-50">
-          <div class="body3 text-center col-start-2 col-span-10">
+        <div class="grid grid-cols-12 mt-60">
+          <div class="body3 text-center col-start-2 col-span-10" data-animate-parallax="-100">
             <span class="highlight">erstellt von</span>  Cedrica Da Silva Costa, Joel Garthe, Fabian Heck, Johannes Kimmeyer, Nathalie Merdan, Sam Vogelskamp
           </div>
         </div>
@@ -105,6 +102,8 @@
 <style scoped lang="scss">
 .end {
   background-color: var(--bone);
+  padding-bottom: 300px;
+  padding-top: 300px;
 }
 
 .link-malala {
@@ -161,7 +160,7 @@
 .body1 {
   font-family: var(--sans-serif-font);
   font-size: var(--font-size-body-1);
-  color: var( --deeptaupe);
+  color: var(--deeptaupe);
 }
 
 .body2 {

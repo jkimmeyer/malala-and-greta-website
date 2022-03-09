@@ -30,6 +30,7 @@ export default {
 
         animation.registerAllBackgroundFadeTriggers(colorBackgroundMalala, colorBackgroundMalalaDark, colorBackgroundGreta, colorBackgroundGretaDark)
         animation.registerAllAnimationTriggers()
+        animation.registerClassToggle('.page', 'end', '[data-end-begin]')
 
         // setup audio for narrator and sound
         const audio = useAudio()
@@ -74,5 +75,12 @@ export default {
   --color-control-focus: var(--bronze);
   --color-control-hover: var(--bronze);
   --color-control-active: var(--color-text-malala-highlight);
+}
+
+.page.end {
+  --color-control: var(--deeptaupe);
+  --color-control-focus: var(--white);
+  --color-control-hover: var(--white);
+  --color-control-active: var(--white);
 }
 </style>

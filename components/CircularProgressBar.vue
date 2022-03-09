@@ -59,13 +59,13 @@ export default {
 }
 
 .circular-progress-bar--background {
-  stroke: var(--color-background-dark);
+  stroke: var(--color-control);
   stroke-width: 4px;
   transition: stroke ease-in var(--theme-duration-1000);
 }
 
 .circular-progress-bar--indicator {
-  stroke: var(--color-text-highlight);
+  stroke: var(--color-control-active);
   stroke-width: 4px;
   transition: stroke-dashoffset 0.5s ease-out, stroke ease-in var(--theme-duration-1000);
 }
