@@ -1,6 +1,6 @@
 <template>
   <div class="placeholder">
-    Placeholder Chapter 1 - Malala
+    Placeholder Chapter 5 - Greta
   </div>
 </template>
 

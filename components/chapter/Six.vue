@@ -3,20 +3,20 @@
     <ChapterSwitcher>
       <template #malala>
         <ChapterIntro
-          id="chapter-1"
-          :chapter="1"
+          id="chapter-6"
+          :chapter="6"
           :is-malala="true"
         />
-        <ChapterMalalaOne />
+        <ChapterMalalaSix />
       </template>
 
       <template #greta>
         <ChapterIntro
-          id="chapter-1"
-          :chapter="1"
+          id="chapter-6"
+          :chapter="6"
           :is-malala="false"
         />
-        <ChapterMalalaOne />
+        <ChapterMalalaSix />
       </template>
     </ChapterSwitcher>
   </div>

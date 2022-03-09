@@ -4,12 +4,14 @@
       Kapitel {{ chapter }}
     </h2>
     <h1 class="intro--heading">
-      <slot />
+      {{ chapters[chapter-1].title }}
     </h1>
   </div>
 </template>
 
 <script>
+import { chapters } from '@/assets/contents/chapters.ts'
+
 export default {
   props: {
     chapter: {
@@ -19,6 +21,11 @@ export default {
     isMalala: {
       type: Boolean,
       required: true
+    }
+  },
+  data () {
+    return {
+      chapters
     }
   },
   computed: {

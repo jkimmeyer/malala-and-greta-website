@@ -2,8 +2,8 @@ import { ref, computed } from '@nuxtjs/composition-api'
 import { ThemeOptions } from '@/interfaces/ThemeOptions'
 import { Themes } from '@/enums/Themes'
 
-const currentTheme = ref(Themes.Default)
-const savedTheme = Themes.Default
+const currentTheme = ref(Themes.Malala)
+const savedTheme = Themes.Malala
 
 if (savedTheme) {
   currentTheme.value = Themes[savedTheme]

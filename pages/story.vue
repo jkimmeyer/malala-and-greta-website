@@ -2,9 +2,10 @@
   <div class="chapters">
     <ChapterOne />
     <ChapterTwo />
-    <!-- <ChapterThree /> --> -->
+    <ChapterThree />
     <ChapterFour />
-    <!-- <Chapter5 /> -->
+    <ChapterFive />
+    <ChaterSix />
     <End />
   </div>
 </template>

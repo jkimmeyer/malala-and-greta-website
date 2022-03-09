@@ -6,9 +6,7 @@
           id="chapter-2"
           :chapter="2"
           :is-malala="true"
-        >
-          Wo bin ich aufgewachsen?
-        </ChapterIntro>
+        />
         <ChapterMalalaTwo />
       </template>
 
@@ -17,9 +15,7 @@
           id="chapter-2"
           :chapter="2"
           :is-malala="false"
-        >
-          Wo bin ich aufgewachsen?
-        </ChapterIntro>
+        />
         <ChapterGretaTwo />
       </template>
     </ChapterSwitcher>
