@@ -1,5 +1,6 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
+import { setInEnd } from '@/composables/pageState'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -75,6 +76,19 @@ export const useAnimation = () => {
       },
       onLeaveBack: () => {
         document.querySelector(elementQuery).classList.remove(className)
+      }
+    })
+  }
+
+  const registerEndState = () => {
+    ScrollTrigger.create({
+      trigger: '[data-end-begin]',
+      start: 'top center',
+      onEnter: () => {
+        setInEnd(true)
+      },
+      onLeaveBack: () => {
+        setInEnd(false)
       }
     })
   }
@@ -202,6 +216,7 @@ export const useAnimation = () => {
 
   return {
     registerClassToggle,
+    registerEndState,
     registerAllAnimationTriggers,
     registerAllBackgroundFadeTriggers,
     applySmoothScrollToPage

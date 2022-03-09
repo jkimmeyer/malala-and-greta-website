@@ -1,23 +1,21 @@
 <template>
   <div class="toggle-switch">
-    <div v-if="true">
-      <button
-        id="a11y-toggle-switch-default"
-        :aria-pressed="toggleButtonPressed"
-        aria-labelledby="a11y-toggle-switch-default"
-        role="toggle-switch"
-        type="button"
-        class="toggle-switch--button"
-        @click="toggleButton()"
-      >
-        <span class="toggle-switch--button-option">Greta</span>
-        <ToggleSwitchIcon ref="toggleSwitchIcon" class="toggle-switch--icon" />
-        <span class="toggle-switch--button-option">Malala</span>
-      </button>
-    </div>
-    <div v-else class="toggle-switch--label">
-      Malala &amp; Greta
-    </div>
+    <button
+      id="a11y-toggle-switch-default"
+      :aria-pressed="toggleButtonPressed"
+      aria-labelledby="a11y-toggle-switch-default"
+      role="toggle-switch"
+      type="button"
+      class="toggle-switch--button"
+      @click="toggleButton()"
+    >
+      <span class="toggle-switch--button-option" :class="{abc: !enabled}">Greta</span>
+      <ToggleSwitchIcon v-if="enabled" ref="toggleSwitchIcon" class="toggle-switch--icon" />
+      <div v-else class="toggle-switch--and">
+        &amp;
+      </div>
+      <span class="toggle-switch--button-option" :class="{abc: !enabled}">Malala</span>
+    </button>
   </div>
 </template>
 
@@ -27,6 +25,10 @@ export default {
     pressed: {
       type: Boolean,
       default: false
+    },
+    enabled: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -94,15 +96,22 @@ export default {
   transition: font-size 1s ease-in, color ease-in var(--theme-duration-1000);
 }
 
+.toggle-switch--button[aria-pressed='false'] .toggle-switch--button-option:first-child.abc {
+  font-size: var(--font-32);
+  line-height: var(--line-1-5);
+}
+
+.toggle-switch--button[aria-pressed='true'] .toggle-switch--button-option:last-child.abc {
+  font-size: var(--font-32);
+  line-height: var(--line-1-5);
+}
+
 .toggle-switch--icon {
   width: 16px;
   height: auto;
 }
 
-.toggle-switch--label {
-  display: block;
-  margin: auto;
-  margin-top: 10px;
+.toggle-switch--and{
   transform: rotate(180deg);
   font-family: var(--serif-font);
   writing-mode: vertical-rl;

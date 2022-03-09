@@ -31,6 +31,7 @@ export default {
         animation.registerAllBackgroundFadeTriggers(colorBackgroundMalala, colorBackgroundMalalaDark, colorBackgroundGreta, colorBackgroundGretaDark)
         animation.registerAllAnimationTriggers()
         animation.registerClassToggle('.page', 'end', '[data-end-begin]')
+        animation.registerEndState()
 
         // setup audio for narrator and sound
         const audio = useAudio()
