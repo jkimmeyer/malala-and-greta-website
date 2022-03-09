@@ -5,7 +5,7 @@
     <ChapterThree />
     <ChapterFour />
     <ChapterFive />
-    <ChaterSix />
+    <ChapterSix />
     <End />
   </div>
 </template>
