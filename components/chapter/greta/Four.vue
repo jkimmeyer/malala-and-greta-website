@@ -1,61 +1,65 @@
 <template>
   <div>
-    <div class="m-auto max-w-screen-xl">
-      <div class="grid">
-        <div data-animate-parallax="100">
-          <Video path="/videos/malala-kap4-1.mp4" class="video-1" />
+    <div class="mx-40 2xl:mx-auto max-w-screen-xl">
+      <div class="grid grid-cols-12">
+        <div class="col-start-0 col-span-8" data-animate-parallax="100">
+          <Video :path="require('~/assets/videos/greta/greta-kap4-1.mp4')" />
         </div>
-        <div class="text text-right" data-narrator-greta="a-lot-for-teenager" data-animate-reveal-right>
-          Bullet silence
+        <div class="text text-right col-start-9 col-span-4" data-animate-reveal-right>
+          Bei mir wurde das Asperger-Syndrom diagnostiziert
         </div>
       </div>
 
-      <div class="grid">
-        <div class="image-bus-assassination col-7-4-s" data-animate-parallax="-100">
-          <Image
-            :decoration-top-left="true"
-            :decoration-top-right="true"
-            :decoration-bottom-left="true"
-            :decoration-bottom-right="true"
+      <div class="grid grid-cols-12">
+        <div class="image-bus-assassination col-start-7 col-span-4" data-animate-parallax="-100">
+          <FactsContainer
             theme="greta"
-            path="/images/chapter/4/malala/malala-kapt4-bus.jpeg"
+            size="sm"
+            :facts="require('~/assets/contents/facts-greta-kap4.json')"
+            format="rect"
           />
         </div>
       </div>
     </div>
 
-    <div class="section" data-animate-fade-to-dark-greta>
-      <div class="grid">
-        <div class="text-7 col-4-2-s" data-animate-reveal-right>
-          Lorem ipsum bla bla bla
+    <div class="mx-40 2xl:mx-auto max-w-screen-xl section" data-animate-fade-to-dark-greta>
+      <div class="grid grid-cols-12 items-center">
+        <div class="text-small col-start-4 col-span-2 mb-10" data-animate-reveal-right>
+          Als Asperger-Autistin bräuchte sie Hilfe statt Aufmerksamkeit
         </div>
-        <div class="text-8 col-7-2-s" data-animate-reveal-right>
-          Hallo wie geht es dir?
+        <div class="text-small col-start-7 col-span-2 mb-10" data-animate-reveal-right>
+          Sie geht nicht zur Schule und animiert andere Jugendliche zum Schwänzen
         </div>
-        <div class="image-human-shapes col-3-8-s">
-          <Image class="pagesection-image" theme="greta" path="/images/chapter/4/malala/malala-kap4-human-shapes.png" />
+        <div class="col-start-3 col-span-8">
+          <DecoratedImage :path="require('~/assets/images/chapter/4/greta/greta-kap4-human-shapes.png')" theme="greta" />
         </div>
       </div>
     </div>
 
-    <div class="section">
-      <div class="grid">
-        <div class="text-3 col-4-6-s" data-animate-reveal-right>
-          Dann hörte ich nur noch den Schuss. Alles wurde schwarz
+    <div class="mx-40 2xl:mx-auto max-w-screen-xl mt-96 mb-96">
+      <div class="grid grid-cols-12">
+        <div class="col-start-1 col-span-4" data-animate-reveal-rigth>
+          <DecoratedImage
+            :decoration-top-right="true"
+            theme="greta"
+            :path="require('~/assets/images/chapter/4/greta/greta-kap4-umbrella.png')"
+          />
+        </div>
+        <div class="text-small light col-start-6 col-span-5" data-animate-reveal-right>
+          “Is the microphone on? Did you hera me? Is my English ok?
+          Becaus I am beginnig to wonder.<br>
+
+          You lied to us. During the last six month I have traveled around europe for hundres of hours repeating these life-changing words over and over again.
+          But nothing has changed. In fact, the emissions are still rising.”
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
-
-</script>
-
 <style scoped>
 .section {
-  max-width: 1280px;
-  margin: auto;
+  margin-top: 700px;
 }
 
 .text {
@@ -64,32 +68,19 @@
   color: var(--color-text-greta-dark);
 }
 
-.text-1 {
-  z-index: 1;
-  text-align: right;
+.text-small {
+  font-family: var(--sans-serif-font);
+  font-size: var(--font-size-body-2);
+  font-style: italic;
+  color: var(--color-text-greta-dark);
 }
 
-.text-3 {
-  margin-top: 5vw;
-}
-
-.text-7 {
-  margin-top: -3vw;
-}
-
-.text-8 {
-  margin-top: -6vw;
-}
-
-.video-1 {
-  overflow: hidden;
-  margin-top: -10vw;
-  border-radius: 20px;
+.light{
+  color: var(--color-text-greta);
 }
 
 .image-bus-assassination {
   z-index: var(--z-index-1);
   margin-top: 10vw;
 }
-
 </style>

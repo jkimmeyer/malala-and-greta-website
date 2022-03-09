@@ -16,7 +16,7 @@
           :chapter="4"
           :is-malala="false"
         />
-        <ChapterMalalaFour />
+        <ChapterGretaFour />
       </template>
     </ChapterSwitcher>
   </div>
