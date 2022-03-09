@@ -1,11 +1,13 @@
 <template>
   <div class="page" :class="themeClasses">
-    <slot />
+    <Nuxt />
   </div>
 </template>
 
 <script>
 import { Themes } from '@/enums/Themes'
+import { getCurrentTheme, setCurrentTheme } from '@/composables/theme'
+
 export default {
   setup () {
     return { getCurrentTheme, setCurrentTheme }

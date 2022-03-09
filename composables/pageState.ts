@@ -1,3 +1,5 @@
+import { ref, computed } from '@nuxtjs/composition-api'
+
 const inEnd = ref(false)
 
 const setInEnd = (value: boolean) => {

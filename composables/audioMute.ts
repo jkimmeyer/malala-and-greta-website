@@ -1,3 +1,5 @@
+import { computed, ref } from '@nuxtjs/composition-api'
+
 const audioOn = ref(false)
 
 const setAudioOn = (userAudioOn: boolean) => {

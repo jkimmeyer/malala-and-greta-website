@@ -3,24 +3,24 @@
     <ChapterSwitcher>
       <template #malala>
         <ChapterIntro
-          id="chapter-4"
-          :chapter="4"
+          id="chapter-2"
+          :chapter="2"
           :is-malala="true"
         >
-          Welche Rückschläge habe ich erlitten?
+          Wo bin ich aufgewachsen?
         </ChapterIntro>
-        <ChapterMalala4 />
+        <ChapterMalalaTwo />
       </template>
 
       <template #greta>
         <ChapterIntro
-          id="chapter-4"
-          :chapter="4"
+          id="chapter-2"
+          :chapter="2"
           :is-malala="false"
         >
-          Welche Greta habe ich erlitten?
+          Wo bin ich aufgewachsen?
         </ChapterIntro>
-        <ChapterGreta4 />
+        <ChapterGretaTwo />
       </template>
     </ChapterSwitcher>
   </div>

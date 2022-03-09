@@ -1,4 +1,4 @@
-import { watch } from 'vue'
+import { ref, watch } from '@nuxtjs/composition-api'
 import { getCurrentTheme } from '@/composables/theme'
 import { Themes } from '@/enums/Themes'
 import { getAudioOn } from '@/composables/audioMute'

@@ -59,19 +59,26 @@
 </template>
 
 <script>
+import { onMounted, onUnmounted, useContext } from '@nuxtjs/composition-api'
 import { Themes } from '@/enums/Themes'
 import { useIntroAnimation } from '@/composables/useIntroAnimation'
 import { setAudioOn } from '@/composables/audioMute'
+import { setCurrentTheme } from '@/composables/theme'
+const drama = require('@/assets/audio/Drama.mp3').default
 
 export default {
-
   setup () {
+    const { $gsap, $ScrollTrigger } = useContext()
+    const { registerAllAnimationTriggers, destroyAllTriggers } = useIntroAnimation($gsap, $ScrollTrigger)
+
     onMounted(() => {
       setTimeout(() => {
-        const animation = useIntroAnimation()
-
-        animation.registerAllAnimationTriggers()
+        registerAllAnimationTriggers()
       }, 50)
+    })
+
+    onUnmounted(() => {
+      destroyAllTriggers()
     })
 
     return {
@@ -97,12 +104,15 @@ export default {
       this.citeVisible = true
     }, 2000)
   },
+  unmounted () {
+    this.soundAudioElement.pause()
+  },
   methods: {
     onStartClicked () {
       this.buttonVisible = false
       this.setAudioOn(true)
 
-      this.soundAudioElement = new Audio('/audio/Drama.mp3')
+      this.soundAudioElement = new Audio(drama)
       this.soundAudioElement.volume = 0.1
       this.soundAudioElement.play()
     },
@@ -113,9 +123,6 @@ export default {
         setCurrentTheme(Themes.Malala)
       }
       this.$router.push({ path: '/story', hash: '#' })
-    },
-    onUnmounted () {
-      this.soundAudioElement.pause()
     }
   }
 }

@@ -1,10 +1,5 @@
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 import { setInEnd } from '@/composables/pageState'
-
-gsap.registerPlugin(ScrollTrigger)
-
-export const useAnimation = () => {
+export const useAnimation = (gsap, ScrollTrigger) => {
   const showMarkers = false
 
   const pin = (element: HTMLElement | string) => {

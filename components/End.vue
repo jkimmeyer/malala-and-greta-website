@@ -4,13 +4,13 @@
       <div class="mx-40 2xl:m-auto max-w-screen-xl">
         <div class="grid grid-cols-12">
           <div class="col-start-4 col-span-6">
-            <Image
+            <DecoratedImage
               :decoration-top-left="true"
               :decoration-top-right="true"
               :decoration-bottom-left="true"
               :decoration-bottom-right="true"
               theme="default"
-              path="/images/end/both-sitting-bench.jpeg"
+              :path="require('~/assets/images/end/both-sitting-bench.jpeg')"
             />
           </div>
         </div>
@@ -27,10 +27,10 @@
         <div class="grid grid-cols-12 mt-60 items-center">
           <div class="col-start-2 col-span-3">
             <a href="https://fridaysforfuture.de/">
-              <Image
+              <DecoratedImage
                 class="mr-5"
                 theme="default"
-                path="/images/end/logo-friday-for-future.png"
+                :path="require('~/assets/images/end/logo-friday-for-future.png')"
               />
             </a>
           </div>
@@ -46,10 +46,10 @@
           </div>
           <div class="col-start-8 col-span-3">
             <a href="https://malala.org/">
-              <Image
+              <DecoratedImage
                 class="ml-5"
                 theme="default"
-                path="/images/end/logo-malala-fund.png"
+                :path="require('~/assets/images/end/logo-malala-fund.png')"
               />
             </a>
           </div>
@@ -62,19 +62,19 @@
         <!--- world and rocket -->
         <div class="grid grid-cols-12 mt-60">
           <div class="col-start-6 col-span-1" data-animate-reveal-right>
-            <Image
+            <DecoratedImage
               class="mr-5"
               theme="default"
-              path="/images/end/rocket.png"
+              :path="require('~/assets/images/end/rocket.png')"
             />
           </div>
         </div>
         <div class="grid grid-cols-12 items-center">
           <div class="col-start-3 col-span-3">
-            <Image
+            <DecoratedImage
               class="mr-5"
               theme="default"
-              path="/images/end/world.png"
+              :path="require('~/assets/images/end/world.png')"
             />
           </div>
           <div class="body1 col-start-7 col-span-5" data-animate-reveal-right>
