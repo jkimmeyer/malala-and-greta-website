@@ -3,6 +3,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 import { playSound, updateSoundSource } from '@/composables/audioSound'
 import { updateNarratorSource, playNarrator } from '@/composables/audioNarrator'
 import { Themes } from '@/enums/Themes'
+import { getCurrentTheme } from '@/composables/theme'
 
 gsap.registerPlugin(ScrollTrigger)
 

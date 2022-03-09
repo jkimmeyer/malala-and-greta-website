@@ -8,7 +8,7 @@
 
 <script>
 import { gsap } from 'gsap'
-import { onMounted } from '@nuxtjs/composition-api'
+import { onMounted, ref, computed, onUnmounted, nextTick } from '@nuxtjs/composition-api'
 import citeContents from '~/assets/contents/cites-start.json'
 import { getAudioOn } from '@/composables/audioMute'
 

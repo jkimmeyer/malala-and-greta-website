@@ -54,6 +54,8 @@
   </div>
 </template>
 <script>
+import { getAudioOn, toggleAudio } from '@/composables/audioMute'
+import { audioNarratorIsPlaying, audioNarratorProgress, playNarrator, pauseNarrator, resumeNarrator } from '@/composables/audioNarrator'
 export default {
   setup () {
     return {

@@ -24,8 +24,9 @@
 
 <script>
 import { chapters } from '@/assets/contents/chapters.ts'
-import { switchTheme } from '@/composables/theme'
+import { switchTheme, getCurrentTheme } from '@/composables/theme'
 import { Themes } from '@/enums/Themes.ts'
+
 export default {
   setup () {
     return {

@@ -59,12 +59,14 @@
 </template>
 
 <script>
+import { onMounted } from '@nuxtjs/composition-api'
 import { Themes } from '@/enums/Themes'
 import { useIntroAnimation } from '@/composables/useIntroAnimation'
 import { setAudioOn } from '@/composables/audioMute'
+import { setCurrentTheme } from '@/composables/theme'
+const drama = require('@/assets/audio/Drama.mp3').default
 
 export default {
-
   setup () {
     onMounted(() => {
       setTimeout(() => {
@@ -102,7 +104,7 @@ export default {
       this.buttonVisible = false
       this.setAudioOn(true)
 
-      this.soundAudioElement = new Audio('/audio/Drama.mp3')
+      this.soundAudioElement = new Audio(drama)
       this.soundAudioElement.volume = 0.1
       this.soundAudioElement.play()
     },

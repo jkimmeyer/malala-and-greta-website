@@ -9,7 +9,7 @@
         >
           Wo bin ich aufgewachsen?
         </ChapterIntro>
-        <ChapterMalala2 />
+        <ChapterMalalaTwo />
       </template>
 
       <template #greta>
@@ -20,7 +20,7 @@
         >
           Wo bin ich aufgewachsen?
         </ChapterIntro>
-        <ChapterGreta2 />
+        <ChapterGretaTwo />
       </template>
     </ChapterSwitcher>
   </div>
