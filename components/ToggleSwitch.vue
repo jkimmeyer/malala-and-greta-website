@@ -43,9 +43,11 @@ export default {
   },
   methods: {
     toggleButton () {
-      this.$refs.toggleSwitchIcon.toggleAnimation()
-      this.toggleButtonPressed = this.toggleButtonPressed === 'true' ? 'false' : 'true'
-      this.$emit('toggle-button-switched')
+      if (this.enabled) {
+        this.$refs.toggleSwitchIcon.toggleAnimation()
+        this.toggleButtonPressed = this.toggleButtonPressed === 'true' ? 'false' : 'true'
+        this.$emit('toggle-button-switched')
+      }
     }
   }
 }

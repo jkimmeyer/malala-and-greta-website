@@ -9,9 +9,9 @@
         <NarratorControls />
       </li>
       <li class="navigation--list-item is-separator" />
-      <li v-for="chapter in chapters" :key="chapter.id" class="navigation--list-item is-page">
+      <li v-for="(chapter, index) in chapters" :key="chapter.id" class="navigation--list-item is-page">
         <a :href="chapter.id" class="navigation--link">
-          <span class="navigation--link-text">{{ chapter.title }}</span>
+          <span class="navigation--link-text">{{ index + 1 }} - {{ chapter.title }}</span>
         </a>
       </li>
       <li class="navigation--list-item is-separator" />

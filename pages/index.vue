@@ -28,6 +28,7 @@
           >
         </button>
       </div>
+
       <div class="page--teaser-contents">
         <h1 class="page--title" data-animate-reveal-intro="right">
           Erlebe unsere Geschichten.
@@ -149,14 +150,13 @@ export default {
 
 .page--request {
   position: absolute;
-  bottom: 0px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--serif-font);
   color: var(--color-text-neutral);
   font-size: var(--font-32);
   text-align: center;
-  margin-top: 120px;
   opacity: 0;
   display: flex;
   transition: opacity 0.5s ease-in;
@@ -169,12 +169,16 @@ export default {
   }
 }
 
-.page--request-arrow.left {
-  transform: scale(0.65) translateX(-50%) translateY(25%);
+.page--request-arrow.left svg{
+  width: 140px;
+  height: 90px;
+  transform: translateX(-50%) translateY(20%);
 }
 
-.page--request-arrow.right {
-  transform: scale(0.65) translateX(50%) translateY(-15%);;
+.page--request-arrow.right svg{
+  width: 140px;
+  height: 90px;
+  transform: translateX(50%) translateY(-15%);
 }
 
 .start-page--teaser-image {

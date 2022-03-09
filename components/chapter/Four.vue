@@ -6,9 +6,7 @@
           id="chapter-4"
           :chapter="4"
           :is-malala="true"
-        >
-          Welche Rückschläge habe ich erlitten?
-        </ChapterIntro>
+        />
         <ChapterMalalaFour />
       </template>
 
@@ -17,9 +15,7 @@
           id="chapter-4"
           :chapter="4"
           :is-malala="false"
-        >
-          Welche Greta habe ich erlitten?
-        </ChapterIntro>
+        />
         <ChapterMalalaFour />
       </template>
     </ChapterSwitcher>
