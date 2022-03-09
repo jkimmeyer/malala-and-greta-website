@@ -1,6 +1,8 @@
 <template>
-  <div class="placeholder">
-    Placeholder Chapter 6 - Malala
+  <div class="mx-40 2xl:mx-auto max-w-screen-xl">
+    <div class="placeholder">
+      Placeholder Chapter 6 - Malala
+    </div>
   </div>
 </template>
 
@@ -9,7 +11,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
   height: 100vh;
 }
 </style>
