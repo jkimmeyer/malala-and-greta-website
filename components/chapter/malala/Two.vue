@@ -1,0 +1,15 @@
+<template>
+  <div class="placeholder">
+    Placeholder Chapter 2 - Malala
+  </div>
+</template>
+
+<style scoped>
+.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+</style>

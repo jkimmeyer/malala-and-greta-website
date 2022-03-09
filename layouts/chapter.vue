@@ -2,7 +2,7 @@
   <div class="page" :class="themeClasses">
     <div id="viewport">
       <div id="content">
-        <slot />
+        <Nuxt />
       </div>
     </div>
     <Navigation />
@@ -10,17 +10,40 @@
 </template>
 
 <script>
+import { onMounted, useContext } from '@nuxtjs/composition-api'
 import { Themes } from '@/enums/Themes'
 import { useAnimation } from '@/composables/useAnimation'
+import { getCurrentTheme } from '@/composables/theme'
+import { useAudio } from '@/composables/useAudio.ts'
+
 export default {
   setup () {
+    const { $gsap, $ScrollTrigger } = useContext()
+
     onMounted(() => {
       setTimeout(() => {
-        const animation = useAnimation()
+        // setup animations
+        // Order is here important: applySmoothScrollToPage needs to be first
+        const animation = useAnimation($gsap, $ScrollTrigger)
+        const style = getComputedStyle(document.querySelector('.page'))
+        const colorBackgroundMalala = style.getPropertyValue('--color-background-malala')
+        const colorBackgroundMalalaDark = style.getPropertyValue('--color-background-malala-dark')
+        const colorBackgroundGreta = style.getPropertyValue('--color-background-greta')
+        const colorBackgroundGretaDark = style.getPropertyValue('--color-background-greta-dark')
+
         animation.applySmoothScrollToPage(window, '#content', '.page')
+
+        animation.registerAllBackgroundFadeTriggers(colorBackgroundMalala, colorBackgroundMalalaDark, colorBackgroundGreta, colorBackgroundGretaDark)
+        animation.registerAllAnimationTriggers()
+        animation.registerClassToggle('.page', 'end', '[data-end-begin]')
+        animation.registerEndState()
+
+        // setup audio for narrator and sound
+        const audio = useAudio($gsap, $ScrollTrigger)
+        audio.registerAllAudioAutoplayTriggers()
       }, 50)
     })
-    return { getCurrentTheme, setCurrentTheme }
+    return { getCurrentTheme }
   },
   computed: {
     themeClasses () {
@@ -28,9 +51,6 @@ export default {
       if (this.getCurrentTheme === Themes.Malala) { return 'has-malala-style' }
       return null
     }
-  },
-  mounted () {
-    this.setCurrentTheme(Themes.Malala)
   }
 }
 </script>
@@ -45,11 +65,28 @@ export default {
   --color-background: var(--color-background-greta);
   --color-background-dark: var(--color-background-greta-dark);
   --color-text-dark: var(--color-text-greta-dark);
+  --color-text-highlight: var(--color-text-greta-highlight);
+  --color-control: var(--color-background-greta-dark);
+  --color-control-focus: var(--glaucous);
+  --color-control-hover: var(--glaucous);
+  --color-control-active: var(--color-text-greta-highlight);
 }
 
 .page.has-malala-style {
   --color-background: var(--color-background-malala);
   --color-background-dark: var(--color-background-malala-dark);
   --color-text-dark: var(--color-text-malala-dark);
+  --color-text-highlight: var(--color-text-malala-highlight);
+  --color-control: var(--color-background-malala-dark);
+  --color-control-focus: var(--bronze);
+  --color-control-hover: var(--bronze);
+  --color-control-active: var(--color-text-malala-highlight);
+}
+
+.page.end {
+  --color-control: var(--deeptaupe);
+  --color-control-focus: var(--white);
+  --color-control-hover: var(--white);
+  --color-control-active: var(--white);
 }
 </style>
