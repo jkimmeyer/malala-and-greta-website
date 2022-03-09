@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="mx-40 2xl:m-auto max-w-screen-xl">
-      <div class="grid grid-cols-12">
+      <div class="grid grid-cols-12" data-narrator-malala="Malala-Kap4-1">
         <div class="col-start-0 col-span-8" data-animate-parallax="100">
           <Video :path="require('~/assets/videos/malala-kap4-1.mp4')" />
         </div>
-        <div class="text text-right col-start-9 col-span-4" data-narrator-malala="bullet-silence" data-animate-reveal-right>
+        <div class="text text-right col-start-9 col-span-4" data-animate-reveal-right>
           Der 9. Oktober 2012 fing an wie jeder andere
         </div>
       </div>
@@ -24,13 +24,11 @@
       </div>
     </div>
 
-    <div class="section mx-40 2xl:m-auto max-w-screen-xl" data-animate-fade-to-dark-malala>
+    <div class="section mx-50 2xl:m-auto max-w-screen-xl" data-animate-fade-to-dark-malala data-narrator-malala="Malala-Kap4-2">
       <div class="grid">
-        <div class="text-small col-start-4 col-span-2" data-animate-reveal-right>
-          Lorem ipsum bla bla bla
-        </div>
-        <div class="text-small col-start-7 col-span-2" data-animate-reveal-right>
-          Hallo wie geht es dir?
+        <div class="text-small col-start-4 col-span-2 mb-10" data-animate-reveal-right />
+        <div class="text-small col-start-7 col-span-2 mb-10" data-animate-reveal-right>
+          Wer von euch ist Malala?
         </div>
         <div class="image-human-shapes col-start-3 col-span-8">
           <DecoratedImage class="pagesection-image" :path="require('~/assets/images/chapter/4/malala/malala-kap4-human-shapes.png')" theme="malala" />
@@ -40,7 +38,7 @@
 
     <div class="section mx-40 2xl:m-auto max-w-screen-xl">
       <div class="grid grid-cols-12">
-        <div class="text-small col-start-3 col-span-4" data-narrator-malala="forget-about-pain" data-animate-reveal-rigth>
+        <div class="text-small col-start-3 col-span-4" data-animate-reveal-rigth data-narrator-malala="Malala-Kap4-3">
           Dann hörte ich nur noch den Schuss. Alles wurde schwarz
         </div>
       </div>
