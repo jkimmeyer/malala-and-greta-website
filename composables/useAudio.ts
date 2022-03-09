@@ -46,11 +46,11 @@ export const useAudio = (gsap, ScrollTrigger) => {
   const registerAllAudioAutoplayTriggers = () => {
     // narrator voice
     gsap.utils.toArray('[data-narrator-greta]').forEach((element: HTMLElement) => {
-      const audioFilePath = `/cites/greta/${element.dataset.narratorGreta}.mp3`
+      const audioFilePath = `/narrator/greta/${element.dataset.narratorGreta}.mp3`
       registerNarratorTrigger(element, audioFilePath, Themes.Greta)
     })
     gsap.utils.toArray('[data-narrator-malala]').forEach((element: HTMLElement) => {
-      const audioFilePath = `/cites/malala/${element.dataset.narratorMalala}.mp3`
+      const audioFilePath = `/narrator/malala/${element.dataset.narratorMalala}.m4a`
       registerNarratorTrigger(element, audioFilePath, Themes.Malala)
     })
 
