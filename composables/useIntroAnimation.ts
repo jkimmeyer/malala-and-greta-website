@@ -1,9 +1,4 @@
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
-
-gsap.registerPlugin(ScrollTrigger)
-
-export const useIntroAnimation = () => {
+export const useIntroAnimation = (gsap, ScrollTrigger) => {
   const scrollEffect = (element: HTMLElement) => {
     let buttonDisabled = true
     let requestVisible = false
@@ -16,6 +11,7 @@ export const useIntroAnimation = () => {
         ease: 'none',
         scrollTrigger: {
           trigger: '.page',
+          group: 'introAnimation',
           scrub: 2,
           pin: true,
           start: '0',
@@ -48,6 +44,7 @@ export const useIntroAnimation = () => {
                 buttonDisabled = true
               })
             }
+
             if (self.progress < 0.90 && requestVisible) {
               document.querySelector('[data-page-request]').classList.remove('visible')
               requestVisible = false
@@ -87,6 +84,7 @@ export const useIntroAnimation = () => {
       overwrite: 'auto',
       scrollTrigger: {
         start: 'top 75%',
+        group: 'introAnimation',
         trigger: element,
         toggleActions: 'restart none none reset'
       }
@@ -105,7 +103,16 @@ export const useIntroAnimation = () => {
     })
   }
 
+  const destroyAllTriggers = () => {
+    ScrollTrigger.getAll().filter(t => t.vars.group === 'introAnimation').forEach((el) => {
+      if (el && el.kill) {
+        el.kill(false)
+      }
+    })
+  }
+
   return {
+    destroyAllTriggers,
     registerAllAnimationTriggers
   }
 }

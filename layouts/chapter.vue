@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { onMounted } from '@nuxtjs/composition-api'
+import { onMounted, useContext } from '@nuxtjs/composition-api'
 import { Themes } from '@/enums/Themes'
 import { useAnimation } from '@/composables/useAnimation'
 import { getCurrentTheme } from '@/composables/theme'
@@ -18,11 +18,13 @@ import { useAudio } from '@/composables/useAudio.ts'
 
 export default {
   setup () {
+    const { $gsap, $ScrollTrigger } = useContext()
+
     onMounted(() => {
       setTimeout(() => {
         // setup animations
         // Order is here important: applySmoothScrollToPage needs to be first
-        const animation = useAnimation()
+        const animation = useAnimation($gsap, $ScrollTrigger)
         const style = getComputedStyle(document.querySelector('.page'))
         const colorBackgroundMalala = style.getPropertyValue('--color-background-malala')
         const colorBackgroundMalalaDark = style.getPropertyValue('--color-background-malala-dark')
@@ -36,7 +38,7 @@ export default {
         animation.registerClassToggle('.page', 'end', '[data-end-begin]')
 
         // setup audio for narrator and sound
-        const audio = useAudio()
+        const audio = useAudio($gsap, $ScrollTrigger)
         audio.registerAllAudioAutoplayTriggers()
       }, 50)
     })

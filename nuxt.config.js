@@ -48,8 +48,15 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    'nuxt-gsap-module'
   ],
+  gsap: {
+    extraPlugins: {
+      scrollTo: true,
+      scrollTrigger: true
+    }
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -64,8 +71,7 @@ export default {
       }
     },
     transpile: [
-      'three',
-      'gsap'
+      'three'
     ],
     extend (config) {
       config.module.rules.push({

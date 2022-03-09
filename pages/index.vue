@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import { onMounted } from '@nuxtjs/composition-api'
+import { onMounted, onUnmounted, useContext } from '@nuxtjs/composition-api'
 import { Themes } from '@/enums/Themes'
 import { useIntroAnimation } from '@/composables/useIntroAnimation'
 import { setAudioOn } from '@/composables/audioMute'
@@ -68,12 +68,17 @@ const drama = require('@/assets/audio/Drama.mp3').default
 
 export default {
   setup () {
+    const { $gsap, $ScrollTrigger } = useContext()
+    const { registerAllAnimationTriggers, destroyAllTriggers } = useIntroAnimation($gsap, $ScrollTrigger)
+
     onMounted(() => {
       setTimeout(() => {
-        const animation = useIntroAnimation()
-
-        animation.registerAllAnimationTriggers()
+        registerAllAnimationTriggers()
       }, 50)
+    })
+
+    onUnmounted(() => {
+      destroyAllTriggers()
     })
 
     return {
@@ -99,6 +104,9 @@ export default {
       this.citeVisible = true
     }, 2000)
   },
+  unmounted () {
+    this.soundAudioElement.pause()
+  },
   methods: {
     onStartClicked () {
       this.buttonVisible = false
@@ -115,9 +123,6 @@ export default {
         setCurrentTheme(Themes.Malala)
       }
       this.$router.push({ path: '/story', hash: '#' })
-    },
-    onUnmounted () {
-      this.soundAudioElement.pause()
     }
   }
 }
