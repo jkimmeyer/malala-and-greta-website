@@ -1,3 +1,4 @@
+import { setInEnd } from '@/composables/pageState'
 export const useAnimation = (gsap, ScrollTrigger) => {
   const showMarkers = false
 
@@ -70,6 +71,19 @@ export const useAnimation = (gsap, ScrollTrigger) => {
       },
       onLeaveBack: () => {
         document.querySelector(elementQuery).classList.remove(className)
+      }
+    })
+  }
+
+  const registerEndState = () => {
+    ScrollTrigger.create({
+      trigger: '[data-end-begin]',
+      start: 'top center',
+      onEnter: () => {
+        setInEnd(true)
+      },
+      onLeaveBack: () => {
+        setInEnd(false)
       }
     })
   }
@@ -197,6 +211,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
 
   return {
     registerClassToggle,
+    registerEndState,
     registerAllAnimationTriggers,
     registerAllBackgroundFadeTriggers,
     applySmoothScrollToPage

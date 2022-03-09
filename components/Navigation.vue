@@ -16,7 +16,7 @@
       </li>
       <li class="navigation--list-item is-separator" />
       <li class="navigation--list-item">
-        <ToggleSwitch :pressed="toggleSwitchPressed" @toggle-button-switched="switchTheme()" />
+        <ToggleSwitch :pressed="toggleSwitchPressed" :enabled="!getInEnd" @toggle-button-switched="switchTheme()" />
       </li>
     </ul>
   </nav>
@@ -31,7 +31,8 @@ export default {
   setup () {
     return {
       switchTheme,
-      getCurrentTheme
+      getCurrentTheme,
+      getInEnd
     }
   },
   data () {
