@@ -209,6 +209,7 @@ export default {
   transform: translateX(-50%) translateY(-50%);
 }
 .page--title {
+  text-align: center;
   font-size: var(--font-64);
   line-height: var(--line-1-5);
   color: var(--color-text-neutral);
