@@ -1,5 +1,5 @@
 <script>
-import { Icon } from '@iconify/vue'
+import { Icon } from '@iconify/vue2'
 
 export default Icon
 </script>

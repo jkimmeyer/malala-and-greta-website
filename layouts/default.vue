@@ -1,15 +1,21 @@
 <template>
   <div class="page" :class="themeClasses">
-    <slot />
-    <Navigation />
+    <Nuxt />
   </div>
 </template>
 
 <script>
 import { Themes } from '@/enums/Themes'
+import { getCurrentTheme, setCurrentTheme } from '@/composables/theme'
+
 export default {
   setup () {
     return { getCurrentTheme, setCurrentTheme }
+  },
+  head () {
+    return {
+      title: 'Malala und Greta'
+    }
   },
   computed: {
     themeClasses () {
@@ -17,9 +23,6 @@ export default {
       if (this.getCurrentTheme === Themes.Malala) { return 'has-malala-style' }
       return null
     }
-  },
-  mounted () {
-    this.setCurrentTheme(Themes.Malala)
   }
 }
 </script>
