@@ -146,18 +146,18 @@ export const useAnimation = (gsap, ScrollTrigger) => {
   // data-background-malala
   // data-background-greta
   const registerAllBackgroundFadeTriggers = (colorBackgroundMalala, colorBackgroundMalalaDark, colorBackgroundGreta, colorBackgroundGretaDark) => {
-    // gsap.utils.toArray('[data-animate-fade-to-dark-malala]').forEach((triggerElement: HTMLElement) => {
-    //   fadeBackground(triggerElement, '[data-background-malala]', colorBackgroundMalala, colorBackgroundMalalaDark)
-    // })
-    // gsap.utils.toArray('[data-animate-fade-to-light-malala]').forEach((triggerElement: HTMLElement) => {
-    //   fadeBackground(triggerElement, '[data-background-malala]', colorBackgroundMalalaDark, colorBackgroundMalala)
-    // })
-    // gsap.utils.toArray('[data-animate-fade-to-dark-greta]').forEach((triggerElement: HTMLElement) => {
-    //   fadeBackground(triggerElement, '[data-background-greta]', colorBackgroundGreta, colorBackgroundGretaDark)
-    // })
-    // gsap.utils.toArray('[data-animate-fade-to-light-greta]').forEach((triggerElement: HTMLElement) => {
-    //   fadeBackground(triggerElement, '[data-background-greta]', colorBackgroundGretaDark, colorBackgroundGreta)
-    // })
+    gsap.utils.toArray('[data-animate-fade-to-dark-malala]').forEach((triggerElement: HTMLElement) => {
+      fadeBackground(triggerElement, '[data-background-malala]', colorBackgroundMalala, colorBackgroundMalalaDark)
+    })
+    gsap.utils.toArray('[data-animate-fade-to-light-malala]').forEach((triggerElement: HTMLElement) => {
+      fadeBackground(triggerElement, '[data-background-malala]', colorBackgroundMalalaDark, colorBackgroundMalala)
+    })
+    gsap.utils.toArray('[data-animate-fade-to-dark-greta]').forEach((triggerElement: HTMLElement) => {
+      fadeBackground(triggerElement, '[data-background-greta]', colorBackgroundGreta, colorBackgroundGretaDark)
+    })
+    gsap.utils.toArray('[data-animate-fade-to-light-greta]').forEach((triggerElement: HTMLElement) => {
+      fadeBackground(triggerElement, '[data-background-greta]', colorBackgroundGretaDark, colorBackgroundGreta)
+    })
   }
 
   // inspired by:
