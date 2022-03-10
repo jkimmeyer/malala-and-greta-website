@@ -1,0 +1,25 @@
+<template>
+  <p class="quote">
+    {{ quote }}
+  </p>
+</template>
+
+<script>
+export default {
+  props: {
+    quote: {
+      type: String,
+      required: true
+    }
+  }
+}
+</script>
+
+<style scoped>
+.quote {
+  width: 400px;
+  font-size: var(--font-32);
+  font-style: italic;
+  color: var(--color-text-neutral-light);
+}
+</style>
