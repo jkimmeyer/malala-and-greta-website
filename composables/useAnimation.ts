@@ -183,7 +183,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     }
     let height; let isProxyScrolling
 
-    function refreshHeight() {
+    function refreshHeight () {
       height = content.clientHeight
       content.style.overflow = 'visible'
       document.body.style.height = height + 'px'
@@ -197,7 +197,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     ScrollTrigger.defaults({ scroller: content })
 
     ScrollTrigger.scrollerProxy(content, {
-      scrollTop(value) {
+      scrollTop (value) {
         if (arguments.length) {
           isProxyScrolling = true // otherwise, if snapping was applied (or anything that attempted to SET the scroll proxy's scroll position), we'd set the scroll here which would then (on the next tick) update the content tween/ScrollTrigger which would try to smoothly animate to that new value, thus the scrub tween would impede the progress. So we use this flag to respond accordingly in the ScrollTrigger's onUpdate and effectively force the scrub to its end immediately.
           setProp(-value)
@@ -207,7 +207,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
         return -getProp('y')
       },
       scrollHeight: () => document.body.scrollHeight,
-      getBoundingClientRect() {
+      getBoundingClientRect () {
         return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight }
       }
     })
