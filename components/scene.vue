@@ -5,6 +5,7 @@
 <script>
 import * as THREE from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 export default {
   props: {
@@ -31,6 +32,10 @@ export default {
     far: {
       type: Number,
       default: 1000
+    },
+    orbitControlled: {
+      type: Boolean,
+      default: false
     },
     camX: {
       type: Number,
@@ -77,8 +82,17 @@ export default {
             console.log('An error happened: ' + error)
           })
 
-        const mesh = new THREE.Points(obj.children[0].geometry, this.POINTS_MATERIAL)
-        loadedMeshes.push(mesh)
+        let edges = new THREE.EdgesGeometry(obj.children[0].geometry);
+        let mesh = new THREE.LineSegments(edges, this.MATERIAL)
+
+        let box = new THREE.Box3().setFromObject(mesh);
+        box.getCenter(mesh.position);
+        mesh.position.multiplyScalar( - 1 );
+
+        let pivot = new THREE.Group();
+        pivot.add(mesh);
+
+        loadedMeshes.push(pivot)
       }
 
       return loadedMeshes
@@ -87,7 +101,9 @@ export default {
       this.SCENE = new THREE.Scene()
       this.OBJ_LOADER = new OBJLoader()
       this.RENDERER = new THREE.WebGLRenderer({ antialias: true, alpha: true })
-      this.POINTS_MATERIAL = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 0.05 })
+      this.MATERIAL = new THREE.LineBasicMaterial( {
+        color: 0xffffff
+      } );
       this.CAMERA = new THREE.PerspectiveCamera(
         this.fov,
         (this.width) / (this.height),
@@ -104,6 +120,11 @@ export default {
       this.CAMERA.position.setX(this.camX)
       this.CAMERA.position.setY(this.camY)
       this.CAMERA.position.setZ(this.camZ)
+
+      if(this.orbitControlled){
+        this.CONTROLS = new OrbitControls( this.CAMERA, this.RENDERER.domElement );
+        this.CONTROLS.update();
+      }
 
       // materials setzen + three.js mesh erstellen
       for (let i = 0; i < this.models.length; i++) {
@@ -125,6 +146,9 @@ export default {
     },
     animate () {
       requestAnimationFrame(this.animate)
+      if(this.orbitControlled){
+        this.CONTROLS.update();
+      }
 
       if (this.meshes) {
         for (let i = 0; i < this.models.length; i++) {
