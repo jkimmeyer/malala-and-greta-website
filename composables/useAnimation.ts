@@ -36,7 +36,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
       ease: 'expo',
       overwrite: 'auto',
       scrollTrigger: {
-        start: 'top 75%',
+        start: 'top 99%',
         trigger: element,
         toggleActions: 'restart none none reset',
         markers: showMarkers

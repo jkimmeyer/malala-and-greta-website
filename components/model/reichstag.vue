@@ -9,9 +9,9 @@ export default {
   },
   methods: {
     animate (mesh) {
-      mesh.rotation.y = 0
-      mesh.rotation.x = 1.8
-      mesh.rotation.z += 0.005
+      mesh.rotation.y += 0.001
+      mesh.rotation.x = 0.15
+      mesh.rotation.z = 0
     },
     getMeshPath () {
       return '/models/Reichstag.obj'

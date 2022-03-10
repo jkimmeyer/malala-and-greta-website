@@ -2,11 +2,11 @@
   <div class="mx-40 2xl:mx-auto max-w-screen-xl">
     <div class="content">
 
-      <!-- -->
+      <!-- Section 1 -->
       <div class="section grid grid-cols-12">
         <div class="text-1 col-start-1 col-span-8">
-          <span data-animate-reveal-right>WENN SO VIELE DAVON WISSEN,</span>
-          <span data-animate-reveal-right>WIESO TUT NIEMAND ETWAS DAGEGEN?</span>
+          <span data-animate-reveal-left>WENN SO VIELE DAVON WISSEN,</span>
+          <span data-animate-reveal-left>WIESO TUT NIEMAND ETWAS DAGEGEN?</span>
         </div>
         <div class="image-1 col-start-9 col-span-3">
           <img src="@/assets/images/chapter/3/greta/melting-earth.png">
@@ -23,9 +23,9 @@
         </div>
       </div>
 
-      <!-- -->
+      <!-- Section 2 -->
       <div class="section grid grid-cols-12">
-        <div class="model-1 col-start-1 col-span-4">
+        <div class="model-1 col-start-1 col-span-4" data-animate-parallax="-10">
           <Scene
             scene-id="3d-lamp"
             :height="526"
@@ -33,9 +33,9 @@
             :fov="80"
             :near="0.1"
             :far="1000"
-            :cam-x="-5"
-            :cam-y="-14"
-            :cam-z="10"
+            :cam-x="-5.75"
+            :cam-y="-16"
+            :cam-z="7"
             :models="lampeScene"
           />
         </div>
@@ -57,13 +57,13 @@
         </div>
       </div>
 
-      <!-- -->
+      <!-- Section 3 -->
       <div class="section grid grid-cols-12">
         <div class="text-4 col-start-1 col-span-12">
-          <span class="">
+          <span data-animate-reveal-left>
             20.08.2018
           </span>
-          <span data-animate-reveal-right>
+          <span data-animate-reveal-left>
             DER START DER KLIMABEWEGUNG
           </span>
         </div>
@@ -77,7 +77,7 @@
               :near="0.1"
               :far="1000"
               :cam-x="-5"
-              :cam-y="-14"
+              :cam-y="-16"
               :cam-z="10"
               :models="reichstagScene"
             />
@@ -86,8 +86,8 @@
             <Video :path="require('~/assets/videos/greta/greta-kap3-1.mp4')" />
           </div>
           <div class="image-container-1 col-start-1 col-span-12">
-            <img class="image-3" src="@/assets/svg/arrow.svg">
-            <img class="image-4" src="@/assets/images/chapter/3/greta/fridaysforfuture.png">
+            <img class="image-3" data-animate-parallax="10" src="@/assets/svg/arrow.svg">
+            <img class="image-4" data-animate-parallax="-10" src="@/assets/images/chapter/3/greta/fridaysforfuture.png">
             <span data-animate-reveal-bottom>
               Alles, was wir tun müssen, ist<br>aufwachen und uns verändern.
             </span>
@@ -124,22 +124,21 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .section {
-  padding-left: 72px;
-  padding-right: 72px;
+  width: 100%;
 
   &:first-child{
-    padding-top: 90px;
-    padding-bottom: calc(4em + 100px);
+    padding-top: 0;
+    padding-bottom: 150px;
   }
 
   &:not(:first-child):not(:last-child){
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 150px;
+    padding-bottom: 150px;
   }
 
   &:last-child{
-    padding-top: 100px;
-    padding-bottom: 90px;
+    padding-top: 150px;
+    padding-bottom: 0;
   }
 }
 
@@ -259,8 +258,8 @@ export default defineComponent({
     height: auto;
     border-radius: 25px;
 
-    }
   }
+}
 .image-container-1{
   display: flex;
   flex-direction: column;
