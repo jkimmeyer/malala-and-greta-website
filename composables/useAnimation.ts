@@ -23,7 +23,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     })
   }
 
-  const reveal = (element: HTMLElement | string, x: number) => {
+  const revealHorizontal = (element: HTMLElement | string, x: number) => {
     return gsap.fromTo(element, {
       x,
       y: 0,
@@ -37,6 +37,27 @@ export const useAnimation = (gsap, ScrollTrigger) => {
       overwrite: 'auto',
       scrollTrigger: {
         start: 'top 75%',
+        trigger: element,
+        toggleActions: 'restart none none reset',
+        markers: showMarkers
+      }
+    })
+  }
+
+  const revealVertical = (element: HTMLElement | string, y: number) => {
+    return gsap.fromTo(element, {
+      x: 0,
+      y,
+      autoAlpha: 0
+    }, {
+      duration: 1.25,
+      x: 0,
+      y: 0,
+      autoAlpha: 1,
+      ease: 'expo',
+      overwrite: 'auto',
+      scrollTrigger: {
+        start: 'top 100%',
         trigger: element,
         toggleActions: 'restart none none reset',
         markers: showMarkers
@@ -96,11 +117,15 @@ export const useAnimation = (gsap, ScrollTrigger) => {
   const registerAllAnimationTriggers = () => {
     gsap.utils.toArray('[data-animate-reveal-left]').forEach((element: HTMLElement) => {
       hide(element)
-      reveal(element, -100)
+      revealHorizontal(element, -100)
     })
     gsap.utils.toArray('[data-animate-reveal-right]').forEach((element: HTMLElement) => {
       hide(element)
-      reveal(element, 100)
+      revealHorizontal(element, 100)
+    })
+    gsap.utils.toArray('[data-animate-reveal-bottom]').forEach((element: HTMLElement) => {
+      hide(element)
+      revealVertical(element, 100)
     })
     gsap.utils.toArray('[data-animate-parallax]').forEach((element: HTMLElement) => {
       const value = element.dataset.animateParallax
@@ -158,7 +183,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     }
     let height; let isProxyScrolling
 
-    function refreshHeight () {
+    function refreshHeight() {
       height = content.clientHeight
       content.style.overflow = 'visible'
       document.body.style.height = height + 'px'
@@ -172,7 +197,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     ScrollTrigger.defaults({ scroller: content })
 
     ScrollTrigger.scrollerProxy(content, {
-      scrollTop (value) {
+      scrollTop(value) {
         if (arguments.length) {
           isProxyScrolling = true // otherwise, if snapping was applied (or anything that attempted to SET the scroll proxy's scroll position), we'd set the scroll here which would then (on the next tick) update the content tween/ScrollTrigger which would try to smoothly animate to that new value, thus the scrub tween would impede the progress. So we use this flag to respond accordingly in the ScrollTrigger's onUpdate and effectively force the scrub to its end immediately.
           setProp(-value)
@@ -182,7 +207,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
         return -getProp('y')
       },
       scrollHeight: () => document.body.scrollHeight,
-      getBoundingClientRect () {
+      getBoundingClientRect() {
         return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight }
       }
     })
