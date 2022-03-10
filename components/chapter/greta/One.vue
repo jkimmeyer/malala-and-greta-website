@@ -6,7 +6,7 @@
       :image="require('~/assets/images/Greta-Face.png')"
     />
 
-    <div class="w-screen h-screen p-32">
+    <div class="py-32 max-w-screen-2xl 2xl:mx-auto">
       <div class="grid grid-cols-12">
         <div class="col-start-1 col-span-2">
           <ChapterOneQuote quote="“I have learned, you are never too small to make a difference.”" data-animate-parallax="400" />
