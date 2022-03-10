@@ -2,23 +2,25 @@
   <div>
     <div class="mx-40 2xl:mx-auto max-w-screen-xl">
       <div class="grid grid-cols-12">
-        <div class="col-start-0 col-span-8" data-animate-parallax="100">
-          <Video :path="require('~/assets/videos/greta/greta-kap4-1.mp4')" />
-        </div>
+        <Video
+          :path="require('~/assets/videos/greta/greta-kap4-1.mp4')"
+          class="col-start-0 col-span-8"
+          data-animate-parallax="100"
+        />
         <div class="text text-right col-start-9 col-span-4" data-animate-reveal-right>
           Bei mir wurde das Asperger-Syndrom diagnostiziert
         </div>
       </div>
 
       <div class="grid grid-cols-12">
-        <div class="image-bus-assassination col-start-7 col-span-4" data-animate-parallax="-100">
-          <FactsContainer
-            theme="greta"
-            size="sm"
-            :facts="require('~/assets/contents/facts-greta-kap4.json')"
-            format="rect"
-          />
-        </div>
+        <FactsContainer
+          class="image-bus-assassination col-start-7 col-span-4"
+          data-animate-parallax="-100"
+          theme="greta"
+          size="sm"
+          :facts="require('~/assets/contents/facts-greta-kap4.json')"
+          format="rect"
+        />
       </div>
     </div>
 
@@ -30,21 +32,23 @@
         <div class="text-small col-start-7 col-span-2 mb-10" data-animate-reveal-right>
           Sie geht nicht zur Schule und animiert andere Jugendliche zum Schwänzen
         </div>
-        <div class="col-start-3 col-span-8">
-          <DecoratedImage :path="require('~/assets/images/chapter/4/greta/greta-kap4-human-shapes.png')" theme="greta" />
-        </div>
+        <DecoratedImage
+          class="col-start-3 col-span-8"
+          :path="require('~/assets/images/chapter/4/greta/greta-kap4-human-shapes.png')"
+          theme="greta"
+        />
       </div>
     </div>
 
     <div class="mx-40 2xl:mx-auto max-w-screen-xl mt-96 mb-96">
       <div class="grid grid-cols-12">
-        <div class="col-start-1 col-span-4" data-animate-reveal-rigth>
-          <DecoratedImage
-            :decoration-top-right="true"
-            theme="greta"
-            :path="require('~/assets/images/chapter/4/greta/greta-kap4-umbrella.png')"
-          />
-        </div>
+        <DecoratedImage
+          class="col-start-1 col-span-4"
+          data-animate-reveal-rigth
+          :decoration-top-right="true"
+          theme="greta"
+          :path="require('~/assets/images/chapter/4/greta/greta-kap4-umbrella.png')"
+        />
         <div class="text-small light col-start-6 col-span-5" data-animate-reveal-right>
           “Is the microphone on? Did you hera me? Is my English ok?
           Becaus I am beginnig to wonder.<br>
