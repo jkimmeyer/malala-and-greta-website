@@ -14,7 +14,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
 
   const parallax = (element: HTMLElement | string, yPercent: any) => {
     return gsap.to(element, {
-      yPercent,
+      y: yPercent,
       ease: 'none',
       scrollTrigger: {
         trigger: element,
@@ -22,6 +22,18 @@ export const useAnimation = (gsap, ScrollTrigger) => {
       }
     })
   }
+
+  // const timelineAnimation = (trigger: HTMLElement | string, element: HTMLElement | string) => {
+  //   return gsap.timeline({
+  //     defaults: { duration: 1 },
+  //     scrollTrigger: {
+  //       trigger,
+  //       scrub: true,
+  //       start: 'top center',
+  //       end: 'bottom center'
+  //     }
+  //   }).from(element, { drawSVG: 0 }, 0)
+  // }
 
   const revealHorizontal = (element: HTMLElement | string, x: number) => {
     return gsap.fromTo(element, {
@@ -134,6 +146,11 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     gsap.utils.toArray('[data-animate-pin]').forEach((element: HTMLElement) => {
       pin(element)
     })
+
+    // gsap.utils.toArray('[data-animate-timeline]').forEach((trigger: HTMLElement) => {
+    //   const element = trigger.dataset.animateTimeline
+    //   timelineAnimation(trigger, element)
+    // })
   }
 
   // attributes that trigger background fades:
