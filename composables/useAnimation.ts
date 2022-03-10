@@ -23,7 +23,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     })
   }
 
-  const reveal = (element: HTMLElement | string, x: number) => {
+  const revealHorizontal = (element: HTMLElement | string, x: number) => {
     return gsap.fromTo(element, {
       x,
       y: 0,
@@ -37,6 +37,27 @@ export const useAnimation = (gsap, ScrollTrigger) => {
       overwrite: 'auto',
       scrollTrigger: {
         start: 'top 75%',
+        trigger: element,
+        toggleActions: 'restart none none reset',
+        markers: showMarkers
+      }
+    })
+  }
+
+  const revealVertical = (element: HTMLElement | string, y: number) => {
+    return gsap.fromTo(element, {
+      x: 0,
+      y,
+      autoAlpha: 0
+    }, {
+      duration: 1.25,
+      x: 0,
+      y: 0,
+      autoAlpha: 1,
+      ease: 'expo',
+      overwrite: 'auto',
+      scrollTrigger: {
+        start: 'top 100%',
         trigger: element,
         toggleActions: 'restart none none reset',
         markers: showMarkers
@@ -96,11 +117,15 @@ export const useAnimation = (gsap, ScrollTrigger) => {
   const registerAllAnimationTriggers = () => {
     gsap.utils.toArray('[data-animate-reveal-left]').forEach((element: HTMLElement) => {
       hide(element)
-      reveal(element, -100)
+      revealHorizontal(element, -100)
     })
     gsap.utils.toArray('[data-animate-reveal-right]').forEach((element: HTMLElement) => {
       hide(element)
-      reveal(element, 100)
+      revealHorizontal(element, 100)
+    })
+    gsap.utils.toArray('[data-animate-reveal-bottom]').forEach((element: HTMLElement) => {
+      hide(element)
+      revealVertical(element, 100)
     })
     gsap.utils.toArray('[data-animate-parallax]').forEach((element: HTMLElement) => {
       const value = element.dataset.animateParallax
