@@ -68,11 +68,9 @@ export default {
   },
   methods: {
     nextFact () {
-      console.log('nextFact')
       this.activeFactID = (this.activeFactID + 1) % this.facts.length
     },
     previousFact () {
-      console.log('previousFact')
       this.activeFactID--
       if (this.activeFactID < 0) {
         this.activeFactID = this.facts.length - 1
