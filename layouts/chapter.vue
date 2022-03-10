@@ -18,13 +18,13 @@ import { useAudio } from '@/composables/useAudio.ts'
 
 export default {
   setup () {
-    const { $gsap, $ScrollTrigger } = useContext()
+    const { $gsap, $ScrollTrigger, $DrawSVGPlugin } = useContext()
 
     onMounted(() => {
       setTimeout(() => {
         // setup animations
         // Order is here important: applySmoothScrollToPage needs to be first
-        const animation = useAnimation($gsap, $ScrollTrigger)
+        const animation = useAnimation($gsap, $ScrollTrigger, $DrawSVGPlugin)
         const style = getComputedStyle(document.querySelector('.page'))
         const colorBackgroundMalala = style.getPropertyValue('--color-background-malala')
         const colorBackgroundMalalaDark = style.getPropertyValue('--color-background-malala-dark')
@@ -58,6 +58,7 @@ export default {
 <style scoped>
 .page {
   min-height: 100vh;
+  font-family: var(--sans-serif-font);
   background-color: var(--color-background);
 }
 

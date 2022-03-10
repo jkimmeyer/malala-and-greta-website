@@ -4,7 +4,7 @@
       Kapitel {{ chapter }}
     </h2>
     <h1 class="intro--heading">
-      {{ chapters[chapter-1].title }}
+      <slot>{{ chapters[chapter-1].title }}</slot>
     </h1>
   </div>
 </template>
@@ -49,11 +49,11 @@ export default {
 }
 
 .intro.malala {
-  background: linear-gradient(var(--color-background-malala-dark) 0%, var(--color-background-malala) 100%);
+  background: linear-gradient(var(--color-background-malala-dark) 30%, var(--color-background-malala) 100%);
 }
 
 .intro.greta {
-  background: linear-gradient(var(--color-background-greta-dark) 0%, var(--color-background-greta) 100%);
+  background: linear-gradient(var(--color-background-greta-dark) 30%, var(--color-background-greta) 100%);
 }
 
 .intro--heading {
