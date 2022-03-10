@@ -3,16 +3,15 @@
     <div>
       <div class="mx-40 2xl:m-auto max-w-screen-xl">
         <div class="grid grid-cols-12">
-          <div class="col-start-4 col-span-6">
-            <DecoratedImage
-              :decoration-top-left="true"
-              :decoration-top-right="true"
-              :decoration-bottom-left="true"
-              :decoration-bottom-right="true"
-              theme="default"
-              :path="require('~/assets/images/end/both-sitting-bench.jpeg')"
-            />
-          </div>
+          <DecoratedImage
+            class="col-start-4 col-span-6"
+            :decoration-top-left="true"
+            :decoration-top-right="true"
+            :decoration-bottom-left="true"
+            :decoration-bottom-right="true"
+            theme="default"
+            :path="require('~/assets/images/end/both-sitting-bench.jpeg')"
+          />
         </div>
 
         <div class="grid grid-cols-12 mt-20">
@@ -61,22 +60,19 @@
         </div>
         <!--- world and rocket -->
         <div class="grid grid-cols-12 mt-60">
-          <div class="col-start-6 col-span-1" data-animate-reveal-right>
-            <DecoratedImage
-              class="mr-5"
-              theme="default"
-              :path="require('~/assets/images/end/rocket.png')"
-            />
-          </div>
+          <DecoratedImage
+            class="col-start-6 col-span-1 mr-5"
+            data-animate-reveal-right
+            theme="default"
+            :path="require('~/assets/images/end/rocket.png')"
+          />
         </div>
         <div class="grid grid-cols-12 items-center">
-          <div class="col-start-3 col-span-3">
-            <DecoratedImage
-              class="mr-5"
-              theme="default"
-              :path="require('~/assets/images/end/world.png')"
-            />
-          </div>
+          <DecoratedImage
+            class="col-start-3 col-span-3 mr-5"
+            theme="default"
+            :path="require('~/assets/images/end/world.png')"
+          />
           <div class="body1 col-start-7 col-span-5" data-animate-reveal-right>
             Was willst du verändern?
           </div>

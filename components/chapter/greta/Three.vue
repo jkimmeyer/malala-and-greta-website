@@ -24,7 +24,7 @@
 
       <!-- -->
       <div class="section grid grid-cols-12">
-        <div class="model-1 col-start-1 col-span-4">
+        <div v-if="false" class="model-1 col-start-1 col-span-4">
           <Scene
             scene-id="3d-lamp"
             :height="526"
@@ -67,7 +67,7 @@
           </span>
         </div>
         <div class="grid col-start-1 col-span-12 grid-cols-12">
-          <div class="model-2 col-start-1 col-span-7" data-animate-parallax="25">
+          <div v-if="false" class="model-2 col-start-1 col-span-7" data-animate-parallax="25">
             <Scene
               scene-id="swedish"
               :height="400"

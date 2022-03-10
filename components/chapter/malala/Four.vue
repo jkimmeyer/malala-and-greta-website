@@ -2,23 +2,25 @@
   <div>
     <div class="mx-40 2xl:mx-auto max-w-screen-xl">
       <div class="grid grid-cols-12" data-narrator-malala="Malala-Kap4-1">
-        <div class="col-start-0 col-span-8" data-animate-parallax="100">
-          <Video :path="require('~/assets/videos/malala/malala-kap4-1.mp4')" />
-        </div>
+        <Video
+          class="col-start-0 col-span-8"
+          data-animate-parallax="100"
+          :path="require('~/assets/videos/malala/malala-kap4-1.mp4')"
+        />
         <div class="text text-right col-start-9 col-span-4" data-animate-reveal-right>
           Der 9. Oktober 2012 fing an wie jeder andere
         </div>
       </div>
 
       <div class="grid grid-cols-12">
-        <div class="image-bus-assassination col-start-7 col-span-4" data-animate-parallax="-100">
-          <DecoratedImage
-            :decoration-top-right="true"
-            :decoration-bottom-left="true"
-            theme="malala"
-            :path="require('~/assets/images/chapter/4/malala/malala-kap4-bus.jpeg')"
-          />
-        </div>
+        <DecoratedImage
+          class="image-bus-assassination col-start-7 col-span-4"
+          data-animate-parallax="-100"
+          :decoration-top-right="true"
+          :decoration-bottom-left="true"
+          theme="malala"
+          :path="require('~/assets/images/chapter/4/malala/malala-kap4-bus.jpeg')"
+        />
       </div>
     </div>
 
@@ -28,9 +30,7 @@
         <div class="text-small col-start-7 col-span-2 mb-10" data-animate-reveal-right>
           Wer von euch ist Malala?
         </div>
-        <div class="col-start-3 col-span-8">
-          <DecoratedImage :path="require('~/assets/images/chapter/4/malala/malala-kap4-human-shapes.png')" theme="malala" />
-        </div>
+        <DecoratedImage class="col-start-3 col-span-8" :path="require('~/assets/images/chapter/4/malala/malala-kap4-human-shapes.png')" theme="malala" />
       </div>
     </div>
 
