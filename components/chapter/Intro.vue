@@ -58,7 +58,6 @@ export default {
 
 .intro--heading {
   font-family: var(--serif-font);
-  font-size: var(--font-182);
   font-weight: 300;
   letter-spacing: 0.1em;
   line-height: var(--line-1);
@@ -67,11 +66,27 @@ export default {
 
 .intro--subheading {
   font-family: var(--sans-serif-font);
-  font-size: var(--font-96);
   font-weight: 200;
   line-height: var(--line-1-15);
   text-transform: uppercase;
   color: inherit;
 }
+@media (max-width: 1024px) {
+  .intro--heading {
+    font-size: var(--font-128);
+  }
 
+  .intro--subheading {
+    font-size: var(--font-64);
+  }
+}
+@media (min-width: 1024px) {
+  .intro--heading {
+    font-size: var(--font-182);
+  }
+
+  .intro--subheading {
+    font-size: var(--font-96);
+  }
+}
 </style>
