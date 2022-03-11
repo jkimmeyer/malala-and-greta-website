@@ -52,8 +52,8 @@ export default {
 
 <style>
 .cls-1 {
-  fill: var(--color-background-dark);
-  stroke: var(--color-background-dark);
+  fill: var(--color-control);
+  stroke: var(--color-control);
   stroke-miterlimit: 10;
   transition: fill ease-in var(--theme-duration-1000), stroke ease-in var(--theme-duration-1000);
 }
