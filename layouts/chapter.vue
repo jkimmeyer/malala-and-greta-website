@@ -37,15 +37,6 @@ export default {
 
         animation.registerAllBackgroundFadeTriggers(colorBackgroundMalala, colorBackgroundMalalaDark, colorBackgroundGreta, colorBackgroundGretaDark)
         animation.registerAllAnimationTriggers()
-        // animation.registerClassAdd('.page', 'end', '[data-end-begin]')
-        // animation.registerClassAdd('.page', 'has-light-controls', '[data-control-light-begin-greta]')
-        // animation.registerClassAdd('.page', 'has-light-controls', '[data-control-light-begin-malala]')
-        // animation.registerClassRemove('.page', 'has-light-controls', '[data-control-light-end-greta]')
-        // animation.registerClassRemove('.page', 'has-light-controls', '[data-control-light-end-malala]')
-        // animation.registerClassSwitch('.page', 'has-dark-controls', 'has-light-controls', '[data-control-light-begin-greta]')
-        // animation.registerClassSwitch('.page', 'has-dark-controls', 'has-light-controls', '[data-control-light-begin-malala]')
-        // animation.registerClassSwitch('.page', 'has-light-controls', 'has-dark-controls', '[data-control-light-end-greta]')
-        // animation.registerClassSwitch('.page', 'has-light-controls', 'has-dark-controls', '[data-control-light-end-malala]')
 
         animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.Light, '[data-controls-dark-light]')
         animation.registerControlThemeChange(ControlThemes.Light, ControlThemes.Dark, '[data-controls-light-dark]')
@@ -67,7 +58,6 @@ export default {
       return null
     },
     controlClasses () {
-      console.log(this.getCurrentControlTheme)
       if (this.getCurrentControlTheme === ControlThemes.Dark) { return 'has-dark-controls' }
       if (this.getCurrentControlTheme === ControlThemes.Light) { return 'has-light-controls' }
       if (this.getCurrentControlTheme === ControlThemes.End) { return 'has-end-controls' }
