@@ -1,4 +1,5 @@
-import { setInEnd } from '@/composables/pageState'
+import { setCurrentControlTheme } from '~/composables/controlTheme'
+import { ControlThemeOptions } from '~/interfaces/ControlThemeOptions'
 export const useAnimation = (gsap, ScrollTrigger) => {
   const showMarkers = false
 
@@ -14,7 +15,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
 
   const parallax = (element: HTMLElement | string, yPercent: any) => {
     return gsap.to(element, {
-      yPercent,
+      y: yPercent,
       ease: 'none',
       scrollTrigger: {
         trigger: element,
@@ -22,6 +23,18 @@ export const useAnimation = (gsap, ScrollTrigger) => {
       }
     })
   }
+
+  // const timelineAnimation = (trigger: HTMLElement | string, element: HTMLElement | string) => {
+  //   return gsap.timeline({
+  //     defaults: { duration: 1 },
+  //     scrollTrigger: {
+  //       trigger,
+  //       scrub: true,
+  //       start: 'top center',
+  //       end: 'bottom center'
+  //     }
+  //   }).from(element, { drawSVG: 0 }, 0)
+  // }
 
   const revealHorizontal = (element: HTMLElement | string, x: number) => {
     return gsap.fromTo(element, {
@@ -83,7 +96,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     )
   }
 
-  const registerClassToggle = (elementQuery: string, className: string, triggerElement: HTMLElement | string) => {
+  const registerClassAdd = (elementQuery: string, className: string, triggerElement: HTMLElement | string) => {
     ScrollTrigger.create({
       trigger: triggerElement,
       start: 'top center',
@@ -96,15 +109,56 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     })
   }
 
-  const registerEndState = () => {
+  const registerClassRemove = (elementQuery: string, className: string, triggerElement: HTMLElement | string) => {
     ScrollTrigger.create({
-      trigger: '[data-end-begin]',
+      trigger: triggerElement,
       start: 'top center',
       onEnter: () => {
-        setInEnd(true)
+        document.querySelector(elementQuery).classList.remove(className)
       },
       onLeaveBack: () => {
-        setInEnd(false)
+        document.querySelector(elementQuery).classList.add(className)
+      }
+    })
+  }
+
+  const registerClassSwitch = (elementQuery: string, classNameFrom: string, classNameTo: string, triggerElement: HTMLElement | string) => {
+    ScrollTrigger.create({
+      trigger: triggerElement,
+      start: 'top center',
+      onEnter: () => {
+        document.querySelector(elementQuery).classList.add(classNameTo)
+        document.querySelector(elementQuery).classList.remove(classNameFrom)
+      },
+      onLeaveBack: () => {
+        document.querySelector(elementQuery).classList.add(classNameFrom)
+        document.querySelector(elementQuery).classList.remove(classNameTo)
+      }
+    })
+  }
+
+  // const registerEndState = () => {
+  //   ScrollTrigger.create({
+  //     trigger: '[data-end-begin]',
+  //     start: 'top center',
+  //     onEnter: () => {
+  //       setInEnd(true)
+  //     },
+  //     onLeaveBack: () => {
+  //       setInEnd(false)
+  //     }
+  //   })
+  // }
+
+  const registerControlThemeChange = (from: ControlThemeOptions, to: ControlThemeOptions, triggerElement: HTMLElement | string) => {
+    ScrollTrigger.create({
+      trigger: triggerElement,
+      start: 'top center',
+      onEnter: () => {
+        setCurrentControlTheme(to)
+      },
+      onLeaveBack: () => {
+        setCurrentControlTheme(from)
       }
     })
   }
@@ -134,6 +188,11 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     gsap.utils.toArray('[data-animate-pin]').forEach((element: HTMLElement) => {
       pin(element)
     })
+
+    // gsap.utils.toArray('[data-animate-timeline]').forEach((trigger: HTMLElement) => {
+    //   const element = trigger.dataset.animateTimeline
+    //   timelineAnimation(trigger, element)
+    // })
   }
 
   // attributes that trigger background fades:
@@ -183,7 +242,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     }
     let height; let isProxyScrolling
 
-    function refreshHeight() {
+    function refreshHeight () {
       height = content.clientHeight
       content.style.overflow = 'visible'
       document.body.style.height = height + 'px'
@@ -197,7 +256,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     ScrollTrigger.defaults({ scroller: content })
 
     ScrollTrigger.scrollerProxy(content, {
-      scrollTop(value) {
+      scrollTop (value) {
         if (arguments.length) {
           isProxyScrolling = true // otherwise, if snapping was applied (or anything that attempted to SET the scroll proxy's scroll position), we'd set the scroll here which would then (on the next tick) update the content tween/ScrollTrigger which would try to smoothly animate to that new value, thus the scrub tween would impede the progress. So we use this flag to respond accordingly in the ScrollTrigger's onUpdate and effectively force the scrub to its end immediately.
           setProp(-value)
@@ -207,7 +266,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
         return -getProp('y')
       },
       scrollHeight: () => document.body.scrollHeight,
-      getBoundingClientRect() {
+      getBoundingClientRect () {
         return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight }
       }
     })
@@ -235,8 +294,11 @@ export const useAnimation = (gsap, ScrollTrigger) => {
   }
 
   return {
-    registerClassToggle,
-    registerEndState,
+    registerClassAdd,
+    registerClassRemove,
+    registerClassSwitch,
+    registerControlThemeChange,
+    // registerEndState,
     registerAllAnimationTriggers,
     registerAllBackgroundFadeTriggers,
     applySmoothScrollToPage

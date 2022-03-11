@@ -11,7 +11,7 @@
         <div class="image-1 col-start-9 col-span-3">
           <img src="@/assets/images/chapter/3/greta/melting-earth.png">
         </div>
-        <div class="greta-pray col-start-1 col-span-12" >
+        <div class="greta-pray col-start-1 col-span-12">
           <div class="grid grid-cols-12">
             <div class="image-2 col-start-2 col-span-3">
               <img src="@/assets/images/chapter/3/greta/greta-pray.png">
@@ -68,7 +68,7 @@
           </span>
         </div>
         <div class="grid col-start-1 col-span-12 grid-cols-12">
-          <div class="model-2 col-start-1 col-span-7" data-animate-parallax="25">
+          <div v-if="false" class="model-2 col-start-1 col-span-7" data-animate-parallax="25">
             <Scene
               scene-id="swedish"
               :height="400"
@@ -94,7 +94,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -102,21 +101,21 @@
 import { defineComponent } from '@vue/composition-api'
 import reichstag from '~~/components/model/reichstag.vue'
 import lampe from '~~/components/model/lampe.vue'
-import * as fact1 from '~/assets/contents/malala_fact_chapter3_1.json';
-import * as fact2 from '~/assets/contents/malala_fact_chapter3_2.json';
+import * as fact1 from '~/assets/contents/malala_fact_chapter3_1.json'
+import * as fact2 from '~/assets/contents/malala_fact_chapter3_2.json'
 
 export default defineComponent({
-  data () {
-    return {
-      malalaFact1: fact1.fact,
-      malalaFact2: fact2.fact
-    }
-  },
   setup () {
     const lampeScene = [lampe]
     const reichstagScene = [reichstag]
     return {
       lampeScene, reichstagScene
+    }
+  },
+  data () {
+    return {
+      malalaFact1: fact1.fact,
+      malalaFact2: fact2.fact
     }
   }
 })
