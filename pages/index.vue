@@ -98,9 +98,8 @@ export default {
     }
   },
   mounted () {
-    setTimeout(() => {
-      this.buttonVisible = true
-    }, 100)
+    this.buttonVisible = true
+
     setTimeout(() => {
       this.citeVisible = true
     }, 2000)
@@ -123,7 +122,7 @@ export default {
       } else if (story === 'malala') {
         setCurrentTheme(Themes.Malala)
       }
-      this.$router.push({ path: '/story', hash: '#' })
+      this.$router.push({ path: '/story' })
     }
   }
 }
@@ -251,7 +250,7 @@ export default {
     display: flex;
     align-items: center;
     opacity: 100%;
-    transition: opacity ease-in 2s;
+    transition: opacity ease-in 2s 0.5s;
   }
 
   &:hover,
