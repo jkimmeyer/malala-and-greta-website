@@ -16,7 +16,7 @@
       </li>
       <li class="navigation--list-item is-separator" />
       <li class="navigation--list-item">
-        <ToggleSwitch :pressed="toggleSwitchPressed" :enabled="!getInEnd" @toggle-button-switched="switchTheme()" />
+        <ToggleSwitch :pressed="toggleSwitchPressed" :enabled="!inEnd" @toggle-button-switched="switchTheme()" />
       </li>
     </ul>
   </nav>
@@ -26,14 +26,15 @@
 import { chapters } from '@/assets/contents/chapters.ts'
 import { switchTheme, getCurrentTheme } from '@/composables/theme'
 import { Themes } from '@/enums/Themes.ts'
-import { getInEnd } from '~/composables/controlTheme'
+import { getCurrentControlTheme } from '~/composables/controlTheme'
+import { ControlThemes } from '~/enums/ControlThemes'
 
 export default {
   setup () {
     return {
       switchTheme,
       getCurrentTheme,
-      getInEnd
+      getCurrentControlTheme
     }
   },
   data () {
@@ -44,6 +45,9 @@ export default {
   computed: {
     toggleSwitchPressed () {
       return getCurrentTheme.value === Themes.Greta
+    },
+    inEnd () {
+      return getCurrentControlTheme.value === ControlThemes.End
     }
   }
 }
