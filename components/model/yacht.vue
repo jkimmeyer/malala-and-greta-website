@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'Nobel',
+  name: 'Yacht',
   props: {
     mesh: {
       type: Object,
@@ -14,11 +14,9 @@ export default {
       mesh.rotation.z = 0
     },
     getMeshPath () {
-      return '/models/Nobel.obj'
+      return '/models/Yacht.obj'
     },
     setInitialValues (mesh) {
-      mesh.position.y = 0
-      mesh.position.x = 0
       mesh.scale.set(1, 1, 1)
     }
   }

@@ -1,7 +1,6 @@
 <template>
   <div class="mx-40 2xl:mx-auto max-w-screen-xl">
     <div class="content">
-
       <!-- Section 1 -->
       <div class="section grid grid-cols-12">
         <div class="image-1 col-start-1 col-span-4" data-animate-parallax="-25">
@@ -15,7 +14,6 @@
           <img src="@/assets/images/chapter/3/malala/interview.png">
         </div>
       </div>
-
       <!-- Section 2 -->
       <div class="section grid grid-cols-12">
         <div class="image-3 col-start-1 col-span-5" data-animate-parallax="-25">
@@ -33,7 +31,6 @@
           </div>
         </div>
       </div>
-
       <!-- Section 3 -->
       <div class="section grid grid-cols-12 ">
         <div class="text-4 col-start-2 col-span-10" data-animate-reveal-left>
@@ -43,33 +40,28 @@
           <FactsContainer
             theme="malala"
             size="sm"
-            :facts=[malalaFact1,malalaFact2]
+            :facts="[malalaFact1,malalaFact2]"
             format="rect"
           />
         </div>
       </div>
-
       <!-- Section 4 -->
       <div class="section grid grid-cols-12">
-        <div class="video-1 col-start-1 col-span-5" data-animate-parallax="25">
+        <div class="video-1 col-start-1 col-span-5" data-animate-parallax="50">
           <Video :path="require('~/assets/videos/malala/malala-kap3-1.mp4')" />
         </div>
-        <div class="image-4 col-start-6 col-span-6" data-animate-parallax="-25">
+        <div class="image-4 col-start-6 col-span-6" data-animate-parallax="-50">
           <img src="@/assets/images/chapter/3/malala/malala-people.png">
         </div>
       </div>
-
     </div>
   </div>
-
-
-
 </template>
 
 <script>
 import { defineComponent } from '@vue/composition-api'
-import * as fact1 from '~/assets/contents/malala_fact_chapter3_1.json';
-import * as fact2 from '~/assets/contents/malala_fact_chapter3_2.json';
+import * as fact1 from '~/assets/contents/malala_fact_chapter3_1.json'
+import * as fact2 from '~/assets/contents/malala_fact_chapter3_2.json'
 
 export default defineComponent({
   data () {

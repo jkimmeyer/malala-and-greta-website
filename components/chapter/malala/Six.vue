@@ -45,10 +45,9 @@
     <div class="mx-40 2xl:mx-auto max-w-screen-xl section">
       <div class="grid grid-cols-12">
         <Scene
-          v-if="false"
           class="col-start-1 col-span-4"
           data-animate-reveal-rigth
-          scene-id="3d-lamp"
+          scene-id="nobel"
           :height="526"
           :width="428"
           :fov="80"
@@ -58,6 +57,7 @@
           :cam-y="-14"
           :cam-z="10"
           :models="nobelScene"
+          :orbit-controls="true"
         />
         <FactsContainer
           class="col-start-7 col-span-4"

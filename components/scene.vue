@@ -1,11 +1,11 @@
 <template>
-  <div :id="`scene-${sceneId}`" :style="`height:${height}px; width:${width}px; margin:auto;`" />
+  <div :id="`scene-${sceneId}`" class="pointer" :style="`height:${height}px; width:${width}px; margin:auto;`" />
 </template>
 
 <script>
 import * as THREE from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 export default {
   props: {
@@ -33,9 +33,13 @@ export default {
       type: Number,
       default: 1000
     },
-    orbitControlled: {
+    orbitControls: {
       type: Boolean,
       default: false
+    },
+    orbitDistance: {
+      type: Number,
+      default: 10
     },
     camX: {
       type: Number,
@@ -82,15 +86,15 @@ export default {
             console.log('An error happened: ' + error)
           })
 
-        let edges = new THREE.EdgesGeometry(obj.children[0].geometry);
-        let mesh = new THREE.LineSegments(edges, this.MATERIAL)
+        const edges = new THREE.EdgesGeometry(obj.children[0].geometry)
+        const mesh = new THREE.LineSegments(edges, this.MATERIAL)
 
-        let box = new THREE.Box3().setFromObject(mesh);
-        box.getCenter(mesh.position);
-        mesh.position.multiplyScalar( - 1 );
+        const box = new THREE.Box3().setFromObject(mesh)
+        box.getCenter(mesh.position)
+        mesh.position.multiplyScalar(-1)
 
-        let pivot = new THREE.Group();
-        pivot.add(mesh);
+        const pivot = new THREE.Group()
+        pivot.add(mesh)
 
         loadedMeshes.push(pivot)
       }
@@ -101,9 +105,9 @@ export default {
       this.SCENE = new THREE.Scene()
       this.OBJ_LOADER = new OBJLoader()
       this.RENDERER = new THREE.WebGLRenderer({ antialias: true, alpha: true })
-      this.MATERIAL = new THREE.LineBasicMaterial( {
-        color: 0xffffff
-      } );
+      this.MATERIAL = new THREE.LineBasicMaterial({
+        color: 0xFFFFFF
+      })
       this.CAMERA = new THREE.PerspectiveCamera(
         this.fov,
         (this.width) / (this.height),
@@ -117,13 +121,18 @@ export default {
       const container = document.getElementById(`scene-${this.sceneId}`)
 
       // camera position
-      this.CAMERA.position.setX(this.camX)
-      this.CAMERA.position.setY(this.camY)
-      this.CAMERA.position.setZ(this.camZ)
-
-      if(this.orbitControlled){
-        this.CONTROLS = new OrbitControls( this.CAMERA, this.RENDERER.domElement );
-        this.CONTROLS.update();
+      if (this.orbitControls) {
+        this.CAMERA.position.setZ(this.orbitDistance)
+        this.CAMERA.lookAt(0, 0, 0)
+        this.CONTROLS = new OrbitControls(this.CAMERA, this.RENDERER.domElement)
+        this.CONTROLS.minDistance = this.orbitDistance
+        this.CONTROLS.maxDistance = this.orbitDistance
+        this.CONTROLS.autoRotate = true
+        this.CONTROLS.update()
+      } else {
+        this.CAMERA.position.setX(this.camX)
+        this.CAMERA.position.setY(this.camY)
+        this.CAMERA.position.setZ(this.camZ)
       }
 
       // materials setzen + three.js mesh erstellen
@@ -146,8 +155,8 @@ export default {
     },
     animate () {
       requestAnimationFrame(this.animate)
-      if(this.orbitControlled){
-        this.CONTROLS.update();
+      if (this.orbitControls) {
+        this.CONTROLS.update()
       }
 
       if (this.meshes) {
