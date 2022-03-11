@@ -137,19 +137,6 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     })
   }
 
-  // const registerEndState = () => {
-  //   ScrollTrigger.create({
-  //     trigger: '[data-end-begin]',
-  //     start: 'top center',
-  //     onEnter: () => {
-  //       setInEnd(true)
-  //     },
-  //     onLeaveBack: () => {
-  //       setInEnd(false)
-  //     }
-  //   })
-  // }
-
   const registerControlThemeChange = (from: ControlThemeOptions, to: ControlThemeOptions, triggerElement: HTMLElement | string) => {
     ScrollTrigger.create({
       trigger: triggerElement,
@@ -298,7 +285,6 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     registerClassRemove,
     registerClassSwitch,
     registerControlThemeChange,
-    // registerEndState,
     registerAllAnimationTriggers,
     registerAllBackgroundFadeTriggers,
     applySmoothScrollToPage
