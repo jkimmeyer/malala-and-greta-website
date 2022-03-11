@@ -10,15 +10,15 @@ export default {
   methods: {
     animate (mesh) {
       mesh.rotation.y = 0
-      mesh.rotation.x = 1.8
-      mesh.rotation.z += 0.005
+      mesh.rotation.x = 0
+      mesh.rotation.z = 0
     },
     getMeshPath () {
       return '/models/Nobel.obj'
     },
     setInitialValues (mesh) {
-      mesh.position.y = -15
-      mesh.position.x = -5
+      mesh.position.y = 0
+      mesh.position.x = 0
       mesh.scale.set(1, 1, 1)
     }
   }

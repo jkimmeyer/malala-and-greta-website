@@ -83,6 +83,16 @@ export default {
   .fact-card--button {
     padding: var(--space-8);
     margin: var(--space-8);
+
+    .fact-card--arrow {
+      &.greta{
+        fill: var(--color-text-greta-dark);
+      }
+      &.malala{
+        fill: var(--color-text-malala-dark);
+      }
+    }
+
   }
 
   .fact-card{
