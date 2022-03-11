@@ -36,7 +36,7 @@
 
     <div class="section mx-40 2xl:mx-auto max-w-screen-xl">
       <div class="grid grid-cols-12">
-        <div class="text-small col-start-3 col-span-4" data-animate-reveal-rigth data-narrator-malala="Malala-Kap4-3">
+        <div class="text-small is-light col-start-3 col-span-4" data-animate-reveal-rigth data-narrator-malala="Malala-Kap4-3">
           Dann hörte ich nur noch den Schuss. Alles wurde schwarz
         </div>
       </div>
@@ -70,6 +70,10 @@
 .image-bus-assassination {
   z-index: var(--z-index-1);
   margin-top: 10vw;
+}
+
+.is-light {
+  color: var(--color-text-malala);
 }
 
 </style>

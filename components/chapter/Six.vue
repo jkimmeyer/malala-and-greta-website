@@ -28,6 +28,7 @@
             </h2>
           </div>
         </chapterintro>
+        <ChapterGretaSix />
       </template>
     </ChapterSwitcher>
   </div>

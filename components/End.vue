@@ -1,5 +1,5 @@
 <template>
-  <div class="end" data-end-begin>
+  <div class="end" data-controls-dark-end>
     <div>
       <div class="mx-40 2xl:m-auto max-w-screen-xl">
         <div class="grid grid-cols-12">
