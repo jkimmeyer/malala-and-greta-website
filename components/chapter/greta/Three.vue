@@ -1,7 +1,6 @@
 <template>
   <div class="mx-40 2xl:mx-auto max-w-screen-xl">
     <div class="content">
-
       <!-- Section 1 -->
       <div class="section grid grid-cols-12">
         <div class="text-1 col-start-1 col-span-8">
@@ -37,6 +36,7 @@
             :cam-y="-16"
             :cam-z="7"
             :models="lampeScene"
+            :orbit-controls="true"
           />
         </div>
         <div class="text-3 col-start-5 col-span-7">
@@ -68,7 +68,7 @@
           </span>
         </div>
         <div class="grid col-start-1 col-span-12 grid-cols-12">
-          <div v-if="false" class="model-2 col-start-1 col-span-7" data-animate-parallax="25">
+          <div class="model-2 col-start-1 col-span-7" data-animate-parallax="25">
             <Scene
               scene-id="swedish"
               :height="400"
@@ -80,6 +80,7 @@
               :cam-y="-16"
               :cam-z="10"
               :models="reichstagScene"
+              :orbit-controls="true"
             />
           </div>
           <div class="video-1 col-start-8 col-span-5" data-animate-parallax="-25">
