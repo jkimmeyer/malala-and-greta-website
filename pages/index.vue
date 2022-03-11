@@ -249,7 +249,7 @@ export default {
   &.visible {
     display: flex;
     align-items: center;
-    opacity: 100%;
+    opacity: 1;
     transition: opacity ease-in 2s 0.5s;
   }
 
