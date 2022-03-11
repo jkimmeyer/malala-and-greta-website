@@ -1,4 +1,5 @@
-import { setInEnd } from '@/composables/pageState'
+import { setCurrentControlTheme } from '~/composables/controlTheme'
+import { ControlThemeOptions } from '~/interfaces/ControlThemeOptions'
 export const useAnimation = (gsap, ScrollTrigger) => {
   const showMarkers = false
 
@@ -95,7 +96,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     )
   }
 
-  const registerClassToggle = (elementQuery: string, className: string, triggerElement: HTMLElement | string) => {
+  const registerClassAdd = (elementQuery: string, className: string, triggerElement: HTMLElement | string) => {
     ScrollTrigger.create({
       trigger: triggerElement,
       start: 'top center',
@@ -108,15 +109,56 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     })
   }
 
-  const registerEndState = () => {
+  const registerClassRemove = (elementQuery: string, className: string, triggerElement: HTMLElement | string) => {
     ScrollTrigger.create({
-      trigger: '[data-end-begin]',
+      trigger: triggerElement,
       start: 'top center',
       onEnter: () => {
-        setInEnd(true)
+        document.querySelector(elementQuery).classList.remove(className)
       },
       onLeaveBack: () => {
-        setInEnd(false)
+        document.querySelector(elementQuery).classList.add(className)
+      }
+    })
+  }
+
+  const registerClassSwitch = (elementQuery: string, classNameFrom: string, classNameTo: string, triggerElement: HTMLElement | string) => {
+    ScrollTrigger.create({
+      trigger: triggerElement,
+      start: 'top center',
+      onEnter: () => {
+        document.querySelector(elementQuery).classList.add(classNameTo)
+        document.querySelector(elementQuery).classList.remove(classNameFrom)
+      },
+      onLeaveBack: () => {
+        document.querySelector(elementQuery).classList.add(classNameFrom)
+        document.querySelector(elementQuery).classList.remove(classNameTo)
+      }
+    })
+  }
+
+  // const registerEndState = () => {
+  //   ScrollTrigger.create({
+  //     trigger: '[data-end-begin]',
+  //     start: 'top center',
+  //     onEnter: () => {
+  //       setInEnd(true)
+  //     },
+  //     onLeaveBack: () => {
+  //       setInEnd(false)
+  //     }
+  //   })
+  // }
+
+  const registerControlThemeChange = (from: ControlThemeOptions, to: ControlThemeOptions, triggerElement: HTMLElement | string) => {
+    ScrollTrigger.create({
+      trigger: triggerElement,
+      start: 'top center',
+      onEnter: () => {
+        setCurrentControlTheme(to)
+      },
+      onLeaveBack: () => {
+        setCurrentControlTheme(from)
       }
     })
   }
@@ -252,8 +294,11 @@ export const useAnimation = (gsap, ScrollTrigger) => {
   }
 
   return {
-    registerClassToggle,
-    registerEndState,
+    registerClassAdd,
+    registerClassRemove,
+    registerClassSwitch,
+    registerControlThemeChange,
+    // registerEndState,
     registerAllAnimationTriggers,
     registerAllBackgroundFadeTriggers,
     applySmoothScrollToPage

@@ -3,7 +3,6 @@
     <div
       class="stories-page--first"
       :class="malalaClasses"
-      data-background-malala
     >
       <slot name="malala" />
     </div>
@@ -11,7 +10,6 @@
     <div
       class="stories-page--second"
       :class="gretaClasses"
-      data-background-greta
     >
       <slot name="greta" />
     </div>
