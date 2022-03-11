@@ -42,8 +42,6 @@ export default {
         animation.registerControlThemeChange(ControlThemes.Light, ControlThemes.Dark, '[data-controls-light-dark]')
         animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.End, '[data-controls-dark-end]')
 
-        animation.registerEndState()
-
         // setup audio for narrator and sound
         const audio = useAudio($gsap, $ScrollTrigger)
         audio.registerAllAudioAutoplayTriggers()

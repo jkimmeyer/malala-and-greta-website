@@ -10,7 +10,7 @@
       </li>
       <li class="navigation--list-item is-separator" />
       <li v-for="(chapter, index) in chapters" :key="chapter.id" class="navigation--list-item is-page">
-        <a :href="chapter.id" class="navigation--link">
+        <a class="navigation--link" @click="scrollToChapter(chapter.id)">
           <span class="navigation--link-text">{{ index + 1 }} - {{ chapter.title }}</span>
         </a>
       </li>
@@ -48,6 +48,15 @@ export default {
     },
     inEnd () {
       return getCurrentControlTheme.value === ControlThemes.End
+    }
+  },
+  methods: {
+    scrollToChapter (id) {
+      const bodyRect = document.body.getBoundingClientRect()
+      const element = document.querySelector(id)
+      const elemRect = element.getBoundingClientRect()
+      const offsetY = elemRect.top - bodyRect.top
+      window.scrollTo(0, offsetY)
     }
   }
 }
