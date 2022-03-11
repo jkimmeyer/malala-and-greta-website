@@ -1,5 +1,5 @@
 <template>
-  <div class="page" :class="themeClasses">
+  <div class="page" :class="[themeClasses, controlClasses]">
     <div id="viewport">
       <div id="content">
         <Nuxt />
@@ -14,7 +14,9 @@ import { onMounted, useContext } from '@nuxtjs/composition-api'
 import { Themes } from '@/enums/Themes'
 import { useAnimation } from '@/composables/useAnimation'
 import { getCurrentTheme } from '@/composables/theme'
+import { getCurrentControlTheme } from '@/composables/controlTheme'
 import { useAudio } from '@/composables/useAudio.ts'
+import { ControlThemes } from '~/enums/ControlThemes'
 
 export default {
   setup () {
@@ -35,7 +37,11 @@ export default {
 
         animation.registerAllBackgroundFadeTriggers(colorBackgroundMalala, colorBackgroundMalalaDark, colorBackgroundGreta, colorBackgroundGretaDark)
         animation.registerAllAnimationTriggers()
-        animation.registerClassToggle('.page', 'end', '[data-end-begin]')
+
+        animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.Light, '[data-controls-dark-light]')
+        animation.registerControlThemeChange(ControlThemes.Light, ControlThemes.Dark, '[data-controls-light-dark]')
+        animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.End, '[data-controls-dark-end]')
+
         animation.registerEndState()
 
         // setup audio for narrator and sound
@@ -43,12 +49,18 @@ export default {
         audio.registerAllAudioAutoplayTriggers()
       }, 50)
     })
-    return { getCurrentTheme }
+    return { getCurrentTheme, getCurrentControlTheme }
   },
   computed: {
     themeClasses () {
       if (this.getCurrentTheme === Themes.Greta) { return 'has-greta-style' }
       if (this.getCurrentTheme === Themes.Malala) { return 'has-malala-style' }
+      return null
+    },
+    controlClasses () {
+      if (this.getCurrentControlTheme === ControlThemes.Dark) { return 'has-dark-controls' }
+      if (this.getCurrentControlTheme === ControlThemes.Light) { return 'has-light-controls' }
+      if (this.getCurrentControlTheme === ControlThemes.End) { return 'has-end-controls' }
       return null
     }
   }
@@ -65,29 +77,53 @@ export default {
 .page.has-greta-style {
   --color-background: var(--color-background-greta);
   --color-background-dark: var(--color-background-greta-dark);
+  --color-text: var(--color-text-greta);
   --color-text-dark: var(--color-text-greta-dark);
   --color-text-highlight: var(--color-text-greta-highlight);
-  --color-control: var(--color-background-greta-dark);
-  --color-control-focus: var(--glaucous);
-  --color-control-hover: var(--glaucous);
-  --color-control-active: var(--color-text-greta-highlight);
+  --color-control-light: var(--color-text-greta);
+  --color-control-light-focus: var(--color-text-greta);
+  --color-control-light-hover: var(--color-text-greta);
+  --color-control-light-active: var(--color-text-greta);
+  --color-control-dark: var(--color-text-greta-dark);
+  --color-control-dark-focus: var(--color-text-greta-dark);
+  --color-control-dark-hover: var(--color-text-greta-dark);
+  --color-control-dark-active: var(--color-text-greta-dark);
 }
 
 .page.has-malala-style {
   --color-background: var(--color-background-malala);
   --color-background-dark: var(--color-background-malala-dark);
+  --color-text: var(--color-text-malala);
   --color-text-dark: var(--color-text-malala-dark);
   --color-text-highlight: var(--color-text-malala-highlight);
-  --color-control: var(--color-background-malala-dark);
-  --color-control-focus: var(--bronze);
-  --color-control-hover: var(--bronze);
-  --color-control-active: var(--color-text-malala-highlight);
+  --color-control-light: var(--color-text-malala);
+  --color-control-light-focus: var(--color-text-malala);
+  --color-control-light-hover: var(--color-text-malala);
+  --color-control-light-active: var(--color-text-malala);
+  --color-control-dark: var(--color-text-malala-dark);
+  --color-control-dark-focus: var(--color-text-malala-dark);
+  --color-control-dark-hover: var(--color-text-malala-dark);
+  --color-control-dark-active: var(--color-text-malala-dark);
 }
 
-.page.end {
+.page.has-end-controls {
   --color-control: var(--deeptaupe);
   --color-control-focus: var(--white);
   --color-control-hover: var(--white);
   --color-control-active: var(--white);
+}
+
+.page.has-light-controls {
+  --color-control: var(--color-control-light);
+  --color-control-focus: var(--color-control-focus-light);
+  --color-control-hover: var(--color-control-hover-light);
+  --color-control-active: var(--color-control-active-light);
+}
+
+.page.has-dark-controls {
+  --color-control: var(--color-control-dark);
+  --color-control-focus: var(--color-control-focus-dark);
+  --color-control-hover: var(--color-control-hover-dark);
+  --color-control-active: var(--color-control-active-dark);
 }
 </style>
