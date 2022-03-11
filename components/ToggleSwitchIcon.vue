@@ -1,14 +1,14 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.29 180.92">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.29 130.92">
     <g id="Ebene_2" data-name="Ebene 2">
       <g id="Ebene_1-2" data-name="Ebene 1">
-        <rect class="cls-1" x="23.15" y="0.5" width="13.99" height="175.52" />
-        <circle id="my-circle" class="cls-1" cx="30.15" cy="150" r="29.65" />
+        <rect class="cls-1" x="23.15" y="0.5" width="13.99" height="129" />
+        <circle id="my-circle" class="cls-1" cx="30" cy="100" r="29.65" />
         <animate
           ref="animation-forward"
           xlink:href="#my-circle"
           attributeName="cy"
-          from="150"
+          from="100"
           to="30"
           dur="1s"
           begin="indefinite"
@@ -20,7 +20,7 @@
           xlink:href="#my-circle"
           attributeName="cy"
           from="30"
-          to="150"
+          to="100"
           dur="1s"
           begin="indefinite"
           fill="freeze"

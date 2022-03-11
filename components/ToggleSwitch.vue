@@ -56,6 +56,7 @@ export default {
 <style scoped>
 .toggle-switch {
   height: 220px;
+  margin-top: 20px;
 }
 
 .toggle-switch--button {
@@ -69,43 +70,44 @@ export default {
 
 .toggle-switch--button-option {
   display: block;
-  padding: var(--space-16) 0;
-  transform: rotate(180deg);
   font-family: var(--serif-font);
-  transition: font-size 1s ease-in, color ease-in var(--theme-duration-1000);
+  font-size: var(--font-32);
+  line-height: var(--line-1-5);
+  color: var(--color-control);
+  transition: font-size 1s ease-in, color ease-in var(--theme-duration-1000), transform ease-in var(--theme-duration-1000);
   writing-mode: vertical-rl;
 }
 
 .toggle-switch--button-option:first-child {
+  padding: var(--space-16) 0 0 0;
+  transform: scale(0.5) rotate(180deg) translateY(90%);
+  transform-origin: bottom;
   text-align: start;
-  color: var(--color-control);
 }
 
 .toggle-switch--button-option:last-child {
+  padding: 0 0  var(--space-16) 0;
+  transform: scale(0.5) rotate(180deg) translateY(-90%);
+  transform-origin: top;
   text-align: end;
-  color: var(--color-control);
 }
 
 .toggle-switch--button[aria-pressed='true'] .toggle-switch--button-option:first-child {
-  font-size: var(--font-32);
-  line-height: var(--line-1-5);
-  transition: font-size 1s ease-in, color ease-in var(--theme-duration-1000);
+  transform: scale(1) rotate(180deg)  translateY(90%);
+  transition: font-size 1s ease-in, color ease-in var(--theme-duration-1000), transform ease-in var(--theme-duration-1000);
 }
 
 .toggle-switch--button[aria-pressed='false'] .toggle-switch--button-option:last-child {
-  font-size: var(--font-32);
-  line-height: var(--line-1-5);
-  transition: font-size 1s ease-in, color ease-in var(--theme-duration-1000);
+  transform: scale(1) rotate(180deg)  translateY(-90%);
+  transition: font-size 1s ease-in, color ease-in var(--theme-duration-1000), transform ease-in var(--theme-duration-1000);
 }
 
 .toggle-switch--button[aria-pressed='false'] .toggle-switch--button-option:first-child.abc {
-  font-size: var(--font-32);
-  line-height: var(--line-1-5);
+  transform: scale(1) rotate(180deg)  translateY(90%);
 }
 
 .toggle-switch--button[aria-pressed='true'] .toggle-switch--button-option:last-child.abc {
-  font-size: var(--font-32);
-  line-height: var(--line-1-5);
+  transform: scale(1) rotate(180deg)  translateY(-90%);
 }
 
 .toggle-switch--icon {
