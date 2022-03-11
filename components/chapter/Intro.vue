@@ -3,7 +3,7 @@
     <h2 class="intro--subheading">
       Kapitel {{ chapter }}
     </h2>
-    <h1 class="intro--heading">
+    <h1 class="intro--heading" data-animate-reveal-left>
       <slot>{{ chapters[chapter-1].title }}</slot>
     </h1>
   </div>
@@ -73,6 +73,15 @@ export default {
 }
 @media (max-width: 1024px) {
   .intro--heading {
+    font-size: var(--font-96);
+  }
+
+  .intro--subheading {
+    font-size: var(--font-32);
+  }
+}
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .intro--heading {
     font-size: var(--font-128);
   }
 
@@ -80,7 +89,7 @@ export default {
     font-size: var(--font-64);
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .intro--heading {
     font-size: var(--font-182);
   }
