@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="four" data-background-malala>
     <div class="mx-40 2xl:mx-auto max-w-screen-xl">
       <div class="grid grid-cols-12" data-narrator-malala="Malala-Kap4-1">
         <Video
@@ -45,6 +45,11 @@
 </template>
 
 <style scoped>
+.four {
+  height: 100%;
+  background-color: var(--color-background-greta);
+}
+
 .section {
   margin-top: 20vw;
 }
