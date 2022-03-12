@@ -20,6 +20,7 @@ export default {
   width: 400px;
   font-size: var(--font-32);
   font-style: italic;
+  font-weight: 300;
   color: var(--color-text-neutral-light);
 }
 </style>

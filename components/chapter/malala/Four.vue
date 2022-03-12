@@ -3,7 +3,7 @@
     <div class="mx-40 2xl:mx-auto max-w-screen-xl">
       <div class="grid grid-cols-12" data-narrator-malala="Malala-Kap4-1">
         <Video
-          class="col-start-0 col-span-8"
+          class="col-start-0 col-span-8 pr-8"
           data-animate-parallax="100"
           :path="require('~/assets/videos/malala/malala-kap4-1.mp4')"
         />
@@ -50,7 +50,7 @@
           class="row-start-1 row-span-1 col-start-1 col-span-12 bullet"
         />
         <div class="row-start-2 row-span-1 text-small is-light col-start-3 col-span-4" data-animate-reveal-rigth data-narrator-malala="Malala-Kap4-3">
-          Dann hörte ich nur noch den Schuss. Alles wurde schwarz
+          Dann hörte ich nur noch den Schuss. Alles wurde schwarz...
         </div>
       </div>
     </div>
@@ -71,7 +71,16 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@mixin uppercaseStyle{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  text-transform: uppercase;
+  color: var(--color-text-malala-dark);
+  text-transform: uppercase;
+}
+
 .bullet{
   margin: auto;
 }
@@ -86,9 +95,8 @@ export default defineComponent({
 }
 
 .text {
-  font-family: var(--sans-serif-font);
-  font-size: var(--font-size-body-1);
-  color: var(--color-text-malala-dark);
+  @include uppercaseStyle;
+  font-size: 3rem;
 }
 
 .text-small {
@@ -96,6 +104,7 @@ export default defineComponent({
   font-size: var(--font-size-body-2);
   font-style: italic;
   color: var(--color-text-malala-dark);
+  font-weight:300;
 }
 
 .image-bus-assassination {

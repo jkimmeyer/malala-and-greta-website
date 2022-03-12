@@ -83,7 +83,7 @@ export default {
   --color-control-light-focus: var(--glaucous);
   --color-control-light-hover: var(--glaucous);
   --color-control-light-active: var(--color-text-greta);
-  --color-control-dark: var(--color-text-greta-dark);
+  --color-control-dark: var(--deepblue);
   --color-control-dark-focus: var(--glaucous);
   --color-control-dark-hover: var(--glaucous);
   --color-control-dark-active: var(--color-text-greta-dark);

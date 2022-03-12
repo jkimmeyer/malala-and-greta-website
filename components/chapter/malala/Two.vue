@@ -19,9 +19,9 @@
             :point-size="0.6"
           />
         </div>
-        <div class="col-start-7 col-span-5 text row-start-1 row-span-1">
+        <div class="pl-8 col-start-6 col-span-6 text row-start-1 row-span-1">
           <div data-animate-parallax="-100">
-            <Video :path="require('~/assets/videos/malala/malala-kap2-1.mp4')" />
+            <Video :path="require('~/assets/videos/malala/malala-kap2-1.mp4')" data-animate-reveal-bottom />
             <span data-animate-reveal-right>DIE STRAßEN PAKISTANS</span>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default defineComponent({
 @mixin headline1 {
   font-family: Trochut, sans-serif;
   font-size: 200px;
-  color: var(--color-text-dark);
+  color: var(--color-text-malala-dark);
   line-height: 90%;
 }
 
@@ -70,20 +70,29 @@ export default defineComponent({
   font-family: Lato, sans-serif;
   font-weight: 300; // light
   font-size: 96px;
-  color: var(--color-text-dark);
+  color: var(--color-text-malala-dark);
 }
 
 @mixin body1 {
   font-family: Lato, sans-serif;
   font-size: 50px;
-  color: var(--color-text-dark);
+  color: var(--color-text-malala-dark);
 }
 
 @mixin body2 {
   font-family: Lato, sans-serif;
   font-size: 30px;
   font-style: italic;
-  color: var(--color-text-dark);
+  color: var(--color-text-malala-dark);
+}
+
+@mixin uppercaseStyle{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  text-transform: uppercase;
+  color: var(--color-text-malala-dark);
+  text-transform: uppercase;
 }
 
 .content {
@@ -97,10 +106,11 @@ export default defineComponent({
 
   span {
     position: absolute;
-    inset-block-start: 100%;
+    inset-block-start: 102%;
     text-align: right;
     width: 100%;
-    @include body2;
+    @include uppercaseStyle;
+    font-size: var(--font-32);
   }
 }
 .text-2 {
@@ -121,7 +131,8 @@ export default defineComponent({
   }
 
   > div > span {
-    @include body1;
+    @include uppercaseStyle;
+    font-size: 3rem;
     color: #68573D;
   }
 }

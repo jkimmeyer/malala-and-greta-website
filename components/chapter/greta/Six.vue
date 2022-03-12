@@ -33,10 +33,11 @@
             :preview-image-path="require('~/assets/images/chapter/6/greta/greta-kap6-speech.jpeg')"
           />
         </div>
-        <div class="text mt-5 col-start-3 col-span-8" data-animate-reveal-right>
-          Meine Rede vor dem UN-Klimagipfel
+        <div class="text mt-5 col-start-3 col-span-7 flex flex-col" data-animate-reveal-right>
+          <span>Meine Rede vor dem</span>
+          <span>UN-Klimagipfel</span>
         </div>
-        <div class="text-small mt-5 col-start-6 col-span-4" data-animate-reveal-right>
+        <div class="text-small pt-16 col-start-6 col-span-4" data-animate-reveal-right>
           Wenn man die Größe des Klima-Problems begriffen hat, kriegt man es nicht mehr aus dem Kopf
         </div>
       </div>
@@ -97,7 +98,23 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@mixin uppercaseStyle{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  text-transform: uppercase;
+  color: var(--color-text-greta-dark);
+  text-transform: uppercase;
+}
+
+@mixin body2 {
+  font-family: Lato, sans-serif;
+  font-size: 30px;
+  font-style: italic;
+  color: var(--color-text-greta-dark);
+}
+
 .section {
   margin-top: 20vw;
 }
@@ -108,15 +125,18 @@ export default {
 }
 
 .text {
-  font-family: var(--sans-serif-font);
-  font-size: var(--font-size-body-1);
+  @include uppercaseStyle;
+  line-height: 1;
+  font-size: 3rem;
   color: var(--color-text-greta-dark);
 }
 
 .text-small {
-  font-family: var(--sans-serif-font);
-  font-size: var(--font-size-body-2);
+  @include body2;
+  line-height: 1;
+  font-size: 30px;
+  font-weight: 300;
   font-style: italic;
-  color: var(--color-text-greta-dark);
 }
+
 </style>

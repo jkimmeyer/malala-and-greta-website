@@ -1,6 +1,6 @@
 <template>
   <div class="mx-40 2xl:mx-auto max-w-screen-xl">
-    <div class="content" data-narrator-malala="Malala-Kap3-1">
+    <div class="content py-32" data-narrator-malala="Malala-Kap3-1">
       <!-- Section 1 -->
       <div class="section grid grid-cols-12">
         <div class="image-1 col-start-1 col-span-4" data-animate-parallax="-25">
@@ -22,7 +22,7 @@
         <div class="text-container-1 col-start-6 col-span-6">
           <div class="grid grid-cols-12">
             <div class="text-2 col-start-1 col-span-12">
-              <span data-animate-reveal-left>GUL MAKAI</span>
+              <span data-animate-reveal-left>Gul Makai</span>
               <span data-animate-reveal-left>Die Kornblume</span>
             </div>
             <div class="text-3 col-start-4 col-span-8" data-animate-reveal-right>
@@ -34,7 +34,7 @@
       <!-- Section 3 -->
       <div class="section grid grid-cols-12" data-narrator-malala="Malala-Kap3-2">
         <div class="text-4 col-start-2 col-span-10" data-animate-reveal-left>
-          MEINE GESCHICHTEN
+          Meine Geschichten
         </div>
         <div class="facts-1 col-start-4 col-span-8" data-animate-parallax="12">
           <FactsContainer
@@ -74,6 +74,14 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@mixin uppercaseStyle{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  text-transform: uppercase;
+  color: var(--color-text-malala-dark);
+  text-transform: uppercase;
+}
 .section {
   width: 100%;
 
@@ -95,7 +103,7 @@ export default defineComponent({
 @mixin headline1 {
   font-family: Trochut, sans-serif;
   font-size: 200px;
-  color: var(--color-text-dark);
+  color: var(--color-text-malala-dark);
   line-height: 90%;
 }
 
@@ -103,20 +111,20 @@ export default defineComponent({
   font-family: Lato, sans-serif;
   font-weight: 300; // light
   font-size: 96px;
-  color: var(--color-text-dark);
+  color: var(--color-text-malala-dark);
 }
 
 @mixin body1 {
   font-family: Lato, sans-serif;
   font-size: 50px;
-  color: var(--color-text-dark);
+  color: var(--color-text-malala-dark);
 }
 
 @mixin body2 {
   font-family: Lato, sans-serif;
   font-size: 30px;
   font-style: italic;
-  color: var(--color-text-dark);
+  color: var(--color-text-malala-dark);
 }
 
 .content {
@@ -159,7 +167,7 @@ export default defineComponent({
   grid-row: 1;
   display: flex;
   flex-direction: column;
-  @include body1;
+  @include uppercaseStyle;
 
   > span:last-child{
     font-size: 40px;
@@ -178,7 +186,7 @@ export default defineComponent({
 
 /* Section 3 Malala */
 .text-4{
-  @include body1;
+  @include uppercaseStyle;
   grid-row: 1;
 }
 .facts-1{
