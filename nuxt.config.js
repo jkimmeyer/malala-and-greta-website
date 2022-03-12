@@ -69,10 +69,6 @@ export default {
       scrollTrigger: true
     }
   },
-
-  modules: [
-    'nuxt-lazy-load'
-  ],
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     postcss: {
