@@ -167,14 +167,17 @@ export default {
     opacity: 1;
   }
 }
+.page--request-arrow svg {
+  stroke: var(--color-text-neutral);
+}
 
-.page--request-arrow.left svg{
+.page--request-arrow.left svg {
   width: 140px;
   height: 90px;
   transform: translateX(-50%) translateY(20%);
 }
 
-.page--request-arrow.right svg{
+.page--request-arrow.right svg {
   width: 140px;
   height: 90px;
   transform: translateX(50%) translateY(-15%);

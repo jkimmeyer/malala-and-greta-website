@@ -7,6 +7,9 @@
     <ul class="navigation--list">
       <li class="navigation--list-item">
         <NarratorControls />
+        <transition name="fade">
+          <Hint v-if="audioHintVisible" class="hint-audio" text="Klicke auf den Lautsprecher um Audio zu aktivieren" point-to="top-right" :duration="0" />
+        </transition>
       </li>
       <li class="navigation--list-item is-separator" />
       <li v-for="(chapter, index) in chapters" :key="chapter.id" class="navigation--list-item is-page">
@@ -16,7 +19,10 @@
       </li>
       <li class="navigation--list-item is-separator" />
       <li class="navigation--list-item">
-        <ToggleSwitch :pressed="toggleSwitchPressed" :enabled="!inEnd" @toggle-button-switched="switchTheme()" />
+        <ToggleSwitch :pressed="toggleSwitchPressed" :enabled="!inEnd" @toggle-button-switched="onToggleButtonSwitched()" />
+        <transition name="fade">
+          <Hint v-if="switchHintVisible" class="hint-switch" text="Wechsel hier die Geschichte" point-to="bottom-right" :duration="0" />
+        </transition>
       </li>
     </ul>
   </nav>
@@ -26,20 +32,24 @@
 import { chapters } from '@/assets/contents/chapters.ts'
 import { switchTheme, getCurrentTheme } from '@/composables/theme'
 import { Themes } from '@/enums/Themes.ts'
-import { getCurrentControlTheme } from '~/composables/controlTheme'
+import { getCurrentControlTheme, getControlHintsEnabled } from '~/composables/controlTheme'
 import { ControlThemes } from '~/enums/ControlThemes'
+import { getAudioOn } from '@/composables/audioMute.ts'
 
 export default {
   setup () {
     return {
       switchTheme,
       getCurrentTheme,
-      getCurrentControlTheme
+      getCurrentControlTheme,
+      getControlHintsEnabled,
+      getAudioOn
     }
   },
   data () {
     return {
-      chapters
+      chapters,
+      switchClickedAtLeastOnce: false
     }
   },
   computed: {
@@ -48,9 +58,19 @@ export default {
     },
     inEnd () {
       return getCurrentControlTheme.value === ControlThemes.End
+    },
+    audioHintVisible () {
+      return getControlHintsEnabled.value && !getAudioOn.value
+    },
+    switchHintVisible () {
+      return getControlHintsEnabled.value && !this.switchClickedAtLeastOnce
     }
   },
   methods: {
+    onToggleButtonSwitched () {
+      this.switchClickedAtLeastOnce = true
+      switchTheme()
+    },
     scrollToChapter (id) {
       const bodyRect = document.body.getBoundingClientRect()
       const element = document.querySelector(id)
@@ -63,6 +83,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.hint-switch {
+  position: absolute;
+  bottom: 130px;
+  right: 100px;
+}
+.hint-audio {
+  position: absolute;
+  top: 90px;
+  right: 110px;
+}
   .navigation {
     position: fixed;
     right: 0;
@@ -89,6 +119,7 @@ export default {
     align-self: flex-end;
     white-space: nowrap;
     margin-right: 46px;
+    cursor: pointer;
   }
 
   .navigation--list-item.is-separator {
@@ -137,4 +168,10 @@ export default {
       transform: translateX(-10px);
     }
   }
+  .fade-enter-active, .fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter, .fade-leave-to  {
+  opacity: 0;
+}
 </style>
