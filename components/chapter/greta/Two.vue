@@ -27,17 +27,17 @@
         </div>
       </div>
       <div class="section grid grid-cols-12">
-        <div class="row-start-1 row-span-1 col-start-4 col-span-4">
-          <DecoratedImage :path="require('~/assets/images/chapter/2/greta/greta-kap2-mother.png')" theme="greta" :decoration-top-left="true" />
+        <div class="row-start-1 row-span-1 col-start-3 col-span-6">
+          <DecoratedImage data-animate-parallax="50" :path="require('~/assets/images/chapter/2/greta/greta-kap2-mother.png')" theme="greta" :decoration-top-left="true" />
         </div>
-        <div class="row-start-2 row-span-1 col-start-7 col-span-4 overlap">
-          <DecoratedImage :path="require('~/assets/images/chapter/2/greta/greta-kap2-family.png')" theme="greta" :decoration-top-right="true" />
+        <div class="row-start-2 row-span-1 col-start-6 col-span-6 overlap">
+          <DecoratedImage data-animate-parallax="-100" :path="require('~/assets/images/chapter/2/greta/greta-kap2-family.png')" theme="greta" :decoration-top-right="true" />
         </div>
-        <div class="row-start-2 row-span-1 col-start-3 col-span-4 flex flex-row items-center overlap text-2">
+        <div data-animate-reveal-left class="row-start-2 row-span-1 col-start-1 col-span-4 flex flex-row items-center overlap text-2">
           Meine Eltern und Hunde waren für mich da, als es mir besonders schlecht ging. Sie geben mir halt.
         </div>
         <div class="row-start-3 row-span-1 col-start-5 col-span-4 overlap">
-          <DecoratedImage :path="require('~/assets/images/chapter/2/greta/greta-kap2-dog.png')" theme="greta" :decoration-bottom-right="true" />
+          <DecoratedImage data-animate-parallax="-150" :path="require('~/assets/images/chapter/2/greta/greta-kap2-dog.png')" theme="greta" :decoration-bottom-right="true" />
         </div>
       </div>
       <div class="section grid grid-cols-12">

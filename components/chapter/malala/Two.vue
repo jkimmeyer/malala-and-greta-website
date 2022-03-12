@@ -74,7 +74,7 @@
     </div>
     <div class="grid grid-cols-12 mt-48">
       <div class="text-body col-start-1 col-span-8" data-animate-reveal-left>
-        UND DANN ÜBERNAHMEN DIE TALIBAN DIE KONTROLLE
+        Und dann übernahmen die Taliban die Kontrolle
       </div>
       <DecoratedImage
         class="mt-24 col-start-4 col-span-6"
@@ -119,7 +119,10 @@
         :fov="10"
         :near="0.1"
         :far="1000"
-        :cam-z="30"
+        :cam-z="80"
+        :cam-y="40"
+        :cam-x="-70"
+        :auto-rotate="false"
         :models="lockScene"
       />
     </div>
@@ -147,6 +150,15 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@mixin uppercaseStyle{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  text-transform: uppercase;
+  color: var(--color-text-greta-dark);
+  text-transform: uppercase;
+}
+
 @mixin headline1 {
   font-family: Trochut, sans-serif;
   font-size: 200px;
@@ -230,11 +242,13 @@ export default defineComponent({
 }
 
 .text-body {
-  @include body1;
+  @include uppercaseStyle;
+  font-size: 3rem;
 }
 
 .text-body-small {
   @include body2;
+  font-weight: 300;
 }
 .cite-father{
   margin-top: 5vw;
