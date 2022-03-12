@@ -29,6 +29,7 @@ export default {
 
 <style scoped>
 .page {
+  font-display: change;
   min-height: 100vh;
   background-color: var(--color-background);
 }

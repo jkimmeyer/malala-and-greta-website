@@ -57,7 +57,7 @@ export default {
       })
 
       if (getAudioOn.value) {
-        const audio = new Audio(activeContent.value.audio)
+        this.audio = new Audio(activeContent.value.audio)
         audio.play()
       }
       // animate words out
@@ -75,6 +75,7 @@ export default {
 
     onUnmounted(() => {
       if (intervalId) { clearInterval(intervalId) }
+      if (audio) { this.audio.pause(); this.audio.currentTime = 0 }
     })
 
     return {
@@ -85,6 +86,11 @@ export default {
       contentWords,
       positionStyles,
       loopCites
+    }
+  },
+  data () {
+    return {
+      audio: null
     }
   }
 }

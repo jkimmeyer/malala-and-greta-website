@@ -27,6 +27,7 @@ export default {
     '@/assets/stylesheets/globals/reset.css',
     '@/assets/stylesheets/globals/spacing.css',
     '@/assets/stylesheets/globals/transition.css',
+    '@/assets/stylesheets/globals/scroll-behaviour.css',
     '@/assets/stylesheets/globals/fonts.css',
     '@/assets/stylesheets/globals/typography.css',
     '@/assets/stylesheets/globals/zindex.css',
@@ -36,6 +37,17 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],
+  // router: {
+  //   scrollBehavior (to) {
+  //     if (to.hash) {
+  //       return window.scrollTo({
+  //         top: document.querySelector(to.hash).offsetTop + window.innerHeight,
+  //         behavior: 'smooth'
+  //       })
+  //     }
+  //     return window.scrollTo({ top: 0, behavior: 'smooth' })
+  //   }
+  // },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -58,10 +70,9 @@ export default {
     }
   },
 
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    'nuxt-lazy-load'
   ],
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     postcss: {

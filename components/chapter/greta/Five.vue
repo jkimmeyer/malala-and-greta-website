@@ -54,17 +54,16 @@
 </template>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
 import ship from '~~/components/model/yacht.vue'
 
-export default defineComponent({
+export default {
   setup () {
     const shipScene = [ship]
     return {
       shipScene
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
