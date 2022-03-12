@@ -1,5 +1,8 @@
 <template>
-  <div :id="`scene-${sceneId}`" class="pointer" :style="`height:${height}px; width:${width}px; margin:auto;`" />
+  <div class="relative w-full">
+    <div :id="`scene-${sceneId}`" class="pointer" :style="`height:${height}px; width:${width}px; margin:auto;`" />
+    <div class="preventInteraction absolute" />
+  </div>
 </template>
 
 <script>
@@ -60,6 +63,14 @@ export default {
     pointsMaterial: {
       type: Boolean,
       default: false
+    },
+    autoRotate: {
+      type: Boolean,
+      default: true
+    },
+    pointSize: {
+      type: Number,
+      default: 0.5
     }
   },
   data () {
@@ -69,8 +80,14 @@ export default {
   },
   mounted () {
     this.init()
+    this.addClickListener()
   },
   methods: {
+    addClickListener () {
+      document.querySelector(`#scene-${this.sceneId} ~ .preventInteraction`).addEventListener('click', (e) => {
+        e.target.remove()
+      })
+    },
     async loadMeshes () {
       const loadedMeshes = []
       for (const model of this.models) {
@@ -116,7 +133,7 @@ export default {
       this.SCENE = new THREE.Scene()
       this.OBJ_LOADER = new OBJLoader()
       this.RENDERER = new THREE.WebGLRenderer({ antialias: true, alpha: true })
-      this.POINTS_MATERIAL = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 0.5 })
+      this.POINTS_MATERIAL = new THREE.PointsMaterial({ color: 0xFFFFFF, size: this.pointSize })
       this.MATERIAL = new THREE.LineBasicMaterial({
         color: 0xFFFFFF
       })
@@ -142,7 +159,7 @@ export default {
         this.CONTROLS = new OrbitControls(this.CAMERA, this.RENDERER.domElement)
         this.CONTROLS.minDistance = this.camZ
         this.CONTROLS.maxDistance = this.camZ
-        this.CONTROLS.autoRotate = true
+        this.CONTROLS.autoRotate = this.autoRotate
         this.CONTROLS.update()
       }
 
@@ -185,3 +202,18 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.pointer{
+  cursor: pointer;
+  z-index: -1;
+}
+.preventInteraction{
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+</style>

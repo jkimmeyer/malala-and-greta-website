@@ -47,7 +47,7 @@
           :cam-z="30"
           :models="bulletScene"
           data-animate-parallax="-150"
-          class="row-start-1 row-span-1 col-start-1-col-span-12 bullet"
+          class="row-start-1 row-span-1 col-start-1 col-span-12 bullet"
         />
         <div class="row-start-2 row-span-1 text-small is-light col-start-3 col-span-4" data-animate-reveal-rigth data-narrator-malala="Malala-Kap4-3">
           Dann hörte ich nur noch den Schuss. Alles wurde schwarz
