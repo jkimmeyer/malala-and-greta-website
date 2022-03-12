@@ -1,4 +1,4 @@
-import { setCurrentControlTheme } from '~/composables/controlTheme'
+import { setCurrentControlTheme, setControlHintsEnabled } from '~/composables/controlTheme'
 import { ControlThemeOptions } from '~/interfaces/ControlThemeOptions'
 export const useAnimation = (gsap, ScrollTrigger) => {
   const showMarkers = false
@@ -137,19 +137,6 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     })
   }
 
-  // const registerEndState = () => {
-  //   ScrollTrigger.create({
-  //     trigger: '[data-end-begin]',
-  //     start: 'top center',
-  //     onEnter: () => {
-  //       setInEnd(true)
-  //     },
-  //     onLeaveBack: () => {
-  //       setInEnd(false)
-  //     }
-  //   })
-  // }
-
   const registerControlThemeChange = (from: ControlThemeOptions, to: ControlThemeOptions, triggerElement: HTMLElement | string) => {
     ScrollTrigger.create({
       trigger: triggerElement,
@@ -159,6 +146,16 @@ export const useAnimation = (gsap, ScrollTrigger) => {
       },
       onLeaveBack: () => {
         setCurrentControlTheme(from)
+      }
+    })
+  }
+
+  const registerDisableControlHints = (triggerElement: HTMLElement | string) => {
+    ScrollTrigger.create({
+      trigger: triggerElement,
+      start: 'top center',
+      onEnter: () => {
+        setControlHintsEnabled(false)
       }
     })
   }
@@ -298,7 +295,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     registerClassRemove,
     registerClassSwitch,
     registerControlThemeChange,
-    // registerEndState,
+    registerDisableControlHints,
     registerAllAnimationTriggers,
     registerAllBackgroundFadeTriggers,
     applySmoothScrollToPage

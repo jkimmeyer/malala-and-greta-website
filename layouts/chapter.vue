@@ -41,6 +41,7 @@ export default {
         animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.Light, '[data-controls-dark-light]')
         animation.registerControlThemeChange(ControlThemes.Light, ControlThemes.Dark, '[data-controls-light-dark]')
         animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.End, '[data-controls-dark-end]')
+        animation.registerDisableControlHints('[data-controls-disable-hints]')
 
         // setup audio for narrator and sound
         const audio = useAudio($gsap, $ScrollTrigger)
@@ -79,12 +80,12 @@ export default {
   --color-text-dark: var(--color-text-greta-dark);
   --color-text-highlight: var(--color-text-greta-highlight);
   --color-control-light: var(--color-text-greta);
-  --color-control-light-focus: var(--color-text-greta);
-  --color-control-light-hover: var(--color-text-greta);
+  --color-control-light-focus: var(--glaucous);
+  --color-control-light-hover: var(--glaucous);
   --color-control-light-active: var(--color-text-greta);
   --color-control-dark: var(--color-text-greta-dark);
-  --color-control-dark-focus: var(--color-text-greta-dark);
-  --color-control-dark-hover: var(--color-text-greta-dark);
+  --color-control-dark-focus: var(--glaucous);
+  --color-control-dark-hover: var(--glaucous);
   --color-control-dark-active: var(--color-text-greta-dark);
 }
 
@@ -95,12 +96,12 @@ export default {
   --color-text-dark: var(--color-text-malala-dark);
   --color-text-highlight: var(--color-text-malala-highlight);
   --color-control-light: var(--color-text-malala);
-  --color-control-light-focus: var(--color-text-malala);
-  --color-control-light-hover: var(--color-text-malala);
+  --color-control-light-focus: var(--bronze);
+  --color-control-light-hover: var(--bronze);
   --color-control-light-active: var(--color-text-malala);
-  --color-control-dark: var(--color-text-malala-dark);
-  --color-control-dark-focus: var(--color-text-malala-dark);
-  --color-control-dark-hover: var(--color-text-malala-dark);
+  --color-control-dark: var(--mud);
+  --color-control-dark-focus: var(--bronze);
+  --color-control-dark-hover: var(--bronze);
   --color-control-dark-active: var(--color-text-malala-dark);
 }
 
@@ -113,15 +114,15 @@ export default {
 
 .page.has-light-controls {
   --color-control: var(--color-control-light);
-  --color-control-focus: var(--color-control-focus-light);
-  --color-control-hover: var(--color-control-hover-light);
-  --color-control-active: var(--color-control-active-light);
+  --color-control-focus: var(--color-control-light-focus);
+  --color-control-hover: var(--color-control-light-hover);
+  --color-control-active: var(--color-control-light-active);
 }
 
 .page.has-dark-controls {
   --color-control: var(--color-control-dark);
-  --color-control-focus: var(--color-control-focus-dark);
-  --color-control-hover: var(--color-control-hover-dark);
-  --color-control-active: var(--color-control-active-dark);
+  --color-control-focus: var(--color-control-dark-focus);
+  --color-control-hover: var(--color-control-dark-hover);
+  --color-control-active: var(--color-control-dark-active);
 }
 </style>

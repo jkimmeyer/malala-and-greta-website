@@ -1,7 +1,7 @@
 import { ref, watch } from '@nuxtjs/composition-api'
 import { getCurrentTheme } from '@/composables/theme'
 import { Themes } from '@/enums/Themes'
-import { getAudioOn } from '@/composables/audioMute'
+import { getAudioOn, setAudioOn } from '@/composables/audioMute'
 
 // current audio sources
 let narratorAudioSourceMalala: string = null
@@ -44,6 +44,7 @@ const pauseNarrator = () => {
   narratorAudioElement?.pause()
 }
 const resumeNarrator = () => {
+  setAudioOn(true) // resume button enables audio
   narratorAudioElement ? narratorAudioElement.play() : playNarrator()
 }
 const updateNarratorSource = (path: string, theme: Themes) => {

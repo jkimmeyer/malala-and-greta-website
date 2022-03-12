@@ -98,9 +98,8 @@ export default {
     }
   },
   mounted () {
-    setTimeout(() => {
-      this.buttonVisible = true
-    }, 100)
+    this.buttonVisible = true
+
     setTimeout(() => {
       this.citeVisible = true
     }, 2000)
@@ -123,7 +122,7 @@ export default {
       } else if (story === 'malala') {
         setCurrentTheme(Themes.Malala)
       }
-      this.$router.push({ path: '/story', hash: '#' })
+      this.$router.push({ path: '/story' })
     }
   }
 }
@@ -168,14 +167,17 @@ export default {
     opacity: 1;
   }
 }
+.page--request-arrow svg {
+  stroke: var(--color-text-neutral);
+}
 
-.page--request-arrow.left svg{
+.page--request-arrow.left svg {
   width: 140px;
   height: 90px;
   transform: translateX(-50%) translateY(20%);
 }
 
-.page--request-arrow.right svg{
+.page--request-arrow.right svg {
   width: 140px;
   height: 90px;
   transform: translateX(50%) translateY(-15%);
@@ -250,8 +252,8 @@ export default {
   &.visible {
     display: flex;
     align-items: center;
-    opacity: 100%;
-    transition: opacity ease-in 2s;
+    opacity: 1;
+    transition: opacity ease-in 2s 0.5s;
   }
 
   &:hover,

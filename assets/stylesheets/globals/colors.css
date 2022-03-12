@@ -19,6 +19,7 @@
   --almond: rgb(237, 222, 200);
   --gold-sand: rgb(225, 188, 132);
   --leather: rgb(149, 124, 87);
+  --mud: rgb(129, 108, 77);
   --stark-white: rgb(233, 220, 199);
   --bronze: rgb(182, 147, 95);
 
@@ -30,8 +31,6 @@
   /* Neutral Colors */
   --white: rgb(255, 255, 255);
   --black: rgb(0, 0, 0);
-  --v-malala: rgb(188, 168, 139);
-  --v-greta: rgb(128, 142, 159);
 
   /* UI Colors
   All assigned UI colors must begin with color- so you can spot them instantly as color-variables in your stylesheets.

@@ -15,10 +15,10 @@
         </div>
 
         <div class="grid grid-cols-12 mt-20">
-          <div class="body2 greta col-start-3 col-span-3 " data-narrator-malala="bullet-silence" data-animate-reveal-left>
+          <div class="body2 greta col-start-3 col-span-3 " data-animate-reveal-left>
             “So today I met my role model. What else can I say?”
           </div>
-          <div class="body2 malala col-start-8 col-span-3 mt-20" data-narrator-malala="bullet-silence" data-animate-reveal-right>
+          <div class="body2 malala col-start-8 col-span-3 mt-20" data-animate-reveal-right>
             “She's the only friend I'd skip school for”
           </div>
         </div>
