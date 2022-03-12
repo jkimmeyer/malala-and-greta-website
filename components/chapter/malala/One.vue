@@ -7,7 +7,7 @@
       data-narrator-malala="Malala-Kap1-1"
     />
 
-    <div class="py-32 max-w-screen-2xl 2xl:mx-auto" data-controls-disable-hints>
+    <div class="py-64 max-w-screen-2xl 2xl:mx-auto" data-controls-disable-hints>
       <div class="grid grid-cols-12">
         <div class="col-start-1 col-span-4">
           <Video :path="require('~/assets/videos/malala/malala-kap1-1.mp4')" data-animate-reveal-left />
@@ -35,9 +35,18 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@mixin uppercaseStyle{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  text-transform: uppercase;
+  color: var(--color-text-malala-dark);
+  text-transform: uppercase;
+}
+
 .text {
-  font-family: var(--sans-serif-font);
+  @include uppercaseStyle;
   font-size: var(--font-size-body-1);
   color: var(--color-text-malala-dark);
 }

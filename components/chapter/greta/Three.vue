@@ -40,7 +40,7 @@
         <div class="text-3 col-start-5 col-span-7">
           <div class="grid grid-cols-12">
             <div class="inline-1 col-start-2 col-span-11" data-animate-reveal-right>
-              ICH HABE BEGONNEN AUF DINGE ZU VERZICHTEN
+              Ich habe begonnen auf Dinge zu verzichten
             </div>
             <div class="inline-2 txt-sml col-start-2 col-span-10" data-animate-reveal-right>
               das Licht ausschalten
@@ -119,6 +119,15 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@mixin uppercaseStyle{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  text-transform: uppercase;
+  color: var(--color-text-greta-dark);
+  text-transform: uppercase;
+}
+
 .section {
   width: 100%;
 
@@ -141,7 +150,7 @@ export default defineComponent({
 @mixin headline1 {
   font-family: Trochut, sans-serif;
   font-size: 200px;
-  color: var(--color-text-dark);
+  color: var(--color-text-greta-dark);
   line-height: 90%;
 }
 
@@ -149,20 +158,20 @@ export default defineComponent({
   font-family: Lato, sans-serif;
   font-weight: 300; // light
   font-size: 96px;
-  color: var(--color-text-dark);
+  color: var(--color-text-greta-dark);
 }
 
 @mixin body1 {
   font-family: Lato, sans-serif;
   font-size: 50px;
-  color: var(--color-text-dark);
+  color: var(--color-text-greta-dark);
 }
 
 @mixin body2 {
   font-family: Lato, sans-serif;
   font-size: 30px;
   font-style: italic;
-  color: var(--color-text-dark);
+  color: var(--color-text-greta-dark);
 }
 
 .content {
@@ -179,7 +188,8 @@ export default defineComponent({
 
     > span {
       text-align: left;
-      @include body1;
+      @include uppercaseStyle;
+      font-size: 3rem;
     }
 }
 .image-1 {
@@ -217,7 +227,8 @@ export default defineComponent({
   grid-row: 1;
 }
 .inline-1{
-  @include body1;
+  @include uppercaseStyle;
+  font-size: 3rem;
   margin-bottom: 1em;
 }
 .model-1{
@@ -241,7 +252,8 @@ export default defineComponent({
 
 /* Section 3 Greta */
 .text-4 {
-  @include body1;
+  @include uppercaseStyle;
+  font-size: 3rem;
   display: flex;
   flex-direction: column;
   margin-bottom: 1em;
@@ -273,6 +285,7 @@ export default defineComponent({
   > span{
     @include body2;
     margin-bottom: 2em;
+    font-weight: 300;
   }
 }
 </style>

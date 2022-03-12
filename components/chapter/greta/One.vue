@@ -6,7 +6,7 @@
       :image="require('~/assets/images/Greta-Face.png')"
     />
 
-    <div class="py-32 max-w-screen-2xl 2xl:mx-auto">
+    <div class="py-64 max-w-screen-2xl 2xl:mx-auto">
       <div class="grid grid-cols-12">
         <div class="col-start-1 col-span-2">
           <ChapterOneQuote quote="“I have learned, you are never too small to make a difference.”" data-animate-parallax="400" />
@@ -34,13 +34,22 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@mixin uppercaseStyle{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  text-transform: uppercase;
+  color: var(--color-text-greta-dark);
+  text-transform: uppercase;
+}
+
 .test {
   transform: scaleX(-1);
 }
 
 .text {
-  font-family: var(--sans-serif-font);
+  @include uppercaseStyle;
   font-size: var(--font-size-body-1);
   color: var(--color-text-greta-dark);
 }
@@ -48,4 +57,5 @@
 .text.is-white {
   color: var(--color-text-neutral-light);
 }
+
 </style>
