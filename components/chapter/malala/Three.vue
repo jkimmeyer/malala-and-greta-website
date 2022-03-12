@@ -1,6 +1,6 @@
 <template>
   <div class="mx-40 2xl:mx-auto max-w-screen-xl">
-    <div class="content">
+    <div class="content" data-narrator-malala="Malala-Kap3-1">
       <!-- Section 1 -->
       <div class="section grid grid-cols-12">
         <div class="image-1 col-start-1 col-span-4" data-animate-parallax="-25">
@@ -32,7 +32,7 @@
         </div>
       </div>
       <!-- Section 3 -->
-      <div class="section grid grid-cols-12 ">
+      <div class="section grid grid-cols-12" data-narrator-malala="Malala-Kap3-2">
         <div class="text-4 col-start-2 col-span-10" data-animate-reveal-left>
           MEINE GESCHICHTEN
         </div>
