@@ -1,7 +1,7 @@
 import { watch } from '@nuxtjs/composition-api'
 import { getCurrentTheme } from '@/composables/theme'
 import { Themes } from '@/enums/Themes'
-import { getAudioOn, setAudioOn } from '@/composables/audioMute'
+import { getAudioOn } from '@/composables/audioMute'
 
 // current audio sources
 let soundAudioSourceMalala: string = null
