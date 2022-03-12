@@ -75,7 +75,6 @@ export default {
 
     onUnmounted(() => {
       if (intervalId) { clearInterval(intervalId) }
-      if (audio) { this.audio.pause(); this.audio.currentTime = 0 }
     })
 
     return {
@@ -92,6 +91,9 @@ export default {
     return {
       audio: null
     }
+  },
+  beforeDestroy () {
+    if (this.audio) { this.audio.pause(); this.audio.currentTime = 0 }
   }
 }
 </script>
