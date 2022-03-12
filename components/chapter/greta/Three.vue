@@ -29,14 +29,12 @@
             scene-id="3d-lamp"
             :height="526"
             :width="428"
-            :fov="80"
+            :fov="10"
             :near="0.1"
             :far="1000"
-            :cam-x="-5.75"
-            :cam-y="-16"
-            :cam-z="7"
+            :cam-y="15"
+            :cam-z="50"
             :models="lampeScene"
-            :orbit-controls="true"
           />
         </div>
         <div class="text-3 col-start-5 col-span-7">
@@ -73,14 +71,12 @@
               scene-id="swedish"
               :height="400"
               :width="750"
-              :fov="80"
+              :fov="10"
               :near="0.1"
               :far="1000"
-              :cam-x="-5"
-              :cam-y="-16"
-              :cam-z="10"
+              :cam-z="50"
+              :cam-y="15"
               :models="reichstagScene"
-              :orbit-controls="true"
             />
           </div>
           <div class="video-1 col-start-8 col-span-5" data-animate-parallax="-25">

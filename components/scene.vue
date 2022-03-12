@@ -35,11 +35,7 @@ export default {
     },
     orbitControls: {
       type: Boolean,
-      default: false
-    },
-    orbitDistance: {
-      type: Number,
-      default: 10
+      default: true
     },
     camX: {
       type: Number,
@@ -47,15 +43,23 @@ export default {
     },
     camY: {
       type: Number,
-      default: -13
+      default: 0
     },
     camZ: {
       type: Number,
-      default: 25
+      default: 0
     },
     models: {
       type: Array,
       required: true
+    },
+    geometryThresholdAngle: {
+      type: Number,
+      default: 1
+    },
+    pointsMaterial: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -86,8 +90,15 @@ export default {
             console.log('An error happened: ' + error)
           })
 
-        const edges = new THREE.EdgesGeometry(obj.children[0].geometry)
-        const mesh = new THREE.LineSegments(edges, this.MATERIAL)
+        const geometry = obj.children[0].geometry
+        let mesh
+
+        if (this.pointsMaterial) {
+          mesh = new THREE.Points(geometry, this.POINTS_MATERIAL)
+        } else {
+          const edges = new THREE.EdgesGeometry(geometry, this.geometryThresholdAngle)
+          mesh = new THREE.LineSegments(edges, this.MATERIAL)
+        }
 
         const box = new THREE.Box3().setFromObject(mesh)
         box.getCenter(mesh.position)
@@ -105,6 +116,7 @@ export default {
       this.SCENE = new THREE.Scene()
       this.OBJ_LOADER = new OBJLoader()
       this.RENDERER = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+      this.POINTS_MATERIAL = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 0.5 })
       this.MATERIAL = new THREE.LineBasicMaterial({
         color: 0xFFFFFF
       })
@@ -120,19 +132,18 @@ export default {
       // container
       const container = document.getElementById(`scene-${this.sceneId}`)
 
+      this.CAMERA.position.setX(this.camX)
+      this.CAMERA.position.setY(this.camY)
+      this.CAMERA.position.setZ(this.camZ)
+
       // camera position
       if (this.orbitControls) {
-        this.CAMERA.position.setZ(this.orbitDistance)
         this.CAMERA.lookAt(0, 0, 0)
         this.CONTROLS = new OrbitControls(this.CAMERA, this.RENDERER.domElement)
-        this.CONTROLS.minDistance = this.orbitDistance
-        this.CONTROLS.maxDistance = this.orbitDistance
+        this.CONTROLS.minDistance = this.camZ
+        this.CONTROLS.maxDistance = this.camZ
         this.CONTROLS.autoRotate = true
         this.CONTROLS.update()
-      } else {
-        this.CAMERA.position.setX(this.camX)
-        this.CAMERA.position.setY(this.camY)
-        this.CAMERA.position.setZ(this.camZ)
       }
 
       // materials setzen + three.js mesh erstellen

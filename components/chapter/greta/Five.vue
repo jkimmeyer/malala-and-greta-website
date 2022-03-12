@@ -23,18 +23,15 @@
         </div>
         <div class="row-start-4 row-span-1 col-start-6 col-span-6">
           <Scene
-            scene-id="ship"
+            scene-id="yacht"
             :height="400"
             :width="750"
-            :fov="80"
+            :fov="10"
             :near="0.1"
-            :far="1000"
-            :cam-x="-5"
-            :cam-y="-16"
-            :cam-z="10"
-            :models="shipScene"
-            :orbit-controls="true"
-            :orbit-distance="130"
+            :far="2000"
+            :cam-y="300"
+            :cam-z="1000"
+            :models="yachtScene"
             data-animate-parallax="-150"
           />
         </div>
@@ -50,18 +47,32 @@
         </div>
       </div>
     </div>
+    <div class="content pt-32">
+      <div class="grid grid-cols-12 space-y-8">
+        <div class="row-start-1 row-span-1 flex flex-col text-2 col-start-1 col-span-12">
+          <span>Die Überfahrt von Europa nach</span>
+          <span>New York hat zwei Wochen gedauert</span>
+        </div>
+        <DecoratedImage
+          :path="require('~/assets/images/chapter/5/greta/greta-kap5-boot-waving.webp')"
+          theme="greta"
+          :decoration-top-right="true"
+          class="row-start-2 row-span-1 col-start-5 col-span-6"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { defineComponent } from '@vue/composition-api'
-import ship from '~~/components/model/yacht.vue'
+import yacht from '~~/components/model/yacht.vue'
 
 export default defineComponent({
   setup () {
-    const shipScene = [ship]
+    const yachtScene = [yacht]
     return {
-      shipScene
+      yachtScene
     }
   }
 })
@@ -119,5 +130,9 @@ export default defineComponent({
 }
 .subtextContainer{
   position: relative;
+}
+.text-2 span{
+  @include body2;
+  line-height: 1;
 }
 </style>

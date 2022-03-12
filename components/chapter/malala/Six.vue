@@ -50,14 +50,12 @@
           scene-id="nobel"
           :height="526"
           :width="428"
-          :fov="80"
+          :fov="10"
           :near="0.1"
           :far="1000"
-          :cam-x="-5"
-          :cam-y="-14"
-          :cam-z="10"
+          :cam-z="80"
           :models="nobelScene"
-          :orbit-controls="true"
+          :points-material="true"
         />
         <FactsContainer
           class="col-start-7 col-span-4"

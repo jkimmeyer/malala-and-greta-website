@@ -36,7 +36,20 @@
 
     <div class="section mx-40 2xl:mx-auto max-w-screen-xl">
       <div class="grid grid-cols-12">
-        <div class="text-small is-light col-start-3 col-span-4" data-animate-reveal-rigth data-narrator-malala="Malala-Kap4-3">
+        <Scene
+          scene-id="bullet"
+          :height="400"
+          :width="750"
+          :fov="10"
+          :near="0.1"
+          :far="1000"
+          :cam-y="8"
+          :cam-z="30"
+          :models="bulletScene"
+          data-animate-parallax="-150"
+          class="row-start-1 row-span-1 col-start-1-col-span-12 bullet"
+        />
+        <div class="row-start-2 row-span-1 text-small is-light col-start-3 col-span-4" data-animate-reveal-rigth data-narrator-malala="Malala-Kap4-3">
           Dann hörte ich nur noch den Schuss. Alles wurde schwarz
         </div>
       </div>
@@ -44,7 +57,25 @@
   </div>
 </template>
 
+<script>
+import { defineComponent } from '@vue/composition-api'
+import bullet from '~~/components/model/bullet.vue'
+
+export default defineComponent({
+  setup () {
+    const bulletScene = [bullet]
+    return {
+      bulletScene
+    }
+  }
+})
+</script>
+
 <style scoped>
+.bullet{
+  margin: auto;
+}
+
 .four {
   height: 100%;
   background-color: var(--color-background-greta);
