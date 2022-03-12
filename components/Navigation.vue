@@ -74,12 +74,12 @@ export default {
   }
 
   .navigation--list-item.is-page {
-    padding: var(--space-4) var(--space-16) var(--space-4) var(--space-4);
+    padding: var(--space-4) var(--space-64) var(--space-4) var(--space-64);
     transition: transform ease-in 0.1s;
     transform: translateX(0%);
     align-self: flex-end;
     white-space: nowrap;
-    margin-right: 46px;
+    cursor: pointer;
   }
 
   .navigation--list-item.is-separator {
