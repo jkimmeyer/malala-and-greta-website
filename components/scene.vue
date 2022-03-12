@@ -182,22 +182,22 @@ export default {
       this.animate()
     },
     animate () {
-      requestAnimationFrame(this.animate)
-      if (this.orbitControls) {
-        this.CONTROLS.update()
-      }
+      // requestAnimationFrame(this.animate)
+      // if (this.orbitControls) {
+      //   this.CONTROLS.update()
+      // }
 
-      if (this.meshes) {
-        for (let i = 0; i < this.models.length; i++) {
-          const model = this.models[i]
-          const mesh = this.meshes[i]
+      // if (this.meshes) {
+      //   for (let i = 0; i < this.models.length; i++) {
+      //     const model = this.models[i]
+      //     const mesh = this.meshes[i]
 
-          if (mesh) {
-            model.methods.animate(mesh)
-            this.RENDERER.render(this.SCENE, this.CAMERA)
-          }
-        }
-      }
+      //     if (mesh) {
+      //       model.methods.animate(mesh)
+      //       this.RENDERER.render(this.SCENE, this.CAMERA)
+      //     }
+      //   }
+      // }
     }
   }
 }
