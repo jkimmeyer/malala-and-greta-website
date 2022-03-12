@@ -39,13 +39,13 @@
       >
         <Icon
           class="navigation--icon"
-          :class="getAudioOn ? null : 'hidden'"
+          :class="getAudioOn ? 'hidden' : null "
           icon="fluent:speaker-2-24-regular"
           height="24px"
         />
         <Icon
           class="navigation--icon"
-          :class="getAudioOn ? 'hidden' : null "
+          :class="getAudioOn ? null : 'hidden'"
           icon="fluent:speaker-off-24-regular"
           height="24px"
         />
