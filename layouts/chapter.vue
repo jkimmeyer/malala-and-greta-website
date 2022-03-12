@@ -41,6 +41,7 @@ export default {
         animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.Light, '[data-controls-dark-light]')
         animation.registerControlThemeChange(ControlThemes.Light, ControlThemes.Dark, '[data-controls-light-dark]')
         animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.End, '[data-controls-dark-end]')
+        animation.registerDisableControlHints('[data-controls-disable-hints]')
 
         // setup audio for narrator and sound
         const audio = useAudio($gsap, $ScrollTrigger)
@@ -98,7 +99,7 @@ export default {
   --color-control-light-focus: var(--bronze);
   --color-control-light-hover: var(--bronze);
   --color-control-light-active: var(--color-text-malala);
-  --color-control-dark: var(--color-text-malala-dark);
+  --color-control-dark: var(--mud);
   --color-control-dark-focus: var(--bronze);
   --color-control-dark-hover: var(--bronze);
   --color-control-dark-active: var(--color-text-malala-dark);

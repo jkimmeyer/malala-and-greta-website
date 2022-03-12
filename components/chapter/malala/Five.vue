@@ -23,14 +23,12 @@
             scene-id="plane"
             :height="400"
             :width="750"
-            :fov="80"
+            :fov="10"
             :near="0.1"
             :far="1000"
-            :cam-x="-5"
-            :cam-y="-16"
-            :cam-z="10"
+            :cam-y="100"
+            :cam-z="300"
             :models="planeScene"
-            :orbit-controls="true"
             data-animate-parallax="-150"
           />
         </div>
@@ -44,6 +42,20 @@
           </div>
           <img src="@/assets/images/chapter/5/malala/malala-finish.png" data-animate-reveal-right>
         </div>
+      </div>
+    </div>
+    <div class="content pt-32 pb-64">
+      <div class="grid grid-cols-12 space-y-8">
+        <div class="row-start-1 row-span-1 flex flex-col text-2 col-start-1 col-span-12">
+          <span>Mein zweites Leben verdanke ich</span>
+          <span>der weltweiten Unterstützung</span>
+        </div>
+        <DecoratedImage
+          :path="require('~/assets/images/chapter/5/malala/malala-kap5-bed-family.jpeg')"
+          theme="malala"
+          :decoration-top-right="true"
+          class="row-start-2 row-span-1 col-start-3 col-span-6"
+        />
       </div>
     </div>
   </div>
@@ -105,6 +117,10 @@ export default defineComponent({
 
 .text span{
   @include body1;
+  line-height: 1;
+}
+.text-2 span{
+  @include body2;
   line-height: 1;
 }
 

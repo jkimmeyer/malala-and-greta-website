@@ -47,17 +47,14 @@
         <Scene
           class="col-start-1 col-span-4"
           data-animate-reveal-rigth
-          scene-id="nobelPlaceholder"
+          scene-id="prix"
           :height="526"
           :width="428"
-          :fov="80"
+          :fov="10"
           :near="0.1"
           :far="1000"
-          :cam-x="-5"
-          :cam-y="-14"
-          :cam-z="10"
-          :models="nobelScene"
-          :orbit-controls="true"
+          :cam-z="30"
+          :models="prixScene"
         />
         <FactsContainer
           class="col-start-7 col-span-4"
@@ -87,14 +84,14 @@
   </div>
 </template>
 <script>
-import nobel from '~~/components/model/nobel.vue'
+import prix from '~~/components/model/prix.vue'
 import VideoPlayer from '~/components/VideoPlayer.vue'
 
 export default {
   components: { VideoPlayer },
   data () {
     return {
-      nobelScene: [nobel]
+      prixScene: [prix]
     }
   }
 }

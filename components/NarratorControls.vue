@@ -24,17 +24,6 @@
       <button
         :aria-label="getAudioOn ? 'Audio ausschalten' : 'Audio einschalten'"
         class="navigation--button"
-        @click="playNarrator()"
-      >
-        <Icon
-          class="navigation--icon"
-          icon="fluent:arrow-reset-20-regular"
-          height="24px"
-        />
-      </button>
-      <button
-        :aria-label="getAudioOn ? 'Audio ausschalten' : 'Audio einschalten'"
-        class="navigation--button"
         @click="toggleAudio()"
       >
         <Icon
@@ -47,6 +36,17 @@
           class="navigation--icon"
           :class="getAudioOn ? null : 'hidden'"
           icon="fluent:speaker-off-24-regular"
+          height="24px"
+        />
+      </button>
+      <button
+        :aria-label="getAudioOn ? 'Audio ausschalten' : 'Audio einschalten'"
+        class="navigation--button"
+        @click="playNarrator()"
+      >
+        <Icon
+          class="navigation--icon"
+          icon="fluent:arrow-reset-20-regular"
           height="24px"
         />
       </button>
