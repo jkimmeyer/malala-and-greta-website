@@ -23,6 +23,7 @@ import { useAudio } from '@/composables/useAudio.ts'
 import { ControlThemes } from '~/enums/ControlThemes'
 import { setCurrentTheme } from '~/composables/theme'
 import { Themes } from '~/enums/Themes'
+import { setAudioOn } from '@/composables/audioMute'
 
 export default {
   layout: 'chapter',
@@ -34,9 +35,13 @@ export default {
     onMounted(() => {
       if (process.client) {
         const savedTheme = window.localStorage.getItem('THEME')
+        const savedAudioOn = window.localStorage.getItem('AUDIOON')
 
         if (savedTheme) {
           setCurrentTheme(Themes[savedTheme])
+        }
+        if (savedAudioOn) {
+          setAudioOn(savedAudioOn === 'true')
         }
       }
 

@@ -3,7 +3,10 @@ import { computed, ref } from '@nuxtjs/composition-api'
 const audioOn = ref(false)
 
 const setAudioOn = (userAudioOn: boolean) => {
-  audioOn.value = userAudioOn
+  if (process.client) {
+    audioOn.value = userAudioOn
+    window.localStorage.setItem('AUDIOON', String(audioOn.value))
+  }
 }
 
 const getAudioOn = computed(() => audioOn.value)
