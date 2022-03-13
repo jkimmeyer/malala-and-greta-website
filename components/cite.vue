@@ -79,7 +79,7 @@ export default {
     })
 
     onBeforeUnmount(() => {
-      if (this.audio.value) { this.audio.value.pause(); this.audio.value.currentTime = 0 }
+      if (audio.value) { audio.value.pause(); audio.value.currentTime = 0 }
     })
 
     return {
