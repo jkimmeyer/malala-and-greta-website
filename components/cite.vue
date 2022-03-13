@@ -57,7 +57,7 @@ export default {
       })
 
       if (getAudioOn.value) {
-        const audio = new Audio(activeContent.value.audio)
+        this.audio = new Audio(activeContent.value.audio)
         audio.play()
       }
       // animate words out
@@ -86,6 +86,14 @@ export default {
       positionStyles,
       loopCites
     }
+  },
+  data () {
+    return {
+      audio: null
+    }
+  },
+  beforeDestroy () {
+    if (this.audio) { this.audio.pause(); this.audio.currentTime = 0 }
   }
 }
 </script>

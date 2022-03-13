@@ -21,32 +21,32 @@ import { ControlThemes } from '~/enums/ControlThemes'
 export default {
   setup () {
     const { $gsap, $ScrollTrigger, $DrawSVGPlugin } = useContext()
+    const animation = useAnimation($gsap, $ScrollTrigger, $DrawSVGPlugin)
 
     onMounted(() => {
-      setTimeout(() => {
-        // setup animations
-        // Order is here important: applySmoothScrollToPage needs to be first
-        const animation = useAnimation($gsap, $ScrollTrigger, $DrawSVGPlugin)
-        const style = getComputedStyle(document.querySelector('.page'))
-        const colorBackgroundMalala = style.getPropertyValue('--color-background-malala')
-        const colorBackgroundMalalaDark = style.getPropertyValue('--color-background-malala-dark')
-        const colorBackgroundGreta = style.getPropertyValue('--color-background-greta')
-        const colorBackgroundGretaDark = style.getPropertyValue('--color-background-greta-dark')
+      // setup animations
+      const style = getComputedStyle(document.querySelector('.page'))
+      const colorBackgroundMalala = style.getPropertyValue('--color-background-malala')
+      const colorBackgroundMalalaDark = style.getPropertyValue('--color-background-malala-dark')
+      const colorBackgroundGreta = style.getPropertyValue('--color-background-greta')
+      const colorBackgroundGretaDark = style.getPropertyValue('--color-background-greta-dark')
 
-        animation.applySmoothScrollToPage(window, '#content', '.page')
+      animation.registerAllBackgroundFadeTriggers(colorBackgroundMalala, colorBackgroundMalalaDark, colorBackgroundGreta, colorBackgroundGretaDark)
+      animation.registerAllAnimationTriggers()
 
-        animation.registerAllBackgroundFadeTriggers(colorBackgroundMalala, colorBackgroundMalalaDark, colorBackgroundGreta, colorBackgroundGretaDark)
-        animation.registerAllAnimationTriggers()
+      animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.Light, '[data-controls-dark-light]')
+      animation.registerControlThemeChange(ControlThemes.Light, ControlThemes.Dark, '[data-controls-light-dark]')
+      animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.End, '[data-controls-dark-end]')
 
-        animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.Light, '[data-controls-dark-light]')
-        animation.registerControlThemeChange(ControlThemes.Light, ControlThemes.Dark, '[data-controls-light-dark]')
-        animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.End, '[data-controls-dark-end]')
-        animation.registerDisableControlHints('[data-controls-disable-hints]')
+      // setup audio for narrator and sound
+      animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.Light, '[data-controls-dark-light]')
+      animation.registerControlThemeChange(ControlThemes.Light, ControlThemes.Dark, '[data-controls-light-dark]')
+      animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.End, '[data-controls-dark-end]')
+      animation.registerDisableControlHints('[data-controls-disable-hints]')
 
-        // setup audio for narrator and sound
-        const audio = useAudio($gsap, $ScrollTrigger)
-        audio.registerAllAudioAutoplayTriggers()
-      }, 50)
+      // setup audio for narrator and sound
+      const audio = useAudio($gsap, $ScrollTrigger)
+      audio.registerAllAudioAutoplayTriggers()
     })
     return { getCurrentTheme, getCurrentControlTheme }
   },
@@ -70,6 +70,7 @@ export default {
 .page {
   min-height: 100vh;
   font-family: var(--sans-serif-font);
+  font-display: change;
   background-color: var(--color-background);
 }
 

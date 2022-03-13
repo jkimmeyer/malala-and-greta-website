@@ -40,13 +40,16 @@ const playNarrator = () => {
   narratorAudioElement.addEventListener('pause', () => { audioNarratorIsPlaying.value = false })
   narratorAudioElement.play()
 }
+
 const pauseNarrator = () => {
   narratorAudioElement?.pause()
 }
+
 const resumeNarrator = () => {
   setAudioOn(true) // resume button enables audio
   narratorAudioElement ? narratorAudioElement.play() : playNarrator()
 }
+
 const updateNarratorSource = (path: string, theme: Themes) => {
   if (theme === Themes.Malala) {
     narratorAudioSourceMalala = path

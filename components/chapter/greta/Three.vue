@@ -95,13 +95,12 @@
   </div>
 </template>
 <script>
-import { defineComponent } from '@vue/composition-api'
 import reichstag from '~~/components/model/reichstag.vue'
 import lampe from '~~/components/model/lampe.vue'
 import * as fact1 from '~/assets/contents/malala_fact_chapter3_1.json'
 import * as fact2 from '~/assets/contents/malala_fact_chapter3_2.json'
 
-export default defineComponent({
+export default {
   setup () {
     const lampeScene = [lampe]
     const reichstagScene = [reichstag]
@@ -115,7 +114,7 @@ export default defineComponent({
       malalaFact2: fact2.fact
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
