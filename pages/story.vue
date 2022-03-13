@@ -21,6 +21,8 @@ import { onMounted, useContext, nextTick, ref } from '@nuxtjs/composition-api'
 import { useAnimation } from '@/composables/useAnimation'
 import { useAudio } from '@/composables/useAudio.ts'
 import { ControlThemes } from '~/enums/ControlThemes'
+import { setCurrentTheme } from '~/composables/theme'
+import { Themes } from '~/enums/Themes'
 
 export default {
   layout: 'chapter',
@@ -30,6 +32,14 @@ export default {
     const animation = useAnimation($gsap, $ScrollTrigger)
 
     onMounted(() => {
+      if (process.client) {
+        const savedTheme = window.localStorage.getItem('THEME')
+
+        if (savedTheme) {
+          setCurrentTheme(Themes[savedTheme])
+        }
+      }
+
       nextTick(() => {
         if (process.browser) {
           window.addEventListener(('load'), function () {
@@ -76,7 +86,7 @@ export default {
   --size: 75px;
   --color1: var(--color-text-dark);
   --color2: var(--color-text-highlight);
-  --color3: var(--color-text-neutral-blue);
+  --color3: var(--color-control-dark);
 
   --animation-duration: 650ms;
   position: relative;
