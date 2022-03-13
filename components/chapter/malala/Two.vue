@@ -1,7 +1,7 @@
 <template>
   <div class="mx-40 2xl:mx-auto max-w-screen-xl">
     <div class="content">
-      <div class="grid grid-cols-12" data-narrator-malala="Malala-Kap2-1">
+      <div class="grid grid-cols-12" data-narrator-malala="Malala-Kap2-1.m4a">
         <div class="col-start-1 col-span-5 row-start-1 row-span-2 forParallax">
           <Scene
             scene-id="pakistan"
@@ -25,7 +25,7 @@
             <span data-animate-reveal-right>DIE STRAßEN PAKISTANS</span>
           </div>
         </div>
-        <div class="col-start-5 col-span-7 row-start-2 row-span-1 pt-72" data-narrator-malala="Malala-Kap2-2">
+        <div class="col-start-5 col-span-7 row-start-2 row-span-1 pt-72" data-narrator-malala="Malala-Kap2-2.m4a">
           <div class="flex flex-col text-2">
             <div class="flex justify-start w-full">
               <span data-animate-reveal-left>EIN TEIL MEINES</span>
@@ -61,7 +61,7 @@
       />
 
       <DecoratedImage
-        data-narrator-malala="Malala-Kap2-3"
+        data-narrator-malala="Malala-Kap2-3.m4a"
         class="col-start-4 col-span-7"
         data-animate-parallax="-150"
         :decoration-bottom-right="true"
@@ -78,7 +78,7 @@
         Und dann übernahmen die Taliban die Kontrolle
       </div>
       <DecoratedImage
-        data-narrator-malala="Malala-Kap2-4"
+        data-narrator-malala="Malala-Kap2-4.m4a"
         class="mt-24 col-start-4 col-span-6"
         data-animate-parallax="100"
         :decoration-top-right="true"
@@ -108,7 +108,7 @@
         :path="require('~/assets/images/chapter/2/malala/tanzschritte.png')"
       />
     </div>
-    <div class="grid grid-cols-12 mt-32 mb-96 items-center" data-narrator-malala="Malala-Kap2-5">
+    <div class="grid grid-cols-12 mt-32 mb-96 items-center" data-narrator-malala="Malala-Kap2-5.m4a">
       <div class="text-body-small col-start-1 col-span-4">
         Die Schule meines Vaters wurde geschlossen.
       </div>

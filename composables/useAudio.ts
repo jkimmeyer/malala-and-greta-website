@@ -46,21 +46,21 @@ export const useAudio = (gsap, ScrollTrigger) => {
   const registerAllAudioAutoplayTriggers = () => {
     // narrator voice
     gsap.utils.toArray('[data-narrator-greta]').forEach((element: HTMLElement) => {
-      const audioFilePath = `/narrator/greta/${element.dataset.narratorGreta}.mp3`
+      const audioFilePath = `/narrator/greta/${element.dataset.narratorGreta}`
       registerNarratorTrigger(element, audioFilePath, Themes.Greta)
     })
     gsap.utils.toArray('[data-narrator-malala]').forEach((element: HTMLElement) => {
-      const audioFilePath = `/narrator/malala/${element.dataset.narratorMalala}.m4a`
+      const audioFilePath = `/narrator/malala/${element.dataset.narratorMalala}`
       registerNarratorTrigger(element, audioFilePath, Themes.Malala)
     })
 
     // background sounds
     gsap.utils.toArray('[data-sound-greta]').forEach((element: HTMLElement) => {
-      const audioFilePath = `/cites/greta/${element.dataset.soundGreta}.mp3`
+      const audioFilePath = `/cites/greta/${element.dataset.soundGreta}`
       registerSoundTrigger(element, audioFilePath, Themes.Greta)
     })
     gsap.utils.toArray('[data-sound-malala]').forEach((element: HTMLElement) => {
-      const audioFilePath = `/cites/malala/${element.dataset.soundMalala}.mp3`
+      const audioFilePath = `/cites/malala/${element.dataset.soundMalala}`
       registerSoundTrigger(element, audioFilePath, Themes.Malala)
     })
   }
