@@ -1,6 +1,12 @@
 <template>
   <div class="chapters">
-    <div class="overlay" :class="nuxtLoading ? null : 'hidden'" />
+    <div class="overlay flex items-center justify-center" :class="nuxtLoading ? null : 'visually-hidden'">
+      <div class="spinner">
+        <div class="spinner-item" />
+        <div class="spinner-item" />
+        <div class="spinner-item" />
+      </div>
+    </div>
     <ChapterOne />
     <ChapterTwo />
     <ChapterThree />
@@ -55,7 +61,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="scss">
 .overlay {
   position: fixed;
   z-index: 10000;
@@ -66,7 +72,51 @@ export default {
   background-color: var(--color-background);
 }
 
-.overlay.hidden {
-  display: none;
+.spinner {
+  --size: 75px;
+  --color1: var(--color-text-dark);
+  --color2: var(--color-text-highlight);
+  --color3: var(--color-text-neutral-blue);
+
+  --animation-duration: 650ms;
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+
+  .spinner-item {
+    position: absolute;
+    top: calc(50% - var(--item-size) / 2);
+    left: calc(50% - var(--item-size) / 2);
+    width: var(--item-size);
+    height: var(--item-size);
+    border: 4px solid transparent;
+    border-right: 4px solid var(--color-spinner);
+    border-left: 4px solid var(--color-spinner);
+    border-radius: 50%;
+    animation: spinner2 var(--animation-duration) linear infinite;
+
+    @keyframes spinner2 {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  .spinner-item:nth-of-type(1) {
+    --item-size: var(--size);
+    --color-spinner: var(--color1);
+    border-top: 4px solid var(--color1);
+  }
+
+  .spinner-item:nth-of-type(2) {
+    --item-size: calc(var(--size) - 15px);
+    --color-spinner: var(--color2);
+    border-bottom: 4px solid var(--color2);
+  }
+
+  .spinner-item:nth-of-type(3) {
+    --item-size: calc(var(--size) - 30px);
+    --color-spinner: var(--color3);
+    border-top: 4px solid var(--color3);
+  }
 }
 </style>
