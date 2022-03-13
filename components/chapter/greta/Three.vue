@@ -29,20 +29,18 @@
             scene-id="3d-lamp"
             :height="526"
             :width="428"
-            :fov="80"
+            :fov="10"
             :near="0.1"
             :far="1000"
-            :cam-x="-5.75"
-            :cam-y="-16"
-            :cam-z="7"
+            :cam-y="15"
+            :cam-z="50"
             :models="lampeScene"
-            :orbit-controls="true"
           />
         </div>
         <div class="text-3 col-start-5 col-span-7">
           <div class="grid grid-cols-12">
             <div class="inline-1 col-start-2 col-span-11" data-animate-reveal-right>
-              ICH HABE BEGONNEN AUF DINGE ZU VERZICHTEN
+              Ich habe begonnen auf Dinge zu verzichten
             </div>
             <div class="inline-2 txt-sml col-start-2 col-span-10" data-animate-reveal-right>
               das Licht ausschalten
@@ -73,14 +71,12 @@
               scene-id="swedish"
               :height="400"
               :width="750"
-              :fov="80"
+              :fov="10"
               :near="0.1"
               :far="1000"
-              :cam-x="-5"
-              :cam-y="-16"
-              :cam-z="10"
+              :cam-z="50"
+              :cam-y="15"
               :models="reichstagScene"
-              :orbit-controls="true"
             />
           </div>
           <div class="video-1 col-start-8 col-span-5" data-animate-parallax="-25">
@@ -122,6 +118,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@mixin uppercaseStyle{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  text-transform: uppercase;
+  color: var(--color-text-greta-dark);
+  text-transform: uppercase;
+}
+
 .section {
   width: 100%;
 
@@ -144,7 +149,7 @@ export default {
 @mixin headline1 {
   font-family: Trochut, sans-serif;
   font-size: 200px;
-  color: var(--color-text-dark);
+  color: var(--color-text-greta-dark);
   line-height: 90%;
 }
 
@@ -152,20 +157,20 @@ export default {
   font-family: Lato, sans-serif;
   font-weight: 300; // light
   font-size: 96px;
-  color: var(--color-text-dark);
+  color: var(--color-text-greta-dark);
 }
 
 @mixin body1 {
   font-family: Lato, sans-serif;
   font-size: 50px;
-  color: var(--color-text-dark);
+  color: var(--color-text-greta-dark);
 }
 
 @mixin body2 {
   font-family: Lato, sans-serif;
   font-size: 30px;
   font-style: italic;
-  color: var(--color-text-dark);
+  color: var(--color-text-greta-dark);
 }
 
 .content {
@@ -182,7 +187,8 @@ export default {
 
     > span {
       text-align: left;
-      @include body1;
+      @include uppercaseStyle;
+      font-size: 3rem;
     }
 }
 .image-1 {
@@ -220,7 +226,8 @@ export default {
   grid-row: 1;
 }
 .inline-1{
-  @include body1;
+  @include uppercaseStyle;
+  font-size: 3rem;
   margin-bottom: 1em;
 }
 .model-1{
@@ -244,7 +251,8 @@ export default {
 
 /* Section 3 Greta */
 .text-4 {
-  @include body1;
+  @include uppercaseStyle;
+  font-size: 3rem;
   display: flex;
   flex-direction: column;
   margin-bottom: 1em;
@@ -276,6 +284,7 @@ export default {
   > span{
     @include body2;
     margin-bottom: 2em;
+    font-weight: 300;
   }
 }
 </style>

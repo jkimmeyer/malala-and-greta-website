@@ -24,29 +24,29 @@
       <button
         :aria-label="getAudioOn ? 'Audio ausschalten' : 'Audio einschalten'"
         class="navigation--button"
-        @click="playNarrator()"
+        @click="toggleAudio()"
       >
         <Icon
           class="navigation--icon"
-          icon="fluent:arrow-reset-20-regular"
+          :class="getAudioOn ? 'hidden' : null "
+          icon="fluent:speaker-2-24-regular"
+          height="24px"
+        />
+        <Icon
+          class="navigation--icon"
+          :class="getAudioOn ? null : 'hidden'"
+          icon="fluent:speaker-off-24-regular"
           height="24px"
         />
       </button>
       <button
         :aria-label="getAudioOn ? 'Audio ausschalten' : 'Audio einschalten'"
         class="navigation--button"
-        @click="toggleAudio()"
+        @click="playNarrator()"
       >
         <Icon
           class="navigation--icon"
-          :class="getAudioOn ? null : 'hidden'"
-          icon="fluent:speaker-2-24-regular"
-          height="24px"
-        />
-        <Icon
-          class="navigation--icon"
-          :class="getAudioOn ? 'hidden' : null "
-          icon="fluent:speaker-off-24-regular"
+          icon="fluent:arrow-reset-20-regular"
           height="24px"
         />
       </button>

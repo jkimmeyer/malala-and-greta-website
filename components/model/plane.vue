@@ -14,7 +14,7 @@ export default {
       mesh.rotation.z = 0
     },
     getMeshPath () {
-      return '/models/2011.obj'
+      return '/models/plane.obj'
     },
     setInitialValues (mesh) {
       mesh.scale.set(1, 1, 1)

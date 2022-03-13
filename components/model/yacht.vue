@@ -14,7 +14,7 @@ export default {
       mesh.rotation.z = 0
     },
     getMeshPath () {
-      return '/models/Yacht.obj'
+      return '/models/yacht.obj'
     },
     setInitialValues (mesh) {
       mesh.scale.set(1, 1, 1)

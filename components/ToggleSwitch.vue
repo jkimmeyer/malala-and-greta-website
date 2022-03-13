@@ -9,12 +9,12 @@
       class="toggle-switch--button"
       @click="toggleButton()"
     >
-      <span class="toggle-switch--button-option" :class="{abc: !enabled}">Greta</span>
+      <span class="toggle-switch--button-option" :class="{abc: !enabled}">greta</span>
       <ToggleSwitchIcon v-if="enabled" ref="toggleSwitchIcon" class="toggle-switch--icon" />
       <div v-else class="toggle-switch--and">
         &amp;
       </div>
-      <span class="toggle-switch--button-option" :class="{abc: !enabled}">Malala</span>
+      <span class="toggle-switch--button-option" :class="{abc: !enabled}">malala</span>
     </button>
   </div>
 </template>

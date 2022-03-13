@@ -1,14 +1,16 @@
 <template>
-  <div :class="'fact-container ' + size + ' theme-' + getCurrentTheme.toLowerCase() + ' ' + format">
+  <div :class="'fact-container '+size+' theme-'+theme+' '+format">
     <div class="fact-bg-card" />
     <div class="fact-bg-card" />
     <div class="fact-card">
       <button class="fact-card--button" @click="previousFact()">
-        <SvgsChevronLeft class="fact-card--arrow" :class="getCurrentTheme" />
+        <SvgsChevronLeft class="fact-card--arrow" :class="themeClass" />
       </button>
-      <div v-for="(fact, index) in facts" :key="index" class="facts-wrapper">
-        <div v-if="activeFactID === index" :class="'fact fact-'+ index">
+      <!-- eslint-disable vue/require-v-for-key -->
+      <div v-for="(fact, index) in facts" class="facts-wrapper">
+        <div v-if="activeFactID === index" :class="'fact fact-'+index">
           <h3>{{ fact.headline }}</h3>
+          <!-- eslint-disable vue/require-v-for-key -->
           <div class="paragraph-wrapper">
             <p v-for="(paragraph, pId) in fact.paragraphs" :key="pId">
               {{ paragraph }}
@@ -22,14 +24,13 @@
         </div>
       </div>
       <button class="fact-card--button" @click="nextFact()">
-        <SvgsChevronRight class="fact-card--arrow" :class="getCurrentTheme.toLowerCase()" />
+        <SvgsChevronRight class="fact-card--arrow" :class="themeClass" />
       </button>
     </div>
   </div>
 </template>
 
 <script>
-import { getCurrentTheme } from '@/composables/theme'
 
 export default {
   props: {
@@ -50,12 +51,19 @@ export default {
       required: true
     }
   },
-  setup () {
-    return { getCurrentTheme }
-  },
   data () {
     return {
       activeFactID: 0
+    }
+  },
+  computed: {
+    themeClass () {
+      if (this.theme !== 'malala' && this.theme !== 'greta' && this.theme !== 'default') {
+        // eslint-disable-next-line no-console
+        console.log('Error using Image.vue: theme prop not valid')
+        return
+      }
+      return this.theme
     }
   },
   methods: {

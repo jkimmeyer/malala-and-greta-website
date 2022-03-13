@@ -33,10 +33,11 @@
             :preview-image-path="require('~/assets/images/chapter/6/greta/greta-kap6-speech.jpeg')"
           />
         </div>
-        <div class="text mt-5 col-start-3 col-span-8" data-animate-reveal-right>
-          Meine Rede vor dem UN-Klimagipfel
+        <div class="text mt-5 col-start-3 col-span-7 flex flex-col" data-animate-reveal-right>
+          <span>Meine Rede vor dem</span>
+          <span>UN-Klimagipfel</span>
         </div>
-        <div class="text-small mt-5 col-start-6 col-span-4" data-animate-reveal-right>
+        <div class="text-small pt-16 col-start-6 col-span-4" data-animate-reveal-right>
           Wenn man die Größe des Klima-Problems begriffen hat, kriegt man es nicht mehr aus dem Kopf
         </div>
       </div>
@@ -47,17 +48,14 @@
         <Scene
           class="col-start-1 col-span-4"
           data-animate-reveal-rigth
-          scene-id="nobelPlaceholder"
+          scene-id="prix"
           :height="526"
           :width="428"
-          :fov="80"
+          :fov="10"
           :near="0.1"
           :far="1000"
-          :cam-x="-5"
-          :cam-y="-14"
-          :cam-z="10"
-          :models="nobelScene"
-          :orbit-controls="true"
+          :cam-z="30"
+          :models="prixScene"
         />
         <FactsContainer
           class="col-start-7 col-span-4"
@@ -87,20 +85,36 @@
   </div>
 </template>
 <script>
-import nobel from '~~/components/model/nobel.vue'
+import prix from '~~/components/model/prix.vue'
 import VideoPlayer from '~/components/VideoPlayer.vue'
 
 export default {
   components: { VideoPlayer },
   data () {
     return {
-      nobelScene: [nobel]
+      prixScene: [prix]
     }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@mixin uppercaseStyle{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  text-transform: uppercase;
+  color: var(--color-text-greta-dark);
+  text-transform: uppercase;
+}
+
+@mixin body2 {
+  font-family: Lato, sans-serif;
+  font-size: 30px;
+  font-style: italic;
+  color: var(--color-text-greta-dark);
+}
+
 .section {
   margin-top: 20vw;
 }
@@ -111,15 +125,18 @@ export default {
 }
 
 .text {
-  font-family: var(--sans-serif-font);
-  font-size: var(--font-size-body-1);
+  @include uppercaseStyle;
+  line-height: 1;
+  font-size: 3rem;
   color: var(--color-text-greta-dark);
 }
 
 .text-small {
-  font-family: var(--sans-serif-font);
-  font-size: var(--font-size-body-2);
+  @include body2;
+  line-height: 1;
+  font-size: 30px;
+  font-weight: 300;
   font-style: italic;
-  color: var(--color-text-greta-dark);
 }
+
 </style>

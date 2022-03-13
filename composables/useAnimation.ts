@@ -1,4 +1,4 @@
-import { setCurrentControlTheme } from '~/composables/controlTheme'
+import { setCurrentControlTheme, setControlHintsEnabled } from '~/composables/controlTheme'
 import { ControlThemeOptions } from '~/interfaces/ControlThemeOptions'
 export const useAnimation = (gsap, ScrollTrigger) => {
   const showMarkers = false
@@ -150,6 +150,16 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     })
   }
 
+  const registerDisableControlHints = (triggerElement: HTMLElement | string) => {
+    ScrollTrigger.create({
+      trigger: triggerElement,
+      start: 'top center',
+      onEnter: () => {
+        setControlHintsEnabled(false)
+      }
+    })
+  }
+
   // attributes that trigger animations on the element itself:
   // data-animate-reveal-right
   // data-animate-reveal-left
@@ -211,6 +221,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     registerClassRemove,
     registerClassSwitch,
     registerControlThemeChange,
+    registerDisableControlHints,
     registerAllAnimationTriggers,
     registerAllBackgroundFadeTriggers
   }

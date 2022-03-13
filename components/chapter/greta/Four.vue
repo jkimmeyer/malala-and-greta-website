@@ -4,7 +4,7 @@
       <div class="grid grid-cols-12">
         <Video
           :path="require('~/assets/videos/greta/greta-kap4-1.mp4')"
-          class="col-start-0 col-span-8"
+          class="col-start-0 col-span-8 pr-8"
           data-animate-parallax="100"
         />
         <div class="text text-right col-start-9 col-span-4" data-animate-reveal-right>
@@ -61,7 +61,16 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@mixin uppercaseStyle{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  text-transform: uppercase;
+  color: var(--color-text-greta-dark);
+  text-transform: uppercase;
+}
+
 .four {
   height: 100%;
   background-color: var(--color-background-greta);
@@ -72,9 +81,8 @@
 }
 
 .text {
-  font-family: var(--sans-serif-font);
-  font-size: var(--font-size-body-1);
-  color: var(--color-text-greta-dark);
+  @include uppercaseStyle;
+  font-size: 2.5rem;
 }
 
 .text-small {
@@ -82,6 +90,7 @@
   font-size: var(--font-size-body-2);
   font-style: italic;
   color: var(--color-text-greta-dark);
+  font-weight:300;
 }
 
 .image-bus-assassination {
