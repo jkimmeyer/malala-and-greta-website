@@ -78,7 +78,6 @@ export default defineComponent({
   line-height: var(--line-1-15);
   text-transform: uppercase;
   color: var(--color-text-malala-dark);
-  text-transform: uppercase;
 }
 
 .bullet{
