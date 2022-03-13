@@ -7,7 +7,7 @@
     <ChapterFour />
     <ChapterFive />
     <ChapterSix />
-    <End />
+    <End data-narrator-malala="Both-End.mp3" data-narrator-greta="Both-End.mp3" />
   </div>
 </template>
 <script>
@@ -21,21 +21,18 @@ export default {
   setup () {
     const { $gsap, $ScrollTrigger } = useContext()
     const nuxtLoading = ref(true)
+    const animation = useAnimation($gsap, $ScrollTrigger)
 
     onMounted(() => {
       nextTick(() => {
         if (process.browser) {
           window.addEventListener(('load'), function () {
             // setup animations
-            // Order is here important: applySmoothScrollToPage needs to be first
-            const animation = useAnimation($gsap, $ScrollTrigger)
             const style = getComputedStyle(document.querySelector('.page'))
             const colorBackgroundMalala = style.getPropertyValue('--color-background-malala')
             const colorBackgroundMalalaDark = style.getPropertyValue('--color-background-malala-dark')
             const colorBackgroundGreta = style.getPropertyValue('--color-background-greta')
             const colorBackgroundGretaDark = style.getPropertyValue('--color-background-greta-dark')
-
-            animation.applySmoothScrollToPage(window, '#content', '.page')
 
             animation.registerAllBackgroundFadeTriggers(colorBackgroundMalala, colorBackgroundMalalaDark, colorBackgroundGreta, colorBackgroundGretaDark)
             animation.registerAllAnimationTriggers()

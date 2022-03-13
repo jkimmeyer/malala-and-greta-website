@@ -4,7 +4,7 @@
       first-name="Malala"
       last-name="Yousafzai"
       :image="require('~/assets/images/Malala-Face.png')"
-      data-narrator-malala="Malala-Kap1-1"
+      data-narrator-malala="Malala-Kap1-1.m4a"
     />
 
     <div class="py-64 max-w-screen-2xl 2xl:mx-auto" data-controls-disable-hints>

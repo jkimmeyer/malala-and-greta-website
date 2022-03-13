@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- images -->
-    <div class="mx-40 2xl:mx-auto max-w-screen-xl" data-narrator-malala="Malala-Kap6-1">
+    <div class="mx-40 2xl:mx-auto max-w-screen-xl" data-narrator-malala="Malala-Kap6-1.m4a">
       <div class="grid grid-cols-12">
         <DecoratedImage
           class="col-start-2 col-span-6"
@@ -22,7 +22,7 @@
       </div>
     </div>
     <!-- -->
-    <div class="mx-40 2xl:mx-auto max-w-screen-xl section" data-narrator-malala="Malala-Kap6-2">
+    <div class="mx-40 2xl:mx-auto max-w-screen-xl section" data-narrator-malala="Malala-Kap6-2.m4a">
       <div class="grid grid-cols-12" section>
         <div class="text col-start-2 col-span-4">
           <VideoPlayer
@@ -42,7 +42,7 @@
       </div>
     </div>
     <!-- -->
-    <div class="mx-40 2xl:mx-auto max-w-screen-xl section" data-narrator-malala="Malala-Kap6-3">
+    <div class="mx-40 2xl:mx-auto max-w-screen-xl section" data-narrator-malala="Malala-Kap6-3.m4a">
       <div class="grid grid-cols-12">
         <Scene
           class="col-start-1 col-span-4"
@@ -77,7 +77,7 @@
           theme="malala"
           :path="require('~/assets/images/chapter/6/malala/malala-kap6-portrait.jpg')"
         />
-        <div class="text-small light col-start-7 col-span-4" data-animate-reveal-right data-narrator-malala="Malala-Kap6-4">
+        <div class="text-small light col-start-7 col-span-4" data-animate-reveal-right data-narrator-malala="Malala-Kap6-4.m4a">
           “One child, one teacher, one pen and one book can change the world.”
         </div>
       </div>

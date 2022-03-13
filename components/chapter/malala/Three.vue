@@ -1,6 +1,6 @@
 <template>
   <div class="mx-40 2xl:mx-auto max-w-screen-xl">
-    <div class="content py-32" data-narrator-malala="Malala-Kap3-1">
+    <div class="content py-32" data-narrator-malala="Malala-Kap3-1.m4a">
       <!-- Section 1 -->
       <div class="section grid grid-cols-12">
         <div class="image-1 col-start-1 col-span-4" data-animate-parallax="-25">
@@ -32,7 +32,7 @@
         </div>
       </div>
       <!-- Section 3 -->
-      <div class="section grid grid-cols-12" data-narrator-malala="Malala-Kap3-2">
+      <div class="section grid grid-cols-12" data-narrator-malala="Malala-Kap3-2.m4a">
         <div class="text-4 col-start-2 col-span-10" data-animate-reveal-left>
           Meine Geschichten
         </div>
@@ -40,7 +40,7 @@
           <FactsContainer
             theme="malala"
             size="sm"
-            :facts="[malalaFact1,malalaFact2]"
+            :facts="[malalaFact1,malalaFact2,malalaFact3,malalaFact4,malalaFact5,malalaFact6]"
             format="rect"
           />
         </div>
@@ -62,12 +62,20 @@
 import { defineComponent } from '@vue/composition-api'
 import * as fact1 from '~/assets/contents/malala_fact_chapter3_1.json'
 import * as fact2 from '~/assets/contents/malala_fact_chapter3_2.json'
+import * as fact3 from '~/assets/contents/malala_fact_chapter3_3.json'
+import * as fact4 from '~/assets/contents/malala_fact_chapter3_4.json'
+import * as fact5 from '~/assets/contents/malala_fact_chapter3_5.json'
+import * as fact6 from '~/assets/contents/malala_fact_chapter3_6.json'
 
 export default defineComponent({
   data () {
     return {
       malalaFact1: fact1.fact,
-      malalaFact2: fact2.fact
+      malalaFact2: fact2.fact,
+      malalaFact3: fact3.fact,
+      malalaFact4: fact4.fact,
+      malalaFact5: fact5.fact,
+      malalaFact6: fact6.fact
     }
   }
 })

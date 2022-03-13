@@ -1,7 +1,7 @@
 <template>
   <div class="bg mx-40 2xl:mx-auto max-w-screen-xl">
     <div class="content pb-32">
-      <SvgsVectorChapter5 stroke-color="#455669" class="bgVector" />
+      <SvgsVectorChapter5 stroke-color="#455669" class="bgVector" data-sound-greta-start="ocean.mp3" />
       <div class="section grid grid-cols-12 space-y-32">
         <div class="row-start-1 row-span-1 col-start-2 col-span-2 flex flex-row items-center">
           <img src="@/assets/images/chapter/5/greta/greta-location.png" data-animate-reveal-left>
@@ -39,7 +39,7 @@
         <div class="row-start-5 row-span-1 col-start-2 col-span-6 image-1">
           <DecoratedImage theme="greta" :decoration-top-left="true" :path="require('~/assets/images/chapter/5/greta/greta-kap5-boot-usa.jpg')" />
         </div>
-        <div class="row-start-6 row-span-1 col-start-7 col-span-2 flex flex-row items-center">
+        <div class="row-start-6 row-span-1 col-start-7 col-span-2 flex flex-row items-center" data-sound-greta-end="ocean.mp3">
           <div class="col-start-2 col-span-10 text" data-animate-reveal-left>
             <span>New&nbsp;York</span>
             <span>USA</span>
@@ -66,17 +66,16 @@
 </template>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
 import yacht from '~~/components/model/yacht.vue'
 
-export default defineComponent({
+export default {
   setup () {
     const yachtScene = [yacht]
     return {
       yachtScene
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>

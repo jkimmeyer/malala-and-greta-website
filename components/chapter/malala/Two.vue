@@ -1,7 +1,7 @@
 <template>
   <div class="mx-40 2xl:mx-auto max-w-screen-xl">
     <div class="content">
-      <div class="grid grid-cols-12">
+      <div class="grid grid-cols-12" data-narrator-malala="Malala-Kap2-1.m4a">
         <div class="col-start-1 col-span-5 row-start-1 row-span-2 forParallax">
           <Scene
             scene-id="pakistan"
@@ -19,13 +19,13 @@
             :point-size="0.6"
           />
         </div>
-        <div class="pl-8 col-start-6 col-span-6 text row-start-1 row-span-1">
+        <div class="pl-8 col-start-6 col-span-6 text row-start-1 row-span-1" data-sound-malala-start="busy-street.mp3">
           <div data-animate-parallax="-100">
             <Video :path="require('~/assets/videos/malala/malala-kap2-1.mp4')" data-animate-reveal-bottom />
             <span data-animate-reveal-right>DIE STRAßEN PAKISTANS</span>
           </div>
         </div>
-        <div class="col-start-5 col-span-7 row-start-2 row-span-1 pt-72">
+        <div class="col-start-5 col-span-7 row-start-2 row-span-1 pt-72" data-narrator-malala="Malala-Kap2-2.m4a">
           <div class="flex flex-col text-2">
             <div class="flex justify-start w-full">
               <span data-animate-reveal-left>EIN TEIL MEINES</span>
@@ -33,7 +33,7 @@
             <div class="flex justify-center">
               <img src="@/assets/svg/malala-kap2-herz.svg" data-animate-parallax="-50">
             </div>
-            <div class="flex justify-end w-full">
+            <div class="flex justify-end w-full" data-sound-malala-end="busy-street.mp3">
               <span data-animate-reveal-right>IST IN MINGORA</span>
             </div>
           </div>
@@ -61,6 +61,8 @@
       />
 
       <DecoratedImage
+        data-narrator-malala="Malala-Kap2-3.m4a"
+        data-sound-malala-start="school-background.mp3"
         class="col-start-4 col-span-7"
         data-animate-parallax="-150"
         :decoration-bottom-right="true"
@@ -77,6 +79,8 @@
         Und dann übernahmen die Taliban die Kontrolle
       </div>
       <DecoratedImage
+        data-narrator-malala="Malala-Kap2-4.m4a"
+        data-sound-malala-end="school-background.mp3"
         class="mt-24 col-start-4 col-span-6"
         data-animate-parallax="100"
         :decoration-top-right="true"
@@ -106,7 +110,7 @@
         :path="require('~/assets/images/chapter/2/malala/tanzschritte.png')"
       />
     </div>
-    <div class="grid grid-cols-12 mt-32 mb-96 items-center">
+    <div class="grid grid-cols-12 mt-32 mb-96 items-center" data-narrator-malala="Malala-Kap2-5.m4a">
       <div class="text-body-small col-start-1 col-span-4">
         Die Schule meines Vaters wurde geschlossen.
       </div>
@@ -155,7 +159,7 @@ export default defineComponent({
   font-weight: 300;
   line-height: var(--line-1-15);
   text-transform: uppercase;
-  color: var(--color-text-greta-dark);
+  color: var(--color-text-malala-dark);
   text-transform: uppercase;
 }
 

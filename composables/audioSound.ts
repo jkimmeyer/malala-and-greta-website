@@ -20,17 +20,22 @@ const playSound = () => {
   soundAudioElement?.pause()
 
   const source = getSoundAudioSource()
+
   if (!source) { return }
   soundAudioElement = new Audio(source)
+  soundAudioElement.volume = 0.2
   soundAudioElement.play()
 }
+
 const pauseSound = () => {
   soundAudioElement?.pause()
 }
+
 const updateSoundSource = (path: string, theme: Themes) => {
   if (theme === Themes.Malala) {
     soundAudioSourceMalala = path
   }
+
   if (theme === Themes.Greta) {
     soundAudioSourceGreta = path
   }

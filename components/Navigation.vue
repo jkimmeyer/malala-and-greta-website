@@ -13,7 +13,7 @@
       </li>
       <li class="navigation--list-item is-separator" />
       <li v-for="(chapter, index) in chapters" :key="chapter.id" class="navigation--list-item is-page">
-        <a class="navigation--link" @click="scrollToChapter(chapter.id)">
+        <a class="navigation--link" :href="chapter.id">
           <span class="navigation--link-text">{{ index + 1 }} - {{ chapter.title }}</span>
         </a>
       </li>
@@ -35,6 +35,8 @@ import { Themes } from '@/enums/Themes.ts'
 import { getCurrentControlTheme, getControlHintsEnabled } from '~/composables/controlTheme'
 import { ControlThemes } from '~/enums/ControlThemes'
 import { getAudioOn } from '@/composables/audioMute.ts'
+import { pauseNarrator } from '@/composables/audioNarrator'
+import { pauseSound } from '@/composables/audioSound'
 
 export default {
   setup () {
@@ -43,7 +45,9 @@ export default {
       getCurrentTheme,
       getCurrentControlTheme,
       getControlHintsEnabled,
-      getAudioOn
+      getAudioOn,
+      pauseNarrator,
+      pauseSound
     }
   },
   data () {
@@ -69,14 +73,9 @@ export default {
   methods: {
     onToggleButtonSwitched () {
       this.switchClickedAtLeastOnce = true
+      pauseNarrator()
+      pauseSound()
       switchTheme()
-    },
-    scrollToChapter (id) {
-      const bodyRect = document.body.getBoundingClientRect()
-      const element = document.querySelector(id)
-      const elemRect = element.getBoundingClientRect()
-      const offsetY = elemRect.top - bodyRect.top
-      window.scrollTo(0, offsetY)
     }
   }
 }
@@ -113,12 +112,11 @@ export default {
   }
 
   .navigation--list-item.is-page {
-    padding: var(--space-4) var(--space-16) var(--space-4) var(--space-4);
+    padding: var(--space-4) var(--space-64) var(--space-4) var(--space-64);
     transition: transform ease-in 0.1s;
     transform: translateX(0%);
     align-self: flex-end;
     white-space: nowrap;
-    margin-right: 46px;
     cursor: pointer;
   }
 
