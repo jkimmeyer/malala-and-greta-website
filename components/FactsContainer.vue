@@ -100,6 +100,30 @@ export default {
         fill: var(--color-text-malala-dark);
       }
     }
+    .fact-card--arrow:hover {
+      &.greta{
+        fill: var(--glaucous);
+      }
+      &.malala{
+        fill: var(--bronze);
+      }
+    }
+    .fact-card--arrow:focus {
+      &.greta{
+        fill: var(--glaucous);
+      }
+      &.malala{
+        fill: var(--bronze);
+      }
+    }
+    .fact-card--arrow:active {
+      &.greta{
+        fill: var(--color-text-greta);
+      }
+      &.malala{
+        fill: var(--color-text-malala);
+      }
+    }
 
   }
 

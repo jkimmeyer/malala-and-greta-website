@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { onMounted, ref, computed, onUnmounted, useContext, nextTick } from '@nuxtjs/composition-api'
+import { onMounted, ref, computed, onUnmounted, useContext, nextTick, onBeforeUnmount } from '@nuxtjs/composition-api'
 import citeContents from '~/assets/contents/cites-start.json'
 import { getAudioOn } from '@/composables/audioMute'
 
@@ -21,6 +21,7 @@ export default {
     const index = ref(0)
     const citeVisible = ref(false)
     const contentWords = ref([])
+    const audio = ref(null)
 
     const activeContent = computed(() => citeContents[index.value])
     const positionStyles = computed(() => {
@@ -48,17 +49,17 @@ export default {
     const loopCites = async () => {
       index.value = (index.value + 1) % citeContents.length
       contentWords.value = splitAndIndexText(activeContent.value.text)
-      if (items.value.length === 0) { return }
 
       await nextTick()
+      if (items.value.length === 0) { return }
       // animate words in
       contentWords.value.forEach((_, index) => {
         $gsap.fromTo(items.value[index], { opacity: 0, y: 10 }, { duration: 1.0, opacity: 1, y: 0, delay: index * 0.1 })
       })
 
       if (getAudioOn.value) {
-        this.audio = new Audio(activeContent.value.audio)
-        audio.play()
+        audio.value = new Audio(activeContent.value.audio)
+        audio.value.play()
       }
       // animate words out
       setTimeout(() => {
@@ -77,6 +78,10 @@ export default {
       if (intervalId) { clearInterval(intervalId) }
     })
 
+    onBeforeUnmount(() => {
+      if (this.audio.value) { this.audio.value.pause(); this.audio.value.currentTime = 0 }
+    })
+
     return {
       items,
       index,
@@ -86,14 +91,6 @@ export default {
       positionStyles,
       loopCites
     }
-  },
-  data () {
-    return {
-      audio: null
-    }
-  },
-  beforeDestroy () {
-    if (this.audio) { this.audio.pause(); this.audio.currentTime = 0 }
   }
 }
 </script>

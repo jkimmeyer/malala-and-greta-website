@@ -87,7 +87,7 @@ export default {
   --color-control-dark: var(--deepblue);
   --color-control-dark-focus: var(--glaucous);
   --color-control-dark-hover: var(--glaucous);
-  --color-control-dark-active: var(--color-text-greta-dark);
+  --color-control-dark-active: var(--color-text-greta-highlight);
 }
 
 .page.has-malala-style {
@@ -103,7 +103,7 @@ export default {
   --color-control-dark: var(--mud);
   --color-control-dark-focus: var(--bronze);
   --color-control-dark-hover: var(--bronze);
-  --color-control-dark-active: var(--color-text-malala-dark);
+  --color-control-dark-active: var(--color-text-malala-highlight);
 }
 
 .page.has-end-controls {
