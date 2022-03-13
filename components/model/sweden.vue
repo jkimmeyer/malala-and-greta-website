@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'Pakistan',
+  name: 'Sweden',
   props: {
     mesh: {
       type: Object,
@@ -14,10 +14,10 @@ export default {
       mesh.rotation.z = 0
     },
     getMeshPath () {
-      return '/models/pakistancity.obj'
+      return '/models/swedencity.obj'
     },
     setInitialValues (mesh) {
-      mesh.scale.set(1, 1, 1)
+      mesh.scale.set(0.1, 0.1, 0.1)
     }
   }
 }

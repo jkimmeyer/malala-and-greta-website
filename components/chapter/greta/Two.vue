@@ -64,7 +64,7 @@
 
 <script>
 import { defineComponent } from '@vue/composition-api'
-import sweden from '~~/components/model/pakistan.vue'
+import sweden from '~~/components/model/sweden.vue'
 import zweitausendelf from '~~/components/model/zweitausendelf.vue'
 
 export default defineComponent({
