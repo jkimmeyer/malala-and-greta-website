@@ -75,7 +75,7 @@ export default {
   },
   data () {
     return {
-
+      isActive: false
     }
   },
   mounted () {
@@ -179,10 +179,27 @@ export default {
       // container appenden
       container.appendChild(this.RENDERER.domElement)
 
+      // optimize animation performance
+      const callback = (entries) => {
+        entries.forEach((entry) => {
+          this.isActive = entry.isIntersecting
+          if (entry.isIntersecting) {
+            requestAnimationFrame(this.animate)
+          }
+          // console.log(`#scene-${this.sceneId} ${entry.isIntersecting}`)
+        })
+      }
+      const observer = new IntersectionObserver(callback)
+      const target = document.querySelector(`#scene-${this.sceneId}`)
+      observer.observe(target)
+
       this.animate()
     },
     animate () {
-      requestAnimationFrame(this.animate)
+      if (this.isActive) {
+        requestAnimationFrame(this.animate)
+      }
+
       if (this.orbitControls) {
         this.CONTROLS.update()
       }
