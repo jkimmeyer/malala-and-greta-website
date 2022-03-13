@@ -1,5 +1,5 @@
 <template>
-  <div class="intro" :class="themeClass">
+  <div class="intro" :class="[themeClass, introClass]">
     <h2 class="intro--subheading">
       Kapitel {{ chapter }}
     </h2>
@@ -31,6 +31,9 @@ export default {
   computed: {
     themeClass () {
       return this.isMalala ? 'malala' : 'greta'
+    },
+    introClass () {
+      return this.chapter === 1 || this.chapter === 5 ? 'has-dark-start' : null
     }
   }
 }
@@ -49,11 +52,19 @@ export default {
 }
 
 .intro.malala {
-  background: linear-gradient(var(--color-background-malala-dark) 30%, var(--color-background-malala) 100%);
+  background: linear-gradient(var(--color-background-malala) 0%, var(--color-background-malala-dark) 25%, var(--color-background-malala-dark) 50%, var(--color-background-malala) 100%);
 }
 
 .intro.greta {
-  background: linear-gradient(var(--color-background-greta-dark) 30%, var(--color-background-greta) 100%);
+  background: linear-gradient(var(--color-background-greta) 0%, var(--color-background-greta-dark) 25%, var(--color-background-greta-dark) 50%, var(--color-background-greta) 100%);
+}
+
+.intro.has-dark-start.malala {
+  background: linear-gradient(var(--color-background-malala-dark) 0%, var(--color-background-malala-dark) 30%, var(--color-background-malala) 100%);
+}
+
+.intro.has-dark-start.greta {
+  background: linear-gradient(var(--color-background-greta-dark) 0%, var(--color-background-greta-dark) 30%, var(--color-background-greta) 100%);
 }
 
 .intro--heading {
