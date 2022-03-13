@@ -10,44 +10,13 @@
 </template>
 
 <script>
-import { onMounted, useContext } from '@nuxtjs/composition-api'
 import { Themes } from '@/enums/Themes'
-import { useAnimation } from '@/composables/useAnimation'
 import { getCurrentTheme } from '@/composables/theme'
 import { getCurrentControlTheme } from '@/composables/controlTheme'
-import { useAudio } from '@/composables/useAudio.ts'
 import { ControlThemes } from '~/enums/ControlThemes'
 
 export default {
   setup () {
-    const { $gsap, $ScrollTrigger, $DrawSVGPlugin } = useContext()
-
-    onMounted(() => {
-      setTimeout(() => {
-        // setup animations
-        // Order is here important: applySmoothScrollToPage needs to be first
-        const animation = useAnimation($gsap, $ScrollTrigger, $DrawSVGPlugin)
-        const style = getComputedStyle(document.querySelector('.page'))
-        const colorBackgroundMalala = style.getPropertyValue('--color-background-malala')
-        const colorBackgroundMalalaDark = style.getPropertyValue('--color-background-malala-dark')
-        const colorBackgroundGreta = style.getPropertyValue('--color-background-greta')
-        const colorBackgroundGretaDark = style.getPropertyValue('--color-background-greta-dark')
-
-        animation.applySmoothScrollToPage(window, '#content', '.page')
-
-        animation.registerAllBackgroundFadeTriggers(colorBackgroundMalala, colorBackgroundMalalaDark, colorBackgroundGreta, colorBackgroundGretaDark)
-        animation.registerAllAnimationTriggers()
-
-        animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.Light, '[data-controls-dark-light]')
-        animation.registerControlThemeChange(ControlThemes.Light, ControlThemes.Dark, '[data-controls-light-dark]')
-        animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.End, '[data-controls-dark-end]')
-        animation.registerDisableControlHints('[data-controls-disable-hints]')
-
-        // setup audio for narrator and sound
-        const audio = useAudio($gsap, $ScrollTrigger)
-        audio.registerAllAudioAutoplayTriggers()
-      }, 50)
-    })
     return { getCurrentTheme, getCurrentControlTheme }
   },
   computed: {
