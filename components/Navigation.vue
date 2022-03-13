@@ -35,6 +35,8 @@ import { Themes } from '@/enums/Themes.ts'
 import { getCurrentControlTheme, getControlHintsEnabled } from '~/composables/controlTheme'
 import { ControlThemes } from '~/enums/ControlThemes'
 import { getAudioOn } from '@/composables/audioMute.ts'
+import { pauseNarrator } from '@/composables/audioNarrator'
+import { pauseSound } from '@/composables/audioSound'
 
 export default {
   setup () {
@@ -43,7 +45,9 @@ export default {
       getCurrentTheme,
       getCurrentControlTheme,
       getControlHintsEnabled,
-      getAudioOn
+      getAudioOn,
+      pauseNarrator,
+      pauseSound
     }
   },
   data () {
@@ -69,6 +73,8 @@ export default {
   methods: {
     onToggleButtonSwitched () {
       this.switchClickedAtLeastOnce = true
+      pauseNarrator()
+      pauseSound()
       switchTheme()
     }
   }

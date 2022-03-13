@@ -2,7 +2,7 @@
   <div>
     <!-- images -->
     <div class="mx-40 2xl:mx-auto max-w-screen-xl">
-      <div class="grid grid-cols-12">
+      <div class="grid grid-cols-12" data-sound-greta-start="crowd-cheering.mp3">
         <DecoratedImage
           class="col-start-2 col-span-6"
           data-animate-parallax="50"
@@ -22,7 +22,7 @@
       </div>
     </div>
     <!-- -->
-    <div class="mx-40 2xl:mx-auto max-w-screen-xl section">
+    <div class="mx-40 2xl:mx-auto max-w-screen-xl section" data-sound-greta-end="crowd-cheering.mp3">
       <div class="grid grid-cols-12" section>
         <div class="text col-start-2 col-span-4">
           <VideoPlayer
