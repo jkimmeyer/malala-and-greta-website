@@ -15,10 +15,10 @@
         </div>
 
         <div class="grid grid-cols-12 mt-20">
-          <div class="body2 greta col-start-3 col-span-3 " data-animate-reveal-left>
+          <div class="text-small greta col-start-3 col-span-3 " data-animate-reveal-left>
             “So today I met my role model. What else can I say?”
           </div>
-          <div class="body2 malala col-start-8 col-span-3 mt-20" data-animate-reveal-right>
+          <div class="text-small malala col-start-8 col-span-3 mt-20" data-animate-reveal-right>
             “She's the only friend I'd skip school for”
           </div>
         </div>
@@ -35,13 +35,13 @@
           </div>
           <div class="col-start-5 col-span-5" data-animate-reveal-right>
             <a class="link-greta" href="https://fridaysforfuture.de/">Fridays for Future</a><br>
-            <span class="body2 greta">Das sind alle, die für unser Klima auf die Straße gehen.</span>
+            <span class="text-small greta">Das sind alle, die für unser Klima auf die Straße gehen.</span>
           </div>
         </div>
         <div class="grid grid-cols-12 my-20 items-center">
           <div class="text-right col-start-4 col-span-4" data-animate-reveal-left>
             <a class="link-malala" href="https://malala.org/">Malala Fund</a><br>
-            <span class="body2 malala">Working for a world where every girl can learn and lead.</span>
+            <span class="text-small malala">Working for a world where every girl can learn and lead.</span>
           </div>
           <div class="col-start-8 col-span-3">
             <a href="https://malala.org/">
@@ -54,7 +54,7 @@
           </div>
         </div>
         <div class="grid grid-cols-12 mt-60">
-          <div class="body2 text-center col-start-3 col-span-8">
+          <div class="text-small text-center col-start-3 col-span-8">
             Wir erzählen die Geschichten von zwei starken jungen Frauen, die nie aufgehört haben für Gerechtigkeit, Wahrheit und Gleichheit zu kämpfen. Sie sind Vorbilder, die uns vor Augen führen, dass jeder etwas verändern und in der Welt bewirken kann.
           </div>
         </div>
@@ -73,21 +73,21 @@
             theme="default"
             :path="require('~/assets/images/end/world.png')"
           />
-          <div class="body1 col-start-7 col-span-5" data-animate-reveal-right>
+          <div class="text col-start-7 col-span-5" data-animate-reveal-right>
             Was willst du verändern?
           </div>
         </div>
         <!--- credits -->
         <div class="grid grid-cols-12 mt-80">
           <div class="body3 text-center col-start-2 col-span-10" data-animate-parallax="100">
-            <span class="highlight">Ein Projekt der</span> Hochschule Düsseldorf <br>
-            <span class="highlight">im Kurs</span> Digital Storytelling<br>
-            <span class="highlight">betreut von</span> Lukas Loss<br>
+            <span class="is-white">Ein Projekt der</span> Hochschule Düsseldorf <br>
+            <span class="is-white">im Kurs</span> Digital Storytelling<br>
+            <span class="is-white">betreut von</span> Lukas Loss<br>
           </div>
         </div>
         <div class="grid grid-cols-12 mt-60">
           <div class="body3 text-center col-start-2 col-span-10" data-animate-parallax="-100">
-            <span class="highlight">erstellt von</span>  Cedrica Da Silva Costa, Joel Garthe, Fabian Heck, Johannes Kimmeyer, Nathalie Merdan, Sam Vogelskamp
+            <span class="is-white">erstellt von</span>  Cedrica Da Silva Costa, Joel Garthe, Fabian Heck, Johannes Kimmeyer, Nathalie Merdan, Sam Vogelskamp
           </div>
         </div>
       </div>
@@ -153,17 +153,21 @@
   }
 }
 
-.body1 {
+.text {
   font-family: var(--sans-serif-font);
   font-size: var(--font-size-body-1);
   color: var(--deeptaupe);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  text-transform: uppercase;
 }
 
-.body2 {
+.text-small {
   font-family: var(--sans-serif-font);
   font-size: var(--font-size-body-2);
   font-style: italic;
   color: var(--deeptaupe);
+  font-weight: 300;
 }
 
 .body3 {
@@ -171,7 +175,7 @@
   font-size: var(--font-32);
   color: var(--deeptaupe);
 }
-.highlight {
+.is-white {
   color: var(--white);
 }
 
@@ -181,15 +185,6 @@
 
 .greta {
   color: var(--color-text-greta-dark);
-}
-
-.intro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(var(--khaki) 0%, var(--bone) 100%);
 }
 
 </style>
