@@ -19,7 +19,7 @@
             :point-size="0.6"
           />
         </div>
-        <div class="pl-8 col-start-6 col-span-6 text row-start-1 row-span-1">
+        <div class="pl-8 col-start-6 col-span-6 text row-start-1 row-span-1" data-sound-malala-start="busy-street.mp3">
           <div data-animate-parallax="-100">
             <Video :path="require('~/assets/videos/malala/malala-kap2-1.mp4')" data-animate-reveal-bottom />
             <span data-animate-reveal-right>DIE STRAßEN PAKISTANS</span>
@@ -33,7 +33,7 @@
             <div class="flex justify-center">
               <img src="@/assets/svg/malala-kap2-herz.svg" data-animate-parallax="-50">
             </div>
-            <div class="flex justify-end w-full">
+            <div class="flex justify-end w-full" data-sound-malala-end="busy-street.mp3">
               <span data-animate-reveal-right>IST IN MINGORA</span>
             </div>
           </div>
@@ -62,6 +62,7 @@
 
       <DecoratedImage
         data-narrator-malala="Malala-Kap2-3.m4a"
+        data-sound-malala-start="school-background.mp3"
         class="col-start-4 col-span-7"
         data-animate-parallax="-150"
         :decoration-bottom-right="true"
@@ -79,6 +80,7 @@
       </div>
       <DecoratedImage
         data-narrator-malala="Malala-Kap2-4.m4a"
+        data-sound-malala-end="school-background.mp3"
         class="mt-24 col-start-4 col-span-6"
         data-animate-parallax="100"
         :decoration-top-right="true"

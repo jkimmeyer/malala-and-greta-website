@@ -35,7 +35,7 @@
     </div>
 
     <div class="section mx-40 2xl:mx-auto max-w-screen-xl">
-      <div class="grid grid-cols-12">
+      <div class="grid grid-cols-12" data-animate-reveal-rigth data-narrator-malala="Malala-Kap4-3.m4a">
         <Scene
           scene-id="bullet"
           :height="400"
@@ -49,7 +49,7 @@
           data-animate-parallax="-150"
           class="row-start-1 row-span-1 col-start-1 col-span-12 bullet"
         />
-        <div class="row-start-2 row-span-1 text-small is-light col-start-3 col-span-4" data-animate-reveal-rigth data-narrator-malala="Malala-Kap4-3.m4a">
+        <div class="row-start-2 row-span-1 text-small is-light col-start-3 col-span-4" data-sound-malala-start="pistol-shot.mp3">
           Dann hörte ich nur noch den Schuss. Alles wurde schwarz...
         </div>
       </div>

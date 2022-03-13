@@ -65,7 +65,7 @@ import { Themes } from '@/enums/Themes'
 import { useIntroAnimation } from '@/composables/useIntroAnimation'
 import { setAudioOn } from '@/composables/audioMute'
 import { setCurrentTheme } from '@/composables/theme'
-const drama = require('@/assets/audio/Drama.mp3').default
+import { playMusic, updateMusicSource, pauseMusic } from '@/composables/audioMusic'
 
 export default {
   setup () {
@@ -80,11 +80,15 @@ export default {
 
     onUnmounted(() => {
       destroyAllTriggers()
+      // pauseMusic()
     })
 
     return {
       setCurrentTheme,
-      setAudioOn
+      setAudioOn,
+      updateMusicSource,
+      playMusic,
+      pauseMusic
     }
   },
   data () {
@@ -104,17 +108,12 @@ export default {
       this.citeVisible = true
     }, 2000)
   },
-  unmounted () {
-    this.soundAudioElement.pause()
-  },
   methods: {
     onStartClicked () {
       this.buttonVisible = false
       this.setAudioOn(true)
-
-      this.soundAudioElement = new Audio(drama)
-      this.soundAudioElement.volume = 0.1
-      this.soundAudioElement.play()
+      this.updateMusicSource('/sound/Drama.mp3')
+      this.playMusic()
     },
     navigateToStory (story) {
       if (story === 'greta') {

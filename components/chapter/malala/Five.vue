@@ -1,6 +1,6 @@
 <template>
   <div class="bg mx-40 2xl:mx-auto max-w-screen-xl">
-    <div class="content pb-32" data-narrator-malala="Malala-Kap5-1.m4a">
+    <div class="content pb-32" data-narrator-malala="Malala-Kap5-1.m4a" data-sound-malala-start="heart-rate-monitor.mp3">
       <SvgsVectorChapter5 stroke-color="#957C57" class="bgVector" />
       <div class="section grid grid-cols-12 space-y-28">
         <div class="row-start-1 row-span-1 col-start-2 col-span-2 flex flex-row items-center pb-8">
@@ -18,7 +18,7 @@
         <div class="row-start-3 row-span-1 col-start-1 col-span-5" data-animate-reveal-left>
           <Video :path="require('~/assets/videos/malala/malala-kap5-1.mp4')" />
         </div>
-        <div class="row-start-4 row-span-1 col-start-6 col-span-6">
+        <div class="row-start-4 row-span-1 col-start-6 col-span-6" data-sound-malala-end="heart-rate-monitor.mp3">
           <Scene
             scene-id="plane"
             :height="400"
