@@ -1,26 +1,25 @@
 <template>
   <div class="mx-40 2xl:mx-auto max-w-screen-xl">
     <div class="content">
-      <div class="grid grid-cols-12" data-narrator-malala="Malala-Kap2-1.m4a">
+      <div class="section grid grid-cols-12" data-narrator-malala="Malala-Kap2-1.m4a">
         <div class="col-start-1 col-span-5 row-start-1 row-span-2 forParallax">
           <Scene
             scene-id="pakistan"
-            :height="1000"
+            :height="500"
             :width="500"
             :fov="10"
             :near="0.1"
             :far="1000"
-            :cam-z="100"
-            :cam-y="100"
+            :cam-z="65"
+            :cam-y="65"
             :models="pakistanScene"
-            data-animate-parallax="300"
             :points-material="true"
             :auto-rotate="false"
-            :point-size="0.6"
+            :point-size="0.5"
           />
         </div>
         <div class="pl-8 col-start-6 col-span-6 text row-start-1 row-span-1" data-sound-malala-start="busy-street.mp3">
-          <div data-animate-parallax="-100">
+          <div data-animate-parallax="100">
             <Video :path="require('~/assets/videos/malala/malala-kap2-1.mp4')" data-animate-reveal-bottom />
             <span data-animate-reveal-right>DIE STRAßEN PAKISTANS</span>
           </div>
@@ -40,7 +39,7 @@
         </div>
       </div>
     </div>
-    <div class="grid grid-cols-12 mt-96">
+    <div class="section grid grid-cols-12">
       <DecoratedImage
         class="col-start-2 col-span-5"
         data-animate-parallax="50"
@@ -54,7 +53,7 @@
 
       <DecoratedImage
         class="col-start-6 col-span-6"
-        data-animate-parallax="-100"
+        data-animate-parallax="-75"
         :decoration-top-right="true"
         theme="malala"
         :path="require('~/assets/images/chapter/2/malala/malala-familie.jpg')"
@@ -70,11 +69,11 @@
         :path="require('~/assets/images/chapter/2/malala/malala-schule-vater.jpg')"
       />
 
-      <div class="mt-32 mb-32 col-start-3 col-span-8">
-        <Video :path="require('~/assets/videos/malala/malala-kap2-2.mp4')" :decoration="require('~/assets/images/chapter/2/malala/school-malala.png')" />
+      <div class="col-start-3 col-span-8">
+        <Video :path="require('~/assets/videos/malala/malala-kap2-2.mp4')" :decoration="require('~/assets/images/chapter/2/malala/school-malala.png')" data-animate-parallax="25" />
       </div>
     </div>
-    <div class="grid grid-cols-12 mt-48">
+    <div class="section grid grid-cols-12">
       <div class="text-body col-start-1 col-span-8" data-animate-reveal-left>
         Und dann übernahmen die Taliban die Kontrolle
       </div>
@@ -95,23 +94,25 @@
         :path="require('~/assets/images/chapter/2/malala/taliban-children.png')"
       />
     </div>
-    <div class="grid grid-cols-12 mt-32 items-center">
+    <div class="section grid grid-cols-12 items-center">
       <DecoratedImage
         class="col-start-2 col-span-2"
         theme="malala"
         :path="require('~/assets/images/chapter/2/malala/noten.png')"
+        data-animate-reveal-left
       />
-      <div class="text-body-small col-start-5 col-span-4">
+      <div class="text-body-small col-start-5 col-span-4" data-animate-reveal-bottom>
         Das Spielen von Musik und tanzen in der Öffentlichkeit wurden verboten
       </div>
       <DecoratedImage
         class="col-start-9 col-span-4"
         theme="malala"
         :path="require('~/assets/images/chapter/2/malala/tanzschritte.png')"
+        data-animate-reveal-right
       />
     </div>
-    <div class="grid grid-cols-12 mt-32 items-center" data-narrator-malala="Malala-Kap2-5.m4a">
-      <div class="text-body-small col-start-2 col-span-4">
+    <div class="section grid grid-cols-12 items-center" data-narrator-malala="Malala-Kap2-5.m4a">
+      <div class="text-body-small col-start-2 col-span-4" data-animate-reveal-left>
         Die Schule meines Vaters wurde geschlossen.
       </div>
       <Scene
@@ -128,13 +129,14 @@
         :cam-x="-70"
         :auto-rotate="false"
         :models="lockScene"
+        data-animate-parallax="-100"
       />
     </div>
-    <div class="grid grid-cols-12 mt-32 mb-96 items-center">
-      <div class="row-start-1 row-span-1 col-start-3 col-span-5">
-        <Video :path="require('~/assets/videos/malala/malala-kap2-3.mp4')" />
+    <div class="section grid grid-cols-12 items-center">
+      <div class="row-start-1 row-span-1 col-start-2 col-span-8">
+        <Video :path="require('~/assets/videos/malala/malala-kap2-3.mp4')" data-animate-reveal-left />
       </div>
-      <div class="text-body mt-32 row-span-1 row-start-2 col-start-4 col-span-8">
+      <div class="text-body mt-16 row-span-1 row-start-2 col-start-4 col-span-8" data-animate-reveal-right>
         Ich will zur Schule gehen!
       </div>
     </div>
@@ -162,6 +164,24 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.section {
+  width: 100%;
+
+  &:first-child{
+    padding-top: 150px;
+  }
+
+  &:not(:first-child):not(:last-child){
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  &:last-child{
+    padding-top: 100px;
+    padding-bottom: 200px;
+  }
+}
+
 @mixin uppercaseStyle{
   font-size: var(--font-64);
   font-weight: 300;
@@ -247,10 +267,6 @@ export default defineComponent({
     font-size: 3rem;
     color: #68573D;
   }
-}
-
-.forParallax > div{
-  margin-top: -400px;
 }
 
 .text-body {
