@@ -14,7 +14,7 @@ export default {
       mesh.rotation.z = 0
     },
     getMeshPath () {
-      return '/models/swedencity.obj'
+      return '/models/sweden_with_marker.obj'
     },
     setInitialValues (mesh) {
       mesh.scale.set(0.1, 0.1, 0.1)
