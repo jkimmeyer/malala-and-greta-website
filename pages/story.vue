@@ -5,6 +5,9 @@
         <div class="spinner-item" />
         <div class="spinner-item" />
         <div class="spinner-item" />
+        <div class="spinner-text-wrapper">
+          <span>Inhalte werden geladen...</span>
+        </div>
       </div>
     </div>
     <ChapterOne />
@@ -132,6 +135,20 @@ export default {
     --item-size: calc(var(--size) - 30px);
     --color-spinner: var(--color3);
     border-top: 4px solid var(--color3);
+  }
+
+  .spinner-text-wrapper{
+    inset-block-start: 110%;
+    position: absolute;
+    width: 100%;
+    white-space: nowrap;
+    transform: translateX(-50%);
+
+    > span {
+      font-size: var(--font-16);
+      font-weight: 300;
+      font-family: Lato, sans-serif;
+    }
   }
 }
 </style>

@@ -7,7 +7,7 @@
       data-narrator-malala="Malala-Kap1-1.m4a"
     />
 
-    <div class="py-64 max-w-screen-2xl 2xl:mx-auto" data-controls-disable-hints>
+    <div class="py-64 max-w-screen-2xl 2xl:mx-auto mx-40" data-controls-disable-hints>
       <div class="grid grid-cols-12">
         <div class="col-start-1 col-span-4">
           <Video :path="require('~/assets/videos/malala/malala-kap1-1.mp4')" data-animate-reveal-left />
