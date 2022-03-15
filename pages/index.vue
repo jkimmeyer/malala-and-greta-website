@@ -121,7 +121,7 @@ export default {
       } else if (story === 'malala') {
         setCurrentTheme(Themes.Malala)
       }
-      this.$router.push({ path: '/story' })
+      window.location.href = '/story'
     }
   }
 }
