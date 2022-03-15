@@ -15,7 +15,7 @@
   "dependencies": {
     "@nuxtjs/composition-api": "^0.32.0",
     "core-js": "^3.19.3",
-    "gsap": "^3.8.0",
+    "gsap": "npm:@gsap/simply",
     "nuxt": "^2.15.8",
     "three": "0.134",
     "vue": "^2.6.14",
