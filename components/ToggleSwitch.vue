@@ -45,6 +45,7 @@ export default {
   methods: {
     toggleButton () {
       if (this.enabled) {
+        this.toggleButtonPressed = this.toggleButtonPressed === 'true' ? 'false' : 'true'
         this.$emit('toggle-button-switched')
       }
     }
