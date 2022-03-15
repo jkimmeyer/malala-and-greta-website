@@ -1,5 +1,5 @@
 <template>
-  <div class="four" data-background-greta>
+  <div class="four" data-background-greta data-narrator-greta="Greta-Kap4-1.m4a">
     <div class="mx-40 2xl:mx-auto max-w-screen-xl">
       <div class="grid grid-cols-12">
         <Video
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="mx-40 2xl:mx-auto max-w-screen-xl section" data-animate-fade-to-dark-greta data-controls-dark-light>
+    <div class="mx-40 2xl:mx-auto max-w-screen-xl section" data-animate-fade-to-dark-greta data-controls-dark-light data-narrator-greta="Greta-Kap4-2.m4a">
       <div class="grid grid-cols-12 items-center">
         <div class="text-small col-start-4 col-span-2 mb-10" data-animate-reveal-right>
           Als Asperger-Autistin bräuchte sie Hilfe statt Aufmerksamkeit
@@ -49,7 +49,7 @@
           theme="greta"
           :path="require('~/assets/images/chapter/4/greta/greta-kap4-umbrella.png')"
         />
-        <div class="text-small is-light col-start-6 col-span-5" data-animate-reveal-right>
+        <div class="text-small is-light col-start-6 col-span-5" data-animate-reveal-right data-narrator-greta="Greta-Kap4-3.m4a">
           “Is the microphone on? Did you hear me? Is my English ok?
           Because I am beginning to wonder.<br>
 

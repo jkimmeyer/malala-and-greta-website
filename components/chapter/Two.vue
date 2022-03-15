@@ -7,7 +7,7 @@
           :chapter="2"
           :is-malala="true"
         >
-          <div class="inline-flex flex-col ml-auto">
+          <div class="inline-flex flex-col ml-auto" data-narrator-greta="Greta-Kap2-1.m4a">
             <h2 class="intro-heading">
               Wo bin ich aufgewachsen?
               <img class="inline-block" :src="require('~/assets/images/chapter/2/malala/malala-intro-house.png')" width="120">

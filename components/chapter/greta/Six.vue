@@ -33,7 +33,7 @@
             :preview-image-path="require('~/assets/images/chapter/6/greta/greta-kap6-speech.jpeg')"
           />
         </div>
-        <div class="text mt-5 col-start-3 col-span-7 flex flex-col" data-animate-reveal-right>
+        <div class="text mt-5 col-start-3 col-span-7 flex flex-col" data-animate-reveal-right data-narrator-greta="Greta-Kap6-2.m4a">
           <span>Meine Rede vor dem</span>
           <span>UN-Klimagipfel</span>
         </div>
@@ -43,7 +43,7 @@
       </div>
     </div>
     <!-- -->
-    <div class="mx-40 2xl:mx-auto max-w-screen-xl section">
+    <div class="mx-40 2xl:mx-auto max-w-screen-xl section" data-narrator-greta="Greta-Kap6-3.m4a">
       <div class="grid grid-cols-12">
         <Scene
           class="col-start-1 col-span-4"
@@ -77,7 +77,7 @@
           theme="greta"
           :path="require('~/assets/images/chapter/6/greta/greta-kap6-portrait.jpeg')"
         />
-        <div class="text-small light col-start-7 col-span-4" data-animate-reveal-right>
+        <div class="text-small light col-start-7 col-span-4" data-animate-reveal-right data-narrator-greta="Greta-Kap6-4.m4a">
           “I want you to panic. I want you to feel the fear I feel every day.”
         </div>
       </div>
