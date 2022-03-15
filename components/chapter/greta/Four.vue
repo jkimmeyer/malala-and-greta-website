@@ -50,10 +50,10 @@
           :path="require('~/assets/images/chapter/4/greta/greta-kap4-umbrella.png')"
         />
         <div class="text-small is-light col-start-6 col-span-5" data-animate-reveal-right>
-          “Is the microphone on? Did you hera me? Is my English ok?
-          Becaus I am beginnig to wonder.<br>
+          “Is the microphone on? Did you hear me? Is my English ok?
+          Because I am beginning to wonder.<br>
 
-          You lied to us. During the last six month I have traveled around europe for hundres of hours repeating these life-changing words over and over again.
+          You lied to us. During the last six month I have traveled around Europe for hundreds of hours repeating these life-changing words over and over again.
           But nothing has changed. In fact, the emissions are still rising.”
         </div>
       </div>
