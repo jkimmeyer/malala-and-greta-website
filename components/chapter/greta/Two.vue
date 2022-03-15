@@ -49,7 +49,9 @@
             :fov="10"
             :near="0.1"
             :far="1000"
-            :cam-z="15"
+            :cam-z="17"
+            :cam-y="10"
+            :cam-x="-5"
             :auto-rotate="false"
             :models="zweitausendelfScene"
           />
