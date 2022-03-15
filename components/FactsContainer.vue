@@ -1,8 +1,8 @@
 <template>
   <div :class="'fact-container '+size+' theme-'+theme+' '+format">
-    <div class="fact-bg-card" />
-    <div class="fact-bg-card" />
     <div class="fact-card">
+      <div class="fact-bg-card" />
+      <div class="fact-bg-card" />
       <button class="fact-card--button" @click="previousFact()">
         <SvgsChevronLeft class="fact-card--arrow" :class="themeClass" />
       </button>
@@ -184,28 +184,30 @@ export default {
       transform: rotate(-0.17deg);
       top: 25px;
       left: -15px;
-      z-index: 0
+      z-index: -1;
+      height: 100%;
     }
 
     &:nth-child(2){
       transform: rotate(4deg);
       top: 10px;
       left: 10px;
-      z-index: 1;
+      z-index: -2;
+      height: 100%;
     }
   }
 
   &.sm{
     &.quad{
       .fact-card, .fact-bg-card{
-        min-width: 512px;
+        width: 100%;
         max-width: 512px;
         min-height: 512px;
       }
     }
     &.rect{
       .fact-card, .fact-bg-card{
-        width: 682px;
+        width: 100%;
         max-width: 682px;
         min-height: 512px;
       }
@@ -215,14 +217,14 @@ export default {
   &.lg{
     &.quad{
       .fact-card, .fact-bg-card{
-        min-width: 768px;
+        width: 100%;
         max-width: 768px;
         min-height: 768px;
       }
     }
     &.rect{
       .fact-card, .fact-bg-card{
-        width: 1024px;
+        width: 100%;
         max-width: 1024px;
         min-height: 768px;
       }
