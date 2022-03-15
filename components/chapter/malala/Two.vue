@@ -110,12 +110,12 @@
         :path="require('~/assets/images/chapter/2/malala/tanzschritte.png')"
       />
     </div>
-    <div class="grid grid-cols-12 mt-32 mb-96 items-center" data-narrator-malala="Malala-Kap2-5.m4a">
-      <div class="text-body-small col-start-1 col-span-4">
+    <div class="grid grid-cols-12 mt-32 items-center" data-narrator-malala="Malala-Kap2-5.m4a">
+      <div class="text-body-small col-start-2 col-span-4">
         Die Schule meines Vaters wurde geschlossen.
       </div>
       <Scene
-        class="col-start-5 col-span-5"
+        class="col-start-6 col-span-6"
         data-animate-reveal-rigth
         scene-id="lock-door"
         :height="526"
@@ -129,6 +129,14 @@
         :auto-rotate="false"
         :models="lockScene"
       />
+    </div>
+    <div class="grid grid-cols-12 mt-32 mb-96 items-center">
+      <div class="row-start-1 row-span-1 col-start-3 col-span-5">
+        <Video :path="require('~/assets/videos/malala/malala-kap2-3.mp4')" />
+      </div>
+      <div class="text-body mt-32 row-span-1 row-start-2 col-start-4 col-span-8">
+        Ich will zur Schule gehen!
+      </div>
     </div>
   </div>
 </template>
