@@ -11,13 +11,13 @@
           <Hint v-if="audioHintVisible" class="hint-audio" text="Klicke auf den Lautsprecher um Audio zu aktivieren" point-to="top-right" :duration="0" />
         </transition>
       </li>
-      <li class="navigation--list-item is-separator" />
+      <!--<li class="navigation--list-item is-separator" />-->
       <li v-for="(chapter, index) in chapters" :key="chapter.id" class="navigation--list-item is-page">
         <a class="navigation--link" :href="chapter.id">
           <span class="navigation--link-text">{{ index + 1 }} - {{ chapter.title }}</span>
         </a>
       </li>
-      <li class="navigation--list-item is-separator" />
+      <!--<li class="navigation--list-item is-separator" />-->
       <li class="navigation--list-item">
         <ToggleSwitch :pressed="toggleSwitchPressed" :enabled="!inEnd" @toggle-button-switched="onToggleButtonSwitched()" />
         <transition name="fade">
@@ -109,20 +109,27 @@ export default {
     margin: 0;
     height: 100%;
     padding: var(--space-16);
+    gap: var(--space-4);
   }
 
   .navigation--list-item.is-page {
     padding: var(--space-4) var(--space-64) var(--space-4) var(--space-64);
+    padding-right: calc(var(--space-64) - var(--space-2));
     transition: transform ease-in 0.1s;
     transform: translateX(0%);
     align-self: flex-end;
     white-space: nowrap;
     cursor: pointer;
+    flex: 1;
+  }
+
+  .navigation--list-item:first-child {
+    padding-bottom: 1rem;
   }
 
   .navigation--list-item.is-separator {
     height: var(--space-64);
-    width: var(--space-4);
+    width: var(--space-1);
     background-color: var(--color-control);
     transition: all ease-in var(--theme-duration-1000);
   }
@@ -135,7 +142,7 @@ export default {
     display: flex;
     border-right: var(--space-4) solid var(--color-control);
     align-items: center;
-    height: 40px;
+    height: 100%;
     padding-left: var(--space-4);
     transition: all ease-in var(--theme-duration-1000);
     text-decoration: none;
