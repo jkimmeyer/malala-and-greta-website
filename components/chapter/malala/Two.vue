@@ -25,7 +25,7 @@
             <span data-animate-reveal-right>DIE STRAßEN PAKISTANS</span>
           </div>
         </div>
-        <div class="col-start-5 col-span-7 row-start-2 row-span-1 pt-72" data-narrator-malala="Malala-Kap2-2.m4a">
+        <div class="col-start-5 col-span-7 row-start-2 row-span-1 pt-72">
           <div class="flex flex-col text-2">
             <div class="flex justify-start w-full">
               <span data-animate-reveal-left>EIN TEIL MEINES</span>
@@ -33,7 +33,7 @@
             <div class="flex justify-center">
               <img src="@/assets/svg/malala-kap2-herz.svg" data-animate-parallax="-50">
             </div>
-            <div class="flex justify-end w-full" data-sound-malala-end="busy-street.mp3">
+            <div class="flex justify-end w-full" data-narrator-malala="Malala-Kap2-2.m4a" data-sound-malala-end="busy-street.mp3">
               <span data-animate-reveal-right>IST IN MINGORA</span>
             </div>
           </div>
