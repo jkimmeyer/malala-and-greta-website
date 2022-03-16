@@ -6,6 +6,7 @@
           id="chapter-2"
           :chapter="2"
           :is-malala="true"
+          data-chapters-1-2
         >
           <div class="inline-flex flex-col ml-auto">
             <h2 class="intro-heading">

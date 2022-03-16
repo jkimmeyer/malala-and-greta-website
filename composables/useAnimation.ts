@@ -1,4 +1,5 @@
 import { setCurrentControlTheme, setControlHintsEnabled } from '~/composables/controlTheme'
+import { setCurrentChapter } from '~/composables/navigation'
 import { ControlThemeOptions } from '~/interfaces/ControlThemeOptions'
 export const useAnimation = (gsap, ScrollTrigger) => {
   const showMarkers = false
@@ -154,6 +155,19 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     })
   }
 
+  const registerChapterChange = (from: number, to: number, triggerElement: HTMLElement | string) => {
+    ScrollTrigger.create({
+      trigger: triggerElement,
+      start: 'top center',
+      onEnter: () => {
+        setCurrentChapter(to)
+      },
+      onLeaveBack: () => {
+        setCurrentChapter(from)
+      }
+    })
+  }
+
   const registerDisableControlHints = (triggerElement: HTMLElement | string) => {
     ScrollTrigger.create({
       trigger: triggerElement,
@@ -227,6 +241,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     registerControlThemeChange,
     registerDisableControlHints,
     registerAllAnimationTriggers,
-    registerAllBackgroundFadeTriggers
+    registerAllBackgroundFadeTriggers,
+    registerChapterChange
   }
 }

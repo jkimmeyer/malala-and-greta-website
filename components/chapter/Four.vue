@@ -6,6 +6,7 @@
           id="chapter-4"
           :chapter="4"
           :is-malala="true"
+          data-chapters-3-4
         />
         <ChapterMalalaFour />
       </template>

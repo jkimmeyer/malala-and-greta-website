@@ -7,6 +7,7 @@
           :chapter="5"
           :is-malala="true"
           data-controls-light-dark
+          data-chapters-4-5
         >
           <div class="inline-flex flex-col ml-auto">
             <h2 data-animate-reveal-left class="intro-heading">

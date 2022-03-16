@@ -2,7 +2,7 @@
   <div class="mx-40 2xl:mx-auto max-w-screen-xl">
     <div class="content">
       <div class="section grid grid-cols-12" data-narrator-malala="Malala-Kap2-1.m4a">
-        <div class="col-start-1 col-span-5 row-start-1 row-span-2 forParallax">
+        <div class="col-start-1 col-span-5 row-start-1 row-span-2 forParallax" data-sound-malala-start="busy-street.mp3">
           <Scene
             scene-id="pakistan"
             :height="500"
@@ -18,7 +18,7 @@
             :point-size="0.5"
           />
         </div>
-        <div class="pl-8 col-start-6 col-span-6 text row-start-1 row-span-1" data-sound-malala-start="busy-street.mp3">
+        <div class="pl-8 col-start-6 col-span-6 text row-start-1 row-span-1">
           <div data-animate-parallax="100">
             <Video :path="require('~/assets/videos/malala/malala-kap2-1.mp4')" data-animate-reveal-bottom />
             <span data-animate-reveal-right>DIE STRAßEN PAKISTANS</span>
@@ -32,14 +32,14 @@
             <div class="flex justify-center">
               <img src="@/assets/svg/malala-kap2-herz.svg" data-animate-parallax="-50">
             </div>
-            <div class="flex justify-end w-full" data-narrator-malala="Malala-Kap2-2.m4a" data-sound-malala-end="busy-street.mp3">
+            <div class="flex justify-end w-full" data-narrator-malala="Malala-Kap2-2.m4a">
               <span data-animate-reveal-right>IST IN MINGORA</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="section grid grid-cols-12">
+    <div class="section grid grid-cols-12" data-sound-malala-end="busy-street.mp3">
       <DecoratedImage
         class="col-start-2 col-span-5"
         data-animate-parallax="50"
