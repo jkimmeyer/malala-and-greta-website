@@ -17,7 +17,6 @@ export default {
 
 <style scoped>
 .quote {
-  width: 400px;
   font-size: var(--font-32);
   font-style: italic;
   font-weight: 300;
