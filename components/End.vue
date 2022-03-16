@@ -155,11 +155,10 @@
 
 .text {
   font-family: var(--sans-serif-font);
-  font-size: var(--font-size-body-1);
+  font-size: 3rem;
   color: var(--deeptaupe);
-  font-weight: 300;
   line-height: var(--line-1-15);
-  text-transform: uppercase;
+  font-weight:500;
 }
 
 .text-small {
