@@ -14,7 +14,7 @@
 
       <div class="grid grid-cols-12">
         <DecoratedImage
-          class="image-bus-assassination col-start-7 col-span-4"
+          class="image-bus-assassination col-start-6 col-span-6"
           data-animate-parallax="-100"
           :decoration-top-right="true"
           :decoration-bottom-left="true"

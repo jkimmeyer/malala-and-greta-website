@@ -58,7 +58,7 @@
           :points-material="true"
         />
         <FactsContainer
-          class="col-start-7 col-span-4"
+          class="col-start-6 col-span-6"
           data-animate-reveal-right
           theme="malala"
           size="sm"

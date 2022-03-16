@@ -84,6 +84,7 @@ export default {
 .fact-container{
   min-width: 256px;
   position: relative;
+  width: 100%;
 
   .fact-card, .fact-bg-card{
     box-shadow: 0 8px 8px rgba(0,0,0,0.25);
