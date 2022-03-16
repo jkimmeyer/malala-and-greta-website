@@ -66,6 +66,13 @@ export default {
             animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.End, '[data-controls-dark-end]')
             animation.registerDisableControlHints('[data-controls-disable-hints]')
 
+            animation.registerChapterChange(0, 1, '[data-chapters-0-1]')
+            animation.registerChapterChange(1, 2, '[data-chapters-1-2]')
+            animation.registerChapterChange(2, 3, '[data-chapters-2-3]')
+            animation.registerChapterChange(3, 4, '[data-chapters-3-4]')
+            animation.registerChapterChange(4, 5, '[data-chapters-4-5]')
+            animation.registerChapterChange(5, 6, '[data-chapters-5-6]')
+
             // setup audio for narrator and sound
             const audio = useAudio($gsap, $ScrollTrigger)
             audio.registerAllAudioAutoplayTriggers()

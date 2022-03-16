@@ -13,7 +13,7 @@
       </li>
       <!--<li class="navigation--list-item is-separator" />-->
       <li v-for="(chapter, index) in chapters" :key="chapter.id" class="navigation--list-item is-page">
-        <a class="navigation--link" :href="chapter.id">
+        <a class="navigation--link" :href="chapter.id" :class="{current: index + 1 === getCurrentChapter}">
           <span class="navigation--link-text">{{ index + 1 }} - {{ chapter.title }}</span>
         </a>
       </li>
@@ -37,6 +37,7 @@ import { ControlThemes } from '~/enums/ControlThemes'
 import { getAudioOn } from '@/composables/audioMute.ts'
 import { pauseNarrator } from '@/composables/audioNarrator'
 import { pauseSound } from '@/composables/audioSound'
+import { getCurrentChapter } from '~/composables/navigation'
 
 export default {
   setup () {
@@ -46,6 +47,7 @@ export default {
       getCurrentControlTheme,
       getControlHintsEnabled,
       getAudioOn,
+      getCurrentChapter,
       pauseNarrator,
       pauseSound
     }
@@ -154,6 +156,11 @@ export default {
   .navigation--link-text {
     opacity: 0;
     display: none;
+  }
+
+  .navigation--link.current {
+    border-color: var(--color-control-active);
+    transition: border-color ease 0.5s;
   }
 
   .navigation--list-item.is-page:focus,

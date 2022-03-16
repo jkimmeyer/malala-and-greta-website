@@ -120,12 +120,20 @@ export default {
   right: var(--space-16);
 }
 
-.videoplayer--popover--button.malala svg {
+.videoplayer--popover--button.malala {
   fill: var(--color-background-malala-dark);
 }
 
-.videoplayer--popover--button.greta svg {
+.videoplayer--popover--button.greta {
   fill: var(--color-background-greta-dark);
+}
+
+.videoplayer--popover--button.malala:hover {
+  fill: var(--bronze);
+}
+
+.videoplayer--popover--button.greta:hover {
+  fill: var(--glaucous);
 }
 
 .videoplayer--popover h3 {

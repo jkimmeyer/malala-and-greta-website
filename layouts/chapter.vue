@@ -53,7 +53,7 @@ export default {
   --color-control-light: var(--color-text-greta);
   --color-control-light-focus: var(--glaucous);
   --color-control-light-hover: var(--glaucous);
-  --color-control-light-active: var(--color-text-greta);
+  --color-control-light-active: var(--color-text-greta-highlight);
   --color-control-dark: var(--deepblue);
   --color-control-dark-focus: var(--glaucous);
   --color-control-dark-hover: var(--glaucous);
@@ -69,7 +69,7 @@ export default {
   --color-control-light: var(--color-text-malala);
   --color-control-light-focus: var(--bronze);
   --color-control-light-hover: var(--bronze);
-  --color-control-light-active: var(--color-text-malala);
+  --color-control-light-active: var(--color-text-malala-highlight);
   --color-control-dark: var(--mud);
   --color-control-dark-focus: var(--bronze);
   --color-control-dark-hover: var(--bronze);
