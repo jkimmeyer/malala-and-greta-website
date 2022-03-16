@@ -7,7 +7,7 @@
           <img src="@/assets/images/chapter/5/malala/malala-location.png" data-animate-reveal-left>
           <div class="col-start-2 col-span-10 text text-right" data-animate-reveal-right>
             <span>Mingora</span>
-            <span>Pakistan</span>
+            <span class="sml">Pakistan</span>
           </div>
         </div>
         <div class="row-start-2 row-span-1 col-start-8 col-span-4" data-narrator-malala="Malala-Kap5-2.m4a">
@@ -38,7 +38,7 @@
         <div class="row-start-6 row-span-1 col-start-7 col-span-2 flex flex-row items-center pb-4" data-narrator-malala="Malala-Kap5-3.m4a">
           <div class="col-start-2 col-span-10 text" data-animate-reveal-left>
             <span>Birmingham</span>
-            <span>England</span>
+            <span class="sml">England</span>
           </div>
           <img src="@/assets/images/chapter/5/malala/malala-finish.png" data-animate-reveal-right>
         </div>
@@ -76,6 +76,15 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+
+@mixin bigText{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  color: var(--color-text-malala-dark);
+  font-style: italic;
+}
+
 @mixin uppercaseStyle{
   font-size: var(--font-64);
   font-weight: 300;
@@ -125,8 +134,12 @@ export default defineComponent({
 }
 
 .text span{
-  @include uppercaseStyle;
-  line-height: 1;
+  @include bigText;
+  line-height: 1.15;
+
+  &.sml{
+    font-size: 50px;
+  }
 }
 .text-2 span{
   @include body2;

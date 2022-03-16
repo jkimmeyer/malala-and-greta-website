@@ -17,13 +17,13 @@
           <Video :path="require('~/assets/videos/malala/malala-kap1-1.mp4')" data-animate-reveal-left />
         </div>
 
-        <div class="uppercase col-start-1 col-span-5 text is-white mt-8" data-animate-reveal-left data-animate-pin-end>
+        <div class="col-start-1 col-span-5 text is-white mt-8" data-animate-reveal-left data-animate-pin-end>
           Ich habe die Bedeutung meiner Stimme entdeckt
         </div>
 
         <SvgsDownPath class="path col-start-2 col-span-2" />
 
-        <div class="uppercase is-white text col-start-3 col-span-6" data-animate-reveal-right>
+        <div class="is-white text col-start-3 col-span-6" data-animate-reveal-right>
           Als ich zum Schweigen gebracht werden sollte
         </div>
 
@@ -36,17 +36,16 @@
 </template>
 
 <style lang="scss" scoped>
-@mixin uppercaseStyle{
+@mixin bigText{
   font-size: var(--font-64);
   font-weight: 300;
   line-height: var(--line-1-15);
-  text-transform: uppercase;
   color: var(--color-text-malala-dark);
-  text-transform: uppercase;
+  font-style: italic;
 }
 
 .text {
-  @include uppercaseStyle;
+  @include bigText;
   font-size: var(--font-size-body-1);
   color: var(--color-text-malala-dark);
 }
