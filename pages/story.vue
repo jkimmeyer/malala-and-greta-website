@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-import { onMounted, useContext, nextTick, ref } from '@nuxtjs/composition-api'
+import { onMounted, useContext, nextTick, ref, onUnmounted } from '@nuxtjs/composition-api'
 import { useAnimation } from '@/composables/useAnimation'
 import { useAudio } from '@/composables/useAudio.ts'
 import { ControlThemes } from '~/enums/ControlThemes'
@@ -35,6 +35,20 @@ export default {
     const { $gsap, $ScrollTrigger } = useContext()
     const nuxtLoading = ref(true)
     const animation = useAnimation($gsap, $ScrollTrigger)
+
+    const resetAudio = () => {
+      // remove audio when page reloaded
+      // because after reload the browser needs a click interaction on the page to play any sound
+      if (process.client) {
+        window.localStorage.setItem('AUDIOON', 'false')
+      }
+    }
+
+    onUnmounted(() => {
+      if (process.client) {
+        window.removeEventListener('unload', resetAudio)
+      }
+    })
 
     onMounted(() => {
       if (process.client) {
@@ -51,6 +65,8 @@ export default {
 
       nextTick(() => {
         if (process.browser) {
+          window.addEventListener('unload', resetAudio)
+
           window.addEventListener(('load'), function () {
             // setup animations
             const style = getComputedStyle(document.querySelector('.page'))
@@ -84,7 +100,7 @@ export default {
         }
       })
     })
-    return { nuxtLoading }
+    return { nuxtLoading, resetAudio }
   }
 }
 </script>
