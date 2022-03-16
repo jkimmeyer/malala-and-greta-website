@@ -47,10 +47,10 @@
       </div>
       <!-- Section 4 -->
       <div class="section grid grid-cols-12">
-        <div class="video-1 col-start-1 col-span-5" data-animate-parallax="50">
+        <div class="video-1 col-start-1 col-span-5" data-animate-reveal-left>
           <Video :path="require('~/assets/videos/malala/malala-kap3-1.mp4')" />
         </div>
-        <div class="image-4 col-start-6 col-span-6" data-animate-parallax="-50">
+        <div class="image-4 col-start-6 col-span-6" data-animate-parallax="-100">
           <img src="@/assets/images/chapter/3/malala/malala-people.png">
         </div>
       </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="intro" :class="[themeClass, introClass]">
+  <div class="intro" :class="[themeClass, controlClass]">
     <h2 class="intro--subheading">
       Kapitel {{ chapter }}
     </h2>
@@ -32,7 +32,7 @@ export default {
     themeClass () {
       return this.isMalala ? 'malala' : 'greta'
     },
-    introClass () {
+    controlClass () {
       return this.chapter === 1 || this.chapter === 5 ? 'has-dark-start' : null
     }
   }

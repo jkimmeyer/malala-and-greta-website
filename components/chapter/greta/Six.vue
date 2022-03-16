@@ -2,7 +2,7 @@
   <div>
     <!-- images -->
     <div class="mx-40 2xl:mx-auto max-w-screen-xl">
-      <div class="grid grid-cols-12" data-sound-greta-start="crowd-cheering.mp3">
+      <div class="grid grid-cols-12">
         <DecoratedImage
           class="col-start-2 col-span-6"
           data-animate-parallax="50"
@@ -11,7 +11,7 @@
           :path="require('~/assets/images/chapter/6/greta/greta-kap6-friday-for-future.webp')"
         />
       </div>
-      <div class="grid grid-cols-12">
+      <div class="grid grid-cols-12" data-sound-greta-start="crowd-cheering.mp3">
         <DecoratedImage
           class="col-start-7 col-span-4"
           data-animate-parallax="-50"

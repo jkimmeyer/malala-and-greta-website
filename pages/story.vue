@@ -5,6 +5,9 @@
         <div class="spinner-item" />
         <div class="spinner-item" />
         <div class="spinner-item" />
+        <div class="spinner-text-wrapper">
+          <span>Inhalte werden geladen...</span>
+        </div>
       </div>
     </div>
     <ChapterOne />
@@ -62,6 +65,13 @@ export default {
             animation.registerControlThemeChange(ControlThemes.Light, ControlThemes.Dark, '[data-controls-light-dark]')
             animation.registerControlThemeChange(ControlThemes.Dark, ControlThemes.End, '[data-controls-dark-end]')
             animation.registerDisableControlHints('[data-controls-disable-hints]')
+
+            animation.registerChapterChange(0, 1, '[data-chapters-0-1]')
+            animation.registerChapterChange(1, 2, '[data-chapters-1-2]')
+            animation.registerChapterChange(2, 3, '[data-chapters-2-3]')
+            animation.registerChapterChange(3, 4, '[data-chapters-3-4]')
+            animation.registerChapterChange(4, 5, '[data-chapters-4-5]')
+            animation.registerChapterChange(5, 6, '[data-chapters-5-6]')
 
             // setup audio for narrator and sound
             const audio = useAudio($gsap, $ScrollTrigger)
@@ -132,6 +142,20 @@ export default {
     --item-size: calc(var(--size) - 30px);
     --color-spinner: var(--color3);
     border-top: 4px solid var(--color3);
+  }
+
+  .spinner-text-wrapper{
+    inset-block-start: 110%;
+    position: absolute;
+    width: 100%;
+    white-space: nowrap;
+    transform: translateX(-50%);
+
+    > span {
+      font-size: var(--font-16);
+      font-weight: 300;
+      font-family: Lato, sans-serif;
+    }
   }
 }
 </style>

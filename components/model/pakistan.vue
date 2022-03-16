@@ -14,7 +14,7 @@ export default {
       mesh.rotation.z = 0
     },
     getMeshPath () {
-      return '/models/pakistancity.obj'
+      return '/models/pakistan_with_marker.obj'
     },
     setInitialValues (mesh) {
       mesh.scale.set(1, 1, 1)

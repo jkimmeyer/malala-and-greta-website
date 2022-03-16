@@ -5,22 +5,21 @@
         <div class="col-start-1 col-span-5 row-start-1 row-span-1 forParallax">
           <Scene
             scene-id="swedenmap"
-            :height="1000"
+            :height="600"
             :width="500"
             :fov="10"
             :near="0.1"
             :far="1000"
-            :cam-z="100"
-            :cam-y="100"
+            :cam-z="60"
+            :cam-y="60"
             :models="swedenmapScene"
-            data-animate-parallax="100"
             :points-material="true"
             :auto-rotate="false"
-            :point-size="0.6"
+            :point-size="0.45"
           />
         </div>
         <div class="pl-8 col-start-6 col-span-6 text row-start-1 row-span-1 flex justify-center items-center pb-32">
-          <div data-animate-parallax="25" data-narrator-greta="Greta-Kap2-2.m4a">
+          <div data-animate-parallax="100" data-narrator-greta="Greta-Kap2-2.m4a">
             <Video :path="require('~/assets/videos/greta/greta-kap2-1.mp4')" data-animate-reveal-bottom />
             <span data-animate-reveal-right>DIE STRAßEN SCHWEDENS</span>
           </div>
@@ -49,7 +48,9 @@
             :fov="10"
             :near="0.1"
             :far="1000"
-            :cam-z="15"
+            :cam-z="17"
+            :cam-y="10"
+            :cam-x="-5"
             :auto-rotate="false"
             :models="zweitausendelfScene"
           />
@@ -87,13 +88,13 @@ export default defineComponent({
   }
 
   &:not(:first-child):not(:last-child){
-    padding-top: 150px;
-    padding-bottom: 150px;
+    padding-top: 200px;
+    padding-bottom: 200px;
   }
 
   &:last-child{
-    padding-top: 150px;
-    padding-bottom: 150px;
+    padding-top: 200px;
+    padding-bottom: 0;
   }
 }
 
