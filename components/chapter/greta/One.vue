@@ -4,6 +4,7 @@
       first-name="Greta"
       last-name="Thunberg"
       :image="require('~/assets/images/Greta-Face.png')"
+      data-narrator-greta="Greta-Kap1.m4a"
     />
 
     <div class="pt-16 pb-96 max-w-screen-2xl 2xl:mx-auto mx-40">

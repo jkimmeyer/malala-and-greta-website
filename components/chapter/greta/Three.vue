@@ -23,7 +23,7 @@
       </div>
 
       <!-- Section 2 -->
-      <div class="section grid grid-cols-12">
+      <div class="section grid grid-cols-12" data-narrator-greta="Greta-Kap3-2.m4a">
         <div class="model-1 col-start-1 col-span-4" data-animate-parallax="-10">
           <Scene
             scene-id="3d-lamp"
@@ -56,7 +56,7 @@
       </div>
 
       <!-- Section 3 -->
-      <div class="section grid grid-cols-12">
+      <div class="section grid grid-cols-12" data-narrator-greta="Greta-Kap3-3.m4a">
         <div class="text-4 col-start-1 col-span-12">
           <span data-animate-reveal-left>
             20.08.2018

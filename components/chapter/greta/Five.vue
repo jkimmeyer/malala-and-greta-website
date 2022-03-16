@@ -22,7 +22,7 @@
         <div class="row-start-3 row-span-1 col-start-1 col-span-5" data-animate-reveal-left>
           <Video :path="require('~/assets/videos/greta/greta-kap5-1.mp4')" />
         </div>
-        <div class="row-start-4 row-span-1 col-start-6 col-span-6">
+        <div class="row-start-4 row-span-1 col-start-6 col-span-6" data-narrator-greta="Greta-Kap5-2.m4a">
           <Scene
             scene-id="yacht"
             :height="400"

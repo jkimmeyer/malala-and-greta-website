@@ -9,7 +9,7 @@
           data-controls-light-dark
           data-chapters-4-5
         >
-          <div class="inline-flex flex-col ml-auto">
+          <div class="inline-flex flex-col ml-auto" data-narrator-greta="Greta-Kap5-1.m4a">
             <h2 data-animate-reveal-left class="intro-heading">
               Welche Reise hat mein Leben verändert?
               <img class="inline-block" :src="require('~/assets/images/chapter/5/malala/malala-compass.png')" width="120">

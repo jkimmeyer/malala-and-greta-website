@@ -19,7 +19,7 @@
           />
         </div>
         <div class="pl-8 col-start-6 col-span-6 text row-start-1 row-span-1 flex justify-center items-center pb-32">
-          <div data-animate-parallax="100">
+          <div data-animate-parallax="100" data-narrator-greta="Greta-Kap2-2.m4a">
             <Video :path="require('~/assets/videos/greta/greta-kap2-1.mp4')" data-animate-reveal-bottom />
             <span data-animate-reveal-right>DIE STRAßEN SCHWEDENS</span>
           </div>
