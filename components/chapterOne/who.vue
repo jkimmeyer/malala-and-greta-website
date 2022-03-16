@@ -4,7 +4,7 @@
       Ich bin
     </div>
     <div class="relative">
-      <img class="w-screen -z-10" :src="image">
+      <img class="who--image -z-10" :src="image" data-animate-pin>
       <div class="who--name" data-animate-parallax="500">
         {{ firstName }} <br>
         {{ lastName }}
@@ -50,5 +50,11 @@ export default {
   position: absolute;
   top: 0;
   color: var(--color-text-neutral-light);
+}
+
+.who--image {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
 }
 </style>
