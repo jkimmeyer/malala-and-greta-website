@@ -21,7 +21,7 @@
         <div class="pl-8 col-start-6 col-span-6 text row-start-1 row-span-1 flex justify-center items-center">
           <div data-animate-parallax="100" data-narrator-greta="Greta-Kap2-2.m4a">
             <Video :path="require('~/assets/videos/greta/greta-kap2-1.mp4')" data-animate-reveal-bottom />
-            <span data-animate-reveal-right>DIE STRAßEN SCHWEDENS</span>
+            <span data-animate-reveal-right>Die Straßen Schwedens</span>
           </div>
         </div>
       </div>
@@ -146,13 +146,12 @@ export default defineComponent({
   color: var(--color-text-greta-dark);
 }
 
-@mixin uppercaseStyle{
+@mixin bigText{
   font-size: var(--font-64);
   font-weight: 300;
   line-height: var(--line-1-15);
-  text-transform: uppercase;
   color: var(--color-text-greta-dark);
-  text-transform: uppercase;
+  font-style: italic;
 }
 
 .content {
@@ -170,7 +169,7 @@ export default defineComponent({
     inset-block-start: 102%;
     text-align: right;
     width: 100%;
-    @include uppercaseStyle;
+    @include bigText;
     font-size: var(--font-32);
   }
 }
@@ -188,7 +187,8 @@ export default defineComponent({
 }
 
 .text-3{
-  @include uppercaseStyle;
+  @include bigText;
   font-size: 3rem;
+  font-weight: 500;
 }
 </style>

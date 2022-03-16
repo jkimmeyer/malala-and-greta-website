@@ -21,19 +21,19 @@
         <div class="pl-8 col-start-6 col-span-6 text row-start-1 row-span-1">
           <div data-animate-parallax="100">
             <Video :path="require('~/assets/videos/malala/malala-kap2-1.mp4')" data-animate-reveal-bottom />
-            <span data-animate-reveal-right>DIE STRAßEN PAKISTANS</span>
+            <span data-animate-reveal-right>Die Straßen Pakistans</span>
           </div>
         </div>
-        <div class="col-start-5 col-span-7 row-start-2 row-span-1 pt-72">
+        <div class="col-start-5 col-span-6 row-start-2 row-span-1 pt-72">
           <div class="flex flex-col text-2">
             <div class="flex justify-start w-full">
-              <span data-animate-reveal-left>EIN TEIL MEINES</span>
+              <span data-animate-reveal-left>Ein Teil meines</span>
             </div>
-            <div class="flex justify-center">
+            <div class="flex justify-center pl-16">
               <img src="@/assets/svg/malala-kap2-herz.svg" data-animate-parallax="-50">
             </div>
             <div class="flex justify-end w-full" data-narrator-malala="Malala-Kap2-2.m4a">
-              <span data-animate-reveal-right>IST IN MINGORA</span>
+              <span data-animate-reveal-right>ist in Mingora</span>
             </div>
           </div>
         </div>
@@ -74,8 +74,8 @@
       </div>
     </div>
     <div class="section grid grid-cols-12">
-      <div class="text-body col-start-1 col-span-8" data-animate-reveal-left>
-        Und dann übernahmen die Taliban die Kontrolle
+      <div class="text-body-big col-start-1 col-span-8" data-animate-reveal-left>
+        Dann übernahmen die Taliban die Kontrolle..
       </div>
       <DecoratedImage
         data-narrator-malala="Malala-Kap2-4.m4a"
@@ -102,7 +102,7 @@
         data-animate-reveal-left
       />
       <div class="text-body-small col-start-5 col-span-4" data-animate-reveal-bottom>
-        Das Spielen von Musik und tanzen in der Öffentlichkeit wurden verboten
+        ..das Spielen von Musik und tanzen in der Öffentlichkeit wurden verboten..
       </div>
       <DecoratedImage
         class="col-start-9 col-span-4"
@@ -113,7 +113,7 @@
     </div>
     <div class="section grid grid-cols-12 items-center" data-narrator-malala="Malala-Kap2-5.m4a">
       <div class="text-body-small col-start-2 col-span-4" data-animate-reveal-left>
-        Die Schule meines Vaters wurde geschlossen.
+        ..und die Schule meines Vaters wurde geschlossen.
       </div>
       <Scene
         class="col-start-6 col-span-6"
@@ -136,7 +136,7 @@
       <div class="row-start-1 row-span-1 col-start-2 col-span-8">
         <Video :path="require('~/assets/videos/malala/malala-kap2-3.mp4')" data-animate-reveal-left />
       </div>
-      <div class="text-body mt-16 row-span-1 row-start-2 col-start-4 col-span-8" data-animate-reveal-right>
+      <div class="text-body-big mt-16 row-span-1 row-start-2 col-start-4 col-span-8" data-animate-reveal-bottom>
         Ich will zur Schule gehen!
       </div>
     </div>
@@ -182,13 +182,12 @@ export default defineComponent({
   }
 }
 
-@mixin uppercaseStyle{
+@mixin bigText{
   font-size: var(--font-64);
   font-weight: 300;
   line-height: var(--line-1-15);
-  text-transform: uppercase;
   color: var(--color-text-malala-dark);
-  text-transform: uppercase;
+  font-style: italic;
 }
 
 @mixin headline1 {
@@ -218,13 +217,12 @@ export default defineComponent({
   color: var(--color-text-malala-dark);
 }
 
-@mixin uppercaseStyle{
+@mixin bigText{
   font-size: var(--font-64);
   font-weight: 300;
   line-height: var(--line-1-15);
-  text-transform: uppercase;
   color: var(--color-text-malala-dark);
-  text-transform: uppercase;
+  font-style: italic;
 }
 
 .content {
@@ -241,7 +239,7 @@ export default defineComponent({
     inset-block-start: 102%;
     text-align: right;
     width: 100%;
-    @include uppercaseStyle;
+    @include bigText;
     font-size: var(--font-32);
   }
 }
@@ -263,15 +261,22 @@ export default defineComponent({
   }
 
   > div > span {
-    @include uppercaseStyle;
+    @include bigText;
     font-size: 3rem;
     color: #68573D;
+    font-weight: 500;
   }
 }
 
 .text-body {
-  @include uppercaseStyle;
+  @include bigText;
   font-size: 3rem;
+}
+
+.text-body-big{
+  @include bigText;
+  font-size: 3rem;
+  font-weight: 500;
 }
 
 .text-body-small {

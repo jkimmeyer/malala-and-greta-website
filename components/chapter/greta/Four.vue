@@ -71,6 +71,14 @@
   text-transform: uppercase;
 }
 
+@mixin bigText{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  color: var(--color-text-greta-dark);
+  font-style: italic;
+}
+
 .four {
   height: 100%;
   background-color: var(--color-background-greta);
@@ -81,8 +89,8 @@
 }
 
 .text {
-  @include uppercaseStyle;
-  font-size: 2.5rem;
+  @include bigText;
+  font-size: 3rem;
 }
 
 .text-small {

@@ -3,6 +3,7 @@
     <div class="fact-card">
       <div class="fact-bg-card" />
       <div class="fact-bg-card" />
+      <div class="fact-bg-card" />
       <button class="fact-card--button" @click="previousFact()">
         <SvgsChevronLeft class="fact-card--arrow" :class="themeClass" />
       </button>
@@ -92,6 +93,7 @@ export default {
   .fact-card--button {
     padding: var(--space-8);
     margin: var(--space-8);
+    z-index: 4;
 
     .fact-card--arrow {
       &.greta{
@@ -138,6 +140,7 @@ export default {
     .facts-wrapper{
       height: 100%;
       padding: 1rem 0;
+      z-index: 3;
 
       .fact{
         height: 100%;
@@ -195,6 +198,11 @@ export default {
       left: 10px;
       z-index: -2;
       height: 100%;
+    }
+
+    &:nth-child(3){
+      z-index: 1;
+      box-shadow: 0 8px 8px rgba(0,0,0,0.25);
     }
   }
 
