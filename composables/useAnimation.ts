@@ -31,14 +31,18 @@ export const useAnimation = (gsap, ScrollTrigger) => {
 
   const timelineAnimation = (trigger: HTMLElement | string, element: HTMLElement | string) => {
     return gsap.timeline({
-      defaults: { duration: 1 },
+      defaults: { duration: 5 },
       scrollTrigger: {
         trigger,
         scrub: true,
         start: 'top center',
-        end: 'bottom center'
+        end: 'bottom+=400 center',
+        markers: true
       }
-    }).from(element, { drawSVG: 0 }, 0)
+    }).from(element, {
+      drawSVG: 0,
+      ease: 'Power1.easeInOut'
+    }, 0)
   }
 
   const revealHorizontal = (element: HTMLElement | string, x: number) => {

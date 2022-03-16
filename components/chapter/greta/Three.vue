@@ -83,7 +83,18 @@
             <Video :path="require('~/assets/videos/greta/greta-kap3-1.mp4')" />
           </div>
           <div class="image-container-1 col-start-1 col-span-12">
-            <img class="image-3" data-animate-parallax="10" src="@/assets/svg/arrow.svg">
+            <svg
+              id="arrow-svg-animation"
+              width="83"
+              height="259"
+              viewBox="0 0 83 259"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              data-animate-timeline="#arrow-line"
+            >
+              <path id="arrow-line" d="M42.6188 3C27.7651 18.609 -22.2782 83.106 18.9808 98.796C35.8897 105.226 58.2362 103.341 72.6017 92.6999C86.9528 82.0694 79.0526 68.6378 63.893 64.7076C21.0402 53.5976 20.2249 122.37 20.2249 149.929C20.2249 168.638 21.6695 186.028 24.206 204.545C25.697 215.429 29.1824 227.188 29.1824 238.136 M11.2673 229.178C12.5851 232.253 23.8337 257.739 30.1777 255.927C35.2727 254.471 47.3991 232.752 49.3369 226.939" stroke="#445569" stroke-width="5" stroke-linecap="round" />
+            </svg>
+
             <img class="image-4" data-animate-parallax="-10" src="@/assets/images/chapter/3/greta/fridaysforfuture.png">
             <span data-animate-reveal-bottom>
               Alles, was wir tun müssen, ist<br>aufwachen und uns verändern.
