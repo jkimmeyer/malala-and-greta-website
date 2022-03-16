@@ -55,9 +55,7 @@
           theme="greta"
           :path="require('~/assets/images/chapter/2/greta/greta-kap2-watch.png')"
         />
-        <!-- TODO: replace video -->
-        <Video class="col-start-3 col-span-7 mb-96" :path="require('~/assets/videos/greta/greta-kap2-1.mp4')" data-animate-reveal-bottom />
-        <!-- TODO: replace video -->
+        <Video class="col-start-3 col-span-7 mb-96" :path="require('~/assets/videos/greta/greta-kap2-3.mp4')" data-animate-reveal-bottom />
         <div class="text-small light col-start-5 col-span-4" data-animate-reveal-right>
           We need to save everyone. <br>
           We need to save this world. <br>
