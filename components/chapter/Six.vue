@@ -6,6 +6,7 @@
           id="chapter-6"
           :chapter="6"
           :is-malala="true"
+          data-chapters-5-6
         >
           <div class="inline-flex flex-col ml-auto">
             <h2 data-animate-reveal-left class="intro-heading">
@@ -22,7 +23,7 @@
           :chapter="6"
           :is-malala="false"
         >
-          <div class="inline-flex flex-col ml-auto">
+          <div class="inline-flex flex-col ml-auto" data-narrator-greta="Greta-Kap6-1.m4a">
             <h2 data-animate-reveal-left class="intro-heading">
               Wo stehe ich <span class="under under-greta">jetzt</span>?
             </h2>

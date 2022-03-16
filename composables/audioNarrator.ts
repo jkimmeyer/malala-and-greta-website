@@ -11,6 +11,10 @@ const getNarratorAudioSource = () => {
   return getCurrentTheme.value === Themes.Malala ? narratorAudioSourceMalala : narratorAudioSourceGreta
 }
 
+const getNarratorVolume = () => {
+  return getCurrentTheme.value === Themes.Malala ? 0.7 : 1
+}
+
 // html audio element
 let narratorAudioElement: HTMLAudioElement = null
 
@@ -38,6 +42,7 @@ const playNarrator = () => {
   })
   narratorAudioElement.addEventListener('play', () => { audioNarratorIsPlaying.value = true })
   narratorAudioElement.addEventListener('pause', () => { audioNarratorIsPlaying.value = false })
+  narratorAudioElement.volume = getNarratorVolume()
   narratorAudioElement.play()
 }
 

@@ -14,7 +14,7 @@
 
       <div class="grid grid-cols-12">
         <DecoratedImage
-          class="image-bus-assassination col-start-7 col-span-4"
+          class="image-bus-assassination col-start-6 col-span-6"
           data-animate-parallax="-100"
           :decoration-top-right="true"
           :decoration-bottom-left="true"
@@ -26,8 +26,7 @@
 
     <div class="section mx-50 2xl:mx-auto max-w-screen-xl" data-animate-fade-to-dark-malala data-narrator-malala="Malala-Kap4-2.m4a">
       <div class="grid grid-cols-12">
-        <div class="text-small col-start-4 col-span-2 mb-10" data-animate-reveal-right />
-        <div class="text-small col-start-7 col-span-2 mb-10" data-animate-reveal-right>
+        <div class="text-small col-start-7 col-span-3 mb-10" data-animate-reveal-right>
           Wer von euch ist Malala?
         </div>
         <DecoratedImage class="col-start-3 col-span-8" :path="require('~/assets/images/chapter/4/malala/malala-kap4-human-shapes.png')" theme="malala" />
@@ -35,7 +34,7 @@
     </div>
 
     <div class="section mx-40 2xl:mx-auto max-w-screen-xl">
-      <div class="grid grid-cols-12" data-animate-reveal-rigth data-narrator-malala="Malala-Kap4-3.m4a">
+      <div class="grid grid-cols-12" data-animate-reveal-bottom data-narrator-malala="Malala-Kap4-3.m4a">
         <Scene
           scene-id="bullet"
           :height="400"
@@ -49,8 +48,9 @@
           data-animate-parallax="-150"
           class="row-start-1 row-span-1 col-start-1 col-span-12 bullet"
         />
-        <div class="row-start-2 row-span-1 text-small is-light col-start-3 col-span-4" data-sound-malala-start="pistol-shot.mp3">
-          Dann hörte ich nur noch den Schuss. Alles wurde schwarz...
+        <div class="row-start-2 row-span-1 shot text-small is-light col-start-3 col-span-4" data-sound-malala-start="pistol-shot.mp3">
+          <span data-animate-reveal-left>Dann hörte ich nur noch den Schuss..</span>
+          <span class="text-right" data-animate-reveal-right>..alles wurde schwarz.</span>
         </div>
       </div>
     </div>
@@ -72,12 +72,12 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@mixin uppercaseStyle{
+@mixin bigText{
   font-size: var(--font-64);
   font-weight: 300;
   line-height: var(--line-1-15);
-  text-transform: uppercase;
   color: var(--color-text-malala-dark);
+  font-style: italic;
 }
 
 .bullet{
@@ -94,8 +94,14 @@ export default defineComponent({
 }
 
 .text {
-  @include uppercaseStyle;
+  @include bigText;
   font-size: 3rem;
+}
+
+.shot{
+  display: flex;
+  flex-direction: column;
+  gap: 8em;
 }
 
 .text-small {

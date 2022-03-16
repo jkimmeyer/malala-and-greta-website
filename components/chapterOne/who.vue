@@ -51,4 +51,5 @@ export default {
   top: 0;
   color: var(--color-text-neutral-light);
 }
+
 </style>

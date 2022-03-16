@@ -4,25 +4,28 @@
       first-name="Greta"
       last-name="Thunberg"
       :image="require('~/assets/images/Greta-Face.png')"
+      data-narrator-greta="Greta-Kap1-1.m4a"
     />
 
-    <div class="py-64 max-w-screen-2xl 2xl:mx-auto">
+    <div class="pt-8 pb-64 mx-40 2xl:mx-auto max-w-screen-xl">
       <div class="grid grid-cols-12">
-        <div class="col-start-1 col-span-2">
-          <ChapterOneQuote quote="“I have learned, you are never too small to make a difference.”" data-animate-parallax="400" />
+        <div class="col-start-9 col-span-3">
+          <ChapterOneQuote quote="“I have learned, you are never too small to make a difference.”" data-animate-parallax="-200" />
         </div>
 
-        <div class="col-start-8 col-span-4">
+        <div class="pb-8 col-start-1 col-span-5">
           <Video :path="require('~/assets/videos/greta/greta-kap1-1.mp4')" data-animate-reveal-left />
         </div>
 
-        <div class="uppercase col-start-8 col-span-4 text is-white" data-animate-reveal-left>
+        <div class="col-start-1 col-span-6 text is-white mt-4" data-animate-reveal-left>
           Ich habe früh gelernt
         </div>
 
-        <SvgsDownPath class="col-start-6 col-span-2 test" />
+        <div class="col-start-3 col-span-12">
+          <SvgsDownPath />
+        </div>
 
-        <div class="uppercase text col-start-6 col-span-6 text-right" data-animate-reveal-right>
+        <div class="wtext-right text col-start-4 col-span-6 mb-4" data-animate-reveal-right>
           mit welchen Problemen die Menschheit zu kämpfen hat
         </div>
 
@@ -33,29 +36,23 @@
     </div>
   </div>
 </template>
-
 <style lang="scss" scoped>
-@mixin uppercaseStyle{
+@mixin bigText{
   font-size: var(--font-64);
   font-weight: 300;
   line-height: var(--line-1-15);
-  text-transform: uppercase;
   color: var(--color-text-greta-dark);
-  text-transform: uppercase;
+  font-style: italic;
 }
-
 .test {
   transform: scaleX(-1);
 }
-
 .text {
-  @include uppercaseStyle;
+  @include bigText;
   font-size: var(--font-size-body-1);
   color: var(--color-text-greta-dark);
 }
-
 .text.is-white {
   color: var(--color-text-neutral-light);
 }
-
 </style>

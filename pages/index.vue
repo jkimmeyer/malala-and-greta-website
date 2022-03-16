@@ -28,7 +28,15 @@
           >
         </button>
       </div>
-
+      <div class="page--request" data-page-request>
+        <span class="page--request-arrow left">
+          <SvgsArrowLeft />
+        </span>
+        Wähle eine Story!
+        <span class="page--request-arrow right">
+          <SvgsArrowRight />
+        </span>
+      </div>
       <div class="page--teaser-contents">
         <h1 class="page--title" data-animate-reveal-intro="right">
           Erlebe unsere Geschichten.
@@ -41,15 +49,6 @@
             <span class="page--button-text">Mit Audio erleben</span>
           </button>
         </div>
-      </div>
-      <div class="page--request" data-page-request>
-        <span class="page--request-arrow left">
-          <SvgsArrowLeft />
-        </span>
-        Wähle eine Story!
-        <span class="page--request-arrow right">
-          <SvgsArrowRight />
-        </span>
       </div>
     </div>
     <div class="page--scroll-indicator">
@@ -121,7 +120,7 @@ export default {
       } else if (story === 'malala') {
         setCurrentTheme(Themes.Malala)
       }
-      this.$router.push({ path: '/story' })
+      window.location.href = '/story'
     }
   }
 }

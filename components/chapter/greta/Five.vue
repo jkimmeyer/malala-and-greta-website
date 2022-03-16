@@ -7,7 +7,7 @@
           <img src="@/assets/images/chapter/5/greta/greta-location.png" data-animate-reveal-left>
           <div class="col-start-2 col-span-10 text text-right" data-animate-reveal-right>
             <span>Plymouth</span>
-            <span>England</span>
+            <span class="sml">England</span>
           </div>
         </div>
         <div class="row-start-2 row-span-1 col-start-8 col-span-5 subtextContainer">
@@ -22,7 +22,7 @@
         <div class="row-start-3 row-span-1 col-start-1 col-span-5" data-animate-reveal-left>
           <Video :path="require('~/assets/videos/greta/greta-kap5-1.mp4')" />
         </div>
-        <div class="row-start-4 row-span-1 col-start-6 col-span-6">
+        <div class="row-start-4 row-span-1 col-start-6 col-span-6" data-narrator-greta="Greta-Kap5-2.m4a">
           <Scene
             scene-id="yacht"
             :height="400"
@@ -42,7 +42,7 @@
         <div class="row-start-6 row-span-1 col-start-7 col-span-2 flex flex-row items-center" data-sound-greta-end="ocean.mp3">
           <div class="col-start-2 col-span-10 text" data-animate-reveal-left>
             <span>New&nbsp;York</span>
-            <span>USA</span>
+            <span class="sml">USA</span>
           </div>
           <img src="@/assets/images/chapter/5/greta/greta-finish.png" data-animate-reveal-right>
         </div>
@@ -80,13 +80,12 @@ export default {
 
 <style lang="scss" scoped>
 
-@mixin uppercaseStyle{
+@mixin bigText{
   font-size: var(--font-64);
   font-weight: 300;
   line-height: var(--line-1-15);
-  text-transform: uppercase;
   color: var(--color-text-greta-dark);
-  text-transform: uppercase;
+  font-style: italic;
 }
 
 .content {
@@ -129,8 +128,12 @@ export default {
 }
 
 .text span{
-  @include uppercaseStyle;
+  @include bigText();
   line-height: 1;
+
+  &.sml{
+    font-size: 50px;
+  }
 }
 .subtext{
   position: absolute;

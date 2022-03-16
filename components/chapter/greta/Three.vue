@@ -4,8 +4,8 @@
       <!-- Section 1 -->
       <div class="section grid grid-cols-12">
         <div class="text-1 col-start-1 col-span-8">
-          <span data-animate-reveal-left>WENN SO VIELE DAVON WISSEN,</span>
-          <span data-animate-reveal-left>WIESO TUT NIEMAND ETWAS DAGEGEN?</span>
+          <span data-animate-reveal-left>Wenn so viele davon wissen,</span>
+          <span data-animate-reveal-left>wieso tut niemand was dagegen?</span>
         </div>
         <div class="image-1 col-start-9 col-span-3">
           <img src="@/assets/images/chapter/3/greta/melting-earth.png">
@@ -23,7 +23,7 @@
       </div>
 
       <!-- Section 2 -->
-      <div class="section grid grid-cols-12">
+      <div class="section grid grid-cols-12" data-narrator-greta="Greta-Kap3-2.m4a">
         <div class="model-1 col-start-1 col-span-4" data-animate-parallax="-10">
           <Scene
             scene-id="3d-lamp"
@@ -56,13 +56,13 @@
       </div>
 
       <!-- Section 3 -->
-      <div class="section grid grid-cols-12">
+      <div class="section grid grid-cols-12" data-narrator-greta="Greta-Kap3-3.m4a">
         <div class="text-4 col-start-1 col-span-12">
           <span data-animate-reveal-left>
             20.08.2018
           </span>
           <span data-animate-reveal-left>
-            DER START DER KLIMABEWEGUNG
+            Der Start der Klimabewegung
           </span>
         </div>
         <div class="grid col-start-1 col-span-12 grid-cols-12">
@@ -118,6 +118,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@mixin bigText{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  color: var(--color-text-greta-dark);
+  font-style: italic;
+}
+
 @mixin uppercaseStyle{
   font-size: var(--font-64);
   font-weight: 300;
@@ -187,7 +195,7 @@ export default {
 
     > span {
       text-align: left;
-      @include uppercaseStyle;
+      @include bigText;
       font-size: 3rem;
     }
 }
@@ -226,7 +234,7 @@ export default {
   grid-row: 1;
 }
 .inline-1{
-  @include uppercaseStyle;
+  @include bigText;
   font-size: 3rem;
   margin-bottom: 1em;
 }
@@ -251,11 +259,15 @@ export default {
 
 /* Section 3 Greta */
 .text-4 {
-  @include uppercaseStyle;
+  @include bigText;
   font-size: 3rem;
   display: flex;
   flex-direction: column;
   margin-bottom: 1em;
+
+  span:last-child{
+    font-weight: 500;
+  }
 }
 .video-1 {
   grid-row: 2;

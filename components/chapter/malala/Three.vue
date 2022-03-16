@@ -22,7 +22,7 @@
         <div class="text-container-1 col-start-6 col-span-6">
           <div class="grid grid-cols-12">
             <div class="text-2 col-start-1 col-span-12">
-              <span data-animate-reveal-left>Gul Makai</span>
+              <span data-animate-reveal-left class="font-medium">Gul Makai</span>
               <span data-animate-reveal-left>Die Kornblume</span>
             </div>
             <div class="text-3 col-start-4 col-span-8" data-animate-reveal-right>
@@ -47,10 +47,10 @@
       </div>
       <!-- Section 4 -->
       <div class="section grid grid-cols-12">
-        <div class="video-1 col-start-1 col-span-5" data-animate-parallax="50">
+        <div class="video-1 col-start-1 col-span-5" data-animate-reveal-left>
           <Video :path="require('~/assets/videos/malala/malala-kap3-1.mp4')" />
         </div>
-        <div class="image-4 col-start-6 col-span-6" data-animate-parallax="-50">
+        <div class="image-4 col-start-6 col-span-6" data-animate-parallax="-100">
           <img src="@/assets/images/chapter/3/malala/malala-people.png">
         </div>
       </div>
@@ -82,14 +82,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@mixin uppercaseStyle{
-  font-size: var(--font-64);
-  font-weight: 300;
-  line-height: var(--line-1-15);
-  text-transform: uppercase;
-  color: var(--color-text-malala-dark);
-  text-transform: uppercase;
-}
 .section {
   width: 100%;
 
@@ -135,6 +127,14 @@ export default defineComponent({
   color: var(--color-text-malala-dark);
 }
 
+@mixin bigText{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  color: var(--color-text-malala-dark);
+  font-style: italic;
+}
+
 .content {
   display: flex;
   justify-content: center;
@@ -175,7 +175,7 @@ export default defineComponent({
   grid-row: 1;
   display: flex;
   flex-direction: column;
-  @include uppercaseStyle;
+  @include bigText;
 
   > span:last-child{
     font-size: 40px;
@@ -194,7 +194,7 @@ export default defineComponent({
 
 /* Section 3 Malala */
 .text-4{
-  @include uppercaseStyle;
+  @include bigText;
   grid-row: 1;
 }
 .facts-1{

@@ -1,5 +1,5 @@
 <template>
-  <div class="four" data-background-greta>
+  <div class="four" data-background-greta data-narrator-greta="Greta-Kap4-1.m4a">
     <div class="mx-40 2xl:mx-auto max-w-screen-xl">
       <div class="grid grid-cols-12">
         <Video
@@ -14,7 +14,7 @@
 
       <div class="grid grid-cols-12">
         <FactsContainer
-          class="image-bus-assassination col-start-7 col-span-4"
+          class="image-bus-assassination col-start-6 col-span-6"
           data-animate-parallax="-100"
           theme="greta"
           size="sm"
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="mx-40 2xl:mx-auto max-w-screen-xl section" data-animate-fade-to-dark-greta data-controls-dark-light>
+    <div class="mx-40 2xl:mx-auto max-w-screen-xl section" data-animate-fade-to-dark-greta data-controls-dark-light data-narrator-greta="Greta-Kap4-2.m4a">
       <div class="grid grid-cols-12 items-center">
         <div class="text-small col-start-4 col-span-2 mb-10" data-animate-reveal-right>
           Als Asperger-Autistin bräuchte sie Hilfe statt Aufmerksamkeit
@@ -49,11 +49,11 @@
           theme="greta"
           :path="require('~/assets/images/chapter/4/greta/greta-kap4-umbrella.png')"
         />
-        <div class="text-small is-light col-start-6 col-span-5" data-animate-reveal-right>
-          “Is the microphone on? Did you hera me? Is my English ok?
-          Becaus I am beginnig to wonder.<br>
+        <div class="text-small is-light col-start-6 col-span-5" data-animate-reveal-right data-narrator-greta="Greta-Kap4-3.m4a">
+          “Is the microphone on? Did you hear me? Is my English ok?
+          Because I am beginning to wonder.<br>
 
-          You lied to us. During the last six month I have traveled around europe for hundres of hours repeating these life-changing words over and over again.
+          You lied to us. During the last six month I have traveled around Europe for hundreds of hours repeating these life-changing words over and over again.
           But nothing has changed. In fact, the emissions are still rising.”
         </div>
       </div>
@@ -71,6 +71,14 @@
   text-transform: uppercase;
 }
 
+@mixin bigText{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  color: var(--color-text-greta-dark);
+  font-style: italic;
+}
+
 .four {
   height: 100%;
   background-color: var(--color-background-greta);
@@ -81,8 +89,8 @@
 }
 
 .text {
-  @include uppercaseStyle;
-  font-size: 2.5rem;
+  @include bigText;
+  font-size: 3rem;
 }
 
 .text-small {

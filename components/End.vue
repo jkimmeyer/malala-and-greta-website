@@ -87,7 +87,7 @@
         </div>
         <div class="grid grid-cols-12 mt-60">
           <div class="body3 text-center col-start-2 col-span-10" data-animate-parallax="-100">
-            <span class="is-white">erstellt von</span>  Cedrica Da Silva Costa, Joel Garthe, Fabian Heck, Johannes Kimmeyer, Nathalie Merdan, Sam Vogelskamp
+            <span class="is-white">erstellt von</span>  Cedric Oliveira da Silva Costa, Joel Garthe, Fabian Heck, Johannes Kimmeyer, Nathalie Merdan, Sam Vogelskamp
           </div>
         </div>
       </div>
@@ -155,11 +155,10 @@
 
 .text {
   font-family: var(--sans-serif-font);
-  font-size: var(--font-size-body-1);
+  font-size: 3rem;
   color: var(--deeptaupe);
-  font-weight: 300;
   line-height: var(--line-1-15);
-  text-transform: uppercase;
+  font-weight:500;
 }
 
 .text-small {

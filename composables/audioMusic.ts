@@ -10,10 +10,12 @@ let musicAudioElement: HTMLAudioElement = null
 // sound
 const playMusic = () => {
   musicAudioElement?.pause()
+  if (!getAudioOn.value) { return }
 
   if (!musicAudioSource) { return }
   musicAudioElement = new Audio(musicAudioSource)
-  musicAudioElement.volume = 0.1
+  musicAudioElement.volume = 0.05
+  musicAudioElement.addEventListener('ended', () => { playMusic() })
   musicAudioElement.play()
 }
 

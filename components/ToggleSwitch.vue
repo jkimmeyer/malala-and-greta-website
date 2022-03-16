@@ -37,15 +37,14 @@ export default {
       toggleButtonPressed: this.pressed ? 'true' : 'false'
     }
   },
-  mounted () {
-    if (this.pressed) {
+  watch: {
+    pressed () {
       this.$refs.toggleSwitchIcon.toggleAnimation()
     }
   },
   methods: {
     toggleButton () {
       if (this.enabled) {
-        this.$refs.toggleSwitchIcon.toggleAnimation()
         this.toggleButtonPressed = this.toggleButtonPressed === 'true' ? 'false' : 'true'
         this.$emit('toggle-button-switched')
       }
@@ -55,14 +54,10 @@ export default {
 </script>
 
 <style scoped>
-.toggle-switch {
-  height: 220px;
-  margin-top: 20px;
-}
-
 .toggle-switch--button {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
   width: 60px;
   border: none;

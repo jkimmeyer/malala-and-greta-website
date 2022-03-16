@@ -58,7 +58,7 @@
           :points-material="true"
         />
         <FactsContainer
-          class="col-start-7 col-span-4"
+          class="col-start-6 col-span-6"
           data-animate-reveal-right
           theme="malala"
           size="sm"
@@ -99,14 +99,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@mixin uppercaseStyle{
-  font-size: var(--font-64);
-  font-weight: 300;
-  line-height: var(--line-1-15);
-  text-transform: uppercase;
-  color: var(--color-text-malala-dark);
-  text-transform: uppercase;
-}
 
 @mixin body2 {
   font-family: Lato, sans-serif;
@@ -124,11 +116,20 @@ export default {
   height: 270px;
 }
 
+@mixin bigText{
+  font-size: var(--font-64);
+  font-weight: 300;
+  line-height: var(--line-1-15);
+  color: var(--color-text-malala-dark);
+  font-style: italic;
+}
+
 .text {
-  @include uppercaseStyle;
+  @include bigText;
   line-height: 1;
   font-size: 3rem;
   color: var(--color-text-malala-dark);
+  font-weight: 500;
 }
 
 .text-small {

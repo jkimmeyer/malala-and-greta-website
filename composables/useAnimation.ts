@@ -1,14 +1,19 @@
 import { setCurrentControlTheme, setControlHintsEnabled } from '~/composables/controlTheme'
+import { setCurrentChapter } from '~/composables/navigation'
 import { ControlThemeOptions } from '~/interfaces/ControlThemeOptions'
 export const useAnimation = (gsap, ScrollTrigger) => {
   const showMarkers = false
 
-  const pin = (element: HTMLElement | string) => {
+  const pin = (element: HTMLElement | string, elementEnd: HTMLElement | string) => {
     return gsap.to(element, {
       scrollTrigger: {
+        start: 'top 0%',
         trigger: element,
+        endTrigger: elementEnd,
         pin: true,
-        pinSpacing: false
+        pinSpacing: false,
+        pinType: 'transform',
+        pinReparent: false
       }
     })
   }
@@ -150,6 +155,19 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     })
   }
 
+  const registerChapterChange = (from: number, to: number, triggerElement: HTMLElement | string) => {
+    ScrollTrigger.create({
+      trigger: triggerElement,
+      start: 'top center',
+      onEnter: () => {
+        setCurrentChapter(to)
+      },
+      onLeaveBack: () => {
+        setCurrentChapter(from)
+      }
+    })
+  }
+
   const registerDisableControlHints = (triggerElement: HTMLElement | string) => {
     ScrollTrigger.create({
       trigger: triggerElement,
@@ -183,7 +201,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
       parallax(element, value)
     })
     gsap.utils.toArray('[data-animate-pin]').forEach((element: HTMLElement) => {
-      pin(element)
+      pin(element, '[data-animate-pin-end]')
     })
 
     gsap.utils.toArray('[data-animate-timeline]').forEach((trigger: HTMLElement) => {
@@ -223,6 +241,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     registerControlThemeChange,
     registerDisableControlHints,
     registerAllAnimationTriggers,
-    registerAllBackgroundFadeTriggers
+    registerAllBackgroundFadeTriggers,
+    registerChapterChange
   }
 }
