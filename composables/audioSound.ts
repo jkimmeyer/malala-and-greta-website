@@ -23,7 +23,7 @@ const playSound = () => {
 
   if (!source) { return }
   soundAudioElement = new Audio(source)
-  soundAudioElement.volume = 0.2
+  soundAudioElement.volume = 0.1
   soundAudioElement.play()
 }
 
