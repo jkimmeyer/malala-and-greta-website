@@ -24,7 +24,7 @@
       <button
         :aria-label="getAudioOn ? 'Audio ausschalten' : 'Audio einschalten'"
         class="navigation--button"
-        @click="toggleAudio()"
+        @click="onMuteClicked()"
       >
         <Icon
           class="navigation--icon"
@@ -56,8 +56,16 @@
 <script>
 import { getAudioOn, toggleAudio } from '@/composables/audioMute'
 import { audioNarratorIsPlaying, audioNarratorProgress, playNarrator, pauseNarrator, resumeNarrator } from '@/composables/audioNarrator'
+import { updateMusicSource, playMusic } from '@/composables/audioMusic'
 export default {
   setup () {
+    const onMuteClicked = () => {
+      toggleAudio()
+      if (getAudioOn.value) {
+        updateMusicSource('/sound/background-music.mp3')
+        playMusic()
+      }
+    }
     return {
       getAudioOn,
       toggleAudio,
@@ -65,7 +73,8 @@ export default {
       audioNarratorProgress,
       playNarrator,
       pauseNarrator,
-      resumeNarrator
+      resumeNarrator,
+      onMuteClicked
     }
   }
 }

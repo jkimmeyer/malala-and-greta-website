@@ -27,6 +27,7 @@ import { ControlThemes } from '~/enums/ControlThemes'
 import { setCurrentTheme } from '~/composables/theme'
 import { Themes } from '~/enums/Themes'
 import { setAudioOn } from '@/composables/audioMute'
+import { playMusic, updateMusicSource } from '~/composables/audioMusic'
 
 export default {
   layout: 'chapter',
@@ -77,6 +78,8 @@ export default {
             const audio = useAudio($gsap, $ScrollTrigger)
             audio.registerAllAudioAutoplayTriggers()
             nuxtLoading.value = false
+            updateMusicSource('/sound/background-music.mp3')
+            playMusic()
           })
         }
       })

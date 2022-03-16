@@ -13,7 +13,8 @@ const playMusic = () => {
 
   if (!musicAudioSource) { return }
   musicAudioElement = new Audio(musicAudioSource)
-  musicAudioElement.volume = 0.1
+  musicAudioElement.volume = 0.05
+  musicAudioElement.addEventListener('ended', () => { playMusic() })
   musicAudioElement.play()
 }
 
