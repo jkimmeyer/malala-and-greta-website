@@ -140,6 +140,13 @@ export default {
     margin-top: auto;
   }
 
+  .navigation--list-item:last-child{
+    min-height: 205px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
   .navigation--link {
     display: flex;
     border-right: var(--space-4) solid var(--color-control);
