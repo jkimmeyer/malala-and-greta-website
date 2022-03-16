@@ -19,13 +19,13 @@
           />
         </div>
         <div class="pl-8 col-start-6 col-span-6 text row-start-1 row-span-1 flex justify-center items-center">
-          <div data-animate-parallax="100" data-narrator-greta="Greta-Kap2-2.m4a">
+          <div data-animate-parallax="100">
             <Video :path="require('~/assets/videos/greta/greta-kap2-1.mp4')" data-animate-reveal-bottom />
             <span data-animate-reveal-right>Die Straßen Schwedens</span>
           </div>
         </div>
       </div>
-      <div class="section grid grid-cols-12 mt-48">
+      <div class="section grid grid-cols-12 mt-48" data-narrator-greta="Greta-Kap2-2.m4a">
         <div class="row-start-1 row-span-1 col-start-3 col-span-6">
           <DecoratedImage data-animate-parallax="50" :path="require('~/assets/images/chapter/2/greta/greta-kap2-mother.png')" theme="greta" :decoration-top-left="true" />
         </div>
