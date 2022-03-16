@@ -39,9 +39,7 @@
           <DecoratedImage data-animate-parallax="-150" :path="require('~/assets/images/chapter/2/greta/greta-kap2-dog.png')" theme="greta" :decoration-bottom-right="true" />
         </div>
         <div class="row-start-4 row-span-1 col-start-4 col-span-6 mt-72">
-          <!-- TODO: replace video -->
-          <Video :path="require('~/assets/videos/greta/greta-kap2-1.mp4')" :decoration="require('~/assets/images/chapter/2/greta/school-greta.png')" />
-          <!-- TODO: replace video -->
+          <Video :path="require('~/assets/videos/greta/greta-kap2-2.mp4')" :decoration="require('~/assets/images/chapter/2/greta/school-greta.png')" />
         </div>
       </div>
       <!-- -->
