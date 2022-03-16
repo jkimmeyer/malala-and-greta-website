@@ -93,6 +93,8 @@ export default {
             // setup audio for narrator and sound
             const audio = useAudio($gsap, $ScrollTrigger)
             audio.registerAllAudioAutoplayTriggers()
+            audio.registerMusicChange('/sound/background-music.mp3', '/sound/Drama.mp3', '[data-audio-change-end]')
+
             nuxtLoading.value = false
             updateMusicSource('/sound/background-music.mp3')
             playMusic()

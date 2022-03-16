@@ -1,4 +1,5 @@
 
+import { pauseMusic, playMusic, updateMusicSource } from './audioMusic'
 import { pauseSound, playSound, updateSoundSource } from '@/composables/audioSound'
 import { updateNarratorSource, playNarrator } from '@/composables/audioNarrator'
 import { Themes } from '@/enums/Themes'
@@ -59,6 +60,23 @@ export const useAudio = (gsap, ScrollTrigger) => {
     })
   }
 
+  const registerMusicChange = (from: string, to: string, triggerElement: HTMLElement | string) => {
+    ScrollTrigger.create({
+      trigger: triggerElement,
+      start: 'top center',
+      onEnter: () => {
+        pauseMusic()
+        updateMusicSource(to)
+        playMusic()
+      },
+      onLeaveBack: () => {
+        pauseMusic()
+        updateMusicSource(from)
+        playMusic()
+      }
+    })
+  }
+
   // Usage scheme:
   // data-narrator-greta="a-lot-for-teenager"
   // data-narrator-malala="a-lot-for-teenager"
@@ -95,6 +113,7 @@ export const useAudio = (gsap, ScrollTrigger) => {
   }
 
   return {
-    registerAllAudioAutoplayTriggers
+    registerAllAudioAutoplayTriggers,
+    registerMusicChange
   }
 }
