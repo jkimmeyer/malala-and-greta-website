@@ -55,6 +55,7 @@
       <ScrollIndicator />
     </div>
     <Cite v-if="citeVisible" />
+    <MobileOverlay />
   </div>
 </template>
 
@@ -288,5 +289,4 @@ export default {
     cursor: default;
   }
 }
-
 </style>
