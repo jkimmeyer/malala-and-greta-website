@@ -36,8 +36,7 @@ export const useAnimation = (gsap, ScrollTrigger) => {
         trigger,
         scrub: true,
         start: 'top center',
-        end: 'bottom+=400 center',
-        markers: true
+        end: 'bottom+=400 center'
       }
     }).from(element, {
       drawSVG: 0,
