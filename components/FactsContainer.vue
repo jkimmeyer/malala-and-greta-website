@@ -7,17 +7,14 @@
       <button class="fact-card--button" @click="previousFact()">
         <SvgsChevronLeft class="fact-card--arrow" :class="themeClass" />
       </button>
-      <!-- eslint-disable vue/require-v-for-key -->
-      <div v-for="(fact, index) in facts" class="facts-wrapper">
+      <div v-for="(fact, index) in facts" :key="index" class="facts-wrapper">
         <div v-if="activeFactID === index" :class="'fact fact-'+index">
           <h3>{{ fact.headline }}</h3>
-          <!-- eslint-disable vue/require-v-for-key -->
           <div class="paragraph-wrapper">
             <p v-for="(paragraph, pId) in fact.paragraphs" :key="pId">
               {{ paragraph }}
             </p>
           </div>
-          <!-- eslint-enable -->
           <div class="fact-source">
             <div class="fact-line" />
             <p>{{ fact.source }}</p>

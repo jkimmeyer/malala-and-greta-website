@@ -6,7 +6,9 @@
         <div class="spinner-item" />
         <div class="spinner-item" />
         <div class="spinner-text-wrapper">
-          <span>Inhalte werden geladen...</span>
+          <span v-for="[char,index] in loadingText" :key="index" class="loading-text" :class="char === ' ' ? 'w-2 inline-block' : null">
+            {{ char }}
+          </span>
         </div>
       </div>
     </div>
@@ -35,6 +37,7 @@ export default {
     const { $gsap, $ScrollTrigger } = useContext()
     const nuxtLoading = ref(true)
     const animation = useAnimation($gsap, $ScrollTrigger)
+    const loadingText = 'Inhalte werden geladen ...'
 
     const resetAudio = () => {
       // remove audio when page reloaded
@@ -102,7 +105,7 @@ export default {
         }
       })
     })
-    return { nuxtLoading, resetAudio }
+    return { nuxtLoading, resetAudio, loadingText }
   }
 }
 </script>
@@ -170,13 +173,27 @@ export default {
     position: absolute;
     width: 100%;
     white-space: nowrap;
-    transform: translateX(-50%);
+    transform: translateX(-100%);
 
     > span {
       font-size: var(--font-16);
       font-weight: 300;
       font-family: Lato, sans-serif;
     }
+
+    span {
+      @for $i from 0 through 26 {
+        &:nth-child(#{$i + 1}) {
+          filter: blur(0px);
+          animation: blur-text 1.5s calc($i / 25)+s infinite linear alternate;
+        }
+      }
+    }
   }
+}
+
+@keyframes blur-text {
+  0% {filter: blur(0px);}
+  100% {filter: blur(2px);}
 }
 </style>
