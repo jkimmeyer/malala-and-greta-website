@@ -14,7 +14,7 @@ export default {
       mesh.rotation.z = 0
     },
     getMeshPath () {
-      return '/models/nobel.obj'
+      return '/models/nobelprice-2.obj'
     },
     setInitialValues (mesh) {
       mesh.position.y = 0
