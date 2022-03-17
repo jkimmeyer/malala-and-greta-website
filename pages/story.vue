@@ -1,6 +1,6 @@
 <template>
   <div class="chapters">
-    <div class="overlay flex items-center justify-center" :class="!nuxtLoading ? null : 'visually-hidden'">
+    <div class="overlay flex items-center justify-center" :class="nuxtLoading ? null : 'visually-hidden'">
       <div class="spinner">
         <div class="spinner-item" />
         <div class="spinner-item" />
