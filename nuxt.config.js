@@ -37,17 +37,6 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],
-  // router: {
-  //   scrollBehavior (to) {
-  //     if (to.hash) {
-  //       return window.scrollTo({
-  //         top: document.querySelector(to.hash).offsetTop + window.innerHeight,
-  //         behavior: 'smooth'
-  //       })
-  //     }
-  //     return window.scrollTo({ top: 0, behavior: 'smooth' })
-  //   }
-  // },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -67,6 +56,9 @@ export default {
     extraPlugins: {
       scrollTo: true,
       scrollTrigger: true
+    },
+    clubPlugins: {
+      drawSVG: true
     }
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build

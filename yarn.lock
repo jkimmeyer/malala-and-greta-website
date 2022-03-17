@@ -5089,10 +5089,15 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.9.tgz#041b05df45755e587a24942279b9d113146e1c96"
   integrity sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==
 
-gsap@^3.8.0, gsap@^3.9.1:
+gsap@^3.9.1:
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.9.1.tgz#d4c7443540497afee9ddc0824fd0180224e33360"
   integrity sha512-JSGVYoC6da4pIjdF/yxFU6Rz8OojOIDkbooveZlfNg0+JIoFoRruyfWAEi6R/gUeNcuOiTqUIb0gi1nCNrHf8w==
+
+"gsap@npm:@gsap/simply":
+  version "3.9.1"
+  resolved "https://npm.greensock.com/@gsap%2fsimply/-/simply-3.9.1.tgz#cecda5165dfeb63feaa4e0e6f90b5c198ceb0109"
+  integrity sha512-6+9NKGcf72Ok0hJ7qhWLO32J6BN+aj3alpJPwajoRkHlQNNHuBkMJIuNolcNvos7I1zdrN5PWe8e4kfHOfjtPQ==
 
 gzip-size@^6.0.0:
   version "6.0.0"

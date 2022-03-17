@@ -1,7 +1,7 @@
 <template>
   <div class="bg mx-40 2xl:mx-auto max-w-screen-xl">
     <div class="content pb-32" data-narrator-malala="Malala-Kap5-1.m4a" data-sound-malala-start="heart-rate-monitor.mp3">
-      <SvgsVectorChapter5 stroke-color="#957C57" class="bgVector" />
+      <SvgsVectorChapter5 stroke-color="#957C57" class="bgVector" svg-id="2" />
       <div class="section grid grid-cols-12 space-y-28">
         <div class="row-start-1 row-span-1 col-start-2 col-span-2 flex flex-row items-center pb-8">
           <img src="@/assets/images/chapter/5/malala/malala-location.png" data-animate-reveal-left>

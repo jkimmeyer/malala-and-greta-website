@@ -22,7 +22,7 @@
         </div>
 
         <div class="col-start-3 col-span-12">
-          <SvgsDownPath />
+          <SvgsDownPath svg-id="1" />
         </div>
 
         <div class="wtext-right text col-start-4 col-span-6 mb-4" data-animate-reveal-right>

@@ -29,17 +29,21 @@ export const useAnimation = (gsap, ScrollTrigger) => {
     })
   }
 
-  // const timelineAnimation = (trigger: HTMLElement | string, element: HTMLElement | string) => {
-  //   return gsap.timeline({
-  //     defaults: { duration: 1 },
-  //     scrollTrigger: {
-  //       trigger,
-  //       scrub: true,
-  //       start: 'top center',
-  //       end: 'bottom center'
-  //     }
-  //   }).from(element, { drawSVG: 0 }, 0)
-  // }
+  const timelineAnimation = (trigger: HTMLElement | string, element: HTMLElement | string) => {
+    return gsap.timeline({
+      defaults: { duration: 5 },
+      scrollTrigger: {
+        trigger,
+        scrub: true,
+        start: 'top center',
+        end: 'bottom+=400 center',
+        markers: true
+      }
+    }).from(element, {
+      drawSVG: 0,
+      ease: 'Power1.easeInOut'
+    }, 0)
+  }
 
   const revealHorizontal = (element: HTMLElement | string, x: number) => {
     return gsap.fromTo(element, {
@@ -204,10 +208,10 @@ export const useAnimation = (gsap, ScrollTrigger) => {
       pin(element, '[data-animate-pin-end]')
     })
 
-    // gsap.utils.toArray('[data-animate-timeline]').forEach((trigger: HTMLElement) => {
-    //   const element = trigger.dataset.animateTimeline
-    //   timelineAnimation(trigger, element)
-    // })
+    gsap.utils.toArray('[data-animate-timeline]').forEach((trigger: HTMLElement) => {
+      const element = trigger.dataset.animateTimeline
+      timelineAnimation(trigger, element)
+    })
   }
 
   // attributes that trigger background fades:
